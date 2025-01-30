@@ -9,57 +9,45 @@ button {
 // 	--button-border-color: rgba(0, 122, 255, 0.15);
 // 	--ds-button-hover-color: rgba(77, 107, 254, 0.2);
 // }
+%btn-default {
+	--button-icon-color: currentColor !important;
+	background-color: var(--ds-button-color) !important;
+	color: var(--button-text-color) !important;
+}
 
+.ds-button {
+	--c-button-hover-text-color: inherit;
+	// --button-icon-color: currentColor !important;
+	// background-color: var(--ds-button-color) !important;
+	// color: var(--button-text-color) !important;
 
-.btn {
-	color: var(--c-on-accent) !important;
-	border-radius: var(--br-btn) !important;
-	border: none !important;
+	&:hover {
+		background-color: var(--ds-button-hover-color) !important;
+		color: var(--c-button-hover-text-color) !important;
+	}
 
 	svg {
 		color: currentColor !important;
 	}
 
-	&-primary {
-		background-color: var(--c-accent) !important;
-		color: var(--c-on-accent) !important;
+	&--primary {
+		@extend %btn-default;
+		--ds-button-color: var(--c-accent) !important;
+		--button-text-color: var(--c-on-accent) !important;
+		--ds-button-hover-color: var(--c-accent-hover) !important;
+		--c-button-hover-text-color: var(--c-on-accent) !important;
+		// background-color: var(--c-accent) !important;
+		// color: var(--c-on-accent) !important;
 	}
 
-	&-secondary {
-		background-color: hsla(var(--accent-hsl) / 0.15) !important;
-		color: var(--c-accent) !important;
+	&--secondary {
+		@extend %btn-default;
+		--ds-button-color: hsla(var(--accent-hsl) / 0.15) !important;
+		--button-text-color: var(--c-accent) !important;
+		--ds-button-hover-color: var(--c-accent) !important;
+		--c-button-hover-text-color: var(--c-on-accent) !important;
 		backdrop-filter: blur(5px);
-
-		svg {
-			fill: currentColor !important;
-		}
-	}
-
-	&-ghost {
-		background-color: none !important;
-		color: var(--c-txt) !important;
-		backdrop-filter: blur(1rem);
-
-		&:hover {
-			background-color: hsla(var(--accent-hsl) / 0.08) !important;
-			color: var(--c-accent) !important;
-		}
-	}
-
-	&-danger {
-		background-color: var(--c-danger) !important;
-		color: var(--c-bg-chats-container) !important;
-	}
-
-	&-green {
-		background-color: var(--c-accent) !important;
-	}
-
-	&:not(&-secondary, &-danger, &-green, &-ghost) {
-		background-color: var(--c-accent) !important;
-
-		&:hover {
-			color: var(--c-on-accent) !important;
-		}
+		// background-color: hsla(var(--accent-hsl) / 0.15) !important;
+		// color: var(--c-accent) !important;
 	}
 }

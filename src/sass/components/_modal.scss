@@ -3,8 +3,46 @@
     //     --ds-modal-content-color: #3A3A46;
     // }
 
-    &-modal-content {
+    /* Modal dialogs ([role="dialog"]) */
+    &-content {
         --ds-modal-content-color: var(--c-bg-dialog) !important;
         --ds-modal-content-text-color: var(--c-txt) !important;
+
+        &__header-wrapper {}
+
+        &__title {}
+    }
+
+    /* tabs ([role="tablist"]) iliti .ds-segmented */
+    .ds-segmented {
+        --ds-segmented-color: var(--c-surface-1) !important;
+        --ds-segmented-selected-color: var(--c-surface-3) !important;
+
+        & ~ .ds-flex {
+            border-bottom: none !important;
+        }
+
+
+    }
+
+    .ds-native-select {
+
+        &--filled {
+            // @extend .ds-button--secondary;
+            --ds-native-select-color: hsla(var(--accent-hsl) / 0.15) !important;
+            background-color: transparent !important;
+            color: var(--c-accent) !important;
+        }
+
+        /* "Language" and "Theme" dropdown in "Settings" */
+        &__select {
+            option {
+                background-color: var(--c-surface-3) !important;
+            }
+        }
+
+        &__arrow {
+            color: inherit !important;
+        }
     }
 }
