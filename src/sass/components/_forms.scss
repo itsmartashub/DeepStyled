@@ -1,0 +1,35 @@
+input[type='checkbox'] {
+	padding: 7px;
+	border: 2px solid var(--c-accent);
+	background-color: transparent;
+	border-radius: 4px;
+
+	&:checked {
+		accent-color: var(--c-accent);
+		background-color: var(--c-accent);
+	}
+}
+
+/* "Select your Team Plan" dialog radio buttons when clicking "Upgrade plan" > "Team" */
+button[role='radio'] {
+	border-color: var(--c-accent);
+
+	&[data-state='checked'] {
+		background-color: var(--c-accent);
+	}
+
+	svg {
+		color: var(--c-on-accent);
+	}
+}
+
+/* input placeholder color */
+input,
+textarea {
+	outline: none;
+
+	&::placeholder {
+		opacity: 0.6;
+		color: var(--c-subtext-2);
+	}
+}

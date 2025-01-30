@@ -1,0 +1,109 @@
+body.dark[data-ds-dark-theme] {
+    /* --accent-hsl: 272 93% 78%; */
+    --accent-h: 272;
+    --accent-s: 93%;
+    --accent-l: 78%;
+    --accent-hsl: 272 93% 78%;
+    // --accent-hsl: 244 100% 87%;
+    // --accent-h: 244;
+    // --accent-s: 100%;
+    // --accent-l: 87%;
+    --accent-hsl: var(--accent-h) var(--accent-s) var(--accent-l);
+
+    /* --txt-hsl: 255 86% 92%; */
+    --txt-h: var(--accent-h);
+    --txt-s: 86%;
+    --txt-l: 94%;
+    --txt-hsl: var(--txt-h) var(--txt-s) var(--txt-l);
+
+    --surface-h: 249;
+    --surface-s: 19%;
+    --surface-l: 13%;
+    --surface-hsl: hsl(var(--accent-h) var(--surface-s) var(--surface-l));
+
+    --danger-hsl: 356 77% 76%;
+    --warning-hsl: 30 100% 74%;
+    --c-danger: hsl(var(--danger-hsl));
+    --c-warning: hsl(var(--warning-hsl));
+
+    /* ? ========== COLORS ========== */
+    --c-accent: hsl(var(--accent-hsl));
+    --c-accent-light: hsl(var(--accent-h), calc(var(--accent-s) / 1.3), var(--accent-l));
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) / 1.5), var(--accent-l));
+    --c-on-accent: hsl(var(--accent-h), var(--accent-s), 10%);
+
+    /* ? ========== Text colors ========== */
+    --c-txt: hsl(var(--txt-hsl));
+    --c-subtext-1: var(--c-accent-light);
+    --c-subtext-2: hsl(var(--accent-h) calc(var(--accent-s) / 2) var(--accent-l)) !important;
+
+    /* ? ========== Surface colors ========== */
+    --c-surface-1: hsl(var(--accent-h), var(--surface-s), var(--surface-l)); // darkest
+    --c-surface-2: hsl(var(--accent-h), var(--surface-s), calc(var(--surface-l) * 1.5)); // darker
+    --c-surface-3: hsl(var(--accent-h), var(--surface-s), calc(var(--surface-l) * 2)); // dark
+    /* ? ========== Layout colors ========== */
+    --c-bg-sidebar: var(--c-surface-1);
+    --c-bg-chats-container: hsl(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.076));
+
+    /* ? ========== Chat bubbles colors ========== */
+    --c-bg-msg-user: hsla(var(--accent-hsl) / 0.04);
+    --c-bg-msg-gpt: hsla(var(--accent-hsl) / 0.08);
+
+    /* ? ========== Type message textarea colors ========== */
+    --c-bg-textarea: var(--c-surface-2);
+
+    /* ? ========== modal, dialog, contextmenu bg ========== */
+    --c-bg-modal: hsla(var(--accent-hsl) / 0.22);
+    --c-bg-dialog: var(--c-surface-2);
+    --c-bg-contextmenu: var(--c-surface-3);
+    --c-bg-contextmenu-item: var(--c-surface-2);
+
+    /* ? ========== Tooltip bg ========== */
+    --c-bg-tooltip: var(--c-accent-light);
+
+    /* ? ========== border colors ========== */
+    --c-border: hsla(var(--txt-hsl) / 0.08);
+    --c-border-accent: hsla(var(--accent-hsl) / 0.05);
+
+    /* ? ========== <pre>/markdown things colors ========== */
+    --c-markdown-a: var(--c-accent);
+
+    /* ? ========== Scrollbar colors ========== */
+    --c-scrollbar-thumb: var(--c-surface-3);
+    --c-scrollbar-track: transparent;
+
+    /* ? ========== border colors ========== */
+    --c-border: hsla(var(--txt-hsl) / 0.08);
+    --c-border-accent: hsla(var(--accent-hsl) / 0.05);
+}
+
+body.dark[data-ds-dark-theme][data-dsx-theme="oled"] {
+    --surface-h: 0;
+    --surface-s: 0%;
+    --surface-l: 0%;
+    --surface-hsl: hsl(var(--accent-h) var(--surface-s) var(--surface-l));
+
+    /* ? ========== Surface colors ========== */
+    --c-surface-1: black; // darkest
+    --c-surface-2: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 12%)); // darker
+    --c-surface-3: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 8%)); // dark
+
+    /* ? ========== Layout colors ========== */
+    --c-bg-sidebar: black;
+    --c-bg-chats-container: black;
+
+    /* ? ========== Chat bubbles colors ========== */
+    --c-bg-msg-user: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 4%));
+    --c-bg-msg-gpt: hsl(var(--accent-h), calc(var(--surface-s) + 20%), calc(var(--surface-l) + 6%));
+
+    /* ? ========== Type message textarea colors ========== */
+    --c-bg-textarea: var(--c-surface-3);
+
+    /* ? ========== modal, dialog, contextmenu bg ========== */
+    --c-bg-modal: hsla(var(--accent-hsl) / 0.09);
+    --c-bg-dialog: var(--c-surface-1);
+
+    /* ? ========== border colors ========== */
+    --c-border: var(--c-surface-2);
+    // --c-border-accent: hsla(var(--accent-hsl) / 0.05);
+}

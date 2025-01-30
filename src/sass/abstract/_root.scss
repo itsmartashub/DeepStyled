@@ -1,0 +1,59 @@
+:root {
+    // 	Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    // 	Noto Color Emoji;
+    --fsz-error-404: 3rem;
+    --fontFamilyDefault: ui-sans-serif, -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica, Apple Color Emoji, Arial, Segoe UI Emoji, Segoe UI Symbol;
+    --fontFamily: var(--fontFamilyDefault);
+    --fontSize: inherit;
+    --letterSpacing: none;
+    --lineHeight: 28;
+
+    --loader_timeout: 300;
+
+    /* ? --- Widths and Heights --- */
+    --min-w-btn: 5.5rem;
+    --h-header: calc(3.5rem + 0.5rem + 0.375rem);
+    --w-scrollbar: 0.365rem;
+    // --max-w-chat-bubble: 48rem;
+    --w_chat_user: max-content;
+    --max_w_chat_user: 70%; // 70%
+    --w_chat_gpt: 49rem;
+    // --w_prompt_textarea: var(--w_chat_gpt);
+    --w_prompt_textarea: 48rem;
+
+    /* ? --- Border-radius --- */
+    --br: 1rem;
+    --br-chat-bubble: calc(var(--br) * 1.9);
+    // --br-chat-bubble: 30px;
+    // --br-prompt-textarea: calc(var(--br) * 0.2);
+    --br-btn: calc(var(--br) / 1.1);
+    --br-btn-big: calc(var(--br) * 1.2);
+    --br-dialog: calc(var(--br) * 2.5);
+    --br-contextmenu: calc(var(--br-btn) * 1.4);
+    --br-pre: calc(var(--br) * 1.8);
+    --br-tooltips: var(--br-btn);
+    --br-scrollbar: 50vw;
+
+    /* ? --- Paddings --- */
+    --p-chat-bubble: 1.2rem;
+    // --px-chat-bubble-edge-gap: 4vw;
+    --p-contextmenu: 0.8rem;
+    --p-contextmenu-item: 0.9rem 1rem;
+    --p-prompt-textarea: 0.7rem;
+    --p-tooltips: 0.2rem;
+    --p-btn: 1rem;
+    --py-btn: 1rem;
+    --px-btn: 1rem;
+
+    --p-sidebar-nav: 0.5rem;
+    --p-sidebar-nav-a: 0.6rem;
+    --p-dialog: 2rem;
+
+    /* ? --- Margins --- */
+    --mt-chat-txt: 0.5rem;
+    --mb-chat-txt: 1rem;
+    // --mb-chat-bubble: 2rem;
+    --mb-sidebar-nav-li: 0.2rem;
+    --my-pre: 1.5rem;
+
+}

@@ -1,0 +1,60 @@
+@mixin tabs_ui {
+
+    .tabs {
+        &__buttons {
+            background-color: hsla(var(--accent-hsl) / 0.15);
+            color: var(--c-accent);
+            display: flex;
+            align-items: center;
+            border-radius: 100vw;
+            padding: 0.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+
+            @include dev('xxs') {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                border-radius: 1rem;
+            }
+        }
+
+        &__button {
+            flex: 1;
+            border-radius: inherit;
+            padding: calc(var(--p-btn) * 0.75);
+            text-align: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 0.65em;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.active {
+                background-color: var(--c-accent);
+                color: var(--c-on-accent) !important;
+                font-weight: bold;
+            }
+        }
+
+        &__content {
+            overflow-y: auto;
+            max-height: calc(var(--max-h) / 1.7);
+            padding: 1rem 0;
+        }
+
+        &__pane {
+            display: none;
+            @extend .fadeIn;
+            margin-inline: 0.2rem; // simulate space from the scrollbar
+
+
+            &.active {
+                display: block !important;
+            }
+        }
+    }
+}

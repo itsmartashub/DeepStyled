@@ -1,0 +1,11 @@
+node_modules
+.parcel-cache
+.env
+
+# build/dev
+# build/prod
+# build/zips
+build
+
+release.md
+release.html

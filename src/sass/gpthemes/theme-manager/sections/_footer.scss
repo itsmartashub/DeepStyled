@@ -1,0 +1,13 @@
+@mixin footer_ui {
+	footer {
+		display: flex;
+		justify-items: center;
+		margin-top: 2.5rem;
+
+		button {
+			justify-self: flex-end;
+			margin: 0 auto;
+			width: 60%;
+		}
+	}
+}

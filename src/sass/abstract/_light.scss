@@ -1,0 +1,70 @@
+// :root {}
+
+body.light {
+    /* ? ========== HSL ========== */
+    /* --accent-hsl: 250 99% 65%; */
+    --accent-h: 352;
+    --accent-s: 34%;
+    --accent-l: 37%;
+    --accent-hsl: var(--accent-h) var(--accent-s) var(--accent-l);
+
+    /* --txt-hsl: 0 0% 0%; */
+    --txt-h: 0;
+    --txt-s: 0%;
+    --txt-l: 0%;
+    --txt-hsl: var(--txt-h) var(--txt-s) var(--txt-l);
+
+    --surface-h: 0;
+    --surface-s: 0%;
+    --surface-l: 85%;
+    --surface-hsl: hsl(var(--surface-h) var(--surface-s) var(--surface-l));
+
+    /* --danger-hsl: 346 51% 45% */
+    --danger-hsl: 354 63% 48%;
+    --warning-hsl: 27 88% 44%;
+    --c-danger: hsl(var(--danger-hsl));
+    --c-warning: hsl(var(--warning-hsl));
+
+    /* ? ========== COLORS ========== */
+    --c-accent: hsl(var(--accent-hsl));
+    --c-accent-light: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 75%);
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.5), 55%);
+    --c-on-accent: hsl(var(--accent-h), var(--accent-s), 88%);
+
+    /* ? ========== Layout colors ========== */
+    --c-bg-sidebar: var(--c-surface-1);
+    --c-bg-chats-container: hsl(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025));
+
+
+    /* ? ========== Chat bubbles colors ========== */
+    --c-bg-msg-user: hsla(var(--accent-hsl) / 0.08);
+    --c-bg-msg-gpt: hsl(0 0% 84%);
+    // --c-bg-msg-gpt: red;
+
+    /* ? ========== Type message textarea colors ========== */
+    --c-bg-textarea: hsla(0, 0%, calc(var(--surface-l) / 1.05));
+
+    /* ? ========== modal, dialog, contextmenu bg ========== */
+    --c-bg-modal: hsla(var(--txt-hsl) / 0.3);
+    --c-bg-dialog: var(--c-surface-2);
+    --c-bg-contextmenu: var(--c-surface-3);
+    --c-bg-contextmenu-item: var(--c-surface-2);
+
+    /* ? ========== Tooltip bg ========== */
+    --c-bg-tooltip: var(--c-accent-light);
+
+    /* ? ========== border colors ========== */
+    --c-border: hsla(var(--txt-hsl) / 0.08);
+    --c-border-accent: hsla(var(--accent-hsl) / 0.1);
+
+    /* ? ========== <pre>/markdown things colors ========== */
+    --c-markdown-a: var(--c-accent);
+
+    /* ? ========== Scrollbar colors =======s=== */
+    --c-scrollbar-thumb: var(--c-surface-3);
+    --c-scrollbar-track: transparent;
+
+    /* ? ========== border colors ========== */
+    --c-border: hsla(var(--txt-hsl) / 0.08);
+    --c-border-accent: hsla(var(--accent-hsl) / 0.1);
+}

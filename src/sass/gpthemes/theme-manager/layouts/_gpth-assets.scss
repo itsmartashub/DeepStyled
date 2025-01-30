@@ -1,0 +1,8 @@
+.gpth-assets {
+    &__custom-width {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+        gap: 1rem 0.5rem;
+        margin-bottom: 2rem;
+    }
+}

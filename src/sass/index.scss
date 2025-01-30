@@ -1,0 +1,42 @@
+@import 'abstract/_bp';
+@import 'abstract/_ds';
+@import 'abstract/_root';
+// @import 'abstract/_vars';
+@import 'abstract/_light';
+@import 'abstract/_dark';
+@import 'shared/_easing';
+@import 'shared/_anims';
+@import 'shared/_extends';
+@import 'abstract/_extends';
+
+// @import 'dev/_mixins';
+
+@import 'global/_base';
+@import 'global/_scrollbars';
+
+/* DARK hljs Theme Styles */
+@import 'hljs/_ros-pine-moon';
+
+/* OLED hljs Themes */
+@import 'hljs/oled/_ir-black'; // favorit. yellowish/pink/blue jace boje
+
+@import 'components/_separators';
+@import 'components/_forms';
+@import 'components/_menu';
+@import 'components/_modal';
+@import 'components/_btn';
+@import 'components/_tooltips';
+
+@import 'elements/_pre';
+@import 'elements/_sidebar';
+@import 'elements/_right--main';
+@import 'elements/_right--new-chat';
+@import 'elements/_right--sticky';
+@import 'elements/_right--textarea';
+
+@import 'gpthemes/index';
+
+/* DS */
+@import 'abstract/_light.scss';
+@import 'abstract/_dark.scss';
+@import 'abstract/_ds.scss';

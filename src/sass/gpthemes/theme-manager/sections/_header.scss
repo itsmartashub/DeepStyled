@@ -1,0 +1,37 @@
+@mixin header_ui {
+	header {
+		margin-bottom: 1rem;
+
+		.gpth-settings__title {
+			color: var(--c-accent);
+			font-size: 0.9em;
+			font-weight: 400;
+			text-align: center;
+			margin-bottom: 1.5rem;
+
+			span {
+				font-weight: bold;
+			}
+
+			@include dev('sm') {
+				font-size: 1.4rem;
+			}
+		}
+
+		/* Close button */
+		#gpth-settings-close {
+			@extend %center_grid;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			border-radius: 50vw;
+			color: var(--c-danger);
+			background-color: transparent;
+			transition: color 0.2s ease-in-out;
+
+			&:hover {
+				background-color: hsla(var(--danger-hsl) / 0.2);
+			}
+		}
+	}
+}
