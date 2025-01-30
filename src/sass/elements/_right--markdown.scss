@@ -1,0 +1,14 @@
+.ds-markdown {
+    // min-height: var(--ds-md-font-size);
+    --ds-md-zoom: 1 !important;
+    --ds-font-size-m: calc((var(--fontSize) / 16) * 1rem) !important;
+    --ds-line-height-m: calc(var(--lineHeight) / 16) !important;
+    // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // line-height: calc(var(--lineHeight) / 16) !important;
+
+    code {
+        background-color: hsla(var(--accent-hsl) / 0.15) !important;
+        color: var(--c-accent) !important;
+        border-radius: 5px !important;
+    }
+}

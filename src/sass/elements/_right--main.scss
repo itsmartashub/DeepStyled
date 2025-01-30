@@ -1,0 +1,56 @@
+/* Right div */
+.f2eea526 {
+
+    // --message-list-max-width: --w_chat_gpt !important;
+
+    /* sticky header */
+    .be88ba8a {
+
+        /* strange sticky header gradientoverlay */
+        .b480065b {
+            background: linear-gradient(var(--dsr-bg) 0%, transparent 100%);
+        }
+    }
+}
+
+/* User chat bubble */
+.fbb737a4 {
+    font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    background-color: var(--c-bg-msg-user) !important;
+    padding: var(--p-chat-bubble) !important;
+    border-radius: var(--br-chat-bubble) !important;
+    line-height: calc(var(--lineHeight) / 16) !important;
+    // width: var(--w_chat_user) !important;
+    // width: max-content !important;
+    // width: var(--max_w_chat_user) !important;
+    // max-width: var(--w_chat_user) !important;
+}
+
+/* GPT chat bubble */
+.f9bf7997.d7dc56a8.c05b5566 {
+    --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
+    font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // line-height: calc(var(--lineHeight) / 16) !important;
+    background-color: var(--c-bg-msg-gpt);
+    padding: var(--p-chat-bubble) calc(var(--p-chat-bubble) + var(--p-left)) !important;
+    // padding-right: calc(var(--p-chat-bubble) + var(--p-left));
+    border-radius: var(--br-chat-bubble) !important;
+    // width: var(--w_chat_gpt) !important;
+
+
+    /* Logo on the left */
+    .dfa60d66 {
+        top: var(--p-chat-bubble) !important;
+        translate: 50%;
+        background-color: hsla(var(--accent-hsl) / 0.15) !important;
+        border-color: hsla(var(--accent-hsl) / 0.15) !important;
+
+        svg {
+            path {
+                fill: var(--c-accent) !important;
+            }
+        }
+    }
+}
+
+/* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
