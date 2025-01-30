@@ -29,7 +29,7 @@ body.dark[data-ds-dark-theme] {
     /* ? ========== COLORS ========== */
     --c-accent: hsl(var(--accent-hsl));
     --c-accent-light: hsl(var(--accent-h), calc(var(--accent-s) / 1.3), var(--accent-l));
-    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) / 1.5), var(--accent-l));
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.7), calc(var(--accent-l) * 0.95));
     --c-on-accent: hsl(var(--accent-h), var(--accent-s), 10%);
 
     /* ? ========== Text colors ========== */

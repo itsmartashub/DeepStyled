@@ -3,6 +3,14 @@ button {
 	outline: none;
 }
 
+// .ds-button {
+// 	--ds-button-color: rgba(77, 107, 254, 0.40);
+// 	--button-text-color: #4CAEFF;
+// 	--button-border-color: rgba(0, 122, 255, 0.15);
+// 	--ds-button-hover-color: rgba(77, 107, 254, 0.2);
+// }
+
+
 .btn {
 	color: var(--c-on-accent) !important;
 	border-radius: var(--br-btn) !important;

@@ -9,7 +9,9 @@ body {
     --ds-toast-custom-font-size: 16px;
     font-size: var(--ds-font-size-m);
     line-height: var(--ds-line-height-m);
-    color: rgb(var(--ds-rgb-label-1));
+    // color: rgb(var(--ds-rgb-label-1));
+    color: red !important;
+    // color: var(--c-txt);
 }
 
 body,
@@ -78,6 +80,8 @@ body {
     --dsr-error-fg: rgb(var(--ds-rgb-red-550));
 
     --dsr-local-active-bg: var(--c-surface-2) !important;
+
+
 }
 
 /* DARK */

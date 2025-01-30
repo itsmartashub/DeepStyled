@@ -39,13 +39,13 @@
 }
 
 %date-pill {
-	display: inline-block !important;
+	// display: inline-block !important;
 	color: var(--c-accent) !important;
 	background-color: hsl(var(--accent-hsl) / 0.2) !important;
-	border-radius: 100vw;
+	border-radius: 50vw;
 	text-transform: uppercase;
 	font-weight: bold;
-	height: auto !important;
+	// height: auto !important;
 	line-height: 1 !important;
 	padding: 0.32rem 0.6rem !important;
 }
