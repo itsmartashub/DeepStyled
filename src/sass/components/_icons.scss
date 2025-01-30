@@ -1,0 +1,15 @@
+/* svg wrapper icons like in sidebar etc. */
+.ds-icon-button {
+    --ds-icon-button-text-color: var(--c-subtext-1) !important;
+    --ds-icon-button-hover-color: hsla(var(--accent-hsl) / 0.15) !important;
+    --ds-icon-button-outline-color: hsla(var(--accent-hsl) / 0.15) !important;
+    // --ds-icon-button-size: 28px;
+    // --ds-icon-button-background-inset: -4px;
+}
+
+/* Shark logo in sidebar */
+.ds-icon {
+    svg path {
+        fill: var(--c-accent) !important;
+    }
+}

@@ -35,7 +35,6 @@ body.light {
     --c-bg-sidebar: var(--c-surface-1);
     --c-bg-chats-container: hsl(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025));
 
-
     /* ? ========== Chat bubbles colors ========== */
     --c-bg-msg-user: hsla(var(--accent-hsl) / 0.08);
     --c-bg-msg-gpt: hsl(0 0% 84%);

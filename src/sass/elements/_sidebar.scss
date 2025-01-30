@@ -8,6 +8,13 @@
 /* Sidebar */
 .dc04ec1d {
 
+    /* "deepseek" text logo in sidebar */
+    .e066abb8 svg {
+        color: var(--c-accent) !important;
+        opacity: 0.9;
+        text-shadow: 0 0 5px var(--c-accent) !important;
+    }
+
     /* Sidebar date pill: "yesterday, today, 7 days" etc */
     .cdfc1683 {
         @extend %date-pill;

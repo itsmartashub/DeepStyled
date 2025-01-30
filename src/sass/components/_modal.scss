@@ -1,0 +1,10 @@
+.ds-modal {
+    // [role="dialog"] {
+    //     --ds-modal-content-color: #3A3A46;
+    // }
+
+    &-modal-content {
+        --ds-modal-content-color: var(--c-bg-dialog) !important;
+        --ds-modal-content-text-color: var(--c-txt) !important;
+    }
+}

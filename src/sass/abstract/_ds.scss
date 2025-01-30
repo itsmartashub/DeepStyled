@@ -54,10 +54,10 @@ body {
     --dsr-text-0: var(--c-txt) !important;
     --dsr-text-1: var(--c-subtext-1) !important;
     --dsr-text-2: var(--c-subtext-2) !important;
-    --dsr-text-3: rgb(var(--ds-rgb-neutral-400));
-    --dsr-text-4: rgb(var(--ds-rgb-zinc-350));
+    --dsr-text-3: orangered !important;
+    --dsr-text-4: var(--c-subtext-2) !important;
     --dsr-border-1: var(--c-border) !important;
-    --dsr-border-2: var(--c-border-accent) !important;
+    --dsr-border-2: var(--c-border) !important;
     --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border
     --dsr-input-bg: var(--c-bg-textarea) !important; // textarea-prompt bg
     --dsr-button-main-bg: var(--dsr-main);
