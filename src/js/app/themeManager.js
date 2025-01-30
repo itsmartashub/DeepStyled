@@ -33,12 +33,13 @@ async function getStoredThemeState() {
 function setRootTheme(theme, isOLED) {
 	const body = document.body
 	const effectiveTheme = theme === THEMES.SYSTEM ? getSystemTheme() : theme
+	const isDark = effectiveTheme === THEMES.DARK
 
-	// Single source of truth for theme application
 	body.className = effectiveTheme
-	// body.style.colorScheme = effectiveTheme
-	body.dataset.dsDarkTheme = effectiveTheme
-	body.dataset.dsxTheme = effectiveTheme === THEMES.DARK && isOLED ? 'oled' : effectiveTheme
+
+	// Efficiently manage attributes
+	body.toggleAttribute('data-ds-dark-theme', isDark)
+	body.dataset.dsxTheme = isDark && isOLED ? 'oled' : effectiveTheme
 }
 
 async function updateTheme(newTheme, isOLED = false) {

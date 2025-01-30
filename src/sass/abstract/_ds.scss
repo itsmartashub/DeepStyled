@@ -9,9 +9,7 @@ body {
     --ds-toast-custom-font-size: 16px;
     font-size: var(--ds-font-size-m);
     line-height: var(--ds-line-height-m);
-    // color: rgb(var(--ds-rgb-label-1));
-    color: red !important;
-    // color: var(--c-txt);
+    color: var(--c-txt) !important;
 }
 
 body,
