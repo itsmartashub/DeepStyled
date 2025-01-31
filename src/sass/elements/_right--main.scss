@@ -3,15 +3,6 @@
 
     // --message-list-max-width: --w_chat_gpt !important;
 
-    /* sticky header */
-    .be88ba8a {
-
-        /* strange sticky header gradientoverlay */
-        .b480065b {
-            background: linear-gradient(var(--dsr-bg) 0%, transparent 100%);
-        }
-    }
-
     /* "⚠️ Length limit reached. DeepSeek can only read the first 7%" */
     .e87bfa92 {
         @include bg-warning-inverse;
