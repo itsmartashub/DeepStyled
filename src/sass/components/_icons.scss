@@ -1,6 +1,7 @@
 /* svg wrapper icons like in sidebar etc. */
 .ds-icon-button {
-    --ds-icon-button-text-color: var(--c-subtext-1) !important;
+    // --ds-icon-button-text-color: var(--c-subtext-1) !important;
+    --ds-icon-button-text-color: var(--c-accent) !important;
     --ds-icon-button-hover-color: hsla(var(--accent-hsl) / 0.15) !important;
     --ds-icon-button-outline-color: hsla(var(--accent-hsl) / 0.15) !important;
     // --ds-icon-button-size: 28px;
@@ -8,8 +9,15 @@
 }
 
 /* Shark logo in sidebar */
-.ds-icon {
-    svg path {
+// .ds-icon {
+//     svg path:not([fill="none"], [stroke]) {
+//         fill: var(--c-accent) !important;
+//     }
+// }
+/* TODO: fix this because there are many different icons!!! */
+/* .b3a5d6c1 is the icons of attached files */
+.ds-icon:not(.b3a5d6c1) {
+    svg path:not([fill="none"], [stroke]) {
         fill: var(--c-accent) !important;
     }
 }

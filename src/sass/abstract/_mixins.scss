@@ -1,10 +1,19 @@
 @mixin bg-accent($txt: var(--c-on-accent), $bg: var(--c-accent)) {
     color: $txt !important;
     background-color: $bg !important;
-    transition: backcolor 0.25s $easeOutCubic, color 0.25s $easeOutCubic;
 }
 
 @mixin bg-accent-inverse($txt: var(--c-accent), $alpha: 0.15) {
     color: $txt !important;
     background-color: hsla(var(--accent-hsl) / $alpha) !important;
+}
+
+@mixin bg-danger($txt: var(--c-on-accent), $bg: var(--c-danger)) {
+    color: $txt !important;
+    background-color: $bg !important;
+}
+
+@mixin bg-danger-inverse($txt: var(--c-danger), $alpha: 0.15) {
+    color: $txt !important;
+    background-color: hsla(var(--danger-hsl) / $alpha) !important;
 }
