@@ -17,3 +17,13 @@
     color: $txt !important;
     background-color: hsla(var(--danger-hsl) / $alpha) !important;
 }
+
+@mixin bg-warning($txt: var(--c-on-accent), $bg: var(--c-warning)) {
+    color: $txt !important;
+    background-color: $bg !important;
+}
+
+@mixin bg-warning-inverse($txt: var(--c-warning), $alpha: 0.15) {
+    color: $txt !important;
+    background-color: hsla(var(--warning-hsl) / $alpha) !important;
+}

@@ -13,7 +13,40 @@
     }
 
     hr {
-        background-color: hsla(var(--accent-hsl) / 0.18) !important;
+        background-color: hsla(var(--accent-hsl) / 0.12) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--c-accent) !important;
+    }
+
+    li::marker {
+        color: var(--c-accent) !important;
+        opacity: 0.8;
+    }
+
+    table {
+
+        th,
+        td {
+            border-color: hsla(var(--accent-hsl) / 0.12) !important;
+        }
+
+        thead tr,
+        tbody tr:nth-of-type(even) {
+            background-color: hsla(var(--accent-hsl) / 0.1) !important;
+        }
+    }
+
+    blockquote {
+        @include bg-accent-inverse;
+        border-left: 3px solid var(--c-accent) !important;
+        border-radius: .5rem !important;
     }
 
 

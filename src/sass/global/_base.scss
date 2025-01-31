@@ -16,3 +16,7 @@ html {
 	background-color: hsla(var(--accent-hsl) / 0.5) !important;
 	color: var(--c-txt) !important;
 }
+
+a[href] {
+	color: var(--c-accent) !important;
+}

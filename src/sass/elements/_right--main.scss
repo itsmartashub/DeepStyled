@@ -1,4 +1,4 @@
-/* Right div */
+/* Right chat wrapper main div */
 .f2eea526 {
 
     // --message-list-max-width: --w_chat_gpt !important;
@@ -11,13 +11,29 @@
             background: linear-gradient(var(--dsr-bg) 0%, transparent 100%);
         }
     }
+
+    /* "⚠️ Length limit reached. DeepSeek can only read the first 7%" */
+    .e87bfa92 {
+        @include bg-warning-inverse;
+        border-color: hsla(var(--warning-hsl) / 0.12) !important;
+    }
+
+    /* Scrolldown btn */
+    .e98de67b:has(>svg) {
+        @include bg-accent;
+        box-shadow: inset 0 0 0 1px hsla(var(--warning-hsl) / 0.2) !important;
+
+        &:hover {
+            @include bg-accent-inverse;
+        }
+    }
 }
 
 /* User chat bubble */
 .fbb737a4 {
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     background-color: var(--c-bg-msg-user) !important;
-    padding: calc(var(--p-chat-bubble) * 0.9) !important;
+    padding: calc(var(--p-chat-bubble) * 0.75) !important;
     border-radius: var(--br-chat-bubble) !important;
     line-height: calc(var(--lineHeight) / 16) !important;
     // width: var(--w_chat_user) !important;
@@ -43,7 +59,8 @@
         top: var(--p-chat-bubble) !important;
         translate: 50%;
         background-color: hsla(var(--accent-hsl) / 0.15) !important;
-        border-color: hsla(var(--accent-hsl) / 0.15) !important;
+        border-color: hsla(var(--accent-hsl) / 0.2) !important;
+        box-shadow: none !important;
 
         svg {
             path {
