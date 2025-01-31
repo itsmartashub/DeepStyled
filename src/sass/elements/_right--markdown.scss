@@ -11,4 +11,46 @@
         color: var(--c-accent) !important;
         border-radius: 5px !important;
     }
+
+
+    /* Markdown code block */
+    .md-code-block {
+        border-radius: var(--br-btn) !important;
+        padding: 0.5rem !important;
+
+        /* _____ MD HEADER _____ */
+        &
+
+        /* Markdown code block header child */
+            {
+            // color: var(--c-txt) !important;
+            background: var(--c-bg-pre) !important;
+        }
+
+        /* Markdown code block header wrapper  */
+        &-banner-wrap,
+        &-banner {
+            background-color: transparent !important;
+        }
+
+        /* Markdown code block header: code language */
+        &-infostring {
+            color: var(--c-subtext-1) !important;
+            font-family: var(--ds-font-family-code) !important;
+            font-weight: bold;
+        }
+    }
+
+    /* Markdown code block header: Copy btn */
+    &-code-copy-button {
+        @include bg-accent;
+        padding: calc(var(--p-btn) * 0.5) !important;
+        border-radius: calc(var(--br-btn) * 0.5) !important;
+    }
+}
+
+body.light .ds-markdown-code-copy-button {
+    &:hover {
+        --c-accent: var(--c-on-accent) !important;
+    }
 }

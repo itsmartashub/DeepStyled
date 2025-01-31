@@ -67,6 +67,7 @@ body.dark[data-ds-dark-theme] {
 
     /* ? ========== <pre>/markdown things colors ========== */
     --c-markdown-a: var(--c-accent);
+    --c-bg-pre: hsla(var(--accent-h) var(--surface-s) var(--surface-l) / 0.8);
 
     /* ? ========== Scrollbar colors ========== */
     --c-scrollbar-thumb: var(--c-surface-3);
