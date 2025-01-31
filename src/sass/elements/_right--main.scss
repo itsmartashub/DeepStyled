@@ -17,7 +17,7 @@
 .fbb737a4 {
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     background-color: var(--c-bg-msg-user) !important;
-    padding: var(--p-chat-bubble) !important;
+    padding: calc(var(--p-chat-bubble) * 0.9) !important;
     border-radius: var(--br-chat-bubble) !important;
     line-height: calc(var(--lineHeight) / 16) !important;
     // width: var(--w_chat_user) !important;
@@ -27,7 +27,7 @@
 }
 
 /* GPT chat bubble */
-.f9bf7997.d7dc56a8.c05b5566 {
+.f9bf7997 {
     --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     // line-height: calc(var(--lineHeight) / 16) !important;
@@ -48,6 +48,22 @@
         svg {
             path {
                 fill: var(--c-accent) !important;
+            }
+        }
+    }
+
+    /* Thiking text parent (with "Thought for X seconds" note) */
+    .edb250b1 {
+
+        /* Thinking text */
+        .e1675d8b {
+            color: var(--c-subtext-1) !important;
+            font-size: calc(((var(--fontSize) / 16) * 1rem) * 0.8) !important;
+            line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+
+            /* Thinking border on the left */
+            .ecc93a3b {
+                border-color: currentColor !important;
             }
         }
     }

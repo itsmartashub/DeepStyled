@@ -36,6 +36,11 @@ body.light {
     --c-surface-2: hsl(0, 0%, calc(var(--surface-l) / 1.089)); // darker - 78.05
     --c-surface-3: hsl(0, 0%, calc(var(--surface-l) / 1.18)); // darkest - 72.03
 
+    /* ? ========== Text colors ========== */
+    --c-txt: hsl(var(--txt-hsl));
+    --c-subtext-1: hsla(0, 0%, 20%);
+    --c-subtext-2: hsl(0, 0%, 40%);
+
     /* ? ========== Layout colors ========== */
     --c-bg-sidebar: var(--c-surface-1);
     --c-bg-chats-container: hsl(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025));

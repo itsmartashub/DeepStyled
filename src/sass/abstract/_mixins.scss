@@ -2,20 +2,9 @@
     color: $txt !important;
     background-color: $bg !important;
     transition: backcolor 0.25s $easeOutCubic, color 0.25s $easeOutCubic;
-
-    &:hover {
-        color: var(--c-accent) !important;
-        background-color: hsla(var(--accent-hsl) / 0.15) !important;
-    }
 }
 
 @mixin bg-accent-inverse($txt: var(--c-accent), $alpha: 0.15) {
     color: $txt !important;
     background-color: hsla(var(--accent-hsl) / $alpha) !important;
-    transition: backcolor 0.25s $easeOutCubic, color 0.25s $easeOutCubic;
-
-    &:hover {
-        color: var(--c-on-accent) !important;
-        background-color: var(--c-accent) !important;
-    }
 }

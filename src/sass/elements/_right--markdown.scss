@@ -12,11 +12,16 @@
         border-radius: 5px !important;
     }
 
+    hr {
+        background-color: hsla(var(--accent-hsl) / 0.18) !important;
+    }
+
 
     /* Markdown code block */
     .md-code-block {
         border-radius: var(--br-btn) !important;
         padding: 0.5rem !important;
+        // border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
 
         /* _____ MD HEADER _____ */
         &
@@ -39,6 +44,12 @@
             font-family: var(--ds-font-family-code) !important;
             font-weight: bold;
         }
+
+        /* Footer of code block, for example: "▶️ Run HTML" part */
+        &-footer {
+            @include bg-accent-inverse;
+            border-radius: var(--br-btn);
+        }
     }
 
     /* Markdown code block header: Copy btn */
@@ -46,6 +57,19 @@
         @include bg-accent;
         padding: calc(var(--p-btn) * 0.5) !important;
         border-radius: calc(var(--br-btn) * 0.5) !important;
+        transition: backcolor 0.25s $easeOutCubic, color 0.25s $easeOutCubic;
+
+        &:hover {
+            @include bg-accent-inverse;
+        }
+    }
+
+    /* Elements when run the code */
+    iframe {
+        body {
+            // background-color: red !important;
+            background-color: transparent !important;
+        }
     }
 }
 

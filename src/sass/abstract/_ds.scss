@@ -61,9 +61,9 @@ body {
     --dsr-button-main-bg: var(--dsr-main);
     --dsr-button-main-bg-hover: var(--c-accent-hover) !important;
     --dsr-button-second-bg: var(--dsr-main-3);
-    --dsr-button-grey-0: rgb(var(--ds-rgb-neutral-150));
-    --dsr-button-grey-1: rgb(var(--ds-rgb-neutral-100));
-    --dsr-button-grey-2: rgb(var(--ds-rgb-neutral-50));
+    --dsr-button-grey-0: var(--c-accent-light) !important;
+    --dsr-button-grey-1: hsla(var(--accent-hsl) / 0.15) !important;
+    --dsr-button-grey-2: var(--c-subtext-2) !important;
     --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / .85);
     --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550));
     --dsr-tooltip-fg: var(--c-accent) !important;
@@ -97,9 +97,9 @@ body[data-ds-dark-theme] {
     --dsr-button-main-bg: var(--c-accent) !important;
     --dsr-button-main-bg-hover: var(--c-accent-hover) !important;
     --dsr-button-second-bg: var(--dsr-main-2);
-    --dsr-button-grey-0: rgb(var(--ds-rgb-neutral-600));
-    --dsr-button-grey-1: rgb(var(--ds-rgb-neutral-650));
-    --dsr-button-grey-2: rgb(var(--ds-rgb-neutral-700));
+    --dsr-button-grey-0: var(--c-subtext-1) !important;
+    --dsr-button-grey-1: hsla(var(--accent-hsl) / 0.15) !important;
+    --dsr-button-grey-2: var(--c-subtext-2) !important;
     --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / 0.85);
     --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550) / 0.45);
     --dsr-tooltip-fg: var(--c-accent) !important;
