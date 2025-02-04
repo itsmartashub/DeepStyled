@@ -2,10 +2,19 @@
 .ds-icon-button {
     // --ds-icon-button-text-color: var(--c-subtext-1) !important;
     --ds-icon-button-text-color: var(--c-accent) !important;
-    --ds-icon-button-hover-color: hsla(var(--accent-hsl) / 0.15) !important;
-    --ds-icon-button-outline-color: hsla(var(--accent-hsl) / 0.15) !important;
+    --ds-icon-button-hover-color: var(--c-accent-hover) !important;
+    --ds-icon-button-outline-color: var(--c-accent-hover) !important;
     // --ds-icon-button-size: 28px;
     // --ds-icon-button-background-inset: -4px;
+
+
+    // &:hover {
+
+    //     &::before {
+    //         --dsr-side-icon-hover: var(--c-accent-hover) !important;
+    //         // background-color: var(--c-accent-hover) !important;
+    //     }
+    // }
 }
 
 /* Shark logo in sidebar */

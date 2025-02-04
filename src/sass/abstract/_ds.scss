@@ -84,7 +84,7 @@ body {
     --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-650));
     --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-150));
     --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-100));
-    --dsr-side-icon-hover: var(--c-accent) !important;
+    --dsr-side-icon-hover: var(--c-accent-hover) !important;
     --dsr-error-fg: var(--c-danger) !important;
     --dsr-local-active-bg: var(--c-surface-2) !important;
 }
@@ -120,7 +120,7 @@ body[data-ds-dark-theme] {
     --dsr-icon-hover-0: red !important;
     // --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
     --dsr-icon-hover-1: green !important;
-    --dsr-side-icon-hover: var(--c-accent) !important;
+    --dsr-side-icon-hover: var(--c-accent-hover) !important;
     --dsr-error-fg: var(--c-danger) !important;
     // --dsr-local-active-bg: var(--c-surface-2) !important;
 }
