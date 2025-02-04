@@ -1,5 +1,5 @@
 .cefa5c26:has(#chat-input) {
-    border: none !important;
+    border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
 
     #chat-input {
         &::placeholder {

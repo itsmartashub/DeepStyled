@@ -75,6 +75,18 @@
             }
         }
     }
+
+
 }
 
 /* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
+
+
+/* "New chat" floating btn. Not working when scoped into chats main layout... */
+.e214291b {
+    @include bg-accent;
+
+    &:hover {
+        @include bg-accent-inverse;
+    }
+}

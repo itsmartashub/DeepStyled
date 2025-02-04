@@ -10,6 +10,15 @@ body {
     font-size: var(--ds-font-size-m);
     line-height: var(--ds-line-height-m);
     color: var(--c-txt) !important;
+
+
+    --c-bg-gradient: linear-gradient(135deg,
+            hsla(var(--accent-hsl) / 0.45) 0%,
+            hsla(var(--accent-hsl) / 0.1) 40%,
+            hsla(var(--accent-hsl) / 0.05) 60%,
+            hsla(var(--accent-hsl) / 0.45) 100%);
+
+    --c-bg-chats-sticky: linear-gradient(to bottom, hsla(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025) / 1), transparent);
 }
 
 body,
@@ -46,7 +55,8 @@ page {
 /* LIGHT */
 body {
     --dsr-main: var(--c-accent) !important; // accent
-    --dsr-main-2: rgba(77, 107, 254, .4);
+    // --dsr-main-2: rgba(77, 107, 254, .4);
+    --dsr-main-2: red !important;
     --dsr-main-3: rgba(77, 107, 254, .2);
     --dsr-bg: var(--c-bg-chats-container) !important;
     --dsr-text-0: var(--c-txt) !important;
@@ -64,22 +74,19 @@ body {
     --dsr-button-grey-0: var(--c-accent-light) !important;
     --dsr-button-grey-1: hsla(var(--accent-hsl) / 0.15) !important;
     --dsr-button-grey-2: var(--c-subtext-2) !important;
-    --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / .85);
-    --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550));
-    --dsr-tooltip-fg: var(--c-accent) !important;
-    --dsr-tooltip-bg: var(--c-on-accent) !important;
+    --dsr-delete-button-bg: var(--c-danger) !important;
+    --dsr-delete-button-bg-hover: hsla(var(--danger-hsl) / 0.15) !important;
+    --dsr-tooltip-fg: var(--c-on-accent) !important;
+    --dsr-tooltip-bg: var(--c-accent) !important;
     --dsr-side-bg: var(--c-bg-sidebar) !important;
-    --dsr-side-hover-bg-rgb: 239, 246, 255;
-    --dsr-side-hover-bg: rgb(var(--ds-rgb-blue-50));
+    // --dsr-side-hover-bg-rgb: 239, 246, 255;
+    --dsr-side-hover-bg: hsla(var(--c-accent-hsl) / 0.15) !important;
     --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-650));
     --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-150));
     --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-100));
-    --dsr-side-icon-hover: rgb(var(--ds-rgb-slate-100));
-    --dsr-error-fg: rgb(var(--ds-rgb-red-550));
-
+    --dsr-side-icon-hover: var(--c-accent) !important;
+    --dsr-error-fg: var(--c-danger) !important;
     --dsr-local-active-bg: var(--c-surface-2) !important;
-
-
 }
 
 /* DARK */
@@ -100,20 +107,18 @@ body[data-ds-dark-theme] {
     --dsr-button-grey-0: var(--c-subtext-1) !important;
     --dsr-button-grey-1: hsla(var(--accent-hsl) / 0.15) !important;
     --dsr-button-grey-2: var(--c-subtext-2) !important;
-    --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / 0.85);
-    --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550) / 0.45);
-    --dsr-tooltip-fg: var(--c-accent) !important;
-    --dsr-tooltip-bg: var(--c-on-accent) !important;
+    --dsr-delete-button-bg: var(--c-danger) !important;
+    --dsr-delete-button-bg-hover: hsla(var(--danger-hsl) / 0.15) !important;
+    --dsr-tooltip-fg: var(--c-on-accent) !important;
+    --dsr-tooltip-bg: var(--c-accent) !important;
     --dsr-side-bg: var(--c-bg-sidebar) !important; // sidebar
     // --dsr-side-hover-bg-rgb: 51, 51, 51;
     --dsr-side-hover-bg: hsla(var(--c-accent-hsl) / 0.15) !important;
     --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-350));
     --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
     --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
-    --dsr-side-icon-hover: rgb(var(--ds-rgb-zinc-750));
-    --dsr-error-fg: rgb(var(--ds-rgb-red-450));
-
-
+    --dsr-side-icon-hover: var(--c-accent) !important;
+    --dsr-error-fg: var(--c-danger) !important;
     // --dsr-local-active-bg: var(--c-surface-2) !important;
 }
 

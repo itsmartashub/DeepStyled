@@ -37,17 +37,22 @@
             border-color: hsla(var(--accent-hsl) / 0.12) !important;
         }
 
+        /* not working */
+        // thead td {
+        //     color: var(--c-accent) !important;
+        // }
+
         thead tr,
         tbody tr:nth-of-type(even) {
             background-color: hsla(var(--accent-hsl) / 0.1) !important;
         }
     }
 
-    blockquote {
-        @include bg-accent-inverse;
-        border-left: 3px solid var(--c-accent) !important;
-        border-radius: .5rem !important;
-    }
+    // blockquote {
+    //     @include bg-accent-inverse;
+    //     border-left: 3px solid var(--c-accent) !important;
+    //     border-radius: .5rem !important;
+    // }
 
 
     /* Markdown code block */
@@ -110,4 +115,12 @@ body.light .ds-markdown-code-copy-button {
     &:hover {
         --c-accent: var(--c-on-accent) !important;
     }
+}
+
+
+/* Otut of markdown scope because this fix blockquote on "DeepSeek Terms of Use" and "DeepSeek Privacy Policy" */
+blockquote {
+    @include bg-accent-inverse;
+    border-left: 3px solid var(--c-accent) !important;
+    border-radius: .5rem !important;
 }
