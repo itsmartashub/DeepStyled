@@ -1,0 +1,8 @@
+.ds-skeleton {
+    --color-start: hsla(var(--accent-hsl) / 0.12) !important;
+    --color-end: hsla(var(--accent-hsl) / 0.25) !important;
+
+    &--m {}
+
+    &--text {}
+}
