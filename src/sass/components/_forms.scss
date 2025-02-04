@@ -33,3 +33,60 @@ textarea {
 		color: var(--c-subtext-2);
 	}
 }
+
+// ____________________________________________ DS THEME 
+.ds-textarea {
+	--shadow-offset: 1px;
+	// max-width: calc(100% - 48px);
+	// min-height: 100px;
+	// max-height: 268px;
+	--ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
+	--ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
+	--ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
+	--ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
+	// --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+	// --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+	// --ds-textarea-padding: var(--p-chat-bubble) !important;
+	// --ds-textarea-border-radius: var(--br-chat-bubble) !important;
+	caret-color: var(--c-accent);
+	color: var(--c-accent) !important;
+	// background-color: hsla(var(--accent-hsl) / 0.05) !important;
+	box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+
+	&--focused {
+		--shadow-offset: 2px;
+	}
+
+	textarea::placeholder {
+		color: var(--c-subtext-2) !important;
+	}
+}
+
+
+.ds-radio-button-group,
+[data-ds-dark-theme] .ds-radio-button-group {
+	--radio-button-group-button-color: var(--c-accent-hover) !important;
+	// --radio-button-group-button-box-shadow: none;
+	// --radio-button-group-button-box-shadow-active: none;
+	--radio-button-group-button-box-shadow-active-focus: none;
+	// --radio-button-group-button-box-shadow-focus: none;
+	--radio-button-group-button-color-active: var(--c-accent) !important;
+	--radio-button-group-button-text-color-active: var(--c-on-accent) !important;
+	--radio-button-group-button-outline-box-shadow-focus: 0 0 0 2px hsla(var(--accent-hsl) / 0.2) !important;
+
+	&--filled1 {}
+
+	.ds-radio-button {
+		&--active {
+			--radio-button-group-button-text-color-active: var(--c-on-accent) !important;
+			--radio-button-group-button-box-shadow-active: none !important;
+			background-color: var(--c-accent) !important;
+
+			&::after {
+				box-shadow: none !important;
+			}
+		}
+
+		&--focus {}
+	}
+}
