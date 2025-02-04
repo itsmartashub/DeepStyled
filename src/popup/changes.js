@@ -1,5 +1,5 @@
 let issue = (hashNumber) =>
-	`<a href="https://github.com/itsmartashub/GPThemes/issues/${hashNumber}" target="_blank" rel="noopener noreferrer" class="changelog__seefullchangelog">#${hashNumber}</a>`
+	`<a href="https://github.com/itsmartashub/DeepStyler/issues/${hashNumber}" target="_blank" rel="noopener noreferrer" class="changelog__seefullchangelog">#${hashNumber}</a>`
 
 const RELEASE_CHANGES = `
 

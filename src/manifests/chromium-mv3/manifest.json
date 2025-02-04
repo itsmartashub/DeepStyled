@@ -1,10 +1,10 @@
 {
 	"manifest_version": 3,
 	"version": "1.0.0",
-	"name": "DEEPSEEEK",
-	"description": "DEEPSEEK.",
+	"name": "DeepStyler - Deepseek Customization",
+	"description": "Transform DeepSeek's user interface with customisable accent colours, modern designs and chat bubbles.",
 	"author": "itsmarta",
-	"homepage_url": "https://github.com/itsmartashub/GPThemes",
+	"homepage_url": "https://github.com/itsmartashub/DeepStyler",
 	"host_permissions": ["https://chat.deepseek.com/*"],
 	"icons": {
 		"16": "../../assets/icons/16.png",
@@ -37,6 +37,6 @@
 			"48": "../../assets/icons/48.png",
 			"128": "../../assets/icons/128.png"
 		},
-		"default_title": "DEEPSEEK"
+		"default_title": "DeepStyler"
 	}
 }
