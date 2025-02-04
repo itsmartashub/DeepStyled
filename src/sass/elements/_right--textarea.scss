@@ -14,30 +14,28 @@
 
     /* "DeepThink R1" and "Search" btn */
     [role="button"].d9f56c96 {
-        @include bg-accent-inverse;
-        border-color: hsla(var(--accent-hsl) / 0.15) !important;
+        @include bg-accent;
+        border-color: var(--c-accent) !important;
 
         .ds-icon {
             color: currentColor !important;
 
-            svg {
-                path {
-                    stroke: currentColor !important;
-                }
+            svg path {
+                stroke: currentColor !important;
             }
         }
 
 
         /* "DeepThink R1" and "Search" btn when selected */
         &[style*="--ds-button-color: transparent;"] {
-            @include bg-accent;
-            border-color: var(--c-accent) !important;
+            @include bg-accent-inverse;
+            border-color: hsla(var(--accent-hsl) / 0.15) !important;
 
             .ds-icon {
-                // color: currentColor !important;
+                color: currentColor !important;
 
                 svg path {
-                    stroke: var(--c-on-accent) !important;
+                    stroke: currentColor !important;
                 }
             }
         }
