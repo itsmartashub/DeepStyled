@@ -1,0 +1,7 @@
+// ds-tooltip ds-tooltip--m ds-tooltip--show-shadow ds-elevated ds-theme
+
+.ds-tooltip {
+    --tooltip-color: var(--c-accent-hover) !important;
+    --tooltip-text-color: var(--c-accent) !important;
+    // --dsr-text-2: var(--c-accent) !important; // ovo je text za tooltip kada hoverujemo app icon u sidebar
+}
