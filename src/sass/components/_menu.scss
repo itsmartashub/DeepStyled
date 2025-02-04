@@ -4,7 +4,8 @@
     --ds-dropdown-menu-color: var(--c-bg-contextmenu) !important;
     --ds-dropdown-menu-option-text-color: var(--c-txt) !important;
     --ds-dropdown-menu-option-color-hover: var(--c-bg-contextmenu-item) !important;
-
+    // --ds-dropdown-menu-option-border-radius
+    // --ds-dropdown-menu-font-size
     // --ds-dropdown-menu-padding: 6px;
     // --ds-dropdown-menu-option-padding: 8px 14px 8px 12px;
     // --ds-dropdown-menu-option-line-height: var(--ds-line-height-m);
@@ -12,4 +13,16 @@
     // --ds-dropdown-menu-option-icon-color: var(--c-accent) !important;
     // --ds-dropdown-menu-option-icon-margin: 0;
     // --ds-dropdown-menu-option-label-margin: 0 10px;
+}
+
+/* For example "Delete" dropdown in 3dots menu in sidebar */
+.ds-dropdown-menu-option.ds-dropdown-menu-option--error {
+    --ds-dropdown-menu-option-text-color: var(--c-danger) !important;
+    --ds-dropdown-menu-option-icon-color: var(--c-danger) !important;
+    --ds-dropdown-menu-option-color-hover: hsla(var(--danger-hsl) / 0.15) !important;
+
+    /* Icon color for delete btn in dropdown menu in sidebar */
+    .ds-icon {
+        --c-accent: currentColor !important;
+    }
 }

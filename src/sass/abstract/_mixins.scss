@@ -3,9 +3,9 @@
     background-color: $bg !important;
 }
 
-@mixin bg-accent-inverse($txt: var(--c-accent), $alpha: 0.15) {
+@mixin bg-accent-inverse($txt: var(--c-accent), $bg: var(--c-accent-hover)) {
     color: $txt !important;
-    background-color: hsla(var(--accent-hsl) / $alpha) !important;
+    background-color: $bg !important;
 }
 
 @mixin bg-danger($txt: var(--c-on-accent), $bg: var(--c-danger)) {
