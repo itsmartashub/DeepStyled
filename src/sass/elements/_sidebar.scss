@@ -1,8 +1,26 @@
-/* Button "New chat" in sidebar */
-[data-ds-dark-theme] .a8ac7a80 {
-    --local-button: var(--dsr-main);
+/* Button "New chat" in sidebar: parent */
+.a8ac7a80 {
+    --local-button: var(--dsr-main) !important;
     --local-button-hover: var(--c-accent-hover) !important;
     --local-button-text: var(--c-on-accent) !important;
+
+    margin: 0 auto !important;
+    width: 80% !important;
+    height: fit-content !important;
+    transition: transform ease 0.15s;
+
+    /* Button "New chat" */
+    .c7dddcde {
+        width: 100% !important;
+        justify-content: center;
+        padding: calc(var(--p-btn) * 1.1) !important;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        --local-button-text: var(--c-accent) !important;
+        transform: translateY(0.08rem);
+    }
 }
 
 /* Sidebar */

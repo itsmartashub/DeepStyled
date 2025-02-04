@@ -28,7 +28,8 @@ body.light {
     /* ? ========== COLORS ========== */
     --c-accent: hsl(var(--accent-hsl));
     --c-accent-light: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 75%);
-    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.5), 55%);
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 75%);
+
     --c-on-accent: hsl(var(--accent-h), var(--accent-s), 88%);
 
     /* ? ========== Surface colors ========== */
