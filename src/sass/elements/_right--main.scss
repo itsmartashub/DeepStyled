@@ -33,6 +33,34 @@
     // max-width: var(--w_chat_user) !important;
 }
 
+/* User chat bubble in edit state */
+.fa81.eee33222 {
+
+    /* <textarea> parent */
+    .ds-textarea {
+        --shadow-offset: 1px;
+        // max-width: calc(100% - 48px);
+        // min-height: 100px;
+        // max-height: 268px;
+        --ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
+        --ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
+        --ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
+        --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
+        --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+        --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+        --ds-textarea-padding: var(--p-chat-bubble) !important;
+        --ds-textarea-border-radius: var(--br-chat-bubble) !important;
+        caret-color: var(--c-accent);
+        color: var(--c-accent) !important;
+        background-color: hsla(var(--accent-hsl) / 0.05) !important;
+        box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+
+        &--focused {
+            --shadow-offset: 2px;
+        }
+    }
+}
+
 /* GPT chat bubble */
 .f9bf7997 {
     --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
@@ -40,7 +68,6 @@
     // line-height: calc(var(--lineHeight) / 16) !important;
     background-color: var(--c-bg-msg-gpt);
     padding: var(--p-chat-bubble) calc(var(--p-chat-bubble) + var(--p-left)) !important;
-    // padding-right: calc(var(--p-chat-bubble) + var(--p-left));
     border-radius: var(--br-chat-bubble) !important;
     // width: var(--w_chat_gpt) !important;
 
@@ -65,14 +92,36 @@
 
         /* Thinking text */
         .e1675d8b {
-            color: var(--c-subtext-1) !important;
+            --thinking-p-left: 13px; // this is from ds deafult
+
+            color: var(--c-subtext-2) !important;
             font-size: calc(((var(--fontSize) / 16) * 1rem) * 0.8) !important;
             line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
 
             /* Thinking border on the left */
             .ecc93a3b {
                 border-color: currentColor !important;
+                opacity: 0.6;
             }
+
+            /* Thinking <p> texts */
+            /*  p.ba94db8a:not(:empty) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    background-color: currentColor;
+                    // transform: translate(-50%, 50%);
+                    // transform: translate(calc((var(--thinking-p-left) * -1) - 50%), 50%);
+                    transform: translate(-1rem, 50%);
+                    border-radius: 50vw;
+                }
+            } */
         }
     }
 

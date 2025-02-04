@@ -59,28 +59,36 @@
     .md-code-block {
         border-radius: var(--br-btn) !important;
         padding: 0.5rem !important;
+        background: var(--c-bg-pre) !important;
         // border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
 
         /* _____ MD HEADER _____ */
-        &
-
-        /* Markdown code block header child */
-            {
-            // color: var(--c-txt) !important;
-            background: var(--c-bg-pre) !important;
-        }
-
         /* Markdown code block header wrapper  */
         &-banner-wrap,
         &-banner {
             background-color: transparent !important;
         }
 
+        // &-banner-wrap {
+        //     background-color: transparent !important;
+        // }
+
+        /* Markdown code block header sticky */
+        &-banner {
+            // background-color: hsla(var(--accent-hsl) / 0.00) !important;
+            // background-color: transparent !important;
+            border-radius: calc(var(--br-btn) * 0.6) !important;
+            backdrop-filter: blur(5px);
+            align-items: center;
+            padding: 0.2rem 0.8rem !important;
+        }
+
         /* Markdown code block header: code language */
         &-infostring {
-            color: var(--c-subtext-1) !important;
+            color: var(--c-subtext-2) !important;
             font-family: var(--ds-font-family-code) !important;
             font-weight: bold;
+            line-height: 1 !important;
         }
 
         /* Footer of code block, for example: "▶️ Run HTML" part */
@@ -111,10 +119,17 @@
     }
 }
 
-body.light .ds-markdown-code-copy-button {
-    &:hover {
-        --c-accent: var(--c-on-accent) !important;
+body.light .ds-markdown {
+    &-code-copy-button {
+        &:hover {
+            --c-accent: var(--c-on-accent) !important;
+        }
     }
+
+    .md-code-block-infostring {
+        color: var(--c-on-accent) !important;
+    }
+
 }
 
 

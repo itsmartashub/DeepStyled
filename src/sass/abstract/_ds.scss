@@ -56,14 +56,14 @@ page {
 body {
     --dsr-main: var(--c-accent) !important; // accent
     // --dsr-main-2: rgba(77, 107, 254, .4);
-    --dsr-main-2: red !important;
-    --dsr-main-3: rgba(77, 107, 254, .2);
+    --dsr-main-2: var(--c-surface-1) !important;
+    --dsr-main-3: var(--c-surface-2) !important;
     --dsr-bg: var(--c-bg-chats-container) !important;
     --dsr-text-0: var(--c-txt) !important;
-    --dsr-text-1: var(--c-subtext-1) !important;
+    --dsr-text-1: var(--c-txt) !important;
     --dsr-text-2: var(--c-subtext-2) !important;
-    --dsr-text-3: orangered !important;
-    --dsr-text-4: var(--c-subtext-2) !important;
+    --dsr-text-3: red !important;
+    --dsr-text-4: green !important;
     --dsr-border-1: var(--c-border) !important;
     --dsr-border-2: var(--c-border) !important;
     --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border
@@ -93,10 +93,10 @@ body {
 body[data-ds-dark-theme] {
     --dsr-bg: var(--c-bg-chats-container) !important; // chats wrapper bg
     --dsr-text-0: var(--c-txt) !important;
-    --dsr-text-1: var(--c-subtext-2) !important;
+    --dsr-text-1: var(--c-txt) !important;
     --dsr-text-2: var(--c-subtext-1) !important;
-    --dsr-text-3: rgb(var(--ds-rgb-neutral-300));
-    --dsr-text-4: rgb(var(--ds-rgb-zinc-400));
+    --dsr-text-3: var(--c-subtext-1) !important;
+    --dsr-text-4: var(--c-subtext-2) !important;
     --dsr-border-1: var(--c-border) !important;
     --dsr-border-2: var(--c-border-accent) !important;
     --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border
@@ -115,8 +115,11 @@ body[data-ds-dark-theme] {
     // --dsr-side-hover-bg-rgb: 51, 51, 51;
     --dsr-side-hover-bg: hsla(var(--c-accent-hsl) / 0.15) !important;
     --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-350));
-    --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
-    --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
+    // --dsr-icon-fg-1: red !important;
+    // --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
+    --dsr-icon-hover-0: red !important;
+    // --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
+    --dsr-icon-hover-1: green !important;
     --dsr-side-icon-hover: var(--c-accent) !important;
     --dsr-error-fg: var(--c-danger) !important;
     // --dsr-local-active-bg: var(--c-surface-2) !important;
