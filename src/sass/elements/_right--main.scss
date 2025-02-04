@@ -24,6 +24,7 @@
 .fbb737a4 {
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     background-color: var(--c-bg-msg-user) !important;
+    color: var(--c-txt) !important;
     padding: calc(var(--p-chat-bubble) * 0.75) !important;
     border-radius: var(--br-chat-bubble) !important;
     line-height: calc(var(--lineHeight) / 16) !important;
@@ -67,6 +68,7 @@
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     // line-height: calc(var(--lineHeight) / 16) !important;
     background-color: var(--c-bg-msg-gpt);
+    color: var(--c-txt) !important;
     padding: var(--p-chat-bubble) calc(var(--p-chat-bubble) + var(--p-left)) !important;
     border-radius: var(--br-chat-bubble) !important;
     // width: var(--w_chat_gpt) !important;

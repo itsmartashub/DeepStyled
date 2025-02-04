@@ -38,7 +38,6 @@
         @extend %date-pill;
     }
 
-
     /* Sidebar chat-item link */
     .f9edaa3c {
         transition: ease-in-out 0.25s;
@@ -55,10 +54,15 @@
             transform: translateY(-0.08rem);
         }
     }
-}
 
+    /* "Get App" link in sidebar */
+    .a1e75851 {
+        border-color: var(--c-border) !important;
 
-/* Bg when hovered mobile icon in sidebar */
-.b91228e4:hover {
-    background-color: var(--c-accent-hover) !important;
+    }
+
+    /* Bg when hovered mobile icon in sidebar */
+    .b91228e4:hover {
+        background-color: var(--c-accent-hover) !important;
+    }
 }
