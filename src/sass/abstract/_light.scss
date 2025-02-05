@@ -28,7 +28,7 @@ body.light {
     /* ? ========== COLORS ========== */
     --c-accent: hsl(var(--accent-hsl));
     --c-accent-light: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 75%);
-    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 80%);
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 75%);
 
     --c-on-accent: hsl(var(--accent-h), var(--accent-s), 88%);
 
@@ -61,6 +61,7 @@ body.light {
     --c-bg-dialog: var(--c-surface-2);
     --c-bg-contextmenu: var(--c-surface-3);
     --c-bg-contextmenu-item: var(--c-surface-2);
+    --bx-dialog: 0 0 3rem 0.5rem hsla(var(--txt-hsl) / 0.1), 0 0 0.2rem 0.1rem hsla(var(--txt-hsl) / 0.05);
 
     /* ? ========== Tooltip bg ========== */
     --c-bg-tooltip: var(--c-accent-light);

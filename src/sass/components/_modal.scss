@@ -1,12 +1,14 @@
 .ds-modal {
-    // [role="dialog"] {
-    //     --ds-modal-content-color: #3A3A46;
-    // }
+    &-wrapper:not(:empty) {
+        background-color: var(--c-bg-modal) !important;
+        backdrop-filter: blur(2rem) !important;
+    }
 
     /* Modal dialogs ([role="dialog"]) */
     &-content {
         --ds-modal-content-color: var(--c-bg-dialog) !important;
         --ds-modal-content-text-color: var(--c-txt) !important;
+        box-shadow: var(--bx-dialog) !important;
 
         &__header-wrapper {}
 
@@ -21,21 +23,20 @@
         & ~ .ds-flex {
             border-bottom: none !important;
         }
-
-
     }
 
     .ds-native-select {
-
         &--filled {
             // @extend .ds-button--secondary;
-            --ds-native-select-color: hsla(var(--accent-hsl) / 0.15) !important;
-            background-color: transparent !important;
+            --ds-native-select-color: var(--c-accent-hover) important;
+            // background-color: transparent !important;
             color: var(--c-accent) !important;
         }
 
         /* "Language" and "Theme" dropdown in "Settings" */
         &__select {
+            background-color: var(--c-accent-hover) !important;
+
             option {
                 background-color: var(--c-surface-3) !important;
             }
@@ -45,15 +46,9 @@
             color: inherit !important;
         }
     }
-
-    // textarea,
-    // input {
-    //     background-color: var(--c-surface-3) !important;
-    // }
 }
 
-.ds-modal-overlay {
+/* .ds-modal-overlay {
     background-color: var(--c-bg-modal) !important;
     backdrop-filter: blur(2rem);
-    // display: flex !important;
-}
+} */

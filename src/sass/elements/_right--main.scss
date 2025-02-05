@@ -108,7 +108,10 @@
         /* Thinking process texts */
         .e1675d8b {
             --thinking-p-left: 13px; // this is from ds deafult
-            @extend .fadeIn;
+
+            &:not(:empty) {
+                @extend .fadeIn;
+            }
 
             color: var(--c-subtext-2) !important;
             font-size: calc(((var(--fontSize) / 16) * 1rem) * 0.8) !important;
