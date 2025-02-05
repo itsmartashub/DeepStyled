@@ -42,8 +42,11 @@
 
         /* "DeepThink R1" and "Search" btn when selected */
         &[style*="--ds-button-color: transparent;"] {
-            @include bg-accent-inverse;
-            border-color: hsla(var(--accent-hsl) / 0.15) !important;
+            // @include bg-accent-inverse;
+            background-color: transparent !important;
+            color: var(--c-accent) !important;
+            border-color: hsla(var(--accent-hsl) / 0.25) !important;
+            // border-color: var(--c-accent) !important;
 
             .ds-icon {
                 color: currentColor !important;
