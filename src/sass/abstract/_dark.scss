@@ -7,6 +7,7 @@ body.dark[data-ds-dark-theme] {
     --accent-l: 78%;
     --accent-hsl: 272 93% 78%; */
     // --accent-hsl: 244 100% 87%;
+    // --accent-hsl: 244 100% 80%;
     --accent-h: 244;
     --accent-s: 100%;
     --accent-l: 87%;
@@ -94,7 +95,7 @@ body.dark[data-ds-dark-theme][data-dsx-theme="oled"] {
     --c-surface-2: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 12%)); // darker
     --c-surface-3: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 8%)); // dark
 
-    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.3), 15%);
+    --c-accent-hover: hsl(var(--accent-h), calc(var(--accent-s) * 0.25), 20%);
 
     /* ? ========== Layout colors ========== */
     --c-bg-sidebar: black;
