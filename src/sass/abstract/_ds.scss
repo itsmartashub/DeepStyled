@@ -63,7 +63,7 @@ body {
     --dsr-text-1: var(--c-txt) !important;
     --dsr-text-2: var(--c-subtext-2) !important;
     --dsr-text-3: red !important;
-    --dsr-text-4: green !important;
+    --dsr-text-4: var(--c-accent) !important;
     --dsr-border-1: var(--c-border) !important;
     --dsr-border-2: var(--c-border) !important;
     --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border
@@ -96,7 +96,7 @@ body[data-ds-dark-theme] {
     --dsr-text-1: var(--c-txt) !important;
     --dsr-text-2: var(--c-subtext-1) !important;
     --dsr-text-3: var(--c-subtext-1) !important;
-    --dsr-text-4: var(--c-subtext-2) !important;
+    --dsr-text-4: var(--c-accent) !important;
     --dsr-border-1: var(--c-border) !important;
     --dsr-border-2: var(--c-border-accent) !important;
     --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border

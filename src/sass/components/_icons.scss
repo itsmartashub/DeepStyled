@@ -6,7 +6,7 @@
     --ds-icon-button-outline-color: var(--c-accent-hover) !important;
     // --ds-icon-button-size: 28px;
     // --ds-icon-button-background-inset: -4px;
-
+    color: var(--ds-icon-button-text-color) !important;
 
     // &:hover {
 
@@ -25,8 +25,15 @@
 // }
 /* TODO: fix this because there are many different icons!!! */
 /* .b3a5d6c1 is the icons of attached files */
-.ds-icon:not(.b3a5d6c1) {
+// .ds-icon:not(.b3a5d6c1) {
+// svg path:not([fill="none"], [stroke]) {
+//     fill: var(--c-accent) !important;
+// }
+// }
+.ds-icon {
+    // color: currentColor !important;
+
     svg path:not([fill="none"], [stroke]) {
-        fill: var(--c-accent) !important;
+        fill: currentColor !important;
     }
 }
