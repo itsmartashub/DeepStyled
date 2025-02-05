@@ -89,18 +89,21 @@
         }
     }
 
-    /* Thiking text parent (with "Thought for X seconds" note) */
-    .edb250b1 {
 
-        /* Thinking time note: "Thought for X seconds" */
-        .a6d716f5 {
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, transform 0.15s $easeOutCubic;
+    /* 
+    - Thinking time note: "Thought for X seconds"
+    - Search result note: "Found X results" */
+    .a6d716f5 {
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, transform 0.15s $easeOutCubic;
 
-            &:hover {
-                @include bg-accent-inverse;
-                transform: scale(1.02);
-            }
+        &:hover {
+            @include bg-accent-inverse;
+            transform: scale(1.02);
         }
+    }
+
+    /* Thinking text parent (with "Thought for X seconds" note) */
+    .edb250b1 {
 
         /* Thinking process texts */
         .e1675d8b {
@@ -137,8 +140,6 @@
             } */
         }
     }
-
-
 }
 
 /* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
