@@ -1,9 +1,22 @@
 body,
 [data-ds-dark-theme] {
-    --ds-toast-custom-box-shadow: 0px 4px 10.2px 0px rgba(0, 0, 0, .25);
-    --ds-toast-custom-color: var(--c-accent) !important;
-    --ds-toast-custom-text-color: var(--c-on-accent) !important;
+    --ds-toast-custom-box-shadow: 0px 4px 10.2px 0px hsla(var(--accent-hsl) / 0.15) !important;
+    --ds-toast-custom-color: var(--c-accent-hover) !important;
+    --ds-toast-custom-text-color: var(--c-accent) !important;
     --ds-toast-custom-close-text-color: var(--c-danger) !important;
     --ds-toast-custom-close-hover-color: hsla(var(--danger-hsl) / 0.15) !important;
     --ds-md-inline-code-color: var(--c-subtext-1) !important;
+}
+
+.ds-toast {
+    --ds-toast-color: var(--ds-toast-custom-color) !important;
+    --ds-toast-text-color: var(--ds-toast-custom-text-color) !important;
+    --ds-toast-close-text-color: var(--ds-toast-custom-close-text-color) !important;
+    --ds-toast-close-hover-color: var(--ds-toast-custom-close-hover-color) !important;
+    --ds-toast-box-shadow: var(--ds-toast-custom-box-shadow) !important;
+    // --ds-toast-padding: 11px 14px;
+    // --ds-toast-icon-size: 20px;
+    // --ds-toast-close-size: 18px;
+    // --ds-toast-close-border-radius: 6px;
+    // --ds-toast-close-icon-size: 10px;
 }
