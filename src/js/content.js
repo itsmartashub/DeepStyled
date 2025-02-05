@@ -1,7 +1,3 @@
-// import '../sass/index.scss'
-if (module.hot) {
-	module.hot.accept()
-}
 import { init as initThemes } from './app/themeManager'
 import { init as initFloating } from './app/floatingBtn'
 import { init as initColors } from './app/mainColors'

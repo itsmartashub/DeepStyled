@@ -25,7 +25,7 @@
     // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     background-color: var(--c-bg-msg-user) !important;
     color: var(--c-txt) !important;
-    padding: calc(var(--p-chat-bubble) * 0.75) !important;
+    padding: calc(var(--p-chat-bubble) * 0.4) calc(var(--p-chat-bubble) * 0.75) !important;
     border-radius: var(--br-chat-bubble) !important;
     line-height: calc(var(--lineHeight) / 16) !important;
     // width: var(--w_chat_user) !important;
