@@ -75,7 +75,7 @@ async function handleChangeTheme(e) {
 		case 'oled':
 			await updateTheme(THEMES.DARK, true)
 			break
-		case 'gpth-open-settings':
+		case 'dsx-open-settings':
 			openSettings()
 			break
 	}

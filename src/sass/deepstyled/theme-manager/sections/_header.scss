@@ -2,7 +2,7 @@
 	header {
 		margin-bottom: 1rem;
 
-		.gpth-settings__title {
+		.dsx__settings-title {
 			color: var(--c-accent);
 			font-size: 0.9em;
 			font-weight: 400;
@@ -19,7 +19,7 @@
 		}
 
 		/* Close button */
-		#gpth-settings-close {
+		#dsx__settings-close {
 			@extend %center_grid;
 			position: absolute;
 			top: 1rem;

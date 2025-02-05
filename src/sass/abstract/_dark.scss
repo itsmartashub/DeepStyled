@@ -1,13 +1,15 @@
 body.dark[data-ds-dark-theme] {
     /* --accent-hsl: 272 93% 78%; */
-    --accent-h: 272;
+    /* --accent-hsl: 244 100% 87%; */
+
+    /*     --accent-h: 272;
     --accent-s: 93%;
     --accent-l: 78%;
-    --accent-hsl: 272 93% 78%;
+    --accent-hsl: 272 93% 78%; */
     // --accent-hsl: 244 100% 87%;
-    // --accent-h: 244;
-    // --accent-s: 100%;
-    // --accent-l: 87%;
+    --accent-h: 244;
+    --accent-s: 100%;
+    --accent-l: 87%;
     --accent-hsl: var(--accent-h) var(--accent-s) var(--accent-l);
 
     /* --txt-hsl: 255 86% 92%; */

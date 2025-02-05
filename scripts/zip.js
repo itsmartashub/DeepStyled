@@ -9,7 +9,7 @@ const CONFIG = {
 	},
 	inputDir: 'build/prod',
 	outputDir: 'build/releases',
-	filenamePrefix: 'deepstyler-',
+	filenamePrefix: 'deepstyled-',
 	folders: {
 		chrome: 'chromium-mv3',
 		firefox: 'firefox-mv2',

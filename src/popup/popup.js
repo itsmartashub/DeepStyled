@@ -3,9 +3,7 @@ import { EXT_CURRENT_VERSION, CHANGELOG_URL } from '../js/app/config'
 import { RELEASE_CHANGES } from './changes'
 
 const seeFullChangelog = (version) =>
-	`<a href="https://github.com/itsmartashub/DeepStyler/releases/tag/v${version}" target="_blank" rel="noopener noreferrer" class="changelog__seefullchangelog">🚀 See full release notes</a>`
-
-// <a href="https://github.com/itsmartashub/GPThemes/issues/42">#42</a>
+	`<a href="https://github.com/itsmartashub/DeepStyled/releases/tag/v${version}" target="_blank" rel="noopener noreferrer" class="changelog__seefullchangelog">🚀 See full release notes</a>`
 
 let htmlChangesList = `
 

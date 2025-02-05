@@ -1,16 +1,16 @@
 {
-	"name": "deepstyler",
-	"displayName": "DeepStyler - Deepseek Customization",
+	"name": "deepstyled",
+	"displayName": "DeepStyled - Deepseek Customization",
 	"version": "1.0.0",
 	"description": "Transform DeepSeek's user interface with customisable accent colours, modern designs and chat bubbles.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/itsmartashub/DeepStyler.git"
+		"url": "https://github.com/itsmartashub/DeepStyled.git"
 	},
 	"bugs": {
-		"url": "https://github.com/itsmartashub/DeepStyler/issues"
+		"url": "https://github.com/itsmartashub/DeepStyled/issues"
 	},
-	"homepage": "https://github.com/itsmartashub/DeepStyler/",
+	"homepage": "https://github.com/itsmartashub/DeepStyled/",
 	"scripts": {
 		"clean:dev": "rimraf .parcel-cache build/dev",
 		"clean:prod": "rimraf .parcel-cache build/prod",
@@ -18,8 +18,8 @@
 		"clean:all": "npm run clean:dev && npm run clean:prod && npm run clean:zips",
 		"dev:chrome": "parcel watch src/manifests/chromium-mv3/manifest.json --host localhost --dist-dir build/dev/chromium-mv3 --config @parcel/config-webextension",
 		"dev:ff": "parcel watch src/manifests/firefox-mv2/manifest.json --host localhost --dist-dir build/dev/firefox-mv2 --config @parcel/config-webextension",
-		"build:chrome": "parcel build src/manifests/chromium-mv3/manifest.json --dist-dir build/prod/deepstyler-chromium-mv3 --no-source-maps --config @parcel/config-webextension",
-		"build:ff": "parcel build src/manifests/firefox-mv2/manifest.json --dist-dir build/prod/deepstyler-firefox-mv2 --no-source-maps --config @parcel/config-webextension",
+		"build:chrome": "parcel build src/manifests/chromium-mv3/manifest.json --dist-dir build/prod/deepstyled-chromium-mv3 --no-source-maps --config @parcel/config-webextension",
+		"build:ff": "parcel build src/manifests/firefox-mv2/manifest.json --dist-dir build/prod/deepstyled-firefox-mv2 --no-source-maps --config @parcel/config-webextension",
 		"zip": "node ./scripts/zip.js",
 		"build:all": "npm run clean:all && npm run build:chrome && npm run build:ff && npm run zip"
 	},
@@ -45,7 +45,7 @@
 		"deepseek enhancement",
 		"modern themes",
 		"minimalistic",
-		"deepstyler",
+		"deepstyled",
 		"modern ui",
 		"visual experience",
 		"user interface makeover",

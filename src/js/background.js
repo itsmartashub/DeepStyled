@@ -7,7 +7,7 @@ browser.runtime.onInstalled.addListener((details) => {
 	// Listen for updates
 	if (details.reason === 'update') {
 		browser.action.setBadgeText({ text: 'NEW' })
-		browser.storage.sync.remove('gptheme')
+		browser.storage.sync.remove('deepstyled')
 	} else {
 		browser.action.setBadgeText({ text: browser.runtime.getManifest().version })
 	}

@@ -8,7 +8,7 @@ body:
       attributes:
           label: Prerequisites
           options:
-              - label: I [searched for any existing report](https://github.com/itsmartashub/GPThemes/issues?q=is%3Aissue) about this question to avoid opening a duplicate.
+              - label: I [searched for any existing report](https://github.com/itsmartashub/DeepStyled/issues?q=is%3Aissue) about this question to avoid opening a duplicate.
                 required: true
               - label: This issue contains only one question.
                 required: true
@@ -32,4 +32,4 @@ body:
     - type: markdown
       attributes:
           value: |
-              ### Thanks for using the GPThemes 🤝
+              ### Thanks for using the DeepStyled 🤝

@@ -1,6 +1,5 @@
 name: 💡 Feature Request (Suggestion)
-# description: Have a new idea/feature for GPThemes? Let me know...
-description: Create a feature request to enhance the experience using GPThemes.
+description: Create a feature request to enhance the experience using DeepStyled.
 title: 'your_accurately_describing_title'
 labels: ['enhancement']
 body:
@@ -17,7 +16,7 @@ body:
           label: Prerequisites
           description: Increase the chances of your issue being accepted by making sure it has not been raised before.
           options:
-              - label: I [searched for any existing report](https://github.com/itsmartashub/GPThemes/issues?q=is%3Aissue) about this feature to avoid opening a duplicate.
+              - label: I [searched for any existing report](https://github.com/itsmartashub/DeepStyled/issues?q=is%3Aissue) about this feature to avoid opening a duplicate.
                 required: true
               - label: This issue contains only one feature.
                 required: true

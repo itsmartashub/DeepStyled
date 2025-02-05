@@ -73,33 +73,33 @@ const applySettings = (settings) => {
 
 const updateUI = (settings) => {
 	const isFullWidth = settings.w_chat_gpt === '100%'
-	const textareaWidthSlider = document.querySelector('#gpth-textarea-width-custom')
+	const textareaWidthSlider = document.querySelector('#dsx-textarea-width-custom')
 	const textareaWidthCard = textareaWidthSlider?.closest('.card')
 
 	const chatGptUnit = settings.w_chat_gpt.includes('rem') ? 'REM' : '%'
 	const promptUnit = settings.w_prompt_textarea.includes('rem') ? 'REM' : '%'
 
-	setElementProperty('.gpth-settings #gpth-full-width', 'checked', isFullWidth)
-	setElementProperty('.gpth-settings #gpth-full-width-custom', 'value', removePercentAndRem(settings.w_chat_gpt))
+	setElementProperty('.dsx__settings #dsx-full-width', 'checked', isFullWidth)
+	setElementProperty('.dsx__settings #dsx-full-width-custom', 'value', removePercentAndRem(settings.w_chat_gpt))
 	setElementProperty(
-		'.gpth-settings #range-output-gpth-full-width-custom',
+		'.dsx__settings #range-output-gpth-full-width-custom',
 		'textContent',
 		removePercentAndRem(settings.w_chat_gpt)
 	)
-	setElementProperty('.gpth-settings #unit-gpth-full-width-custom', 'textContent', chatGptUnit)
+	setElementProperty('.dsx__settings #unit-gpth-full-width-custom', 'textContent', chatGptUnit)
 
-	setElementProperty('.gpth-settings #gpth-sync-textarea-chat-width', 'checked', isSyncEnabled)
+	setElementProperty('.dsx__settings #dsx-sync-textarea-chat-width', 'checked', isSyncEnabled)
 	setElementProperty(
-		'.gpth-settings #gpth-textarea-width-custom',
+		'.dsx__settings #dsx-textarea-width-custom',
 		'value',
 		removePercentAndRem(settings.w_prompt_textarea)
 	)
 	setElementProperty(
-		'.gpth-settings #range-output-gpth-textarea-width-custom',
+		'.dsx__settings #range-output-gpth-textarea-width-custom',
 		'textContent',
 		removePercentAndRem(settings.w_prompt_textarea)
 	)
-	setElementProperty('.gpth-settings #unit-gpth-textarea-width-custom', 'textContent', promptUnit)
+	setElementProperty('.dsx__settings #unit-gpth-textarea-width-custom', 'textContent', promptUnit)
 
 	if (textareaWidthSlider) textareaWidthSlider.disabled = isSyncEnabled
 
@@ -165,13 +165,13 @@ const handleWidthChange = (key, e) => {
 
 		if (isSyncEnabled) currentSettings.w_prompt_textarea = value
 
-		setElementProperty('.gpth-settings #gpth-full-width', 'checked', e.target.value === '100')
+		setElementProperty('.dsx__settings #dsx-full-width', 'checked', e.target.value === '100')
 	} else if (key === 'w_prompt_textarea' && isSyncEnabled && value !== currentSettings.w_chat_gpt) {
 		isSyncEnabled = false
-		setElementProperty('.gpth-settings #gpth-sync-textarea-chat-width', 'checked', false)
+		setElementProperty('.dsx__settings #dsx-sync-textarea-chat-width', 'checked', false)
 	}
 
-	setElementProperty(`.gpth-settings #unit-${e.target.id}`, 'textContent', e.target.dataset.unit || '%')
+	setElementProperty(`.dsx__settings #unit-${e.target.id}`, 'textContent', e.target.dataset.unit || '%')
 
 	if (isChatWidthModified(currentSettings)) addResizeListener()
 
@@ -267,23 +267,23 @@ const addResizeListener = () => {
 
 // Event listeners
 const handleWidthsListeners = () => {
-	document.querySelector('.gpth-settings #gpth-full-width')?.addEventListener('change', toggleChatFullWidth)
+	document.querySelector('.dsx__settings #dsx-full-width')?.addEventListener('change', toggleChatFullWidth)
 
 	document
-		.querySelector('.gpth-settings #gpth-sync-textarea-chat-width')
+		.querySelector('.dsx__settings #dsx-sync-textarea-chat-width')
 		?.addEventListener('change', toggleSyncTextareaWithChatWidth)
 	document
-		.querySelector('.gpth-settings #gpth-full-width-custom')
+		.querySelector('.dsx__settings #dsx-full-width-custom')
 		?.addEventListener('input', (e) => handleWidthChange('w_chat_gpt', e))
 
 	document
-		.querySelector('.gpth-settings #gpth-textarea-width-custom')
+		.querySelector('.dsx__settings #dsx-textarea-width-custom')
 		?.addEventListener('input', (e) => handleWidthChange('w_prompt_textarea', e))
 
-	document.querySelector('.gpth-settings #resetWidths')?.addEventListener('click', resetWidths)
+	document.querySelector('.dsx__settings #resetWidths')?.addEventListener('click', resetWidths)
 
 	// Then update the click handler for the reset button
-	/* document.querySelector('.gpth-settings #resetWidths')?.addEventListener('click', async () => {
+	/* document.querySelector('.dsx__settings #resetWidths')?.addEventListener('click', async () => {
 		if (await confirmReset()) {
 			resetWidths()
 		}

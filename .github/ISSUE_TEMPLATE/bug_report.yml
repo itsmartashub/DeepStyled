@@ -1,5 +1,5 @@
 name: 🐛 Bug Report
-description: Create a report about a bug you experienced while using GPThemes.
+description: Create a report about a bug you experienced while using DeepStyled.
 title: 'your_accurately_describing_title'
 labels: ['bug']
 body:
@@ -18,7 +18,7 @@ body:
           # description: Increase the chances of your issue being accepted by making sure it has not been raised before.
           options:
               # - label: I've checked that there is no "open" or "closed" issue about this bug.
-              - label: I [searched for any existing report](https://github.com/itsmartashub/GPThemes/issues?q=is%3Aissue) about this bug to avoid opening a duplicate.
+              - label: I [searched for any existing report](https://github.com/itsmartashub/DeepStyled/issues?q=is%3Aissue) about this bug to avoid opening a duplicate.
                 required: true
               - label: This issue contains only one bug.
                 required: true
@@ -111,14 +111,14 @@ body:
     - type: input
       id: extension-version
       attributes:
-          label: GPThemes version
+          label: DeepStyled version
           placeholder: e.g. "v2.0.2"
       validations:
           required: true
 
     - type: dropdown
       attributes:
-          label: Does this happen when GPThemes is disabled?
+          label: Does this happen when DeepStyled is disabled?
           options:
               - 'No'
               - 'Yes'

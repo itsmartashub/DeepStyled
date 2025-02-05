@@ -26,29 +26,29 @@ async function init() {
 
 // ___ Create and append the floating button? - UI Components
 async function createFloatingBtn() {
-	const gpthFloatingBtn = document.createElement('div')
-	gpthFloatingBtn.className = 'gpth__floating'
+	const dsxFloatingBtn = document.createElement('div')
+	dsxFloatingBtn.className = 'dsx__floating'
 
-	gpthFloatingBtn.innerHTML = `
-    <div class="gpth__floating-icon">${icon_paint}</div>
-    <div class="gpth__options">
-      <div class="gpth__options-btns">
+	dsxFloatingBtn.innerHTML = `
+    <div class="dsx__floating-icon">${icon_paint}</div>
+    <div class="dsx__options">
+      <div class="dsx__options-btns">
         <button id="light" data-gpth-theme="light">${icon_sun}</button>
         <button id="dark" data-gpth-theme="dark">${icon_moon}</button>
         <button id="oled" data-gpth-theme="black">${icon_moon_full}</button>
-        <button id="gpth-open-settings" data-gpth-theme="more">${icon_settings}</button>
+        <button id="dsx-open-settings" data-gpth-theme="more">${icon_settings}</button>
       </div>
     </div>
   `
 
-	document.body.appendChild(gpthFloatingBtn)
-	cacheFloatingElements(gpthFloatingBtn)
+	document.body.appendChild(dsxFloatingBtn)
+	cacheFloatingElements(dsxFloatingBtn)
 	addFloatingListeners()
 }
-function cacheFloatingElements(gpthFloatingBtn) {
-	elements.floatingBtn = gpthFloatingBtn
-	elements.floatingOptions = gpthFloatingBtn.querySelector('.gpth__options')
-	elements.floatingBtnsContainer = gpthFloatingBtn.querySelector('.gpth__options-btns')
+function cacheFloatingElements(dsxFloatingBtn) {
+	elements.floatingBtn = dsxFloatingBtn
+	elements.floatingOptions = dsxFloatingBtn.querySelector('.dsx__options')
+	elements.floatingBtnsContainer = dsxFloatingBtn.querySelector('.dsx__options-btns')
 }
 function addFloatingListeners() {
 	elements.floatingBtn.addEventListener('click', toggleFloatingOptions)
@@ -57,7 +57,7 @@ function addFloatingListeners() {
 // __ Options and Settings
 function toggleFloatingOptions() {
 	isOptionsShown = !isOptionsShown
-	elements.floatingOptions.classList.toggle('gpth__options--shown', isOptionsShown)
+	elements.floatingOptions.classList.toggle('dsx__options--shown', isOptionsShown)
 
 	if (isOptionsShown) {
 		document.body.addEventListener('click', hideFloatingOptions)
@@ -77,7 +77,7 @@ function hideFloatingOptions(e) {
 function closeFloatingOptions() {
 	// console.log('closeFloatingOptions: ', { isOptionsShown })
 	isOptionsShown = false
-	elements.floatingOptions.classList.remove('gpth__options--shown')
+	elements.floatingOptions.classList.remove('dsx__options--shown')
 	document.body.removeEventListener('click', hideFloatingOptions)
 	// console.log('closeFloatingOptions: ', { isOptionsShown })
 }

@@ -1,4 +1,4 @@
-.gpth {
+.dsx {
 	&__floating {
 		--floating-icon-size: 2.8rem;
 		--top: calc(var(--h-header) + 0.5rem);
@@ -365,19 +365,19 @@
 
 /* html.light {
 	& [data-gpth-theme]::after,
-	.gpth__svg-icon::after {
+	.dsx__svg-icon::after {
 		color: var(--c-txt);
 	}
 }
 html.dark {
 	& [data-gpth-theme]::after,
-	.gpth__svg-icon::after {
+	.dsx__svg-icon::after {
 		color: var(--c-on-accent);
 	}
 }
  */
 html.light {
-	.gpth__floating-icon::after {
+	.dsx__floating-icon::after {
 		color: var(--c-txt);
 	}
 }

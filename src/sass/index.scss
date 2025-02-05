@@ -15,12 +15,6 @@
 @import 'global/_base';
 @import 'global/_scrollbars';
 
-/* DARK hljs Theme Styles */
-@import 'hljs/_ros-pine-moon';
-
-/* OLED hljs Themes */
-@import 'hljs/oled/_ir-black'; // favorit. yellowish/pink/blue jace boje
-
 @import 'components/_skeleton';
 @import 'components/_icons';
 @import 'components/_btn';
@@ -40,7 +34,7 @@
 @import 'elements/_right--sticky';
 @import 'elements/_right--textarea';
 
-@import 'gpthemes/index';
+@import 'deepstyled/index';
 
 /* DS */
 @import 'abstract/_light.scss';

@@ -1,22 +1,22 @@
 import { renderColorsTab, resetAllAccents } from './mainColors.js'
-import { renderFontsTab, handleFontsListeners } from './mainFonts.js'
-import { renderWidthsTab, handleWidthsListeners } from './mainWidths.js'
+// import { renderFontsTab, handleFontsListeners } from './mainFonts.js'
+// import { renderWidthsTab, handleWidthsListeners } from './mainWidths.js'
 
 let $settings = null
 let $resetAllAccentsBtn = null
 
-const SETTINGS_OPEN_CLASS = 'gpth-settings--open'
+const SETTINGS_OPEN_CLASS = 'dsx__settings--open'
 
 async function createSettings() {
 	const gpthSettings = document.createElement('div')
-	gpthSettings.className = 'gpth-settings'
+	gpthSettings.className = 'dsx__settings'
 
 	gpthSettings.innerHTML = `
 	<header>
-		<h2 class="gpth-settings__title">
+		<h2 class="dsx__settings-title">
 			Deep<span>Styled</span> Customization
 		</h2>
-		<button id="gpth-settings-close">
+		<button id="dsx__settings-close">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M6.34315 6.34338L17.6569 17.6571M17.6569 6.34338L6.34315 17.6571" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 			</svg>
@@ -54,10 +54,10 @@ function cacheElements(gpthSettings) {
 	$resetAllAccentsBtn.disabled = true
 }
 function addListeners() {
-	document.getElementById('gpth-settings-close').addEventListener('click', closeSettings)
+	document.getElementById('dsx__settings-close').addEventListener('click', closeSettings)
 	handleTabsSwitching()
-	handleFontsListeners()
-	handleWidthsListeners()
+	// handleFontsListeners()
+	// handleWidthsListeners()
 	$resetAllAccentsBtn.addEventListener('click', resetAllAccents)
 }
 // ___ Settings management
@@ -76,12 +76,12 @@ function closeSettings() {
 	$resetAllAccentsBtn.disabled = true
 }
 function handleClickOutsideSettings(e) {
-	if (!$settings.contains(e.target) && e.target.id !== 'gpth-open-settings') closeSettings()
+	if (!$settings.contains(e.target) && e.target.id !== 'dsx-open-settings') closeSettings()
 }
 
 function handleTabsSwitching() {
-	const tabs = document.querySelectorAll('.gpth-settings .tabs__button')
-	const panes = document.querySelectorAll('.gpth-settings .tabs__pane')
+	const tabs = document.querySelectorAll('.dsx__settings .tabs__button')
+	const panes = document.querySelectorAll('.dsx__settings .tabs__pane')
 
 	tabs.forEach((tab, index) => {
 		tab.addEventListener('click', () => {

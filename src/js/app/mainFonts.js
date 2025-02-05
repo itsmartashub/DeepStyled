@@ -100,7 +100,7 @@ let renderFontsTab = `
 
 // Function to set input field values
 function setInputFieldValue(inputSelector, inputVal) {
-	const inputEl = document.querySelector(`.gpth-settings #${inputSelector}`)
+	const inputEl = document.querySelector(`.dsx__settings #${inputSelector}`)
 
 	inputEl.value = inputVal
 }
@@ -217,7 +217,7 @@ function validateInputField(inputValue, min, max = 24) {
 // Function to display error messages
 function displayError(message) {
 	// Remove any previous error messages
-	const existingError = document.querySelector('.gpth-error-msg')
+	const existingError = document.querySelector('.dsx-error-msg')
 	if (existingError) existingError.remove()
 
 	// Create and insert the new error message
@@ -336,11 +336,11 @@ function resetFonts() {
 // Function to handle font listeners
 function handleFontsListeners() {
 	const selectors = {
-		selectFontFamily: document.querySelector('.gpth-settings #fontFamily'),
-		inputFontSize: document.querySelector('.gpth-settings #fontSize'),
-		inputLineHeight: document.querySelector('.gpth-settings #lineHeight'),
-		inputLetterSpacing: document.querySelector('.gpth-settings #letterSpacing'),
-		btnResetFont: document.querySelector('.gpth-settings #resetFont'),
+		selectFontFamily: document.querySelector('.dsx__settings #fontFamily'),
+		inputFontSize: document.querySelector('.dsx__settings #fontSize'),
+		inputLineHeight: document.querySelector('.dsx__settings #lineHeight'),
+		inputLetterSpacing: document.querySelector('.dsx__settings #letterSpacing'),
+		btnResetFont: document.querySelector('.dsx__settings #resetFont'),
 	}
 
 	selectors.selectFontFamily.addEventListener('change', changeFontFamily)
