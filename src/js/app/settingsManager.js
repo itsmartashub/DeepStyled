@@ -32,12 +32,16 @@ async function createSettings() {
 		</div>
 		<div class="tabs__content">
 			<div class="tabs__pane active" id="tab-colors">${renderColorsTab}</div>
-			<div class="tabs__pane" id="tab-fonts">${renderFontsTab}</div>
-			<div class="tabs__pane" id="tab-assets">${renderWidthsTab}</div>
+			<div class="tabs__pane" id="tab-fonts" style="text-align: center;">SOON...</div>
+			<div class="tabs__pane" id="tab-assets" style="text-align: center;">SOON...</div>
 		</div>
 	</div>
   </main>  
   `
+
+	/*   <div class="tabs__pane active" id="tab-colors">${renderColorsTab}</div>
+  <div class="tabs__pane" id="tab-fonts">${renderFontsTab}</div>
+  <div class="tabs__pane" id="tab-assets">${renderWidthsTab}</div> */
 
 	document.body.appendChild(gpthSettings)
 	cacheElements(gpthSettings)

@@ -6,10 +6,10 @@ body {
 	background-color: var(--c-bg-chats-container) !important;
 }
 
-:host,
-html {
-	font-family: var(--fontFamily), var(--fontFamilyDefault) !important;
-}
+// :host,
+// html {
+// 	font-family: var(--fontFamily), var(--fontFamilyDefault) !important;
+// }
 
 ::selection {
 	background-color: hsla(var(--accent-hsl) / 0.5) !important;

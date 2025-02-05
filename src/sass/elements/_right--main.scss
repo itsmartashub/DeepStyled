@@ -22,7 +22,7 @@
 
 /* User chat bubble */
 .fbb737a4 {
-    font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     background-color: var(--c-bg-msg-user) !important;
     color: var(--c-txt) !important;
     padding: calc(var(--p-chat-bubble) * 0.75) !important;
@@ -47,7 +47,7 @@
         --ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
         --ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
         --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
-        --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+        // --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
         --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
         --ds-textarea-padding: calc(var(--p-chat-bubble) * 0.85) !important;
         --ds-textarea-border-radius: calc(var(--br-chat-bubble) * 0.75) !important;
@@ -65,7 +65,7 @@
 /* GPT chat bubble */
 .f9bf7997 {
     --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
-    font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     // line-height: calc(var(--lineHeight) / 16) !important;
     background-color: var(--c-bg-msg-gpt);
     color: var(--c-txt) !important;

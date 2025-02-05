@@ -12,10 +12,10 @@
 		display: grid;
 		place-content: center;
 		place-items: center;
-		gap: 1rem;
-		padding: 1rem;
+		gap: 0.5rem;
+		padding: 0.8rem;
 		border-radius: 1rem;
-		font-size: 0.6rem;
+		font-size: 0.4em;
 		text-transform: uppercase;
 		aspect-ratio: 1;
 		// box-shadow: var(--shadow-values) var(--shadow-color);
@@ -32,7 +32,7 @@
 	}
 
 	input[type='color'] {
-		--input_color_size: 2.4rem;
+		--input_color_size: 3rem;
 		--br_colorpicker: 12px;
 		width: var(--input_color_size);
 		height: var(--input_color_size);
