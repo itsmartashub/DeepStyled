@@ -65,9 +65,12 @@ button {
 		--c-button-hover-text-color: var(--c-danger) !important;
 	}
 
+	&--borderless {
+		--ds-button-hover-color: var(--c-accent-hover) !important;
+	}
+
 	&--xs {}
 
 	&--square {}
 
-	&--borderless {}
 }

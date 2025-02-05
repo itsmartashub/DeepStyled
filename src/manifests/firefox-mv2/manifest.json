@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"version": "1.0.0",
-	"displayName": "DeepStyler - Deepseek Customization",
+	"name": "DeepStyler - Deepseek Customization",
 	"description": "Transform DeepSeek's user interface with customisable accent colours, modern designs and chat bubbles.",
 	"author": "itsmarta",
 	"homepage_url": "https://github.com/itsmartashub/DeepStyler",
