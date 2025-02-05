@@ -51,3 +51,8 @@
     //     background-color: var(--c-surface-3) !important;
     // }
 }
+
+.ds-modal-overlay {
+    background-color: var(--c-bg-modal) !important;
+    backdrop-filter: blur(2rem);
+}
