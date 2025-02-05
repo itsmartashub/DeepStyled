@@ -1,0 +1,23 @@
+.ds-banner {
+    // --ds-banner-font-size: var(--ds-font-size-m);
+    // --ds-banner-line-height: var(--ds-line-height-m);
+    // --ds-banner-padding: 8px 14px;
+    --ds-banner-text-color: var(--c-accent) !important;
+    --ds-banner-color: var(--c-accent-hover) !important;
+    --ds-banner-close-icon-color: var(--ds-banner-text-color) !important;
+
+    &--warning {
+        --ds-banner-color: hsla(var(--warning-hsl) / 0.15) !important;
+        --ds-banner-text-color: var(--c-warning) !important;
+
+        .ds-icon-button {
+            --ds-icon-button-hover-color: hsla(var(--danger-hsl) / 0.15) !important;
+            --ds-icon-button-text-color: currentColor !important;
+        }
+    }
+
+    .ds-icon-button {
+        --ds-icon-button-text-color: currentColor !important;
+    }
+
+}

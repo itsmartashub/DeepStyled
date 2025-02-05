@@ -36,7 +36,7 @@ button {
 	// 	color: currentColor !important;
 	// }
 
-	&--primary:not(.ds-button--square) {
+	&--primary:not(.ds-button--square, .ds-button--text) {
 		@extend %btn-default;
 		--ds-button-color: var(--c-accent) !important;
 		--button-text-color: var(--c-on-accent) !important;
@@ -67,6 +67,20 @@ button {
 
 	&--borderless {
 		--ds-button-hover-color: var(--c-accent-hover) !important;
+	}
+
+	&--bordered {
+		--button-border-color: var(--c-border) !important;
+	}
+
+	&--text {
+		--button-text-color: var(--c-subtext-2) !important;
+		// color: var(--button-text-color) !important;
+
+		&:hover {
+
+			background-color: transparent !important;
+		}
 	}
 
 	&--xs {}

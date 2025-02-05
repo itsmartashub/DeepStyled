@@ -5,7 +5,8 @@ import { renderButton } from './components/renderButtons'
 
 const DEFAULT_COLORS = {
 	LIGHT: '#7e3e47',
-	DARK: '#ca93fb',
+	// DARK: '#ca93fb',
+	DARK: '#c1bdff',
 }
 
 const STORAGE_KEYS = {

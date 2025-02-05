@@ -1,0 +1,11 @@
+.ds-divider {
+
+    &__left,
+    &__right {
+        background-color: hsla(var(--accent-hsl) / 0.15) !important;
+    }
+
+    &__content {
+        color: hsla(var(--accent-hsl) / 0.3) !important;
+    }
+}

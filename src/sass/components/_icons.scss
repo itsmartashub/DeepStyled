@@ -15,6 +15,12 @@
     //         // background-color: var(--c-accent-hover) !important;
     //     }
     // }
+
+    &:hover {
+        &::before {
+            background-color: var(--ds-icon-button-hover-color) !important;
+        }
+    }
 }
 
 /* Shark logo in sidebar */
@@ -41,4 +47,9 @@
 /* .ds-loading - loading spinner */
 .e7920f9e {
     color: var(--c-accent) !important;
+}
+
+/* All the ds blue svgs that have this color */
+[fill="#4D6BFE"] {
+    fill: var(--c-accent) !important;
 }
