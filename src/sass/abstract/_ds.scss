@@ -6,11 +6,10 @@
 }
 
 body {
-    --ds-toast-custom-font-size: 16px;
+    // --ds-toast-custom-font-size: 16px;
     font-size: var(--ds-font-size-m);
     line-height: var(--ds-line-height-m);
     color: var(--c-txt) !important;
-
 
     --c-bg-gradient: linear-gradient(135deg,
             hsla(var(--accent-hsl) / 0.45) 0%,

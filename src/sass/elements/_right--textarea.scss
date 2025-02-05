@@ -7,6 +7,20 @@
         }
     }
 
+    /* Attach icon */
+    .f02f0e25 {
+        color: var(--c-accent) !important;
+
+        /* Attach icon disabled */
+        &.cfba8f40 {
+            color: var(--c-subtext-1) !important;
+        }
+    }
+
+    // .ds-icon {
+    //     color: var(--c-accent) !important;
+    // }
+
     /* Remove box-shadow (like a border) around prompt field */
     .dd442025 {
         box-shadow: none !important;

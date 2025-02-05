@@ -26,6 +26,14 @@
 /* Sidebar */
 .dc04ec1d {
 
+
+    /* deepseek icon log only (when sidebar is collapsed) */
+    .a7f3a288 {
+        .ds-icon {
+            color: var(--c-accent) !important;
+        }
+    }
+
     /* "deepseek" text logo in sidebar */
     .e066abb8 svg {
         color: var(--c-accent) !important;

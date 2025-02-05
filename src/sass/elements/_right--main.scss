@@ -49,8 +49,8 @@
         --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
         --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
         --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
-        --ds-textarea-padding: var(--p-chat-bubble) !important;
-        --ds-textarea-border-radius: var(--br-chat-bubble) !important;
+        --ds-textarea-padding: calc(var(--p-chat-bubble) * 0.85) !important;
+        --ds-textarea-border-radius: calc(var(--br-chat-bubble) * 0.75) !important;
         caret-color: var(--c-accent);
         color: var(--c-accent) !important;
         background-color: hsla(var(--accent-hsl) / 0.05) !important;
