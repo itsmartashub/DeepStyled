@@ -58,8 +58,20 @@
 
         &:not(&.b64fb9ae):hover {
             background-color: var(--c-surface-2) !important;
-            // box-shadow: 0 0 1px 2px hsla(var(--accent-hsl) / 0.1) inset !important;
             transform: translateY(-0.08rem);
+        }
+
+        /* Overlay fade where 3dots are */
+        .eaaaba55 {
+            background: linear-gradient(90deg, transparent 0%, var(--dsr-side-bg) 60%) !important;
+        }
+
+        /* Overlay fade where 3dots are */
+        &:not(&.b64fb9ae):hover,
+        &.b64fb9ae {
+            .eaaaba55 {
+                --dsr-side-bg: var(--c-surface-2) !important;
+            }
         }
     }
 
