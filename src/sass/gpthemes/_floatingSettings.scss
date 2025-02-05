@@ -22,7 +22,7 @@
 	box-shadow: var(--shadow-values) var(--shadow-color);
 	pointer-events: none;
 	transform: translateX(calc(100% + 1.5rem)) !important;
-	z-index: calc(var(--z-modal) + 10);
+	z-index: 10;
 	overflow: clip auto;
 	font-size: 1.6rem;
 	transition: transform 0.3s $easeOutBack, opacity 0.3s ease;
