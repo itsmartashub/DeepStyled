@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-      <img src="https://github.com/itsmartashub/deepstyled/blob/main/gh/deepstyled-github-logo.png" alt="logo-for-deepstyled-chrome-extension" width="300" height="300"  />
+      <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-gh-header.png" alt="logo-for-deepstyled-chrome-extension" width="300" height="300"  />
     </div>
 </div>
 
@@ -10,7 +10,7 @@
 
 <div align="center">
     <div>
-      <img src="https://github.com/itsmartashub/deepstyled/blob/main/gh/deepstyled-dark.png" alt="" width="100%"  />
+      <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-dark.png" alt="" width="100%"  />
     </div>
 </div>
 
@@ -22,11 +22,11 @@
     <h3>Custom Accent Color</h3>
     <div>
       <div>
-        <img src="https://github.com/itsmartashub/deepstyled/blob/main/gh/deepstyled-oled.png" alt="" width="100%"  />
+        <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-oled.png" alt="" width="100%"  />
       </div>
         </br>
       <div>
-        <img src="https://github.com/itsmartashub/deepstyled/blob/main/gh/deepstyled-light.png" alt="" width="100%"  />
+        <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-light.png" alt="" width="100%"  />
       </div>
     </div>
 </div>
