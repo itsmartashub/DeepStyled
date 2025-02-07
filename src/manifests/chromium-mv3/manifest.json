@@ -7,12 +7,8 @@
 	"homepage_url": "https://github.com/itsmartashub/DeepStyled",
 	"host_permissions": ["https://chat.deepseek.com/*"],
 	"icons": {
-		"16": "../../assets/icons/16.png",
-		"19": "../../assets/icons/19.png",
-		"32": "../../assets/icons/32.png",
-		"38": "../../assets/icons/38.png",
-		"48": "../../assets/icons/48.png",
-		"128": "../../assets/icons/128.png"
+		"96": "../../assets/icons/96.png",
+		"128": "../../assets/icons/192.png"
 	},
 	"content_scripts": [
 		{
@@ -33,9 +29,8 @@
 	"action": {
 		"default_popup": "../../popup/popup.html",
 		"default_icon": {
-			"16": "../../assets/icons/16.png",
-			"48": "../../assets/icons/48.png",
-			"128": "../../assets/icons/128.png"
+			"96": "../../assets/icons/96.png",
+			"128": "../../assets/icons/192.png"
 		},
 		"default_title": "DeepStyled"
 	}

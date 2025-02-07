@@ -5,20 +5,20 @@ import { RELEASE_CHANGES } from './changes'
 const seeFullChangelog = (version) =>
 	`<a href="https://github.com/itsmartashub/DeepStyled/releases/tag/v${version}" target="_blank" rel="noopener noreferrer" class="changelog__seefullchangelog">🚀 See full release notes</a>`
 
-let htmlChangesList = `
+// let htmlChangesList = `
 
-	${RELEASE_CHANGES}
+// 	${RELEASE_CHANGES}
 
-	<p>${seeFullChangelog(EXT_CURRENT_VERSION)}</p>
-`
-const changelogChangesEl = document.querySelector('.changelog__changes')
-const changelogVersionEl = document.querySelector('.changelog__version')
+// 	<p>${seeFullChangelog(EXT_CURRENT_VERSION)}</p>
+// `
+// const changelogChangesEl = document.querySelector('.changelog__changes')
+// const changelogVersionEl = document.querySelector('.changelog__version')
 
-function injectUpdateNotification() {
-	changelogChangesEl.insertAdjacentHTML('beforeend', htmlChangesList)
-	changelogVersionEl.innerText = `v${EXT_CURRENT_VERSION}`
-	changelogVersionEl.href = CHANGELOG_URL
-}
+// function injectUpdateNotification() {
+// 	changelogChangesEl.insertAdjacentHTML('beforeend', htmlChangesList)
+// 	changelogVersionEl.innerText = `v${EXT_CURRENT_VERSION}`
+// 	changelogVersionEl.href = CHANGELOG_URL
+// }
 
 async function setBadge() {
 	try {
