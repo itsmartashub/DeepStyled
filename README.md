@@ -5,7 +5,7 @@
 </div>
 
 <h1 align="center">DeepStyled</h1>
-<h3 align="center">Transform DeepSeek's user interface with customisable accent colours and font styles, modern designs and custom chat bubbles width. </h3>
+<h3 align="center">Transform DeepSeek's user interface with customisable accent colours, mdoern design and chat bubbles.</h3>
 <br/><br/>
 
 <div align="center">
@@ -38,7 +38,7 @@
 <!-- -   **Custom/full chat and prompt field width**: Adjust the width of chat bubbles and prompt textarea to your preference, including full-width options for an immersive experience.
 -   **Custom fonts**: Personalize your DeepStyled interface with custom fonts, including **font family**, **size**, **line height**, and **letter spacing**. -->
 
--   **Custom theming**: Personalize DeepStyled with **your preferred accent colors** and see a live preview.
+-   **Custom theming**: Personalize Deepseek with **your preferred accent colors** and see a live preview.
 -   **Modern themes**: **Light**, **Dark**, and **Black** (AMOLED) options for a stylish look.
 -   **Chat bubbles**: Sleek design to differentiate your messages from AI responses.
 -   **Easy theme switching**: Change themes via a floating button.
@@ -79,12 +79,12 @@
 
 ## Permissions
 
--   **Storage**: DeepStyled requests permission to access browser storage to save your chosen theme name, custom accent color, custom font properties and custom chat/prompt width. This ensures a consistent and personalized experience across DeepStyled website.
--   **DeepStyled Website Access**: DeepStyled requires access to specific URLs to modify the visual appearance of the DeepStyled website. This includes `https://chat.deepseek.com/`. This access is necessary for the extension to function properly and provide a customized interface.
+-   **Storage**: DeepStyled requests permission to access browser storage to save your chosen theme name and custom accent colors. This ensures a consistent and personalized experience across Deepseek website.
+-   **Deepseek Website Access**: DeepStyled requires access to specific URLs to modify the visual appearance of the Deepseek website. This includes `https://chat.deepseek.com/`. This access is necessary for the extension to function properly and provide a customized interface.
 
 ## Disclaimer
 
--   I'd like to remind you that **DeepStyled frequently updates its website**, and even minor changes can sometimes cause unexpected issues with the extension's functionality and appearance.
+-   I'd like to remind you that **Deepseek frequently updates its website**, and even minor changes can sometimes cause unexpected issues with the extension's functionality and appearance.
 -   Your patience are greatly appreciated. If you notice any obvious issues with the appearance or functionality of the extension, I'm likely already working on it or it has already been fixed, but the new release is not pushed yet or the Chrome Store hasn't yet reflected the changes live. You can track the status on GitHub to stay informed.
 -   Please note that this is a hobby project and it all depends on my available free time, so it might take a little while to get everything up and running. </br>
 
