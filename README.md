@@ -5,7 +5,7 @@
 </div>
 
 <h1 align="center">DeepStyled</h1>
-<h3 align="center">Transform DeepSeek's user interface with customisable accent colours, mdoern design and chat bubbles.</h3>
+<h3 align="center">Transform DeepSeek's user interface with customisable accent colours, modern design and chat bubbles.</h3>
 <br/><br/>
 
 <div align="center">
