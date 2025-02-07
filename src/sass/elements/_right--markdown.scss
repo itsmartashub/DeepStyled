@@ -82,7 +82,8 @@
             // background-color: hsla(var(--accent-hsl) / 0.00) !important;
             // background-color: transparent !important;
             border-radius: calc(var(--br-btn) * 0.6) !important;
-            backdrop-filter: blur(5px);
+            // backdrop-filter: blur(5px);
+            background-color: var(--c-bg-pre) !important;
             align-items: center;
             padding: 0.2rem 0.8rem !important;
         }
@@ -124,16 +125,9 @@
 }
 
 body.light .ds-markdown {
-    &-code-copy-button {
-        &:hover {
-            --c-accent: var(--c-on-accent) !important;
-        }
-    }
-
     .md-code-block-infostring {
         color: var(--c-on-accent) !important;
     }
-
 }
 
 
