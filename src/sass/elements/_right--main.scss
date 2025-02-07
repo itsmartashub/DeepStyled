@@ -148,6 +148,17 @@
 /* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
 
 
+/* user wrapper i ds wrapper */
+.fa81,
+.f9bf7997 {
+    margin-bottom: var(--mb-chat-bubble) !important;
+}
+
+/* User chat-bubble wrapper, remove padding for consistent and same spacing between chat-bubbles */
+.fa81 {
+    padding: 0 !important;
+}
+
 /* "New chat" floating btn. Not working when scoped into chats main layout... */
 .e214291b {
     @include bg-accent;

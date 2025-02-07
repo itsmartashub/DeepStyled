@@ -27,7 +27,6 @@
     // --br-chat-bubble: 30px;
     // --br-prompt-textarea: calc(var(--br) * 0.2);
     --br-btn: calc(var(--br) / 1.1);
-    --br-btn-big: calc(var(--br) * 1.2);
     --br-dialog: calc(var(--br) * 2.5);
     --br-contextmenu: calc(var(--br-btn) * 1.4);
     --br-pre: calc(var(--br) * 1.8);
@@ -36,24 +35,13 @@
 
     /* ? --- Paddings --- */
     --p-chat-bubble: 2rem;
-    // --px-chat-bubble-edge-gap: 4vw;
-    --p-contextmenu: 0.8rem;
-    --p-contextmenu-item: 0.9rem 1rem;
-    --p-prompt-textarea: 0.7rem;
-    --p-tooltips: 0.2rem;
+    // --p-contextmenu: 0.8rem;
+    // --p-contextmenu-item: 0.9rem 1rem;
+    // --p-prompt-textarea: 0.7rem;
     --p-btn: 1rem;
-    --py-btn: 1rem;
-    --px-btn: 1rem;
-
-    --p-sidebar-nav: 0.5rem;
-    --p-sidebar-nav-a: 0.6rem;
-    --p-dialog: 2rem;
+    // --p-dialog: 2rem;
 
     /* ? --- Margins --- */
-    --mt-chat-txt: 0.5rem;
-    --mb-chat-txt: 1rem;
-    // --mb-chat-bubble: 2rem;
-    --mb-sidebar-nav-li: 0.2rem;
-    --my-pre: 1.5rem;
+    --mb-chat-bubble: 1.2rem;
 
 }
