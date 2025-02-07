@@ -26,6 +26,26 @@
         box-shadow: none !important;
     }
 
+
+
+    /* @ TOGGLE ACTIONS BUTTONS ARE DIFFERENT FOR DIFFERENT PROFILES ..... 
+___ DRUGI USERI
+aktivni: style="--ds-button-color: rgba(77, 107, 254, 0.40); --button-text-color: #4CAEFF; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: rgba(77, 107, 254, 0.2);"
+neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; --button-border-color: #626262; --ds-button-hover-color: #424451;"
+
+___ JA  
+aktivni: style="--ds-button-color: #DBEAFE; --button-text-color: #4D6BFE; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: #C3DAF8;"
+neaktivni: style="--ds-button-color: #fff; --button-text-color: #4c4c4c; --button-border-color: rgba(0, 0, 0, 0.12); --ds-button-hover-color: #E0E4ED;"
+
+
+___ MIX:
+aktivni: style="--ds-button-color: #DBEAFE; --button-text-color: #4D6BFE; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: #C3DAF8;"
+aktivni: style="--ds-button-color: rgba(77, 107, 254, 0.40); --button-text-color: #4CAEFF; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: rgba(77, 107, 254, 0.2);"
+
+neaktivni: style="--ds-button-color: #fff; --button-text-color: #4c4c4c; --button-border-color: rgba(0, 0, 0, 0.12); --ds-button-hover-color: #E0E4ED;"
+neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; --button-border-color: #626262; --ds-button-hover-color: #424451;"
+*/
+
     /* "DeepThink R1" and "Search" btn */
     [role="button"].d9f56c96 {
         --ds-button-color: transparent !important;
@@ -50,7 +70,8 @@
 
         /* "DeepThink (R1)" and "Search" btn when selected */
         // &[style*="--ds-button-color: transparent;"] {
-        &[style*="--ds-button-color: #DBEAFE"] {
+        &[style*="--ds-button-color: #DBEAFE"],
+        &[style*="--ds-button-color: rgba(77, 107, 254, 0.40)"] {
             --ds-button-color: hsla(var(--accent-hsl) / 0.2) !important;
             // background-color: hsla(var(--accent-hsl) / 0.2) !important;
         }
