@@ -28,8 +28,11 @@
 
     /* "DeepThink R1" and "Search" btn */
     [role="button"].d9f56c96 {
-        @include bg-accent;
-        border-color: var(--c-accent) !important;
+        --ds-button-color: transparent !important;
+        --button-text-color: var(--c-accent) !important;
+        --button-border-color: hsla(var(--accent-hsl) / 0.2) !important;
+        --ds-button-hover-color: var(--c-accent-hover) !important;
+        transition: transform ease-in-out 0.2s, background-color 0.2s ease-in-out;
 
         .ds-icon {
             color: currentColor !important;
@@ -39,22 +42,17 @@
             }
         }
 
+        &:hover {
+            --ds-button-color: var(--c-accent-hover) !important;
+            transform: translateY(-0.08rem);
+        }
 
-        /* "DeepThink R1" and "Search" btn when selected */
-        &[style*="--ds-button-color: transparent;"] {
-            // @include bg-accent-inverse;
-            background-color: transparent !important;
-            color: var(--c-accent) !important;
-            border-color: hsla(var(--accent-hsl) / 0.25) !important;
-            // border-color: var(--c-accent) !important;
 
-            .ds-icon {
-                color: currentColor !important;
-
-                svg path {
-                    stroke: currentColor !important;
-                }
-            }
+        /* "DeepThink (R1)" and "Search" btn when selected */
+        // &[style*="--ds-button-color: transparent;"] {
+        &[style*="--ds-button-color: #DBEAFE"] {
+            --ds-button-color: hsla(var(--accent-hsl) / 0.2) !important;
+            // background-color: hsla(var(--accent-hsl) / 0.2) !important;
         }
     }
 
