@@ -37,10 +37,16 @@
 // }
 // }
 .ds-icon {
-    // color: currentColor !important;
-
     svg path:not([fill="none"], [stroke]) {
         fill: currentColor !important;
+    }
+
+    /* 
+    .b3a5d6c1 - e.g. icon of already prompted attach file in user chats
+    &[style*="color: rgb(136, 142, 156)"] - e.g. icon of "Content too long to display." in dialog of prompted attach file */
+    &.b3a5d6c1,
+    &[style*="color: rgb(136, 142, 156)"] {
+        color: var(--c-subtext-2) !important;
     }
 }
 

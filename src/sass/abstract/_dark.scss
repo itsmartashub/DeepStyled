@@ -65,7 +65,7 @@ body.dark[data-ds-dark-theme] {
     --c-bg-dialog: var(--c-surface-2);
     --c-bg-contextmenu: var(--c-surface-3);
     --c-bg-contextmenu-item: var(--c-surface-2);
-    --bx-dialog: 0 0 3rem 0.5rem hsla(var(--accent-hsl) / 0.15), 0 0 2rem 0.2rem hsla(var(--accent-hsl) / 0.1);
+    --bx-dialog: 0 0 0rem 1px hsla(var(--accent-hsl) / 0.15), 0 0.5rem 3rem 0.5rem hsla(var(--accent-hsl) / 0.2);
 
     /* ? ========== Tooltip bg ========== */
     --c-bg-tooltip: var(--c-accent-light);

@@ -1,0 +1,33 @@
+/* === ATtACHED FILE DIALOG PREVIEW ===  
+.f79b51c1 - Dialog wrappen shown when clicked on already prompted attach file (in user chat bubble or in textarea) 
+.fb4c59c5 - Header in this attached file dialog - where file name is
+.a7d2f3cd - Footer of this file attached dialog: "Content too long to display."
+.fd36449e - pdf header in dialog attach file preview
+ */
+.f79b51c1,
+.fb4c59c5,
+.a7d2f3cd,
+.fd36449e {
+    background: var(--c-surface-3) !important;
+    color: var(--c-txt) !important;
+}
+
+/* .fd36449e - pdf header in dialog attach file preview */
+.fd36449e {
+    // background-color: hsla(var(--accent-hsl) / 0.08) !important;
+    // color: var(--c-accent) !important;
+    // backdrop-filter: blur(1rem) !important;
+
+    /* pdf page counter and zoom-in-out value of % */
+    input {
+        background-color: hsla(var(--accent-hsl) / 0.2) !important;
+    }
+}
+
+.f79b51c1 {
+    box-shadow: var(--bx-dialog) !important;
+}
+
+.e9fbd9e6 {
+    color: var(--c-txt) !important;
+}
