@@ -25,19 +25,27 @@ async function createSettings() {
   
   <main>
 	<div class="tabs">
-		<div class="tabs__buttons">
-			<button class="tabs__button active">Color</button>
-			<button class="tabs__button">Font</button>
-			<button class="tabs__button">Width</button>
-		</div>
 		<div class="tabs__content">
 			<div class="tabs__pane active" id="tab-colors">${renderColorsTab}</div>
-			<div class="tabs__pane" id="tab-fonts" style="text-align: center;">SOON...</div>
-			<div class="tabs__pane" id="tab-assets" style="text-align: center;">SOON...</div>
 		</div>
 	</div>
   </main>  
   `
+
+	//   <main>
+	//   <div class="tabs">
+	// 	  <div class="tabs__buttons">
+	// 		  <button class="tabs__button active">Color</button>
+	// 		  <button class="tabs__button">Font</button>
+	// 		  <button class="tabs__button">Width</button>
+	// 	  </div>
+	// 	  <div class="tabs__content">
+	// 		  <div class="tabs__pane active" id="tab-colors">${renderColorsTab}</div>
+	// 		  <div class="tabs__pane" id="tab-fonts" style="text-align: center;">SOON...</div>
+	// 		  <div class="tabs__pane" id="tab-assets" style="text-align: center;">SOON...</div>
+	// 	  </div>
+	//   </div>
+	// </main>
 
 	/*   <div class="tabs__pane active" id="tab-colors">${renderColorsTab}</div>
   <div class="tabs__pane" id="tab-fonts">${renderFontsTab}</div>
@@ -55,7 +63,7 @@ function cacheElements(gpthSettings) {
 }
 function addListeners() {
 	document.getElementById('dsx__settings-close').addEventListener('click', closeSettings)
-	handleTabsSwitching()
+	// handleTabsSwitching()
 	// handleFontsListeners()
 	// handleWidthsListeners()
 	$resetAllAccentsBtn.addEventListener('click', resetAllAccents)
@@ -79,19 +87,19 @@ function handleClickOutsideSettings(e) {
 	if (!$settings.contains(e.target) && e.target.id !== 'dsx-open-settings') closeSettings()
 }
 
-function handleTabsSwitching() {
-	const tabs = document.querySelectorAll('.dsx__settings .tabs__button')
-	const panes = document.querySelectorAll('.dsx__settings .tabs__pane')
+// function handleTabsSwitching() {
+// 	const tabs = document.querySelectorAll('.dsx__settings .tabs__button')
+// 	const panes = document.querySelectorAll('.dsx__settings .tabs__pane')
 
-	tabs.forEach((tab, index) => {
-		tab.addEventListener('click', () => {
-			document.querySelector('.tabs__button.active').classList.remove('active')
-			document.querySelector('.tabs__pane.active').classList.remove('active')
+// 	tabs.forEach((tab, index) => {
+// 		tab.addEventListener('click', () => {
+// 			document.querySelector('.tabs__button.active').classList.remove('active')
+// 			document.querySelector('.tabs__pane.active').classList.remove('active')
 
-			tab.classList.add('active')
-			panes[index].classList.add('active')
-		})
-	})
-}
+// 			tab.classList.add('active')
+// 			panes[index].classList.add('active')
+// 		})
+// 	})
+// }
 
 export { createSettings, openSettings, closeSettings, $settings }
