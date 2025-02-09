@@ -164,8 +164,9 @@ $xxl: 96em; // 1536px
 // }
 
 
+/* ___ DEVELOPER RESPONSIVE DESIGN DEBBUGER */
 // Apply different colors for each breakpoint (from larger to smaller)
-#chat-input {
+/* #chat-input {
     @include dev('xxl') {
         background-color: pink !important;
     }
@@ -193,4 +194,4 @@ $xxl: 96em; // 1536px
     @include dev('xxs') {
         background-color: red !important;
     }
-}
+} */
