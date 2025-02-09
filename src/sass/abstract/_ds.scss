@@ -3,6 +3,11 @@
     --message-list-max-width: 803px;
 
     // --dsr-local-active-bg: var(--c-surface-2) !important;
+
+    /* chats wrapper - spacing X */
+    @include dev('xs') {
+        --message-list-padding-horizontal: 0.5rem !important;
+    }
 }
 
 body {
@@ -82,7 +87,7 @@ body {
     --dsr-side-hover-bg: hsla(var(--c-accent-hsl) / 0.15) !important;
     --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-650));
     --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-150));
-    --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-100));
+    --dsr-icon-hover-1: var(--c-accent-hover) !important;
     --dsr-side-icon-hover: var(--c-accent-hover) !important;
     --dsr-error-fg: var(--c-danger) !important;
     --dsr-local-active-bg: var(--c-surface-2) !important;
@@ -118,7 +123,7 @@ body[data-ds-dark-theme] {
     // --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
     --dsr-icon-hover-0: red !important;
     // --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
-    --dsr-icon-hover-1: green !important;
+    --dsr-icon-hover-1: var(--c-accent-hover) !important; // icon sidebar on hover on medium screens
     --dsr-side-icon-hover: var(--c-accent-hover) !important;
     --dsr-error-fg: var(--c-danger) !important;
     // --dsr-local-active-bg: var(--c-surface-2) !important;

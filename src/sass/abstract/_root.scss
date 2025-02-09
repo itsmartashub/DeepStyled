@@ -43,4 +43,19 @@
 
     /* ? --- Margins --- */
     --mb-chat-bubble: 3rem;
+
+
+    @include dev('md') {
+        --p-chat-bubble: calc(var(--br) * 1.2);
+        --br-chat-bubble: calc(var(--br) * 1.1);
+        --p-contextmenu: .5rem;
+        --p-prompt-textarea: 0.5rem;
+        --p-dialog: 0.3rem;
+        --br-dialog: calc(var(--br) * 1.5);
+        --p-sidebar-nav: 0.3rem;
+    }
+
+    @include dev('sm') {
+        --br-chat-bubble: var(--br) !important;
+    }
 }

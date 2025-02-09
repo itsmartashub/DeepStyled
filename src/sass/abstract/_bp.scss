@@ -118,46 +118,79 @@ $xxl: 96em; // 1536px
     }
 } */
 
-@mixin container($bp, $name: main) {
-    @if $bp =='xxs' {
-        @container #{$name} (max-width: #{$xxs}) {
-            @content;
-        }
+/* CONTAINER */
+// @mixin container($bp, $name: main) {
+//     @if $bp =='xxs' {
+//         @container #{$name} (max-width: #{$xxs}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='xs' {
+//         @container #{$name} (max-width: #{$xs}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='sm' {
+//         @container #{$name} (max-width: #{$sm}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='md' {
+//         @container #{$name} (max-width: #{$md}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='lg' {
+//         @container #{$name} (max-width: #{$lg}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='xl' {
+//         @container #{$name} (max-width: #{$xl}) {
+//             @content;
+//         }
+//     }
+
+//     @if $bp =='xxl' {
+//         @container #{$name} (min-width: #{$xxl}) {
+//             @content;
+//         }
+//     }
+// }
+
+
+// Apply different colors for each breakpoint (from larger to smaller)
+#chat-input {
+    @include dev('xxl') {
+        background-color: pink !important;
     }
 
-    @if $bp =='xs' {
-        @container #{$name} (max-width: #{$xs}) {
-            @content;
-        }
+    @include dev('xl') {
+        background-color: orange !important;
     }
 
-    @if $bp =='sm' {
-        @container #{$name} (max-width: #{$sm}) {
-            @content;
-        }
+    @include dev('lg') {
+        background-color: purple !important;
     }
 
-    @if $bp =='md' {
-        @container #{$name} (max-width: #{$md}) {
-            @content;
-        }
+    @include dev('md') {
+        background-color: yellow !important;
     }
 
-    @if $bp =='lg' {
-        @container #{$name} (max-width: #{$lg}) {
-            @content;
-        }
+    @include dev('sm') {
+        background-color: green !important;
     }
 
-    @if $bp =='xl' {
-        @container #{$name} (max-width: #{$xl}) {
-            @content;
-        }
+    @include dev('xs') {
+        background-color: blue !important;
     }
 
-    @if $bp =='xxl' {
-        @container #{$name} (min-width: #{$xxl}) {
-            @content;
-        }
+    @include dev('xxs') {
+        background-color: red !important;
     }
 }

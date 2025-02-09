@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-      <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-gh-header.png" alt="logo-for-deepstyled-chrome-extension"  />
+      <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-assets-header.png" alt="logo-for-deepstyled-chrome-extension"  />
     </div>
 </div>
 
@@ -10,7 +10,7 @@
 
 <div align="center">
     <div>
-      <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-dark.png" alt="" width="100%"  />
+      <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-dark.png" alt="" width="100%"  />
     </div>
 </div>
 
@@ -22,11 +22,11 @@
     <h3>Custom Accent Color</h3>
     <div>
       <div>
-        <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-oled.png" alt="" width="100%"  />
+        <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-oled.png" alt="" width="100%"  />
       </div>
         </br>
       <div>
-        <img src="https://github.com/itsmartashub/deepstyled/blob/master/gh/deepstyled-light.png" alt="" width="100%"  />
+        <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-liassetst.png" alt="" width="100%"  />
       </div>
     </div>
 </div>
@@ -36,10 +36,10 @@
 ## Main Features
 
 <!-- -   **Custom/full chat and prompt field width**: Adjust the width of chat bubbles and prompt textarea to your preference, including full-width options for an immersive experience.
--   **Custom fonts**: Personalize your DeepStyled interface with custom fonts, including **font family**, **size**, **line height**, and **letter spacing**. -->
+-   **Custom fonts**: Personalize your DeepStyled interface with custom fonts, including **font family**, **size**, **line heiassetst**, and **letter spacing**. -->
 
 -   **Custom theming**: Personalize Deepseek with **your preferred accent colors** and see a live preview.
--   **Modern themes**: **Light**, **Dark**, and **Black** (AMOLED) options for a stylish look.
+-   **Modern themes**: **Liassetst**, **Dark**, and **Black** (AMOLED) options for a stylish look.
 -   **Chat bubbles**: Sleek design to differentiate your messages from AI responses.
 -   **Easy theme switching**: Change themes via a floating button.
 
@@ -49,7 +49,7 @@
 
 <!-- #### Chrome Web Store
 
-1. Go to the [DeepStyled extension page](https://chromewebstore.google.com/detail/deepstyled/bghdlfnkbghekhdadaokecnhkcodfcna)
+1. Go to the [DeepStyled extension page](https://chromewebstore.google.com/detail/deepstyled/bassetsdlfnkbassetsekhdadaokecnhkcodfcna)
 2. Click the `Add to Chrome` button
 3. Confirm the installation when prompted
 4. Visit the [DeepStyled](https://chat.deepseek.com/) website to start using DeepStyled.
@@ -67,7 +67,7 @@
 
 1. Download the `deepstyled-chromium-mv3-vX.X.X.zip` from the [Releases](https://github.com/itsmartashub/DeepStyled/releases) and unzip.
 2. Open Chrome, go to `chrome://extensions/`
-3. Enable `Developer mode` in the top-right corner.
+3. Enable `Developer mode` in the top-riassetst corner.
 4. Click `Load unpacked` and select the `deepstyled-chromium-mv3-vX.X.X` folder.
 
 #### Firefox
@@ -86,10 +86,10 @@
 
 -   I'd like to remind you that **Deepseek frequently updates its website**, and even minor changes can sometimes cause unexpected issues with the extension's functionality and appearance.
 -   Your patience are greatly appreciated. If you notice any obvious issues with the appearance or functionality of the extension, I'm likely already working on it or it has already been fixed, but the new release is not pushed yet or the Chrome Store hasn't yet reflected the changes live. You can track the status on GitHub to stay informed.
--   Please note that this is a hobby project and it all depends on my available free time, so it might take a little while to get everything up and running. </br>
+-   Please note that this is a hobby project and it all depends on my available free time, so it miassetst take a little while to get everything up and running. </br>
 
 **Thank you for your understanding.**
 
 ## Acknowledgments
 
-I want to thank the testing maestro [@TheMaskedGuardian](https://github.com/TheMaskedGuardian) for being the bug whisperer in the wild world of this website extension. His insightful observations have significantly contributed to refining and enhancing the project. Grateful for your testing effort 🙏
+I want to thank the testing maestro [@TheMaskedGuardian](https://github.com/TheMaskedGuardian) for being the bug whisperer in the wild world of this website extension. His insiassetstful observations have significantly contributed to refining and enhancing the project. Grateful for your testing effort 🙏
