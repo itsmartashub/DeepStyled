@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-      <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-assets-header.png" alt="logo-for-deepstyled-chrome-extension"  />
+      <img src="https://github.com/itsmartashub/deepstyled/blob/master/assets/deepstyled-gh-header.png" alt="logo-for-deepstyled-chrome-extension"  />
     </div>
 </div>
 
