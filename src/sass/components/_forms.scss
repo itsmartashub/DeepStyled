@@ -35,6 +35,20 @@ textarea {
 	}
 }
 
+input[type="color"] {
+	// Remove the default arrow and other browser-specific styles
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	// Customizing the color preview box
+	&::-webkit-color-swatch,
+	&::-moz-color-swatch {
+		border: none;
+		border-radius: 5px;
+	}
+}
+
 // ____________________________________________ DS THEME 
 .ds-textarea {
 	--shadow-offset: 1px;
