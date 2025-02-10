@@ -43,10 +43,15 @@
 
     /* 
     .b3a5d6c1 - e.g. icon of already prompted attach file in user chats
-    &[style*="color: rgb(136, 142, 156)"] - e.g. icon of "Content too long to display." in dialog of prompted attach file */
+    &[style*="color: rgb(136, 142, 156)"] - e.g. icon of "Content too long to display." in dialog of prompted attach file
+    [style*="color: rgb(228, 230, 236)"] - e.g.icon in "Continue" for assisten chat when stop the answer during outputting */
     &.b3a5d6c1,
     &[style*="color: rgb(136, 142, 156)"] {
         color: var(--c-subtext-2) !important;
+    }
+
+    &[style*="color: rgb(228, 230, 236)"] {
+        color: currentColor !important;
     }
 }
 
