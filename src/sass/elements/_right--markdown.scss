@@ -98,8 +98,22 @@
 
         /* Footer of code block, for example: "▶️ Run HTML" part */
         &-footer {
-            @include bg-accent-inverse;
+            // @include bg-accent-inverse;
             border-radius: var(--br-btn);
+            background-color: hsla(var(--accent-hsl) / 0.0) !important;
+
+            span:has(> .ds-icon) {
+                // color: var(--c-on-accent) !important;
+                // background-color: var(--c-accent) !important;
+                // border-radius: 2rem;
+
+                @extend .ds-button--primary;
+                transition: transform 0.25s $easeOutCubic;
+
+                &:hover {
+                    transform: translateY(-0.08rem);
+                }
+            }
         }
     }
 
