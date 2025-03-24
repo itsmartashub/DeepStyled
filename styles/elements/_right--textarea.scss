@@ -1,6 +1,8 @@
-.cefa5c26:has(#chat-input) {
+// .cefa5c26:has(#chat-input) {
+._77cefa5:has(#chat-input) {
     border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
 
+    // _77cefa5
     #chat-input {
         &::placeholder {
             color: var(--c-subtext-2) !important;
@@ -17,37 +19,13 @@
         }
     }
 
-    // .ds-icon {
-    //     color: var(--c-accent) !important;
-    // }
-
     /* Remove box-shadow (like a border) around prompt field */
     .dd442025 {
         box-shadow: none !important;
     }
 
-
-
-    /* @ TOGGLE ACTIONS BUTTONS ARE DIFFERENT FOR DIFFERENT PROFILES ..... 
-___ DRUGI USERI
-aktivni: style="--ds-button-color: rgba(77, 107, 254, 0.40); --button-text-color: #4CAEFF; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: rgba(77, 107, 254, 0.2);"
-neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; --button-border-color: #626262; --ds-button-hover-color: #424451;"
-
-___ JA  
-aktivni: style="--ds-button-color: #DBEAFE; --button-text-color: #4D6BFE; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: #C3DAF8;"
-neaktivni: style="--ds-button-color: #fff; --button-text-color: #4c4c4c; --button-border-color: rgba(0, 0, 0, 0.12); --ds-button-hover-color: #E0E4ED;"
-
-
-___ MIX:
-aktivni: style="--ds-button-color: #DBEAFE; --button-text-color: #4D6BFE; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: #C3DAF8;"
-aktivni: style="--ds-button-color: rgba(77, 107, 254, 0.40); --button-text-color: #4CAEFF; --button-border-color: rgba(0, 122, 255, 0.15); --ds-button-hover-color: rgba(77, 107, 254, 0.2);"
-
-neaktivni: style="--ds-button-color: #fff; --button-text-color: #4c4c4c; --button-border-color: rgba(0, 0, 0, 0.12); --ds-button-hover-color: #E0E4ED;"
-neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; --button-border-color: #626262; --ds-button-hover-color: #424451;"
-*/
-
     /* "DeepThink R1" and "Search" btn */
-    [role="button"].d9f56c96 {
+    [role="button"]._3172d9f {
         --ds-button-color: transparent !important;
         --button-text-color: var(--c-accent) !important;
         --button-border-color: hsla(var(--accent-hsl) / 0.2) !important;
@@ -79,7 +57,7 @@ neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; 
     }
 
     /* Send btn */
-    [role="button"].f6d670 {
+    /*  [role="button"]._6f28693 {
         @include bg-accent;
 
         .ds-icon svg path:not([fill="none"]) {
@@ -90,7 +68,7 @@ neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; 
             @include bg-accent-inverse;
 
         }
-    }
+    } */
 
     /* attach btn next to send button (input="file") */
     .f02f0e25 {
@@ -187,5 +165,25 @@ neaktivni: style="--ds-button-color: transparent; --button-text-color: #F8FAFF; 
     /* Attached info data: file type and size (e.g. PNG 162.3KB) */
     .ee357eab {
         color: var(--c-subtext-2) !important;
+    }
+}
+
+/* Send btn */
+._7436101 {
+    @include bg-accent;
+
+    .ds-icon svg path:not([fill="none"]) {
+        fill: currentColor !important;
+    }
+
+    &:hover {
+        @include bg-accent-inverse;
+    }
+
+    /* Send btn - disabled state */
+    &.bcc55ca1 {
+        cursor: not-allowed;
+        background-color: rgb(var(--ds-rgb-slate-250));
+        color: #fafafa;
     }
 }
