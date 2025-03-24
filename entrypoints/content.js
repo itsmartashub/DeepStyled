@@ -47,8 +47,6 @@
 import { createApp } from 'vue'
 import ThemeManager from '@/components/ThemeManager.vue'
 import { useThemeManager } from '@/composables/useThemeManager'
-/* import ThemeManager from '@/components/ThemeManager.vue'
-import { useThemeManager } from '@/composables/useThemeManager' */
 
 export default defineContentScript({
 	matches: ['*://chat.deepseek.com/*'],
@@ -57,7 +55,6 @@ export default defineContentScript({
 	async main(ctx) {
 		// Simply call useThemeManager() so that the reactive syncing is set up.
 		// (No need to call an explicit init—our watchers run immediately.)
-		// useThemeManager()
 		useThemeManager()
 
 		// Use the integrated UI API provided by wxt-dev

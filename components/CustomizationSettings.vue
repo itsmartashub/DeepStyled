@@ -2,7 +2,7 @@ S
 <!-- CustomizationSettings.vue -->
 <template>
 	<div ref="settingsRef" class="customization-settings">
-		<button @click="$emit('close')" class="settings-close">+</button>
+		<!-- <button @click="$emit('close')" class="settings-close">+</button> -->
 
 		<div class="settings-content">
 			<div class="settings-header">

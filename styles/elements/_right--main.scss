@@ -191,11 +191,18 @@
 }
 
 
-/* User chat and GPT chat markdown */
+/* 
+    .fbb737a4 - user chat bubble
+    ._4f9bf79 - gpt chat bubble
+    .ds-markdown - markdown
+    ._77cefa5 - prompt field
+*/
 .fbb737a4,
 ._4f9bf79,
-.ds-markdown {
-    /*     --ds-font-size-l: calc(var(--font_size) * 1rem / 16) !important;
+.ds-markdown,
+._77cefa5 {
+    /*     
+    --ds-font-size-l: calc(var(--font_size) * 1rem / 16) !important;
     --ds-font-size-m: calc((var(--font_size) - 2) * 1rem / 16) !important;
 
     --ds-line-height-l: calc(var(--font_size) * 1rem / 16) !important;
@@ -211,7 +218,7 @@
     transition: font-size 0.15s ease-in-out, line-height 0.15s ease-in-out;
 
     .md-code-block {
-        // 11px ddefault
+        // 11px default
         --ds-font-size-xsp: calc((var(--fontSize) - 5) * 1rem / 16) !important;
     }
 
@@ -225,13 +232,10 @@
 .dad65929 {
     // --message-list-max-width: 800px;
     --message-list-max-width: var(--maxWidthChats) !important;
-    // max-width: var(--maxWidthChats) !important;
-    // --message-list-max-width: 100% !important;
 }
 
 /* textarea prompt parent */
 .aaff8b8f {
     --message-list-max-width: var(--maxWidthTextarea) !important;
-    // max-width: var(--maxWidthChats) !important;
     max-width: var(--message-list-max-width);
 }

@@ -21,11 +21,13 @@
 	margin-top: 2.5rem;
 
 	button {
+		--button-height: auto !important;
 		justify-self: flex-end;
 		margin: 0 auto;
 		width: 60%;
 		text-transform: uppercase;
-		// font-weight: bold;
-		font-size: 0.80em;
+		font-weight: 600;
+		font-size: 0.75em !important;
+		--p-btn: 0.5rem !important;
 	}
 }

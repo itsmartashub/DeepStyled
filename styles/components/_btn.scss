@@ -22,7 +22,9 @@ button {
 }
 
 .ds-button {
+	--button-ring-color: var(--c-accent-hover) !important;
 	--c-button-hover-text-color: inherit;
+	justify-content: center;
 	// --button-icon-color: currentColor !important;
 	// background-color: var(--ds-button-color) !important;
 	// color: var(--button-text-color) !important;
@@ -31,6 +33,7 @@ button {
 		background-color: var(--ds-button-hover-color) !important;
 		color: var(--c-button-hover-text-color) !important;
 	}
+
 
 	// svg {
 	// 	color: currentColor !important;

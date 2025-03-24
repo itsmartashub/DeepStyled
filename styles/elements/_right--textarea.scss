@@ -2,8 +2,10 @@
 ._77cefa5:has(#chat-input) {
     border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
 
-    // _77cefa5
+    /* Textarea */
     #chat-input {
+        color: var(--c-txt) !important;
+
         &::placeholder {
             color: var(--c-subtext-2) !important;
         }
@@ -23,6 +25,9 @@
     .dd442025 {
         box-shadow: none !important;
     }
+
+    /* Textarea footer where buttons are */
+    .ec4f5d61 {}
 
     /* "DeepThink R1" and "Search" btn */
     [role="button"]._3172d9f {

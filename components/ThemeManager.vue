@@ -14,7 +14,6 @@
 				:data-active="effectiveActiveTheme === t.id"
 			>
 				<component :is="t.icon" />
-				<!-- {{ t.icon }} -->
 			</button>
 			<button @click.stop="openSettings" data-ds-btn-metadata="more"><IconSettings /></button>
 		</div>
@@ -25,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useThemeManager } from '@/composables/useThemeManager'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'

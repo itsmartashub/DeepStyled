@@ -8,7 +8,7 @@
 <script setup>
 const props = defineProps({
 	id: String,
-	className: { type: String, default: 'btn-primary' },
+	className: { type: String, default: 'ds-button ds-button--primary' },
 	disabled: { type: Boolean, default: false },
 })
 const emit = defineEmits(['click'])
