@@ -61,6 +61,7 @@ const THEME_OPTIONS = [
 	place-items: center;
 	gap: 0.5rem;
 	color: var(--c-accent);
+	z-index: 5;
 
 	&:hover {
 		.theme-manager__buttons {
