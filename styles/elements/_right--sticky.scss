@@ -1,8 +1,8 @@
 /* main right side element */
-.f2eea526 {
+._7780f2e {
 
     /* Sticky header */
-    .be88ba8a {
+    ._2be88ba {
         background-color: var(--c-bg-chats-container) !important;
         // background: var(--c-bg-chats-sticky) !important;
 
@@ -33,7 +33,8 @@
         }
 
         /* strange sticky header gradientoverlay */
-        .b480065b {
+        // .b480065b {
+        ._62b4800 {
             // background: linear-gradient(rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 100%);
             // background: linear-gradient(var(--dsr-bg) 0%, transparent 100%);
             background: linear-gradient(to bottom, hsla(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025) / 0.8) 0%, hsla(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025) / 0) 100%) !important;
