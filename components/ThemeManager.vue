@@ -101,6 +101,7 @@ const THEME_OPTIONS = [
 		align-items: center;
 		gap: 0.5rem;
 		width: var(--roller-size);
+
 		padding: 0.2rem;
 		background-image: var(--c-bg-gradient);
 		backdrop-filter: blur(1rem);
@@ -115,6 +116,7 @@ const THEME_OPTIONS = [
 			position: relative;
 			aspect-ratio: 1 / 1;
 			cursor: pointer;
+			font-family: var(--fontFamily), var(--fontFamilyDefault);
 			line-height: 1;
 			background-color: transparent;
 			color: currentColor;

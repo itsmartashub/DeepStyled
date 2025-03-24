@@ -1,17 +1,9 @@
-@import 'theme-manager/components/_btn';
-@import 'theme-manager/components/_tabs';
-@import 'theme-manager/components/cards/_card';
-@import 'theme-manager/components/cards/_card-big';
-@import 'theme-manager/components/cards/_card-small';
-@import 'theme-manager/components/cards/_card-range';
-// @import 'theme-manager/components/_colorpicker';
+@import 'components/cards/_card';
+@import 'components/cards/_card-big';
+@import 'components/cards/_card-small';
+@import 'components/cards/_card-range';
 
-@import 'theme-manager/components/_error-msg';
-@import 'theme-manager/components/_fonts';
-@import 'theme-manager/components/_switch';
+@import 'components/_error-msg';
 
-// @import 'theme-manager/sections/_header';
-@import 'theme-manager/sections/_cards';
-@import 'theme-manager/sections/_footer';
-// @import 'theme-manager/sections/_main';
-// @import 'theme-manager/layouts/_dsx-assets';
+@import 'sections/_cards';
+@import 'sections/_footer';

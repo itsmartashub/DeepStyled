@@ -21,16 +21,13 @@ export default defineConfig({
 			},
 		},
 	}),
-	manifestVersion: 3, // Set the desired manifest version here
+	// manifestVersion: 3,
 	manifest: ({ browser }) => ({
-		version: '2.0.0',
 		name: 'DeepStyled - Deepseek Customization',
-		description:
-			"Transform DeepSeek's user interface with customizable accent colors, modern designs, and chat bubbles.",
 		author: 'itsmarta',
 		homepage_url: 'https://github.com/itsmartashub/DeepStyled',
 		permissions: ['storage'],
-		host_permissions: browser === 'firefox' ? undefined : ['https://chat.deepseek.com/*'],
+		host_permissions: ['https://chat.deepseek.com/*'],
 		content_security_policy: {
 			extension_pages:
 				"script-src 'self'; style-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;",
@@ -39,7 +36,6 @@ export default defineConfig({
 			applications: {
 				gecko: {
 					id: 'deepstyled@itsmarta',
-					strict_min_version: '109.0',
 				},
 			},
 		}),

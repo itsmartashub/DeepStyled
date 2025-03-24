@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
 	border: 1px solid hsla(var(--accent-hsl) / 0.18);
 	box-shadow: var(--shadow-values) var(--shadow-color);
 	overflow: clip scroll;
-	font-family: var(--fontFamily);
+	font-family: var(--fontFamily), var(--fontFamilyDefault);
 	font-size: 1.2rem;
 	z-index: 5;
 
@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
 			flex-wrap: wrap;
 			padding: calc(var(--p-btn) * 0.65);
 			font-weight: bold;
-			font-family: var(--fontFamily);
+			font-family: var(--fontFamily), var(--fontFamilyDefault);
 			font-size: 0.8em;
 			text-align: center;
 			background: none;
