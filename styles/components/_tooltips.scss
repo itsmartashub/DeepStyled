@@ -2,12 +2,11 @@
 
 .ds-tooltip {
     --tooltip-color: var(--c-accent-hover) !important;
-    // --tooltip-box-shadow: 0 0 0 2px hsla(var(--accent-hsl) / 0.2) !important;
     --tooltip-text-color: var(--c-txt) !important;
     // --dsr-text-2: var(--c-accent) !important; // ovo je text za tooltip kada hoverujemo app icon u sidebar
 
     /* e.g. tooltip for attach btn in prompt field */
-    span.efd78c4e {
+    span._393efd7 {
         /* "Upload docs or images (Max 50, 100MB each)"  */
         color: var(--c-txt) !important;
 
