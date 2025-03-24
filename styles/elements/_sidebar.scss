@@ -1,5 +1,5 @@
 /* Button "New chat" in sidebar: parent */
-.a8ac7a80 {
+._5a8ac7a {
     --local-button: var(--dsr-main) !important;
     --local-button-hover: var(--c-accent-hover) !important;
     --local-button-text: var(--c-on-accent) !important;
@@ -47,12 +47,12 @@
     }
 
     /* Sidebar date pill: "yesterday, today, 7 days" etc */
-    .cdfc1683 {
+    ._48cdfc1 {
         @extend %date-pill;
     }
 
     /* Sidebar chat-item link */
-    .f9edaa3c {
+    ._83421f9 {
         transition: ease-in-out 0.25s;
 
         /* Active link item */
