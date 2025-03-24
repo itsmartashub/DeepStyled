@@ -56,20 +56,6 @@
         }
     }
 
-    /* Send btn */
-    /*  [role="button"]._6f28693 {
-        @include bg-accent;
-
-        .ds-icon svg path:not([fill="none"]) {
-            fill: currentColor !important;
-        }
-
-        &:hover {
-            @include bg-accent-inverse;
-
-        }
-    } */
-
     /* attach btn next to send button (input="file") */
     .f02f0e25 {
         &:hover {
@@ -137,7 +123,7 @@
 }
 
 /* Attached item and in prompt field and in chats layout */
-.cd190a50 {
+._76cd190 {
     --dsr-input-bg: hsla(var(--accent-hsl) / 0.15) !important;
     transition: transform ease-in-out 0.25s, background-color 0.25s ease-in-out;
     border: hsla(var(--accent-hsl) / 0.1) 2px solid !important;
@@ -150,7 +136,7 @@
 
     /* Attached closed btn when hovered */
     [role="img"] {
-        .b2b9d30d {
+        ._35730b2 {
             box-shadow: none !important;
             @include bg-accent;
 
@@ -163,7 +149,7 @@
     }
 
     /* Attached info data: file type and size (e.g. PNG 162.3KB) */
-    .ee357eab {
+    ._5119742 {
         color: var(--c-subtext-2) !important;
     }
 }
