@@ -1,0 +1,90 @@
+// .card--small {
+
+//     label,
+//     input {
+//         border-radius: 50vw !important;
+//     }
+
+//     label {
+//         --label-height: 2.5rem;
+//         --label-padding: 0.28rem;
+//         display: grid;
+//         gap: 0.5rem;
+//         height: var(--label-height);
+//         padding: var(--label-padding);
+//         background-color: var(--c-surface-2);
+
+//         &:has(input:is(:focus, :focus-visible, :focus-within)) {
+//             display: block !important;
+//             width: 100%;
+//         }
+//     }
+
+//     input {
+//         --input-size: calc(var(--label-height) - var(--label-padding) * 2);
+//         --tw-ring-color: transparent !important;
+//         // aspect-ratio: 1 / 1;
+//         height: var(--input-size);
+//         width: var(--input-size);
+//         padding: 0 !important;
+//         font-size: 0.9em;
+//         text-align: center;
+//         background-color: hsla(var(--accent-hsl) / 0.2);
+//         color: var(--c-accent);
+//         outline: none !important;
+//         border: none !important;
+//         transform-origin: left center;
+
+//         &:is(:focus, :focus-visible, :focus-within) {
+//             transform: scaleX(1) translateX(10%);
+//             font-size: 1.2em !important;
+//         }
+//     }
+
+//     &__unit {
+//         --px: 0.25rem;
+//         display: grid;
+//         place-items: center;
+//         width: max-content;
+//         font-size: 0.5em;
+//         padding: 0 var(--px);
+//         margin-bottom: 0.25rem;
+//         background-color: hsla(var(--accent-hsl) / 0.12);
+//         color: var(--c-accent);
+//         line-height: 1;
+//         translate: -0.15rem 0;
+//         border-radius: 1rem;
+//     }
+
+//     &__name {
+//         font-size: 0.5em;
+//         text-transform: uppercase;
+//     }
+
+//     &:has(input:focus) {
+//         .card--small__unitname {
+//             display: none;
+//         }
+
+//         label {
+//             display: block;
+//             width: 100%;
+//         }
+
+//         input {
+//             width: 100%;
+//             transform: unset !important;
+//             aspect-ratio: unset !important;
+//         }
+//     }
+
+//     &:hover {
+//         input {
+//             transform: scale(1.1);
+//         }
+
+//         .card--small__unitname {
+//             transform: translatex(3px);
+//         }
+//     }
+// }

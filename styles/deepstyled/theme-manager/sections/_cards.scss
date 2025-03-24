@@ -1,0 +1,6 @@
+.section-cards {
+    --gap: 0.65rem;
+    display: grid;
+    grid-template-columns: var(--cards-grid-template);
+    gap: calc(var(--gap) * 2) var(--gap);
+}

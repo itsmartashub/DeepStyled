@@ -1,0 +1,66 @@
+:root {
+    --fsz-error-404: 3rem;
+
+    /* ? --- Custom Cards size --- */
+    --cards-grid-template: repeat(auto-fit, minmax(7rem, 1fr));
+
+    /* ? --- Custom Fonts --- */
+    --fontFamilyDefault: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Open Sans, sans-serif;
+    --fontFamily: var(--font_family_default);
+    --fontSize: 16px;
+    --letterSpacing: initial;
+    --lineHeight: 28;
+
+    /* ? --- Custom Widths --- */
+    --defaultWidthChats: 800px;
+    --maxWidthChats: var(--defaultWidthChats);
+    --maxWidthTextarea: var(--defaultWidthChats);
+
+    /* ? --- DSX floating roller btn --- */
+    --roller-top: calc(var(--h-header) + 0.5rem);
+    --roller-right: 1rem;
+    --roller-size: 2.8rem;
+
+    /* ? --- Widths and Heights --- */
+    --min-w-btn: 5.5rem;
+    --h-header: calc(10px + 56px);
+    --w-scrollbar: 0.365rem;
+
+    /* ? --- Border-radius --- */
+    --br: 1rem;
+    --br-chat-bubble: calc(var(--br) * 1.9);
+    // --br-chat-bubble: 30px;
+    // --br-prompt-textarea: calc(var(--br) * 0.2);
+    --br-btn: calc(var(--br) / 1.1);
+    --br-dialog: calc(var(--br) * 2.5);
+    --br-contextmenu: calc(var(--br-btn) * 1.4);
+    --br-pre: calc(var(--br) * 1.8);
+    --br-tooltips: var(--br-btn);
+    --br-scrollbar: 50vw;
+
+    /* ? --- Paddings --- */
+    --p-chat-bubble: 2rem;
+    // --p-contextmenu: 0.8rem;
+    // --p-contextmenu-item: 0.9rem 1rem;
+    // --p-prompt-textarea: 0.7rem;
+    --p-btn: 1rem;
+    // --p-dialog: 2rem;
+
+    /* ? --- Margins --- */
+    --mb-chat-bubble: 3rem;
+
+
+    @include dev('md') {
+        --p-chat-bubble: calc(var(--br) * 1.2);
+        --br-chat-bubble: calc(var(--br) * 1.1);
+        --p-contextmenu: .5rem;
+        --p-prompt-textarea: 0.5rem;
+        --p-dialog: 0.3rem;
+        --br-dialog: calc(var(--br) * 1.5);
+        --p-sidebar-nav: 0.3rem;
+    }
+
+    @include dev('sm') {
+        --br-chat-bubble: var(--br) !important;
+    }
+}

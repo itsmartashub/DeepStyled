@@ -1,0 +1,162 @@
+input[type='checkbox'] {
+	padding: 7px;
+	border: 2px solid var(--c-accent) !important;
+	background-color: transparent;
+	border-radius: 4px;
+
+	&:checked {
+		accent-color: var(--c-accent) !important;
+		background-color: var(--c-accent) !important;
+	}
+}
+
+/* "Select your Team Plan" dialog radio buttons when clicking "Upgrade plan" > "Team" */
+button[role='radio'] {
+	border-color: var(--c-accent);
+
+	&[data-state='checked'] {
+		background-color: var(--c-accent);
+	}
+
+	svg {
+		color: var(--c-on-accent);
+	}
+}
+
+/* input placeholder color */
+input,
+textarea {
+	outline: none;
+	caret-color: currentColor !important;
+
+	&::placeholder {
+		opacity: 0.6;
+		color: var(--c-subtext-2);
+	}
+}
+
+input[type="color"] {
+	// Remove the default arrow and other browser-specific styles
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	// Customizing the color preview box
+	&::-webkit-color-swatch,
+	&::-moz-color-swatch {
+		border: none;
+		border-radius: 5px;
+	}
+}
+
+// ____________________________________________ DS THEME 
+.ds-textarea {
+	--shadow-offset: 1px;
+	// max-width: calc(100% - 48px);
+	// min-height: 100px;
+	// max-height: 268px;
+	--ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
+	--ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
+	--ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
+	--ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
+	// --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+	// --ds-textarea-line-height: calc((var(--line_height) / 16) * 0.88) !important;
+	// --ds-textarea-padding: var(--p-chat-bubble) !important;
+	// --ds-textarea-border-radius: var(--br-chat-bubble) !important;
+	caret-color: var(--c-accent);
+	color: var(--c-accent) !important;
+	// background-color: hsla(var(--accent-hsl) / 0.05) !important;
+	box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+
+	&--focused {
+		--shadow-offset: 2px;
+	}
+
+	textarea::placeholder {
+		color: var(--c-subtext-2) !important;
+	}
+}
+
+
+.ds-radio-button-group,
+[data-ds-dark-theme] .ds-radio-button-group {
+	--radio-button-group-button-color: var(--c-accent-hover) !important;
+	// --radio-button-group-button-box-shadow: none;
+	// --radio-button-group-button-box-shadow-active: none;
+	--radio-button-group-button-box-shadow-active-focus: none;
+	// --radio-button-group-button-box-shadow-focus: none;
+	--radio-button-group-button-color-active: var(--c-accent) !important;
+	--radio-button-group-button-text-color-active: var(--c-on-accent) !important;
+	--radio-button-group-button-outline-box-shadow-focus: 0 0 0 2px hsla(var(--accent-hsl) / 0.2) !important;
+
+	&--filled1 {}
+
+	.ds-radio-button {
+		&--active {
+			--radio-button-group-button-text-color-active: var(--c-on-accent) !important;
+			--radio-button-group-button-box-shadow-active: none !important;
+			background-color: var(--c-accent) !important;
+
+			&::after {
+				box-shadow: none !important;
+			}
+		}
+
+		&--focus {}
+	}
+}
+
+.ds-checkbox {
+
+	svg {
+		color: var(--c-on-accent) !important;
+	}
+
+	&--bordered {
+		box-shadow: inset 0 0 0 1px var(--c-accent) !important;
+	}
+
+	&--active {
+		// box-shadow: inset 0 0 0 1px var(--c-accent) !important;
+		background-color: var(--c-accent) !important;
+	}
+}
+
+.ds-input {
+	// --ds-input-padding: 0 10px;
+	// --ds-input-border-radius: 10px;
+	// --ds-input-height: var(--ds-input-height-l);
+	// --ds-input-font-size: var(--ds-font-size-m);
+	// --ds-input-line-height: var(--ds-line-height-m);
+	// --ds-input-prefix-margin: 0 8px 0 0;
+	// --ds-input-password-toggle-margin: 0 0 0 8px;
+	// --ds-input-icon-size: 18px;
+	--ds-input-text-color: var(--c-txt) !important;
+	--ds-input-placeholder-color: var(--c-subtext-1) !important;
+	--ds-input-icon-color: var(--c-subtext-2) !important;
+	--ds-input-prefix-text-color: var(--c-txt) !important;
+	--ds-input-color: var(--c-surface-2) !important;
+	// --ds-input-font-weight: initial;
+	// --ds-input-color-focus: red !important;
+
+	&--bordered {
+		--ds-input-color: var(--c-surface-2) !important;
+		box-shadow: inset 0 0 0 1px var(--c-border) !important;
+	}
+
+	&--error {
+		background-color: hsla(var(--danger-hsl) / 0.2);
+
+	}
+}
+
+.ds-form-item {
+
+	&--error {
+		color: var(--c-danger) !important;
+
+		.ds-form-item__feedback {
+			color: var(--c-danger) !important;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+/* svg wrapper icons like in sidebar etc. */
+.ds-icon-button {
+    // --ds-icon-button-text-color: var(--c-subtext-1) !important;
+    --ds-icon-button-text-color: var(--c-accent) !important;
+    --ds-icon-button-hover-color: var(--c-accent-hover) !important;
+    --ds-icon-button-outline-color: var(--c-accent-hover) !important;
+    // --ds-icon-button-size: 28px;
+    // --ds-icon-button-background-inset: -4px;
+    color: var(--ds-icon-button-text-color) !important;
+
+    // &:hover {
+
+    //     &::before {
+    //         --dsr-side-icon-hover: var(--c-accent-hover) !important;
+    //         // background-color: var(--c-accent-hover) !important;
+    //     }
+    // }
+
+    &:hover {
+        &::before {
+            background-color: var(--ds-icon-button-hover-color) !important;
+        }
+    }
+}
+
+// .ds-button > .ds-button__icon {
+//     color: currentColor !important;
+// }
+
+.ds-button__icon {
+    color: currentColor !important;
+
+    .ds-icon {
+
+        /* Not good, this is "Continue" btn and svg icons in "Search" and "DeepThink (R1)" */
+        &[style*="color: rgb(228, 230, 236)"] {
+            color: currentColor !important;
+        }
+    }
+}
+
+.ds-icon {
+    svg path:not([fill="none"], [stroke]) {
+        fill: currentColor !important;
+    }
+
+    /* 
+    - .b3a5d6c1 - e.g. icon of already prompted attach file in user chats
+    - &[style*="color: rgb(136, 142, 156)"] - e.g. icon of "Content too long to display." in dialog of prompted attach file
+    - [style*="color: rgb(228, 230, 236)"] - e.g.icon in "Continue" for assisten chat when stop the answer during outputting */
+    &.b3a5d6c1,
+    &[style*="color: rgb(136, 142, 156)"] {
+        color: var(--c-subtext-2) !important;
+    }
+
+}
+
+/* .ds-loading - loading spinner */
+.e7920f9e {
+    color: var(--c-accent) !important;
+}
+
+/* All the ds blue svgs that have this color */
+[fill="#4D6BFE"] {
+    fill: var(--c-accent) !important;
+}

@@ -1,0 +1,104 @@
+// Base reset for form elements
+%form-reset {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// Base reset for interactive elements
+%button-reset {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+input,
+textarea,
+select {
+    @extend %form-reset;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    @extend %button-reset;
+}
+
+// Checkbox & Radio
+%check-radio {
+    @extend %form-reset;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    @extend %check-radio;
+}
+
+// Select
+select {
+    padding-right: 1.5rem;
+    cursor: pointer;
+}
+
+// Fieldset & Legend
+fieldset {
+    all: unset;
+    min-width: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+}
+
+// Range & File Input
+%interactive-input {
+    @extend %form-reset;
+    display: block;
+    cursor: pointer;
+}
+
+// input[type="range"],
+input[type="file"] {
+    @extend %interactive-input;
+}
+
+// Textarea
+textarea {
+    resize: vertical;
+}
+
+// Placeholder styling
+::placeholder {
+    color: currentColor;
+    opacity: 0.5;
+}
+
+// Autofill styling
+input:-webkit-autofill {
+    background: transparent;
+    color: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,237 @@
+/* Right chat wrapper main div */
+.f2eea526 {
+
+    // --message-list-max-width: --w_chat_gpt !important;
+
+    /* "⚠️ Length limit reached. DeepSeek can only read the first 7%" */
+    .e87bfa92 {
+        @include bg-warning-inverse;
+        border-color: hsla(var(--warning-hsl) / 0.12) !important;
+    }
+
+    /* Scrolldown btn */
+    .e98de67b:has(>svg) {
+        @include bg-accent;
+        box-shadow: inset 0 0 0 1px hsla(var(--warning-hsl) / 0.2) !important;
+
+        &:hover {
+            @include bg-accent-inverse;
+        }
+    }
+}
+
+/* User chat bubble */
+.fbb737a4 {
+    // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // --ds-font-size-l: var(--font_size) !important;
+    /* Large font size equals the base font size converted to rem */
+    // --ds-font-size-l: calc(var(--font_size) * 1rem / 16) !important;
+
+    background-color: var(--c-bg-msg-user) !important;
+    color: var(--c-txt) !important;
+    padding: calc(var(--p-chat-bubble) * 0.4) calc(var(--p-chat-bubble) * 0.75) !important;
+    border-radius: var(--br-chat-bubble) !important;
+    // line-height: calc(var(--line_height) / 16) !important;
+    // width: var(--w_chat_user) !important;
+    // width: max-content !important;
+    // width: var(--max_w_chat_user) !important;
+    // max-width: var(--w_chat_user) !important;
+}
+
+/* User chat bubble in edit state */
+.fa81.eee33222 {
+
+    /* <textarea> parent */
+    .ds-textarea {
+        --shadow-offset: 1px;
+        // max-width: calc(100% - 48px);
+        // min-height: 100px;
+        // max-height: 268px;
+        --ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
+        --ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
+        --ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
+        --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
+        // --ds-textarea-font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+        // --ds-textarea-line-height: calc((var(--line_height) / 16) * 0.88) !important;
+        --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+        --ds-textarea-padding: calc(var(--p-chat-bubble) * 0.85) !important;
+        --ds-textarea-border-radius: calc(var(--br-chat-bubble) * 0.75) !important;
+        caret-color: var(--c-accent);
+        color: var(--c-accent) !important;
+        background-color: hsla(var(--accent-hsl) / 0.05) !important;
+        box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+
+        &--focused {
+            --shadow-offset: 2px;
+        }
+    }
+}
+
+/* GPT chat bubble */
+.f9bf7997 {
+    --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
+    // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
+    // line-height: calc(var(--line_height) / 16) !important;
+    background-color: var(--c-bg-msg-gpt);
+    color: var(--c-txt) !important;
+    padding: var(--p-chat-bubble) calc(var(--p-chat-bubble) + var(--p-left)) !important;
+    border-radius: var(--br-chat-bubble) !important;
+    // width: var(--w_chat_gpt) !important;
+
+    @include dev('md') {
+        --br-chat-bubble: calc(var(--br) * 1.2);
+        padding: var(--p-chat-bubble) !important;
+    }
+
+
+    /* Logo on the left */
+    .dfa60d66 {
+        top: var(--p-chat-bubble) !important;
+        translate: 50%;
+        background-color: hsla(var(--accent-hsl) / 0.15) !important;
+        border-color: hsla(var(--accent-hsl) / 0.2) !important;
+        box-shadow: none !important;
+
+        @include dev('md') {
+            display: none !important;
+        }
+
+
+        svg {
+            path {
+                fill: var(--c-accent) !important;
+            }
+        }
+    }
+
+
+    /* 
+    - Thinking time note: "Thought for X seconds"
+    - Search result note: "Found X results" */
+    .a6d716f5 {
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, transform 0.15s $easeOutCubic;
+
+        &:hover {
+            @include bg-accent-inverse;
+            transform: scale(1.02);
+        }
+    }
+
+    /* Thinking text parent (with "Thought for X seconds" note) */
+    .edb250b1 {
+
+        /* Thinking process texts */
+        .e1675d8b {
+            --thinking-p-left: 13px; // this is from ds deafult
+
+            &:not(:empty) {
+                @extend .fadeIn;
+            }
+
+            color: var(--c-subtext-2) !important;
+            // font-size: calc(((var(--fontSize) / 16) * 1rem) * 0.8) !important;
+            // line-height: calc((var(--line_height) / 16) * 0.8) !important;
+            line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+            transition: font-size 0.15s ease-in-out,
+            line-height 0.15s ease-in-out;
+
+            /* Thinking border on the left */
+            .ecc93a3b {
+                border-color: currentColor !important;
+                opacity: 0.6;
+            }
+
+            /* Thinking <p> texts */
+            /*  p.ba94db8a:not(:empty) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    background-color: currentColor;
+                    // transform: translate(-50%, 50%);
+                    // transform: translate(calc((var(--thinking-p-left) * -1) - 50%), 50%);
+                    transform: translate(-1rem, 50%);
+                    border-radius: 50vw;
+                }
+            } */
+        }
+    }
+}
+
+/* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
+
+/* user wrapper i assistent wrapper */
+.fa81,
+.f9bf7997 {
+    margin-bottom: var(--mb-chat-bubble) !important;
+}
+
+/* User chat-bubble wrapper, remove padding for consistent and same spacing between chat-bubbles */
+.fa81 {
+    padding: 0 !important;
+}
+
+/* "New chat" floating btn. Not working when scoped into chats main layout... */
+.e214291b {
+    @include bg-accent;
+
+    &:hover {
+        @include bg-accent-inverse;
+    }
+}
+
+/* Footer: "AI-generated, for reference only" */
+.fcaa63f8 {
+    color: var(--c-subtext-1) !important;
+}
+
+
+/* User chat and GPT chat markdown */
+.fbb737a4,
+.f9bf7997,
+.ds-markdown {
+    /*     --ds-font-size-l: calc(var(--font_size) * 1rem / 16) !important;
+    --ds-font-size-m: calc((var(--font_size) - 2) * 1rem / 16) !important;
+
+    --ds-line-height-l: calc(var(--font_size) * 1rem / 16) !important;
+    --ds-line-height-m: calc((var(--font_size) - 4) * 1rem / 16) !important; */
+
+
+    --ds-font-size-l: calc(var(--fontSize) * 1rem / 16) !important;
+    --ds-font-size-m: calc((var(--fontSize) - 2) * 1rem / 16) !important;
+
+    --ds-line-height-l: calc(var(--lineHeight) * 1rem / 16) !important;
+    --ds-line-height-m: calc((var(--lineHeight) - 4) * 1rem / 16) !important;
+    // line-height: calc(var(--line_height) / 16) !important;
+    transition: font-size 0.15s ease-in-out, line-height 0.15s ease-in-out;
+
+    .md-code-block {
+        // 11px ddefault
+        --ds-font-size-xsp: calc((var(--fontSize) - 5) * 1rem / 16) !important;
+    }
+
+    // when in edit state for user chat bubble
+    .ds-textarea {
+        --ds-textarea-font-size: calc(var(--fontSize) * 1rem / 16) !important;
+    }
+}
+
+/* Chats list parent */
+.dad65929 {
+    // --message-list-max-width: 800px;
+    --message-list-max-width: var(--maxWidthChats) !important;
+    // max-width: var(--maxWidthChats) !important;
+    // --message-list-max-width: 100% !important;
+}
+
+/* textarea prompt parent */
+.aaff8b8f {
+    --message-list-max-width: var(--maxWidthTextarea) !important;
+    // max-width: var(--maxWidthChats) !important;
+    max-width: var(--message-list-max-width);
+}

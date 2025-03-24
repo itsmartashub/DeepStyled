@@ -1,0 +1,151 @@
+.ds-markdown {
+    /* Calculate medium font size: subtract 2 then convert to rem */
+    // --ds-font-size-m: calc((var(--font_size) - 2) * 1rem / 16) !important;
+    // line-height: calc(var(--line_height) / 16) !important;
+
+
+    code {
+        background-color: hsla(var(--accent-hsl) / 0.15) !important;
+        color: var(--c-accent) !important;
+        border-radius: 5px !important;
+    }
+
+    hr {
+        background-color: hsla(var(--accent-hsl) / 0.12) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--c-accent) !important;
+    }
+
+    li::marker {
+        color: var(--c-accent) !important;
+        opacity: 0.8;
+    }
+
+    table {
+
+        th,
+        td {
+            border-color: hsla(var(--accent-hsl) / 0.12) !important;
+        }
+
+        /* not working */
+        // thead td {
+        //     color: var(--c-accent) !important;
+        // }
+
+        thead tr,
+        tbody tr:nth-of-type(even) {
+            background-color: hsla(var(--accent-hsl) / 0.1) !important;
+        }
+    }
+
+    // blockquote {
+    //     @include bg-accent-inverse;
+    //     border-left: 3px solid var(--c-accent) !important;
+    //     border-radius: .5rem !important;
+    // }
+
+    &-cite {
+        @include bg-accent-inverse;
+    }
+
+
+    /* Markdown code block */
+    .md-code-block {
+        border-radius: var(--br-btn) !important;
+        padding: 0.5rem !important;
+        background: var(--c-bg-pre) !important;
+        // border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
+
+        /* _____ MD HEADER _____ */
+        /* Markdown code block header wrapper  */
+        &-banner-wrap,
+        &-banner {
+            background-color: transparent !important;
+        }
+
+        // &-banner-wrap {
+        //     background-color: transparent !important;
+        // }
+
+        /* Markdown code block header sticky */
+        &-banner {
+            // background-color: hsla(var(--accent-hsl) / 0.00) !important;
+            // background-color: transparent !important;
+            border-radius: calc(var(--br-btn) * 0.6) !important;
+            // backdrop-filter: blur(5px);
+            background-color: var(--c-bg-pre) !important;
+            align-items: center;
+            padding: 0.2rem 0.8rem !important;
+        }
+
+        /* Markdown code block header: code language */
+        &-infostring {
+            color: var(--c-subtext-2) !important;
+            font-family: var(--ds-font-family-code) !important;
+            font-weight: bold;
+            line-height: 1 !important;
+        }
+
+        /* Footer of code block, for example: "▶️ Run HTML" part */
+        &-footer {
+            // @include bg-accent-inverse;
+            border-radius: var(--br-btn);
+            background-color: hsla(var(--accent-hsl) / 0.0) !important;
+
+            span:has(> .ds-icon) {
+                // color: var(--c-on-accent) !important;
+                // background-color: var(--c-accent) !important;
+                // border-radius: 2rem;
+
+                @extend .ds-button--primary;
+                transition: transform 0.25s $easeOutCubic;
+
+                &:hover {
+                    transform: translateY(-0.08rem);
+                }
+            }
+        }
+    }
+
+    /* Markdown code block header: Copy btn */
+    &-code-copy-button {
+        @include bg-accent;
+        padding: calc(var(--p-btn) * 0.5) !important;
+        border-radius: calc(var(--br-btn) * 0.5) !important;
+        transition: backcolor 0.25s $easeOutCubic, color 0.25s $easeOutCubic;
+
+        &:hover {
+            @include bg-accent-inverse;
+        }
+    }
+
+    /* Elements when run the code */
+    iframe {
+        body {
+            // background-color: red !important;
+            background-color: transparent !important;
+        }
+    }
+}
+
+body.light .ds-markdown {
+    .md-code-block-infostring {
+        color: var(--c-on-accent) !important;
+    }
+}
+
+
+/* Otut of markdown scope because this fix blockquote on "DeepSeek Terms of Use" and "DeepSeek Privacy Policy" */
+blockquote {
+    @include bg-accent-inverse;
+    border-left: 3px solid var(--c-accent) !important;
+    border-radius: .5rem !important;
+}

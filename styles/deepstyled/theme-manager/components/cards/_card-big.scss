@@ -1,0 +1,100 @@
+.card--big {
+    // --p-input-select: 0.5rem;
+    --p-input-select: 0.2em;
+    --p-big-card: 0.5rem 0.8rem;
+
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: var(--p-big-card);
+    padding-bottom: 0.2rem !important;
+    text-align: left;
+    background-color: var(--c-surface-2);
+    // font-size: 1.4rem;
+
+    label {
+        width: 100%;
+        display: grid;
+        align-content: space-between;
+        justify-content: stretch;
+    }
+
+    &__unit,
+    &__name {
+        font-size: 0.58em;
+        font-weight: bold;
+    }
+
+    &__unit {
+        --icon-size: 1.8rem;
+        display: grid;
+        place-items: center;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        aspect-ratio: 1 / 1;
+        margin: 0;
+        border-radius: 0.5rem;
+        color: var(--c-accent);
+        background-color: hsla(var(--accent-hsl) / 0.15);
+
+        @include dev('sm') {
+            --icon-size: 1.5rem;
+        }
+    }
+
+    &__name {
+        margin: 0.35rem 0 !important;
+        text-transform: uppercase;
+        color: var(--c-accent);
+    }
+
+    select,
+    input {
+        align-self: flex-end;
+        line-height: 1;
+        width: 100%;
+        // font-size: 1.2em;
+        font-size: 1.4em;
+        font-weight: bold;
+        background-color: transparent !important;
+        padding: var(--p-input-select) !important;
+        translate: calc(var(--p-input-select) * -1) 0;
+        transition: all .2s ease-in-out;
+
+        &:focus {
+            outline: none;
+            border: none;
+            border-radius: 1rem;
+            background-color: hsla(var(--accent-hsl) / 0.15) !important;
+            color: var(--c-accent);
+            translate: 0 0 !important;
+        }
+    }
+
+    input {
+        --p-input-select: 0.06em !important;
+        // font-size: 1.4em;
+    }
+
+    select {
+        background: none;
+        border: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        // font-size: 1.1em !important;
+
+        option {
+            font-size: 0.6em !important;
+            background-color: var(--c-surface-2) !important;
+        }
+    }
+
+    &:hover {
+
+        input,
+        select {
+            transform: translateY(2px);
+        }
+    }
+}
