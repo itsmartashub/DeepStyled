@@ -1,16 +1,16 @@
 /* Right chat wrapper main div */
-.f2eea526 {
+._3919b83 {
 
     // --message-list-max-width: --w_chat_gpt !important;
 
     /* "⚠️ Length limit reached. DeepSeek can only read the first 7%" */
-    .e87bfa92 {
+    ._69505e8 {
         @include bg-warning-inverse;
         border-color: hsla(var(--warning-hsl) / 0.12) !important;
     }
 
     /* Scrolldown btn */
-    .e98de67b:has(>svg) {
+    ._0e98de6:has(>svg) {
         @include bg-accent;
         box-shadow: inset 0 0 0 1px hsla(var(--warning-hsl) / 0.2) !important;
 
@@ -18,6 +18,11 @@
             @include bg-accent-inverse;
         }
     }
+}
+
+/* Attached file above user chat bubble */
+._76cd190 ._5119742 {
+    color: var(--dsr-text-2) !important;
 }
 
 /* User chat bubble */
@@ -39,7 +44,7 @@
 }
 
 /* User chat bubble in edit state */
-.fa81.eee33222 {
+._9663006._3111eee {
 
     /* <textarea> parent */
     .ds-textarea {
@@ -68,7 +73,7 @@
 }
 
 /* GPT chat bubble */
-.f9bf7997 {
+._4f9bf79 {
     --p-left: 2rem; // padding-left gde je svg logo (originalno je 48px)
     // font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     // line-height: calc(var(--line_height) / 16) !important;
@@ -85,7 +90,7 @@
 
 
     /* Logo on the left */
-    .dfa60d66 {
+    ._7eb2358._58dfa60 {
         top: var(--p-chat-bubble) !important;
         translate: 50%;
         background-color: hsla(var(--accent-hsl) / 0.15) !important;
@@ -108,7 +113,7 @@
     /* 
     - Thinking time note: "Thought for X seconds"
     - Search result note: "Found X results" */
-    .a6d716f5 {
+    ._58a6d71 {
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, transform 0.15s $easeOutCubic;
 
         &:hover {
@@ -118,7 +123,7 @@
     }
 
     /* Thinking text parent (with "Thought for X seconds" note) */
-    .edb250b1 {
+    ._48edb25 {
 
         /* Thinking process texts */
         .e1675d8b {
@@ -136,7 +141,7 @@
             line-height 0.15s ease-in-out;
 
             /* Thinking border on the left */
-            .ecc93a3b {
+            ._9ecc93a {
                 border-color: currentColor !important;
                 opacity: 0.6;
             }
@@ -166,18 +171,18 @@
 /* TODO: za oba chat-bubble srediti max-widthh jer moram parente ustv da menjam:     --message-list-max-width */
 
 /* user wrapper i assistent wrapper */
-.fa81,
-.f9bf7997 {
+._9663006,
+._4f9bf79 {
     margin-bottom: var(--mb-chat-bubble) !important;
 }
 
 /* User chat-bubble wrapper, remove padding for consistent and same spacing between chat-bubbles */
-.fa81 {
+._9663006 {
     padding: 0 !important;
 }
 
 /* "New chat" floating btn. Not working when scoped into chats main layout... */
-.e214291b {
+._217e214 {
     @include bg-accent;
 
     &:hover {
@@ -186,14 +191,14 @@
 }
 
 /* Footer: "AI-generated, for reference only" */
-.fcaa63f8 {
+._0fcaa63 {
     color: var(--c-subtext-1) !important;
 }
 
 
 /* User chat and GPT chat markdown */
 .fbb737a4,
-.f9bf7997,
+._4f9bf79,
 .ds-markdown {
     /*     --ds-font-size-l: calc(var(--font_size) * 1rem / 16) !important;
     --ds-font-size-m: calc((var(--font_size) - 2) * 1rem / 16) !important;
