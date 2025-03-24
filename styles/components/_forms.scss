@@ -122,6 +122,16 @@ input[type="color"] {
 	}
 }
 
+.ds-switch {
+	--switch-color: var(--c-accent-hover) !important;
+	--switch-thumb-color: var(--c-accent) !important;
+
+	&--checked {
+		--switch-color: var(--c-accent) !important;
+		--switch-thumb-color: var(--c-on-accent) !important;
+	}
+}
+
 .ds-input {
 	// --ds-input-padding: 0 10px;
 	// --ds-input-border-radius: 10px;
