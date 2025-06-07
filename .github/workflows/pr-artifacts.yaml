@@ -24,9 +24,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Type-check (optional)
-        run: pnpm compile
-
       - name: Build and Package Extensions
         run: pnpm zip:all
 
