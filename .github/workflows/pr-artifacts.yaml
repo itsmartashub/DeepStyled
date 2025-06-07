@@ -12,19 +12,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js with pnpm
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Enable Corepack + Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
+      - name: Enable Corepack and install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Typecheck
+      - name: Type-check (optional)
         run: pnpm compile
 
       - name: Build and Package Extensions
@@ -34,20 +36,20 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: chrome-extension-zip
-          path: .output/*-chrome.zip
+          path: .output/*.chrome.zip
 
       - name: Upload Firefox extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: firefox-extension-zip
-          path: .output/*-firefox.zip
+          path: .output/*.firefox.zip
 
   report:
     needs: [build-zips]
     if: failure()
     runs-on: ubuntu-latest
     steps:
-      - name: Report
+      - name: Report failure
         run: |
-          echo "Something went wrong"
+          echo "❌ Build or packaging failed."
           echo "${{ toJSON(github) }}"
