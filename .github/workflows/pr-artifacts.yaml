@@ -1,46 +1,136 @@
-name: Build and Package Extensions
+name: Build Extension Artifacts
 
 on:
-    pull_request:
-    workflow_dispatch:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-    build-zips:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 # Prevent runaway builds
 
-        steps:
-            - name: Get code
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Install Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Setup Node.js with pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
 
-            - name: Build and Package Extensions
-              run: npm run build:all
+      - name: Verify package.json exists
+        run: |
+          if [ ! -f "package.json" ]; then
+            echo "❌ package.json not found!"
+            exit 1
+          fi
+          echo "✅ package.json found"
 
-            - name: Upload prod extension artifact (unzipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-prod
-                  path: build/prod/*
+      - name: Install dependencies
+        run: |
+          echo "📦 Installing dependencies..."
+          pnpm install --frozen-lockfile
+          echo "✅ Dependencies installed successfully"
 
-            - name: Upload release extension artifact (zipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-releases
-                  path: build/releases/*
+      - name: Verify WXT configuration
+        run: |
+          if [ ! -f "wxt.config.ts" ] && [ ! -f "wxt.config.js" ]; then
+            echo "⚠️ No WXT config found, using defaults"
+          else
+            echo "✅ WXT config found"
+          fi
 
-    report:
-        needs: [build-zips]
-        if: failure()
-        runs-on: ubuntu-latest
-        steps:
-            - name: Report
-              run: |
-                  echo "Something went wrong"
-                  echo "${{ toJSON(github) }}"
+      - name: Build extensions
+        run: |
+          echo "🚀 Building Chrome MV3 extension..."
+          pnpm build
+
+          echo "🦊 Building Firefox MV2 extension..."
+          pnpm build:firefox
+
+          echo "✅ Both builds completed"
+
+      - name: Verify build outputs
+        run: |
+          echo "🔍 Checking build outputs..."
+
+          if [ ! -d ".output/chrome-mv3" ]; then
+            echo "❌ Chrome build directory not found!"
+            exit 1
+          fi
+
+          if [ ! -d ".output/firefox-mv2" ]; then
+            echo "❌ Firefox build directory not found!"
+            exit 1
+          fi
+
+          echo "📊 Build size analysis:"
+          echo "Chrome MV3: $(du -sh .output/chrome-mv3 | cut -f1)"
+          echo "Firefox MV2: $(du -sh .output/firefox-mv2 | cut -f1)"
+
+          echo "📁 Chrome build contents:"
+          ls -la .output/chrome-mv3/
+
+          echo "📁 Firefox build contents:"
+          ls -la .output/firefox-mv2/
+
+          echo "✅ Build verification complete"
+
+      - name: Extract package info
+        id: package
+        run: |
+          if [ ! -f "package.json" ]; then
+            echo "❌ package.json missing for info extraction!"
+            exit 1
+          fi
+
+          NAME=$(node -p "require('./package.json').name" 2>/dev/null)
+          VERSION=$(node -p "require('./package.json').version" 2>/dev/null)
+
+          if [ -z "$NAME" ] || [ -z "$VERSION" ]; then
+            echo "❌ Failed to extract package name or version!"
+            exit 1
+          fi
+
+          echo "name=$NAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          echo "📦 Package: $NAME@$VERSION"
+
+      - name: Create Chrome artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome
+          path: .output/chrome-mv3/
+          retention-days: 30
+          compression-level: 9 # Maximum compression for smallest size
+          if-no-files-found: error # Fail if no files found
+        continue-on-error: false
+
+      - name: Create Firefox artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox
+          path: .output/firefox-mv2/
+          retention-days: 30
+          compression-level: 9 # Maximum compression for smallest size
+          if-no-files-found: error # Fail if no files found
+        continue-on-error: false
+
+      - name: Build summary
+        if: always() # Run even if previous steps failed
+        run: |
+          echo "🎯 Build Summary:"
+          echo "- Chrome artifact: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome"
+          echo "- Firefox artifact: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox"
+
+          if [ -d ".output/chrome-mv3" ] && [ -d ".output/firefox-mv2" ]; then
+            echo "✅ All builds successful!"
+          else
+            echo "❌ Some builds failed!"
+            exit 1
+          fi
