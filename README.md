@@ -64,17 +64,17 @@
 
 #### Chromium
 
-1. Download the `deepstyled-chrome-vX.X.X.zip` from the [Releases](https://github.com/itsmartashub/DeepStyled/releases) and unzip.
+1. Download the `deepstyled-chrome.zip` from the [Releases](https://github.com/itsmartashub/DeepStyled/releases) and unzip.
 2. Open Chrome, go to `chrome://extensions/`
 3. Enable `Developer mode` in the top-right corner.
-4. Click `Load unpacked` and select the `deepstyled-chrome-vX.X.X` folder (or you can simply drag the `zip` file there)
+4. Click `Load unpacked` and select the `deepstyled-chrome` folder (or you can simply drag the `zip` file there)
 
 #### Firefox
 
-1. Download the `deepstyled-firefox-vX.X.X.zip` from the [Releases](https://github.com/itsmartashub/DeepStyled/releases) and unzip.
+1. Download the `deepstyled-firefox.zip` from the [Releases](https://github.com/itsmartashub/DeepStyled/releases) and unzip.
 2. Open Firefox, go to `about:debugging`
 3. Enable `Add-on debugging` in `This Firefox`
-4. Click `Load Temporary Add-on` and select `manifest.json` in `deepstyled-firefox-vX.X.X` folder.
+4. Click `Load Temporary Add-on` and select `manifest.json` from `deepstyled-firefox` folder.
 
 ## Permissions
 
