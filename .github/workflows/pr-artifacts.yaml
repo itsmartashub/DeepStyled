@@ -47,8 +47,8 @@ jobs:
           - name: Prepare artifacts directory
           run: |
             mkdir -p artifacts
-            cp ${{ steps.zip_paths.outputs.chrome_zip }} artifacts/
-            cp ${{ steps.zip_paths.outputs.firefox_zip }} artifacts/
+            cp "${{ steps.zip_paths.outputs.chrome_zip }}" artifacts/
+            cp "${{ steps.zip_paths.outputs.firefox_zip }}" artifacts/
 
           - name: Upload Chrome extension artifact
             uses: actions/upload-artifact@v4
