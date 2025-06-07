@@ -1,46 +1,52 @@
-name: Build and Package Extensions
+name: Build Extension Artifacts
 
 on:
-    pull_request:
-    workflow_dispatch:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-    build-zips:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Get code
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Install Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Setup Node.js with pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
 
-            - name: Build and Package Extensions
-              run: npm run build:all
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-            - name: Upload prod extension artifact (unzipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-prod
-                  path: build/prod/*
+      - name: Build extensions
+        run: |
+          pnpm build
+          pnpm build:firefox
 
-            - name: Upload release extension artifact (zipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-releases
-                  path: build/releases/*
+      - name: Extract package info
+        id: package
+        run: |
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
-    report:
-        needs: [build-zips]
-        if: failure()
-        runs-on: ubuntu-latest
-        steps:
-            - name: Report
-              run: |
-                  echo "Something went wrong"
-                  echo "${{ toJSON(github) }}"
+      - name: Create Chrome artifact (raw files)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome
+          path: .output/chrome-mv3/
+          retention-days: 30
+          # compression-level: 0 # Minimal compression for faster processing
+
+      - name: Create Firefox artifact (raw files)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox
+          path: .output/firefox-mv2/
+          retention-days: 30
+          # compression-level: 0 # Minimal compression for faster processing
