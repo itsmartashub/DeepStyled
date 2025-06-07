@@ -34,17 +34,27 @@ jobs:
           echo "=== All zip files in project ==="
           find . -name "*.zip" -type f || echo "No zip files found"
 
+      - name: Get extension zip paths
+        id: zip_paths
+        run: |
+          CHROME_ZIP=$(find .output -name "*-chrome.zip" -type f | head -1)
+          FIREFOX_ZIP=$(find .output -name "*-firefox.zip" -type f | head -1)
+          echo "chrome_zip=${CHROME_ZIP}" >> $GITHUB_OUTPUT
+          echo "firefox_zip=${FIREFOX_ZIP}" >> $GITHUB_OUTPUT
+          echo "Found Chrome zip: ${CHROME_ZIP}"
+          echo "Found Firefox zip: ${FIREFOX_ZIP}"
+
       - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: chrome-extension-zip
-          path: .output/deepstyled-*-chrome.zip
+          path: ${{ steps.zip_paths.outputs.chrome_zip }}
 
       - name: Upload Firefox extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: firefox-extension-zip
-          path: .output/deepstyled-*-firefox.zip
+          path: ${{ steps.zip_paths.outputs.firefox_zip }}
 
   report:
     needs: [build-zips]
