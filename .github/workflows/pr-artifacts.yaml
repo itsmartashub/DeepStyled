@@ -39,10 +39,12 @@ jobs:
         run: |
           CHROME_ZIP=$(find .output -name "*-chrome.zip" -type f | head -1)
           FIREFOX_ZIP=$(find .output -name "*-firefox.zip" -type f | head -1)
-          echo "chrome_zip=${CHROME_ZIP}" >> $GITHUB_OUTPUT
-          echo "firefox_zip=${FIREFOX_ZIP}" >> $GITHUB_OUTPUT
+          echo "chrome_zip=${CHROME_ZIP}" >> "$GITHUB_OUTPUT"
+          echo "firefox_zip=${FIREFOX_ZIP}" >> "$GITHUB_OUTPUT"
           echo "Found Chrome zip: ${CHROME_ZIP}"
           echo "Found Firefox zip: ${FIREFOX_ZIP}"
+          echo "Debug - Chrome variable contains: '${CHROME_ZIP}'"
+          echo "Debug - Firefox variable contains: '${FIREFOX_ZIP}'"
 
           - name: Prepare artifacts directory
           run: |
