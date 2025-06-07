@@ -24,8 +24,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Type-check (optional)
+        run: pnpm compile
+
       - name: Build and Package Extensions
         run: pnpm zip:all
+
+      - name: Debug - List output directory
+        run: |
+          echo "=== Contents of .output directory ==="
+          ls -la .output/ || echo "No .output directory found"
+          echo "=== All zip files in project ==="
+          find . -name "*.zip" -type f || echo "No zip files found"
 
       - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
