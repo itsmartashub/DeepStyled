@@ -52,4 +52,6 @@ jobs:
       - name: Report failure
         run: |
           echo "❌ Build or packaging failed."
-          echo "${{ toJSON(github) }}"
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
