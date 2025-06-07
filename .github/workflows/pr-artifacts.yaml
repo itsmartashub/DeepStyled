@@ -34,17 +34,18 @@ jobs:
           echo "=== All zip files in project ==="
           find . -name "*.zip" -type f || echo "No zip files found"
 
-      - name: Get extension zip paths
-        id: zip_paths
-        run: |
-          CHROME_ZIP=$(find .output -name "*-chrome.zip" -type f | head -1)
-          FIREFOX_ZIP=$(find .output -name "*-firefox.zip" -type f | head -1)
-          echo "chrome_zip=${CHROME_ZIP}" >> "$GITHUB_OUTPUT"
-          echo "firefox_zip=${FIREFOX_ZIP}" >> "$GITHUB_OUTPUT"
-          echo "Found Chrome zip: ${CHROME_ZIP}"
-          echo "Found Firefox zip: ${FIREFOX_ZIP}"
-          echo "Debug - Chrome variable contains: '${CHROME_ZIP}'"
-          echo "Debug - Firefox variable contains: '${FIREFOX_ZIP}'"
+          - name: Get extension zip paths
+          id: zip_paths
+          run: |
+            find .output -name "*-chrome.zip" -type f | head -1 > chrome_path.txt
+            find .output -name "*-firefox.zip" -type f | head -1 > firefox_path.txt
+            CHROME_ZIP=$(cat chrome_path.txt)
+            FIREFOX_ZIP=$(cat firefox_path.txt)
+            echo "chrome_zip=${CHROME_ZIP}" >> "${GITHUB_OUTPUT}"
+            echo "firefox_zip=${FIREFOX_ZIP}" >> "${GITHUB_OUTPUT}"
+            echo "Chrome zip: ${CHROME_ZIP}"
+            echo "Firefox zip: ${FIREFOX_ZIP}"
+            rm chrome_path.txt firefox_path.txt
 
           - name: Prepare artifacts directory
           run: |
