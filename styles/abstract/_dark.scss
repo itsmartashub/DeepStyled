@@ -58,7 +58,8 @@ body.dark[data-ds-dark-theme] {
     --c-bg-msg-gpt: hsla(var(--accent-hsl) / 0.08);
 
     /* ? ========== Type message textarea colors ========== */
-    --c-bg-textarea: var(--c-surface-2);
+    // --c-bg-textarea: var(--c-surface-2);
+    --c-bg-textarea: linear-gradient(145deg, hsla(var(--accent-hsl) / 0.2) 0%, hsla(var(--accent-hsl) / 0.1) 22%, hsla(var(--accent-hsl) / 0.1) 68%, hsla(var(--accent-hsl) / 0.2) 100%);
 
     /* ? ========== modal, dialog, contextmenu bg ========== */
     --c-bg-modal: hsla(var(--accent-hsl) / 0.22);
@@ -110,7 +111,7 @@ body.dark[data-ds-dark-theme][data-dsx-theme="oled"] {
     --c-bg-msg-gpt: hsl(var(--accent-h), calc(var(--surface-s) + 20%), calc(var(--surface-l) + 6%));
 
     /* ? ========== Type message textarea colors ========== */
-    --c-bg-textarea: var(--c-surface-3);
+    // --c-bg-textarea: var(--c-surface-3);
 
     /* ? ========== modal, dialog, contextmenu bg ========== */
     --c-bg-modal: hsla(var(--accent-hsl) / 0.09);

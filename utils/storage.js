@@ -2,7 +2,7 @@
 import { storage } from 'wxt/storage'
 import { hslToHex } from '@/composables/useColorConversion'
 
-export const DEFAULT_ACCENT_LIGHT_HSL = [352, 34, 37] // Example: Warm color for light mode
+export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35] // Example: Warm color for light mode
 export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81] // Example: Cool color for dark mode
 
 // Default values for max widths (in px)

@@ -1,6 +1,10 @@
 // .cefa5c26:has(#chat-input) {
 ._77cefa5:has(#chat-input) {
-    border: 1px solid hsla(var(--accent-hsl) / 0.12) !important;
+
+    background: var(--c-bg-textarea) !important;
+    box-shadow: inset 0 0 1px 1px hsla(var(--accent-hsl) / 0.08) !important;
+    backdrop-filter: blur(18px);
+    border: none !important;
 
     /* Textarea */
     #chat-input {

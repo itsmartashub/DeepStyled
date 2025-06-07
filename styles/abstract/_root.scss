@@ -49,6 +49,8 @@
     /* ? --- Margins --- */
     --mb-chat-bubble: 3rem;
 
+    --c-bg-textarea: linear-gradient(145deg, hsla(var(--accent-hsl) / 0.2) 0%, hsla(var(--accent-hsl) / 0.1) 22%, hsla(var(--accent-hsl) / 0.1) 68%, hsla(var(--accent-hsl) / 0.2) 100%);
+
 
     @include dev('md') {
         --p-chat-bubble: calc(var(--br) * 1.2);
