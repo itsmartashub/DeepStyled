@@ -21,25 +21,6 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Extract package name and version
-        id: extract_pkg
-        run: |
-          node -e "
-            const fs = require('fs');
-            try {
-              const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-              if (!pkg.name || !pkg.version) {
-                console.error('package.json missing name or version');
-                process.exit(1);
-              }
-              console.log(`::set-output name=name::${pkg.name}`);
-              console.log(`::set-output name=version::${pkg.version}`);
-            } catch (err) {
-              console.error('Error reading package.json:', err);
-              process.exit(1);
-            }
-          "
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -53,34 +34,30 @@ jobs:
           echo "=== All zip files in project ==="
           find . -name "*.zip" -type f || echo "No zip files found"
 
-      - name: Debug - List chrome-mv3 and firefox-mv2 directories
+      - name: Copy chrome-mv3 and firefox-mv2 to artifacts directory
         run: |
-          echo "=== Contents of .output/chrome-mv3 ==="
-          ls -la .output/chrome-mv3 || echo "No chrome-mv3 directory found"
-          echo "=== Contents of .output/firefox-mv2 ==="
-          ls -la .output/firefox-mv2 || echo "No firefox-mv2 directory found"
-
-      - name: Prepare artifacts directory and copy build outputs
-        run: |
-          set -e
           mkdir -p artifacts/chrome-mv3 artifacts/firefox-mv2
-          if [ -d ".output/chrome-mv3" ]; then
-            cp -r .output/chrome-mv3/* artifacts/chrome-mv3/
-          else
-            echo "Warning: .output/chrome-mv3 directory not found"
-          fi
-          if [ -d ".output/firefox-mv2" ]; then
-            cp -r .output/firefox-mv2/* artifacts/firefox-mv2/
-          else
-            echo "Warning: .output/firefox-mv2 directory not found"
-          fi
+          cp -r .output/chrome-mv3/* artifacts/chrome-mv3/ || echo "Warning: .output/chrome-mv3 missing or empty"
+          cp -r .output/firefox-mv2/* artifacts/firefox-mv2/ || echo "Warning: .output/firefox-mv2 missing or empty"
 
-      - name: Debug - List artifacts directory after copy
+      - name: Extract name and version from package.json
+        id: extract_pkg
+        shell: node
         run: |
-          echo "=== Contents of artifacts/chrome-mv3 ==="
-          ls -la artifacts/chrome-mv3 || echo "No chrome-mv3 artifacts found"
-          echo "=== Contents of artifacts/firefox-mv2 ==="
-          ls -la artifacts/firefox-mv2 || echo "No firefox-mv2 artifacts found"
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          if (!pkg.name || !pkg.version) {
+            console.error('package.json missing name or version');
+            process.exit(1);
+          }
+          const name = pkg.name.trim();
+          const version = pkg.version.trim();
+          require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `name=${name}\nversion=${version}\n`);
+
+      - name: Debug extracted values
+        run: |
+          echo "Package name: '${{ steps.extract_pkg.outputs.name }}'"
+          echo "Package version: '${{ steps.extract_pkg.outputs.version }}'"
 
       - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
@@ -95,7 +72,7 @@ jobs:
           path: artifacts/firefox-mv2/*
 
   report:
-    needs: build-zips
+    needs: [build-zips]
     if: failure()
     runs-on: ubuntu-latest
     steps:
