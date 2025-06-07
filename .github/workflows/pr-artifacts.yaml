@@ -1,47 +1,74 @@
-name: Build and Package Extensions
+name: Build and Upload Extensions
 
 on:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  package:
+  build-and-upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Extract package info
+        id: package_info
+        run: |
+          # Safely read package.json and sanitize name
+          NAME=$(node -p "require('./package.json').name.replace(/[@\/]/g, '-')")
+          VERSION=$(node -p "require('./package.json').version")
+
+          # Verify values exist
+          if [ -z "$NAME" ] || [ -z "$VERSION" ]; then
+            echo "::error::Could not read name/version from package.json"
+            exit 1
+          fi
+
+          echo "name=${NAME}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "chrome_zip=.output/${NAME}-${VERSION}-chrome.zip" >> $GITHUB_OUTPUT
+          echo "firefox_zip=.output/${NAME}-${VERSION}-firefox.zip" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
-      - run: |
+      - name: Install dependencies
+        run: |
+          corepack enable
           pnpm install --frozen-lockfile
-          pnpm zip:all
 
-      - name: Extract package info
-        id: pkg
+      - name: Build extensions
+        run: pnpm zip:all
+
+      - name: Verify ZIPs exist
         run: |
-          NAME=$(node -p "require('./package.json').name.replace(/[@\/]/g, '-')")
-          VERSION=$(node -p "require('./package.json').version")
-          echo "name=${NAME}" >> $GITHUB_OUTPUT
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Checking: ${{ steps.package_info.outputs.chrome_zip }}"
+          if [ ! -f "${{ steps.package_info.outputs.chrome_zip }}" ]; then
+            echo "::error::Missing Chrome ZIP"
+            ls -la .output/
+            exit 1
+          fi
 
-      - name: Verify zips exist
-        run: |
-          ls -la .output/
-          [ -f ".output/${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-chrome.zip" ] || exit 1
-          [ -f ".output/${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-firefox.zip" ] || exit 1
+          echo "Checking: ${{ steps.package_info.outputs.firefox_zip }}"
+          if [ ! -f "${{ steps.package_info.outputs.firefox_zip }}" ]; then
+            echo "::error::Missing Firefox ZIP"
+            ls -la .output/
+            exit 1
+          fi
 
-      - name: Upload Chrome (direct from .output)
+      - name: Upload Chrome extension
         uses: actions/upload-artifact@v4
         with:
-          name: '${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-chrome-mv3'
-          path: '.output/${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-chrome.zip'
+          name: '${{ steps.package_info.outputs.name }}-${{ steps.package_info.outputs.version }}-chrome-mv3'
+          path: '${{ steps.package_info.outputs.chrome_zip }}'
+          retention-days: 7
 
-      - name: Upload Firefox (direct from .output)
+      - name: Upload Firefox extension
         uses: actions/upload-artifact@v4
         with:
-          name: '${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-firefox-mv2'
-          path: '.output/${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-firefox.zip'
+          name: '${{ steps.package_info.outputs.name }}-${{ steps.package_info.outputs.version }}-firefox-mv2'
+          path: '${{ steps.package_info.outputs.firefox_zip }}'
+          retention-days: 7
