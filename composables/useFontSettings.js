@@ -68,10 +68,7 @@ export function useFontSettings(defaults) {
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 			{
 				rel: 'stylesheet',
-				href: `https://fonts.googleapis.com/css2?family=${family.replace(
-					' ',
-					'+'
-				)}${GOOGLE_FONT_WEIGHTS}&display=swap`,
+				href: `https://fonts.googleapis.com/css2?family=${family.replace(' ', '+')}${GOOGLE_FONT_WEIGHTS}&display=swap`,
 			},
 		]
 		links.forEach(({ rel, href, crossorigin }) => {

@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
 	overflow: clip scroll;
 	font-family: var(--fontFamily), var(--fontFamilyDefault);
 	font-size: 1.2rem;
-	z-index: 5;
+	z-index: 10; // z-index of code-block markdown banner is 6, so we need to be above that
 
 	@include dev('xs') {
 		--p: 4vw;
