@@ -2,6 +2,8 @@
     --message-list-padding-horizontal: 16px;
     --message-list-max-width: 803px;
 
+    --c-bg-textarea: linear-gradient(145deg, hsla(var(--accent-hsl) / 0.2) 0%, hsla(var(--accent-hsl) / 0.1) 22%, hsla(var(--accent-hsl) / 0.1) 68%, hsla(var(--accent-hsl) / 0.2) 100%);
+
     // --dsr-local-active-bg: var(--c-surface-2) !important;
 
     /* chats wrapper - spacing X */
@@ -106,7 +108,7 @@ body[data-ds-dark-theme] {
     --dsr-text-4: var(--c-accent) !important;
     --dsr-border-1: var(--c-border) !important;
     --dsr-border-2: var(--c-border-accent) !important;
-    --dsr-input-border: var(--c-bg-textarea) !important; // textarea-prompt border
+    --dsr-input-border: hsla(var(--accent-hsl) / 0.08) !important; // textarea-prompt border
     --dsr-input-bg: var(--c-bg-textarea) !important; // textarea-prompt bg
     --dsr-button-main-bg: var(--c-accent) !important;
     --dsr-button-main-bg-hover: var(--c-accent-hover) !important;

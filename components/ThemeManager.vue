@@ -39,7 +39,6 @@ const { effectiveActiveTheme, changeTheme } = useThemeManager()
 const settingsOpen = ref(false)
 
 const openSettings = () => (settingsOpen.value = true)
-
 const closeSettings = () => (settingsOpen.value = false)
 
 const THEME_OPTIONS = [
