@@ -1,36 +1,23 @@
-name: Build and Upload Extensions
+name: Build Extension Artifacts
 
+# on:
+#   push:
+#     branches: [main, develop]
+#   pull_request:
+#     branches: [main]
+#   release:
+#     types: [published]
 on:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  build-and-upload:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Extract package info
-        id: package_info
-        run: |
-          # Safely read package.json and sanitize name
-          NAME=$(node -p "require('./package.json').name.replace(/[@\/]/g, '-')")
-          VERSION=$(node -p "require('./package.json').version")
-
-          # Verify values exist
-          if [ -z "$NAME" ] || [ -z "$VERSION" ]; then
-            echo "::error::Could not read name/version from package.json"
-            exit 1
-          fi
-
-          echo "name=${NAME}" >> $GITHUB_OUTPUT
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
-          echo "chrome_zip=.output/${NAME}-${VERSION}-chrome.zip" >> $GITHUB_OUTPUT
-          echo "firefox_zip=.output/${NAME}-${VERSION}-firefox.zip" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,38 +25,71 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build extensions
-        run: pnpm zip:all
-
-      - name: Verify ZIPs exist
         run: |
-          echo "Checking: ${{ steps.package_info.outputs.chrome_zip }}"
-          if [ ! -f "${{ steps.package_info.outputs.chrome_zip }}" ]; then
-            echo "::error::Missing Chrome ZIP"
-            ls -la .output/
-            exit 1
-          fi
+          pnpm build
+          pnpm build:firefox
 
-          echo "Checking: ${{ steps.package_info.outputs.firefox_zip }}"
-          if [ ! -f "${{ steps.package_info.outputs.firefox_zip }}" ]; then
-            echo "::error::Missing Firefox ZIP"
-            ls -la .output/
-            exit 1
-          fi
+      - name: Extract package info
+        id: package
+        run: |
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
-      - name: Upload Chrome extension
+      # These create artifacts with RAW UNCOMPRESSED files inside
+      # GitHub automatically zips the artifact for download, but contents are uncompressed
+      - name: Create Chrome artifact (raw files)
         uses: actions/upload-artifact@v4
         with:
-          name: '${{ steps.package_info.outputs.name }}-${{ steps.package_info.outputs.version }}-chrome-mv3'
-          path: '${{ steps.package_info.outputs.chrome_zip }}'
-          retention-days: 7
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome
+          path: .output/chrome-mv3/
+          retention-days: 30
+          compression-level: 0 # Minimal compression for faster processing
 
-      - name: Upload Firefox extension
+      - name: Create Firefox artifact (raw files)
         uses: actions/upload-artifact@v4
         with:
-          name: '${{ steps.package_info.outputs.name }}-${{ steps.package_info.outputs.version }}-firefox-mv2'
-          path: '${{ steps.package_info.outputs.firefox_zip }}'
-          retention-days: 7
+          name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox
+          path: .output/firefox-mv2/
+          retention-days: 30
+          compression-level: 0 # Minimal compression for faster processing
+
+
+      # Optional: Create release assets for tagged releases
+      # - name: Create release zips
+      #   if: github.event_name == 'release'
+      #   run: |
+      #     cd .output
+      #     zip -r ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome.zip chrome-mv3/*
+      #     zip -r ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox.zip firefox-mv2/*
+
+      # - name: Upload release assets
+      #   if: github.event_name == 'release'
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ github.event.release.upload_url }}
+      #     asset_path: .output/${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome.zip
+      #     asset_name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-chrome.zip
+      #     asset_content_type: application/zip
+
+      # - name: Upload Firefox release asset
+      #   if: github.event_name == 'release'
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ github.event.release.upload_url }}
+      #     asset_path: .output/${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox.zip
+      #     asset_name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}-firefox.zip
+      #     asset_content_type: application/zip
