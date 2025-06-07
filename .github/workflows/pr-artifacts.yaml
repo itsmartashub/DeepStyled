@@ -11,6 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Extract package info
         id: package_info
         run: |
@@ -36,9 +39,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build extensions
         run: pnpm zip:all
