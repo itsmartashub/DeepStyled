@@ -7,15 +7,13 @@ on:
 jobs:
   build-zips:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Enable Corepack
-        run: |
-          set -e
-          corepack enable
-        shell: bash
+        run: corepack enable
 
       - name: Setup Node.js with pnpm cache
         uses: actions/setup-node@v4
@@ -23,63 +21,78 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Install dependencies
+      - name: Extract package name and version
+        id: extract_pkg
         run: |
-          set -e
-          pnpm install --frozen-lockfile
-        shell: bash
+          node -e "
+            const fs = require('fs');
+            try {
+              const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+              if (!pkg.name || !pkg.version) {
+                console.error('package.json missing name or version');
+                process.exit(1);
+              }
+              console.log(`::set-output name=name::${pkg.name}`);
+              console.log(`::set-output name=version::${pkg.version}`);
+            } catch (err) {
+              console.error('Error reading package.json:', err);
+              process.exit(1);
+            }
+          "
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build and Package Extensions
-        run: |
-          set -e
-          pnpm zip:all
-        shell: bash
+        run: pnpm zip:all
 
-      - name: Extract name and version from package.json
-        id: extract_pkg
-        shell: node
-        run: |
-          const fs = require('fs');
-          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-          if (!pkg.name || !pkg.version) {
-            console.error('package.json missing name or version');
-            process.exit(1);
-          }
-          console.log(`::set-output name=name::${pkg.name}`);
-          console.log(`::set-output name=version::${pkg.version}`);
-
-      - name: Debug - List output directory and subfolders
+      - name: Debug - List output directory
         run: |
           echo "=== Contents of .output directory ==="
-          ls -la .output || (echo ".output directory not found" && exit 1)
-          echo "=== Contents of chrome-mv3 directory ==="
-          ls -la .output/chrome-mv3 || (echo "chrome-mv3 directory not found" && exit 1)
-          echo "=== Contents of firefox-mv2 directory ==="
-          ls -la .output/firefox-mv2 || (echo "firefox-mv2 directory not found" && exit 1)
-        shell: bash
+          ls -la .output/ || echo "No .output directory found"
+          echo "=== All zip files in project ==="
+          find . -name "*.zip" -type f || echo "No zip files found"
 
-      - name: Prepare artifacts directory with dynamic names
+      - name: Debug - List chrome-mv3 and firefox-mv2 directories
+        run: |
+          echo "=== Contents of .output/chrome-mv3 ==="
+          ls -la .output/chrome-mv3 || echo "No chrome-mv3 directory found"
+          echo "=== Contents of .output/firefox-mv2 ==="
+          ls -la .output/firefox-mv2 || echo "No firefox-mv2 directory found"
+
+      - name: Prepare artifacts directory and copy build outputs
         run: |
           set -e
-          ARTIFACT_BASE="${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}"
-          mkdir -p artifacts
-          cp -r .output/chrome-mv3 "artifacts/${ARTIFACT_BASE}-chrome-mv3"
-          cp -r .output/firefox-mv2 "artifacts/${ARTIFACT_BASE}-firefox-mv2"
-          echo "Artifacts prepared:"
-          ls -la artifacts
-        shell: bash
+          mkdir -p artifacts/chrome-mv3 artifacts/firefox-mv2
+          if [ -d ".output/chrome-mv3" ]; then
+            cp -r .output/chrome-mv3/* artifacts/chrome-mv3/
+          else
+            echo "Warning: .output/chrome-mv3 directory not found"
+          fi
+          if [ -d ".output/firefox-mv2" ]; then
+            cp -r .output/firefox-mv2/* artifacts/firefox-mv2/
+          else
+            echo "Warning: .output/firefox-mv2 directory not found"
+          fi
 
-      - name: Upload chrome-mv3 artifact
+      - name: Debug - List artifacts directory after copy
+        run: |
+          echo "=== Contents of artifacts/chrome-mv3 ==="
+          ls -la artifacts/chrome-mv3 || echo "No chrome-mv3 artifacts found"
+          echo "=== Contents of artifacts/firefox-mv2 ==="
+          ls -la artifacts/firefox-mv2 || echo "No firefox-mv2 artifacts found"
+
+      - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-chrome-mv3
-          path: artifacts/${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-chrome-mv3
+          path: artifacts/chrome-mv3/*
 
-      - name: Upload firefox-mv2 artifact
+      - name: Upload Firefox extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-firefox-mv2
-          path: artifacts/${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-firefox-mv2
+          path: artifacts/firefox-mv2/*
 
   report:
     needs: build-zips
@@ -89,11 +102,6 @@ jobs:
       - name: Report failure
         run: |
           echo "❌ Build or packaging failed."
-          echo "GITHUB_RUN_ID=${{ github.run_id }}"
-          echo "GITHUB_WORKFLOW=${{ github.workflow }}"
-          echo "GITHUB_JOB=${{ github.job }}"
-          echo "GITHUB_REF=${{ github.ref }}"
-          echo "GITHUB_SHA=${{ github.sha }}"
-          echo "GITHUB_EVENT_NAME=${{ github.event_name }}"
-          echo "Full github context:"
-          echo "${{ toJSON(github) }}"
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
