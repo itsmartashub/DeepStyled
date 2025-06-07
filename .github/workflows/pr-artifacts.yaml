@@ -27,18 +27,27 @@ jobs:
       - name: Build and Package Extensions
         run: pnpm zip:all
 
-      - name: Debug - List output directory
+      - name: Verify build outputs
         run: |
-          echo "=== Contents of .output directory ==="
-          ls -la .output/ || echo "No .output directory found"
-          echo "=== All zip files in project ==="
-          find . -name "*.zip" -type f || echo "No zip files found"
+          echo "=== Verifying build outputs ==="
+          if [ ! -d ".output/chrome-mv3" ] || [ -z "$(ls -A .output/chrome-mv3/*.zip 2>/dev/null)" ]; then
+            echo "❌ Error: No Chrome extension zip files found in .output/chrome-mv3"
+            exit 1
+          fi
+          if [ ! -d ".output/firefox-mv2" ] || [ -z "$(ls -A .output/firefox-mv2/*.zip 2>/dev/null)" ]; then
+            echo "❌ Error: No Firefox extension zip files found in .output/firefox-mv2"
+            exit 1
+          fi
+          echo "✅ Build outputs verified"
 
-      - name: Copy chrome-mv3 and firefox-mv2 to artifacts directory
+      - name: Prepare artifacts
         run: |
-          mkdir -p artifacts/chrome-mv3 artifacts/firefox-mv2
-          cp -r .output/chrome-mv3/* artifacts/chrome-mv3/ || echo "Warning: .output/chrome-mv3 missing or empty"
-          cp -r .output/firefox-mv2/* artifacts/firefox-mv2/ || echo "Warning: .output/firefox-mv2 missing or empty"
+          mkdir -p artifacts
+          # Copy with explicit zip file patterns
+          find .output/chrome-mv3 -name '*.zip' -exec cp {} artifacts/chrome-mv3.zip \;
+          find .output/firefox-mv2 -name '*.zip' -exec cp {} artifacts/firefox-mv2.zip \;
+          echo "=== Artifacts prepared ==="
+          ls -la artifacts/
 
       - name: Extract name and version from package.json
         id: extract_pkg
@@ -50,35 +59,41 @@ jobs:
             console.error('package.json missing name or version');
             process.exit(1);
           }
-          const name = pkg.name.trim();
+          const name = pkg.name.trim().replace('@', '').replace('/', '-');
           const version = pkg.version.trim();
           require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `name=${name}\nversion=${version}\n`);
-
-      - name: Debug extracted values
-        run: |
-          echo "Package name: '${{ steps.extract_pkg.outputs.name }}'"
-          echo "Package version: '${{ steps.extract_pkg.outputs.version }}'"
 
       - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: '${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-chrome-mv3'
-          path: artifacts/chrome-mv3/*
+          path: artifacts/chrome-mv3.zip
 
       - name: Upload Firefox extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: '${{ steps.extract_pkg.outputs.name }}-${{ steps.extract_pkg.outputs.version }}-firefox-mv2'
-          path: artifacts/firefox-mv2/*
+          path: artifacts/firefox-mv2.zip
 
   report:
     needs: [build-zips]
     if: failure()
     runs-on: ubuntu-latest
     steps:
-      - name: Report failure
+      - name: Checkout code (for failure context)
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (for failure context)
+        run: pnpm install --frozen-lockfile
+
+      - name: Detailed failure report
         run: |
-          echo "❌ Build or packaging failed."
-          echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
+          echo "❌ Build or packaging failed. Here's what we know:"
+          echo "=== Last 20 lines of build output ==="
+          tail -n 20 "$GITHUB_STEP_SUMMARY" || echo "No step summary available"
+          echo "=== Package.json contents ==="
+          cat package.json || echo "No package.json found"
+          echo "=== Build directory structure ==="
+          find .output -type f -print || echo "No .output directory found"
+          echo "=== Artifacts directory ==="
+          ls -la artifacts/ || echo "No artifacts directory found"
