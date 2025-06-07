@@ -1,46 +1,53 @@
 name: Build and Package Extensions
 
 on:
-    pull_request:
-    workflow_dispatch:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-    build-zips:
-        runs-on: ubuntu-latest
+  build-zips:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Get code
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Install Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Enable Corepack + Install pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
 
-            - name: Build and Package Extensions
-              run: npm run build:all
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-            - name: Upload prod extension artifact (unzipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-prod
-                  path: build/prod/*
+      - name: Typecheck
+        run: pnpm compile
 
-            - name: Upload release extension artifact (zipped)
-              uses: actions/upload-artifact@v4
-              with:
-                  name: extensions-releases
-                  path: build/releases/*
+      - name: Build and Package Extensions
+        run: pnpm zip:all
 
-    report:
-        needs: [build-zips]
-        if: failure()
-        runs-on: ubuntu-latest
-        steps:
-            - name: Report
-              run: |
-                  echo "Something went wrong"
-                  echo "${{ toJSON(github) }}"
+      - name: Upload Chrome extension artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrome-extension-zip
+          path: .output/*-chrome.zip
+
+      - name: Upload Firefox extension artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firefox-extension-zip
+          path: .output/*-firefox.zip
+
+  report:
+    needs: [build-zips]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report
+        run: |
+          echo "Something went wrong"
+          echo "${{ toJSON(github) }}"
