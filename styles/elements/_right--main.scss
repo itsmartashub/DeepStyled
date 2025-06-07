@@ -120,9 +120,15 @@
     /* Thinking text parent (with "Thought for X seconds" note) */
     ._48edb25 {
 
+        &:hover,
+        &:focus {
+            --displayThinkingProcess: block !important;
+        }
+
         /* Thinking process texts */
         .e1675d8b {
             --thinking-p-left: 13px; // this is from ds deafult
+            display: var(--displayThinkingProcess) !important;
 
             &:not(:empty) {
                 @extend .fadeIn;
