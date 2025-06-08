@@ -1,6 +1,6 @@
 <template>
-	<div class="theme-manager" :class="{ 'is-active': isActive }" @click="toggleActive" @mouseleave="isActive = false">
-		<div class="theme-manager__roller">
+	<div ref="themeManagerRef" class="theme-manager" :class="{ 'is-active': isActive }">
+		<div class="theme-manager__roller" @click.stop="toggleActive">
 			<IconRoller />
 		</div>
 
@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useThemeManager } from '@/composables/useThemeManager'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'
@@ -37,14 +37,13 @@ import IconSun from '@/components/Icons/IconSun.vue'
 import IconMoon from '@/components/Icons/IconMoon.vue'
 import IconMoonFull from '@/components/Icons/IconMoonFull.vue'
 
-const { effectiveActiveTheme, changeTheme } = useThemeManager()
+const { changeTheme } = useThemeManager()
 
+const themeManagerRef = ref(null)
 const settingsOpen = ref(false)
 const isActive = ref(false)
 
-const toggleActive = () => {
-	isActive.value = !isActive.value
-}
+const toggleActive = () => (isActive.value = !isActive.value)
 
 const openSettings = () => {
 	settingsOpen.value = true
@@ -52,6 +51,20 @@ const openSettings = () => {
 }
 
 const closeSettings = () => (settingsOpen.value = false)
+
+const handleClickOutside = (event) => {
+	if (themeManagerRef.value && !themeManagerRef.value.contains(event.target)) {
+		isActive.value = false
+	}
+}
+
+onMounted(() => {
+	document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+	document.removeEventListener('click', handleClickOutside)
+})
 
 const THEME_OPTIONS = [
 	{ id: THEMES.LIGHT, icon: IconSun },
@@ -61,6 +74,12 @@ const THEME_OPTIONS = [
 </script>
 
 <style scoped lang="scss">
+// Performance variables - computed once, reused everywhere
+$transition-standard: 0.3s ease;
+$transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$border-accent: 1px solid hsla(var(--accent-hsl) / 0.2);
+$blur-backdrop: blur(1rem);
+
 .theme-manager {
 	position: fixed;
 	top: var(--roller-top);
@@ -70,74 +89,61 @@ const THEME_OPTIONS = [
 	gap: 0.5rem;
 	color: var(--c-accent);
 	z-index: 5;
-	cursor: pointer;
-
-	&.is-active {
-		.theme-manager__buttons {
-			opacity: 1;
-			pointer-events: all;
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-
-			button {
-				transform: scale(1);
-				transition-delay: calc(0.1s * var(--i));
-			}
-		}
-	}
 
 	&__roller {
 		aspect-ratio: 1 / 1;
 		display: grid;
 		place-items: center;
+		border: $border-accent;
+		border-radius: 50vw;
+		background-image: var(--c-bg-gradient);
+		backdrop-filter: $blur-backdrop;
+		cursor: pointer;
+		transition: transform $transition-standard, background $transition-standard, color $transition-standard;
 		width: var(--roller-size);
 		height: var(--roller-size);
-		background-image: var(--c-bg-gradient);
-		border: 1px solid hsla(var(--accent-hsl) / 0.2);
-		border-radius: 50vw;
-		backdrop-filter: blur(1rem);
-		transition: all 0.3s ease-in-out;
 
 		&:hover {
+			transform: scale(1.1);
 			background-image: none;
 			background-color: var(--c-accent);
 			color: var(--c-on-accent);
-			transform: scale(1.1);
+		}
+
+		&:active {
+			transform: scale(0.95);
 		}
 	}
 
 	&__buttons {
 		display: grid;
-		justify-content: center;
-		align-items: center;
+		place-items: center;
 		gap: 0.5rem;
 		width: var(--roller-size);
 		padding: 0.2rem;
 		background-image: var(--c-bg-gradient);
-		backdrop-filter: blur(1rem);
-		border: 1px solid hsla(var(--accent-hsl) / 0.2);
+		backdrop-filter: $blur-backdrop;
+		border: $border-accent;
 		border-radius: 20vw;
 		opacity: 0;
 		pointer-events: none;
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
-		transition: all 0.3s ease;
+		transition: opacity $transition-standard, clip-path $transition-standard;
 
 		button {
 			position: relative;
 			aspect-ratio: 1 / 1;
-			cursor: pointer;
 			font-family: var(--fontFamily), var(--fontFamilyDefault);
 			line-height: 1;
 			background-color: transparent;
 			color: currentColor;
+			border: 0;
 			border-radius: 50vw;
+			cursor: pointer;
 			transform: scale(0);
-			transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+			transition: transform $transition-bounce, color $transition-standard;
 
-			// &[data-active='true'] {
-			// 	background-color: hsla(var(--accent-hsl) / 0.2);
-			// 	color: var(--c-accent);
-			// }
-
+			// Tooltip optimization
 			&::after {
 				content: attr(data-ds-btn-metadata);
 				position: absolute;
@@ -145,43 +151,59 @@ const THEME_OPTIONS = [
 				left: 50%;
 				width: max-content;
 				font-size: 0.7rem;
-				text-transform: uppercase;
 				font-weight: 700;
+				text-transform: uppercase;
 				padding: 6px;
 				background-color: var(--c-accent);
 				color: var(--c-on-accent);
 				border-radius: 50vw;
 				opacity: 0;
 				transform: translate(-50%, 0%) scale(0);
-				transition: all 0.3s ease;
+				transition: opacity $transition-standard, transform $transition-standard;
 				z-index: 2;
+				pointer-events: none;
 			}
 
 			&:hover {
 				color: transparent;
-				transform: scale(1.1);
 
 				&::after {
 					opacity: 1;
 					transform: translate(-50%, -50%) scale(1);
 				}
 			}
+		}
+	}
 
-			&:active {
-				transform: scale(0.95);
+	// Active state optimizations
+	&.is-active &__buttons {
+		opacity: 1;
+		pointer-events: all;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+		button {
+			transform: scale(1);
+			// Staggered animation using SCSS loop
+			@for $i from 1 through 4 {
+				&:nth-child(#{$i}) {
+					transition-delay: #{$i * 0.05}s;
+				}
 			}
 		}
 	}
 }
 
-.slideX-enter-active,
-.slideX-leave-active {
-	transition: transform 0.3s ease, opacity 0.3s ease;
-}
+// Transition component optimization
+.slideX {
+	&-enter-active,
+	&-leave-active {
+		transition: transform $transition-standard, opacity $transition-standard;
+	}
 
-.slideX-enter-from,
-.slideX-leave-to {
-	transform: translateX(100%);
-	opacity: 0;
+	&-enter-from,
+	&-leave-to {
+		transform: translateX(100%);
+		opacity: 0;
+	}
 }
 </style>
