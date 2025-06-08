@@ -50,5 +50,5 @@ export const maxWidthTextareaItem = storage.defineItem('local:maxWidthTextarea',
 })
 
 export const hideThinkingItem = storage.defineItem('local:hideThinking', {
-	fallback: { value: 'block' },
+	fallback: false,
 })

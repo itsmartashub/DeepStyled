@@ -24,13 +24,16 @@
 				type="checkbox"
 				:id="computedId"
 				:checked="modelValue"
+				@change="handleChange"
 				:disabled="disabled || loading"
 				:aria-describedby="subtitle ? `${computedId}-desc` : undefined"
-				@change="handleChange"
 				@focus="isFocused = true"
 				@blur="isFocused = false"
 			/>
 			<span class="toggle-thumb" :class="{ 'is-focused': isFocused }" aria-hidden="true"></span>
+			<!-- :checked="model" -->
+			<!-- @change="model = $event.target.checked" -->
+			<!-- @change="handleChange" -->
 		</div>
 
 		<div class="dsx-tooltip" v-if="tooltip" v-html="tooltip"></div>
@@ -58,6 +61,8 @@ const isFocused = ref(false)
 const inputRef = ref(null)
 const generatedId = useId()
 const computedId = computed(() => props.id || generatedId)
+// 💥 auto-defines `modelValue` prop and emits `update:modelValue`
+// const model = defineModel()
 
 const handleChange = (event) => {
 	const newValue = event.target.checked
@@ -69,6 +74,8 @@ defineExpose({
 	focus: () => inputRef.value?.focus(),
 	blur: () => inputRef.value?.blur(),
 })
+
+console.log('props.modelValue: ', props.modelValue)
 </script>
 
 <style lang="scss" scoped>
