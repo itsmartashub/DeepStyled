@@ -266,8 +266,8 @@ console.log('props.modelValue: ', props.modelValue)
 	color: var(--c-txti);
 	backdrop-filter: blur(1.725rem);
 	border-radius: var(--br-btn);
-	z-index: 100 !important;
-	pointer-events: none;
+	z-index: 1;
+	pointer-events: none !important;
 	opacity: 0;
 	transition: opacity 0.2s linear, transform 0.2s var(--smooth-effect);
 
