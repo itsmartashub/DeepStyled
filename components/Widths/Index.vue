@@ -31,6 +31,15 @@
 			/>
 		</div>
 
+		<div class="section-toggles">
+			<ToggleCard
+				v-model="hideThinking"
+				title="Hide Thinking Process"
+				subtitle="Hide AI reasoning steps and show only final answers"
+				icon="👁️"
+			/>
+		</div>
+
 		<footer class="section-footer">
 			<ButtonPrimary id="resetWidths" @click="resetWidths">Reset Widths</ButtonPrimary>
 		</footer>
@@ -43,6 +52,7 @@ import { maxWidthChatsItem, maxWidthTextareaItem, DEFAULT_MAX_WIDTH } from '@/ut
 // import SmallCard from '@/components/Cards/Small.vue'
 import SliderCard from '@/components/Cards/SliderCard.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
+import ToggleCard from '@/components/Toggle/Card.vue'
 
 // Default actual width in pixels
 const defaultWidthPx = DEFAULT_MAX_WIDTH
@@ -84,6 +94,14 @@ const textareaWidthValue = ref(defaultWidthPx)
 // In pixel mode, we "fake" it to be fakeSliderValue.
 const chatSliderDisplay = ref(fakeSliderValue)
 const textareaSliderDisplay = ref(fakeSliderValue)
+
+// One toggle controls everything
+const hideThinking = ref(false)
+
+// Updates CSS variable globally
+watch(hideThinking, (hide) => {
+	document.documentElement.style.setProperty('--displayThinkingProcess', hide ? 'none' : 'block')
+})
 
 // Helper: update the CSS variable on document root.
 const updateCssVariable = (key, value, unit) => {

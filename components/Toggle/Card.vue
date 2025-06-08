@@ -1,4 +1,251 @@
-<template></template>
+<template>
+	<label
+		class="dsx-toggle-card"
+		:for="computedId"
+		:class="{
+			'is-checked': modelValue,
+			'is-disabled': disabled,
+			'is-loading': loading,
+		}"
+	>
+		<div class="dsx-toggle-card__icon" aria-hidden="true">
+			<component :is="iconComponent" v-if="iconComponent" />
+			<span v-else>{{ icon }}</span>
+		</div>
 
-<script lang="js" setup></script>
-<style lang="scss" scoped></style>
+		<div class="dsx-toggle-card__content">
+			<h3 class="title">{{ title }}</h3>
+			<p class="subtitle" v-if="subtitle" :id="`${computedId}-desc`">{{ subtitle }}</p>
+		</div>
+
+		<div class="dsx-toggle-card__toggle" role="switch" :aria-checked="modelValue">
+			<input
+				ref="inputRef"
+				type="checkbox"
+				:id="computedId"
+				:checked="modelValue"
+				:disabled="disabled || loading"
+				:aria-describedby="subtitle ? `${computedId}-desc` : undefined"
+				@change="handleChange"
+				@focus="isFocused = true"
+				@blur="isFocused = false"
+			/>
+			<span class="toggle-thumb" :class="{ 'is-focused': isFocused }" aria-hidden="true"></span>
+		</div>
+	</label>
+</template>
+
+<script setup>
+import { computed, ref, useId } from 'vue'
+
+const props = defineProps({
+	modelValue: { type: Boolean, default: false },
+	id: { type: String, default: '' },
+	title: { type: String, required: true },
+	subtitle: { type: String, default: '' },
+	icon: { type: String, default: '' },
+	iconComponent: { type: [Object, String], default: null },
+	disabled: { type: Boolean, default: false },
+	loading: { type: Boolean, default: false },
+})
+
+const emit = defineEmits(['update:modelValue', 'change'])
+
+const isFocused = ref(false)
+const inputRef = ref(null)
+const generatedId = useId()
+const computedId = computed(() => props.id || generatedId)
+
+const handleChange = (event) => {
+	const newValue = event.target.checked
+	emit('update:modelValue', newValue)
+	emit('change', newValue)
+}
+
+defineExpose({
+	focus: () => inputRef.value?.focus(),
+	blur: () => inputRef.value?.blur(),
+})
+</script>
+
+<style lang="scss" scoped>
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.dsx-toggle-card {
+	--card-gap: 0.725rem;
+	--card-padding: 0.725rem;
+	--card-border-radius: calc(var(--br-btn) * 1.5);
+
+	--icon-size: 2.5rem;
+
+	--toggle-width: 3rem;
+	--toggle-height: 1.75rem;
+	--toggle-padding: 0.165rem;
+	--toggle-thumb-size: calc(var(--toggle-height) - 2 * var(--toggle-padding));
+	--toggle-bg: hsl(var(--accent-hsl) / 0.3);
+	--toggle-thumb-bg: var(--c-accent);
+
+	--bounce-effect: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	--smooth-effect: cubic-bezier(0.4, 0, 0.2, 1);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1rem;
+	gap: var(--card-gap);
+	padding: var(--card-padding);
+	background-color: hsl(var(--accent-hsl) / 0.1);
+	border: 1px solid transparent;
+	border-radius: var(--card-border-radius);
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.25s var(--smooth-effect);
+
+	&:hover:not(.is-disabled) {
+		border-color: hsl(var(--accent-hsl) / 0.1);
+		transform: scale(0.98);
+
+		.dsx-toggle-card__icon {
+			transform: scale(1.05);
+		}
+	}
+
+	&:active:not(.is-disabled) {
+		transform: scale(1.02);
+	}
+
+	// &:focus-within {
+	// 	outline: 2px solid var(--c-accent);
+	// 	outline-offset: 2px;
+	// }
+
+	// &.is-checked {
+	// 	background-color: hsl(var(--accent-hsl) / 0.15);
+	// 	border-color: hsl(var(--accent-hsl) / 0.3);
+	// }
+
+	&.is-disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&.is-loading {
+		cursor: wait;
+
+		// .dsx-toggle-card__icon::after {
+		// 	content: '';
+		// 	position: absolute;
+		// 	inset: 0;
+		// 	border: 2px solid transparent;
+		// 	border-top-color: var(--c-accent);
+		// 	border-radius: inherit;
+		// 	animation: spin 1s linear infinite;
+		// }
+	}
+
+	&__icon {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		flex-shrink: 0;
+		background-color: hsl(var(--accent-hsl) / 0.12);
+		color: var(--c-accent);
+		border-radius: var(--br-btn);
+		transition: transform 0.25s var(--bounce-effect);
+
+		svg,
+		span {
+			font-size: 1.25rem;
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+	}
+
+	&__content {
+		min-width: 0;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.325em;
+
+		.title {
+			color: var(--c-accent);
+			text-transform: uppercase;
+			font-size: 0.8em;
+			font-weight: bold;
+			line-height: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			margin: 0;
+		}
+
+		.subtitle {
+			font-size: 0.75em;
+			line-height: 1.05;
+			margin: 0;
+			// display: -webkit-box;
+			// -webkit-box-orient: vertical;
+			// -webkit-line-clamp: 2;
+			// overflow: hidden;
+		}
+	}
+
+	&__toggle {
+		position: relative;
+		display: inline-block;
+		width: var(--toggle-width);
+		height: var(--toggle-height);
+		flex-shrink: 0;
+		background-color: var(--toggle-bg);
+		border-radius: 50vw;
+		transition: background-color 0.25s var(--smooth-effect);
+
+		input {
+			position: absolute;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			cursor: pointer;
+			z-index: 1;
+			// background-color: red;
+
+			&:disabled {
+				cursor: not-allowed;
+			}
+		}
+
+		.toggle-thumb {
+			position: absolute;
+			inset: 0;
+			background-color: var(--toggle-thumb-bg);
+			border-radius: var(--toggle-width);
+			top: var(--toggle-padding);
+			left: var(--toggle-padding);
+			width: var(--toggle-thumb-size);
+			height: var(--toggle-thumb-size);
+			transition: transform 0.25s var(--bounce-effect), background-color 0.25s var(--smooth-effect);
+		}
+	}
+
+	&.is-checked {
+		--toggle-bg: var(--c-accent);
+		--toggle-thumb-bg: var(--c-on-accent);
+
+		.toggle-thumb {
+			transform: translateX(calc(var(--toggle-width) - var(--toggle-thumb-size) - 2 * var(--toggle-padding)));
+		}
+	}
+}
+</style>
