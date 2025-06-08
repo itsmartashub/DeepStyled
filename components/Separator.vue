@@ -8,6 +8,6 @@
 	height: 1px;
 	background-color: hsl(var(--accent-hsl) / 0.1);
 	border: none;
-	margin: 1rem auto;
+	margin: 1.5rem auto;
 }
 </style>

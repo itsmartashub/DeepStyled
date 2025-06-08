@@ -184,7 +184,7 @@ const resetWidths = async () => {
 <style lang="scss" scoped>
 .widths-wrapper {
 	display: grid;
-	gap: 1rem;
+	gap: 1.25rem;
 
 	button {
 		--button-height: auto !important;

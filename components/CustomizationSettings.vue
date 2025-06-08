@@ -65,7 +65,7 @@ onBeforeUnmount(() => {
 	position: fixed;
 	top: calc(var(--roller-top) + var(--roller-size));
 	right: var(--roller-right);
-	width: clamp(17rem, 28vw, 22rem);
+	width: clamp(16rem, 35vw, 22rem);
 	max-height: var(--max-h);
 	padding: var(--p);
 	background-color: var(--c-bg-sidebar);

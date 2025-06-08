@@ -153,8 +153,4 @@ const THEME_OPTIONS = [
 		}
 	}
 }
-// button[data-active='true'] {
-// 	background: var(--c-accent);
-// 	color: var(--c-on-accent);
-// }
 </style>

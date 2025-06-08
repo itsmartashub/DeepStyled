@@ -84,7 +84,7 @@ console.log('props.modelValue: ', props.modelValue)
 	--card-padding: 0.725rem;
 	--card-border-radius: calc(var(--br-btn) * 1.5);
 
-	--icon-size: 2.5rem;
+	--icon-size: 2.75rem;
 
 	--toggle-width: 3rem;
 	--toggle-height: 1.75rem;
@@ -156,6 +156,10 @@ console.log('props.modelValue: ', props.modelValue)
 		border-radius: var(--br-btn);
 		transition: transform 0.25s var(--bounce-effect);
 
+		@include dev('sm') {
+			display: none;
+		}
+
 		span {
 			display: grid;
 			place-items: center;
@@ -178,20 +182,20 @@ console.log('props.modelValue: ', props.modelValue)
 
 		.title {
 			color: var(--c-accent);
-			text-transform: uppercase;
+			margin: 0;
 			font-size: 0.825em;
 			font-weight: bold;
 			line-height: 1;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			margin: 0;
+			text-transform: uppercase;
+			// overflow: hidden;
+			// text-overflow: ellipsis;
+			// white-space: nowrap;
 		}
 
 		.subtitle {
+			margin: 0;
 			font-size: 0.75em;
 			line-height: 1.1;
-			margin: 0;
 			// display: -webkit-box;
 			// -webkit-box-orient: vertical;
 			// -webkit-line-clamp: 2;
