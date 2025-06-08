@@ -3,7 +3,8 @@
 		<ToggleCard
 			v-model="hideThinkingState"
 			title="Hide Thinking Process"
-			subtitle="Hide AI reasoning steps and show only final answers"
+			subtitle="Force hide AI reasoning steps and display only final answers. </br></br>
+			Note: Clicking on the thought process element won't reveal it again. Only toggling this setting can restore it."
 			:iconComponent="IconThinkingProcess"
 		/>
 	</div>

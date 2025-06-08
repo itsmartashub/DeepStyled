@@ -15,7 +15,7 @@
 
 		<div class="dsx-toggle-card__content">
 			<h3 class="title">{{ title }}</h3>
-			<p class="subtitle" v-if="subtitle" :id="`${computedId}-desc`">{{ subtitle }}</p>
+			<p class="subtitle" v-if="subtitle" :id="`${computedId}-desc`" v-html="subtitle"></p>
 		</div>
 
 		<div class="dsx-toggle-card__toggle" role="switch" :aria-checked="modelValue">
@@ -163,7 +163,7 @@ defineExpose({
 		.title {
 			color: var(--c-accent);
 			text-transform: uppercase;
-			font-size: 0.8em;
+			font-size: 0.825em;
 			font-weight: bold;
 			line-height: 1;
 			overflow: hidden;
@@ -174,7 +174,7 @@ defineExpose({
 
 		.subtitle {
 			font-size: 0.75em;
-			line-height: 1.05;
+			line-height: 1.1;
 			margin: 0;
 			// display: -webkit-box;
 			// -webkit-box-orient: vertical;

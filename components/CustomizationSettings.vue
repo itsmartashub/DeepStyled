@@ -33,7 +33,7 @@ import CustomWidths from '@/components/Widths/Index.vue'
 const tabs = [
 	{ id: 'colors', label: 'Colors' },
 	{ id: 'fonts', label: 'Fonts' },
-	{ id: 'width', label: 'Width' },
+	{ id: 'width', label: 'Layouts' },
 ]
 
 const activeTab = ref('colors')
