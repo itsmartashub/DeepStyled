@@ -32,6 +32,8 @@
 			/>
 			<span class="toggle-thumb" :class="{ 'is-focused': isFocused }" aria-hidden="true"></span>
 		</div>
+
+		<div class="dsx-tooltip" v-if="tooltip" v-html="tooltip"></div>
 	</label>
 </template>
 
@@ -43,6 +45,7 @@ const props = defineProps({
 	id: { type: String, default: '' },
 	title: { type: String, required: true },
 	subtitle: { type: String, default: '' },
+	tooltip: { type: String, default: '' },
 	icon: { type: String, default: '' },
 	iconComponent: { type: [Object, String], default: null },
 	disabled: { type: Boolean, default: false },
@@ -86,6 +89,7 @@ defineExpose({
 	--bounce-effect: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	--smooth-effect: cubic-bezier(0.4, 0, 0.2, 1);
 
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -102,6 +106,11 @@ defineExpose({
 	&:hover:not(.is-disabled) {
 		border-color: hsl(var(--accent-hsl) / 0.1);
 		transform: scale(0.98);
+
+		.dsx-tooltip {
+			opacity: 1 !important;
+			transform: translate(-50%, -105%) !important;
+		}
 	}
 
 	&:active:not(.is-disabled) {
@@ -228,6 +237,31 @@ defineExpose({
 		.toggle-thumb {
 			transform: translateX(calc(var(--toggle-width) - var(--toggle-thumb-size) - 2 * var(--toggle-padding)));
 		}
+	}
+}
+
+.dsx-tooltip {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	padding: 1rem;
+	font-size: 0.85em;
+	line-height: 1.2;
+	// background: hsl(var(--accent-hsl) / 0.8);
+	// color: var(--c-on-accent);
+	background-color: var(--c-accent-hover);
+	color: var(--c-txti);
+	backdrop-filter: blur(1.725rem);
+	border-radius: var(--br-btn);
+	z-index: 100 !important;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.2s linear, transform 0.2s var(--smooth-effect);
+
+	strong {
+		font-weight: bold;
 	}
 }
 </style>

@@ -19,7 +19,7 @@
 		<div class="customization-settings__body">
 			<CustomColors v-show="activeTab === 'colors'" key="colors" class="tab-content" />
 			<CustomFonts v-show="activeTab === 'fonts'" key="fonts" class="tab-content" />
-			<CustomWidths v-show="activeTab === 'width'" key="width" class="tab-content" />
+			<CustomLayouts v-show="activeTab === 'layouts'" key="layouts" class="tab-content" />
 		</div>
 	</div>
 </template>
@@ -28,12 +28,12 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import CustomColors from '@/components/Colors/Index.vue'
 import CustomFonts from '@/components/Fonts/Index.vue'
-import CustomWidths from '@/components/Widths/Index.vue'
+import CustomLayouts from '@/components/Layouts/Index.vue'
 
 const tabs = [
 	{ id: 'colors', label: 'Colors' },
 	{ id: 'fonts', label: 'Fonts' },
-	{ id: 'width', label: 'Layouts' },
+	{ id: 'layouts', label: 'Layouts' },
 ]
 
 const activeTab = ref('colors')
