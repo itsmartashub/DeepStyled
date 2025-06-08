@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-import LayoutsToggles from '@/components/Layouts/Toggles.vue'
-import LayoutsWidths from '@/components/Layouts/Widths.vue'
+import LayoutsToggles from './Toggles.vue'
+import LayoutsWidths from './Widths.vue'
 
 import Separator from '@/components/Separator.vue'
 </script>

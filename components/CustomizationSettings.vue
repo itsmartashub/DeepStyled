@@ -26,9 +26,9 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import CustomColors from '@/components/Colors/Index.vue'
-import CustomFonts from '@/components/Fonts/Index.vue'
-import CustomLayouts from '@/components/Layouts/Index.vue'
+import CustomColors from '@/components/Custom/Colors/Index.vue'
+import CustomFonts from '@/components/Custom/Fonts/Index.vue'
+import CustomLayouts from '@/components/Custom/Layouts/Index.vue'
 
 const tabs = [
 	{ id: 'colors', label: 'Colors' },

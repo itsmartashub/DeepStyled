@@ -72,8 +72,8 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import FontCard from '@/components/Fonts/FontCard.vue'
-import FontSmallCard from '@/components/Fonts/FontSmallCard.vue'
+import FontCard from './FontCard.vue'
+import FontSmallCard from './FontSmallCard.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
 import { useFontSettings } from '@/composables/useFontSettings'
 
