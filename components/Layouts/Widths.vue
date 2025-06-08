@@ -1,5 +1,5 @@
 <template>
-	<section class="section-widths widths">
+	<div class="widths-wrapper">
 		<div class="section-cards">
 			<SliderCard
 				:name="chatsWidthData.name"
@@ -31,17 +31,15 @@
 			/>
 		</div>
 
-		<footer class="section-footer">
-			<ButtonPrimary id="resetWidths" @click="resetWidths">Reset Widths</ButtonPrimary>
-		</footer>
-	</section>
+		<ButtonPrimary id="resetWidths" @click="resetWidths">Reset Widths</ButtonPrimary>
+	</div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
 import { maxWidthChatsItem, maxWidthTextareaItem, DEFAULT_MAX_WIDTH } from '@/utils/storage'
-// import SmallCard from '@/components/Cards/Small.vue'
-import SliderCard from '@/components/Cards/SliderCard.vue'
+import SliderCard from '@/components/Cards/Slider.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
 
 // Default actual width in pixels
@@ -182,3 +180,20 @@ const resetWidths = async () => {
 	await maxWidthTextareaItem.setValue({ value: defaultWidthPx, unit: 'px' })
 }
 </script>
+
+<style lang="scss" scoped>
+.widths-wrapper {
+	display: grid;
+	gap: 1rem;
+
+	button {
+		--button-height: auto !important;
+		--p-btn: 0.5rem !important;
+		margin: 0 auto;
+		width: 60%;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 0.75em !important;
+	}
+}
+</style>

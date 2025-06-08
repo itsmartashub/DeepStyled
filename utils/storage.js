@@ -41,28 +41,14 @@ export const fontSizeItem = storage.defineItem('local:font-size')
 export const lineHeightItem = storage.defineItem('local:line-height')
 export const letterSpacingItem = storage.defineItem('local:letter-spacing')
 
-// Define storage items for max width for chat and textarea
-/* !!!! ZA SVE OSIM ZA WIDTH SMALL PARENT*/
-/* export const maxWidthChatsItem = storage.defineItem('local:maxWidthChats', {
-	fallback: DEFAULT_MAX_WIDTH,
-})
-
-export const maxWidthTextareaItem = storage.defineItem('local:maxWidthTextarea', {
-	fallback: DEFAULT_MAX_WIDTH,
-}) */
-/* export const maxWidthChatsItem = storage.defineItem('local:maxWidthChats', {
-	fallback: `${DEFAULT_MAX_WIDTH}px`,
-})
-
-export const maxWidthTextareaItem = storage.defineItem('local:maxWidthTextarea', {
-	fallback: `${DEFAULT_MAX_WIDTH}px`,
-})
- */
-
 export const maxWidthChatsItem = storage.defineItem('local:maxWidthChats', {
 	fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' },
 })
 
 export const maxWidthTextareaItem = storage.defineItem('local:maxWidthTextarea', {
 	fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' },
+})
+
+export const hideThinkingItem = storage.defineItem('local:hideThinking', {
+	fallback: { value: 'block' },
 })

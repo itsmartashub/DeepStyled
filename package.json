@@ -1,6 +1,6 @@
 {
 	"name": "deepstyled",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"displayName": "DeepStyled - Deepseek Customization",
 	"description": "Transform DeepSeek's user interface with customisable accent colours, modern designs and chat bubbles.",
 	"repository": {
