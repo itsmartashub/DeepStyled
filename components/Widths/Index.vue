@@ -31,6 +31,7 @@
 			/>
 		</div>
 
+		<Separator />
 		<LayoutsToggles />
 
 		<footer class="section-footer">
@@ -46,6 +47,7 @@ import { maxWidthChatsItem, maxWidthTextareaItem, DEFAULT_MAX_WIDTH } from '@/ut
 import LayoutsToggles from '@/components/Layouts/Toggles.vue'
 import SliderCard from '@/components/Cards/SliderCard.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
+import Separator from '@/components/Separator.vue'
 
 // Default actual width in pixels
 const defaultWidthPx = DEFAULT_MAX_WIDTH

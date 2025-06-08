@@ -69,15 +69,6 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 .dsx-toggle-card {
 	--card-gap: 0.725rem;
 	--card-padding: 0.725rem;
@@ -111,10 +102,6 @@ defineExpose({
 	&:hover:not(.is-disabled) {
 		border-color: hsl(var(--accent-hsl) / 0.1);
 		transform: scale(0.98);
-
-		.dsx-toggle-card__icon {
-			transform: scale(1.05);
-		}
 	}
 
 	&:active:not(.is-disabled) {
@@ -139,16 +126,6 @@ defineExpose({
 
 	&.is-loading {
 		cursor: wait;
-
-		// .dsx-toggle-card__icon::after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	inset: 0;
-		// 	border: 2px solid transparent;
-		// 	border-top-color: var(--c-accent);
-		// 	border-radius: inherit;
-		// 	animation: spin 1s linear infinite;
-		// }
 	}
 
 	&__icon {
@@ -163,11 +140,16 @@ defineExpose({
 		border-radius: var(--br-btn);
 		transition: transform 0.25s var(--bounce-effect);
 
+		span {
+			display: grid;
+			place-items: center;
+		}
+
 		svg,
 		span {
-			font-size: 1.25rem;
-			width: 1.25rem;
-			height: 1.25rem;
+			font-size: calc(var(--icon-size) * 0.7);
+			width: calc(var(--icon-size) * 0.7);
+			height: calc(var(--icon-size) * 0.7);
 		}
 	}
 
