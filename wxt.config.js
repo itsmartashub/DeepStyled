@@ -16,7 +16,7 @@ export default defineConfig({
 					api: 'modern-compiler',
 					quietDeps: true,
 					silenceDeprecations: ['import'],
-					additionalData: `@import "@/styles/index.scss";`, // 👈 Auto-import SCSS
+					additionalData: `@import "@/styles/shared.scss";`, // 👈 Auto-import SCSS
 				},
 			},
 		},

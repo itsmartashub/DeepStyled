@@ -1,14 +1,12 @@
-@import 'abstract/_bp';
-@import 'abstract/_ds';
-@import 'abstract/_root';
-// @import 'abstract/_vars';
-@import 'abstract/_light';
-@import 'abstract/_dark';
-@import 'shared/_easing';
-@import 'shared/_anims';
-@import 'shared/_extends';
-@import 'abstract/_extends';
-@import 'abstract/_mixins';
+// @import 'abstract/_bp';
+// @import 'abstract/_ds';
+// @import 'abstract/_root';
+// @import 'abstract/_light';
+// @import 'abstract/_dark';
+// @import 'abstract/_easing';
+// @import 'abstract/_anims';
+// @import 'abstract/_extends';
+// @import 'abstract/_mixins';
 
 // @import 'dev/_mixins';
 
@@ -37,8 +35,3 @@
 @import 'elements/_right--textarea';
 
 @import 'deepstyled/index';
-
-/* DS */
-@import 'abstract/_light.scss';
-@import 'abstract/_dark.scss';
-@import 'abstract/_ds.scss';

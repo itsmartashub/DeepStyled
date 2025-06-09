@@ -1,11 +1,12 @@
 // import '@/styles/index.scss'
+import '../styles/index.scss'
 import { createApp } from 'vue'
+
 import ThemeManager from '@/components/ThemeManager.vue'
 import { useThemeManager } from '@/composables/useThemeManager'
 
 export default defineContentScript({
 	matches: ['*://chat.deepseek.com/*'],
-	css: ['src/styles/index.scss'], // 👈 Use the same index.scss for content scripts
 
 	async main(ctx) {
 		// Force theme initialization before the UI mounts.
