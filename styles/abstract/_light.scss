@@ -17,8 +17,8 @@ body.light {
     --txt-hsl: var(--txt-h) var(--txt-s) var(--txt-l);
 
     --surface-h: var(--accent-h); // Inherit accent hue
-    --surface-s: 9%; // Drastically reduced saturation (near-gray)
-    --surface-l: 90%; // Base lightness
+    --surface-s: 10%; // Drastically reduced saturation (near-gray)
+    --surface-l: 91%; // Base lightness
     --surface-hsl: hsl(var(--surface-h) var(--surface-s) var(--surface-l));
 
     /* --danger-hsl: 346 51% 45% */
