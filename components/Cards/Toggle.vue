@@ -93,9 +93,6 @@ console.log('props.modelValue: ', props.modelValue)
 	--toggle-bg: hsl(var(--accent-hsl) / 0.3);
 	--toggle-thumb-bg: var(--c-accent);
 
-	--bounce-effect: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	--smooth-effect: cubic-bezier(0.4, 0, 0.2, 1);
-
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -108,7 +105,7 @@ console.log('props.modelValue: ', props.modelValue)
 	border-radius: var(--card-border-radius);
 	cursor: pointer;
 	user-select: none;
-	transition: all 0.25s var(--smooth-effect);
+	transition: transform $duration $easeInOutQuad;
 
 	&:hover:not(.is-disabled) {
 		border-color: hsl(var(--accent-hsl) / 0.1);
@@ -154,7 +151,7 @@ console.log('props.modelValue: ', props.modelValue)
 		background-color: hsl(var(--accent-hsl) / 0.12);
 		color: var(--c-accent);
 		border-radius: var(--br-btn);
-		transition: transform 0.25s var(--bounce-effect);
+		transition: transform $duration $easeInOutBack;
 
 		@include dev('sm') {
 			display: none;
@@ -211,7 +208,7 @@ console.log('props.modelValue: ', props.modelValue)
 		flex-shrink: 0;
 		background-color: var(--toggle-bg);
 		border-radius: 50vw;
-		transition: background-color 0.25s var(--smooth-effect);
+		transition: background-color $duration $easeInOutQuad;
 
 		input {
 			position: absolute;
@@ -237,7 +234,7 @@ console.log('props.modelValue: ', props.modelValue)
 			left: var(--toggle-padding);
 			width: var(--toggle-thumb-size);
 			height: var(--toggle-thumb-size);
-			transition: transform 0.25s var(--bounce-effect), background-color 0.25s var(--smooth-effect);
+			transition: transform $duration $easeInOutBack, background-color $duration $easeInOutQuad;
 		}
 	}
 
@@ -269,7 +266,7 @@ console.log('props.modelValue: ', props.modelValue)
 	z-index: 1;
 	pointer-events: none !important;
 	opacity: 0;
-	transition: opacity 0.2s linear, transform 0.2s var(--smooth-effect);
+	transition: opacity 0.2s linear, transform 0.2s $easeInOutQuad;
 
 	strong {
 		font-weight: bold;

@@ -73,7 +73,7 @@ const emit = defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
 		outline: none !important;
 		border: none !important;
 		transform-origin: center center;
-		transition: all 0.25s ease-in-out;
+		transition: all $trans;
 
 		// &:is(:focus, :focus-visible, :focus-within) {
 		// 	transform: scaleX(1) translateX(10%);
@@ -85,7 +85,7 @@ const emit = defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		transition: transform 0.25s ease-in-out;
+		transition: transform $trans;
 	}
 
 	&__unit,

@@ -40,4 +40,5 @@ $easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 
 /* TRANSITIONS */
-$trans: 0.25s ease;
+$duration: 0.25s;
+$trans: $duration ease;

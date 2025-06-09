@@ -145,7 +145,7 @@
 /* Attached item and in prompt field and in chats layout */
 ._76cd190 {
     --dsr-input-bg: hsla(var(--accent-hsl) / 0.15) !important;
-    transition: transform ease-in-out 0.25s, background-color 0.25s ease-in-out;
+    transition: transform $trans, background-color $trans !important;
     border: hsla(var(--accent-hsl) / 0.1) 2px solid !important;
 
     &:hover {

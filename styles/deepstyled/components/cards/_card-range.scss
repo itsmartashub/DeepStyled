@@ -96,7 +96,7 @@
             background: var(--track-bg);
             border: var(--track-outline);
             border-radius: var(--track-radius);
-            transition: background 0.25s, border 0.25s;
+            transition: background $trans, border $trans;
         }
 
         &::-moz-range-track {
@@ -104,7 +104,7 @@
             background: var(--track-bg);
             border: var(--track-outline);
             border-radius: var(--track-radius);
-            transition: background 0.25s, border 0.25s;
+            transition: background $trans, border $trans;
         }
 
         &::-webkit-slider-thumb {
@@ -116,7 +116,7 @@
             width: var(--thumb-size);
             background: var(--thumb-bg);
             border-radius: var(--thumb-radius);
-            transition: transform 0.25s ease, outline 0.25s ease, outline-offset 0.25s ease;
+            transition: transform $trans, outline $trans, outline-offset $trans;
         }
 
         &::-moz-range-thumb {
@@ -125,7 +125,7 @@
             width: var(--thumb-size);
             background: var(--thumb-bg);
             border-radius: var(--thumb-radius);
-            transition: transform 0.25s ease, outline 0.25s ease, outline-offset 0.25s ease;
+            transition: transform $trans, outline $trans, outline-offset $trans;
         }
 
         &:hover,

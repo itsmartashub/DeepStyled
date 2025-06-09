@@ -4,9 +4,11 @@
     border-color: var(--c-border) !important;
     @extend .slideInRight;
 
+
     /* Search card item in result sources */
-    ._426ebf9 {
-        transition: transform 0.25s, background-color 0.25s;
+    ._79fcd13 {
+        border-radius: var(--br-btn) !important;
+        transition: transform $trans, background-color $trans !important;
 
         &:hover {
             background-color: var(--c-surface-3) !important;
