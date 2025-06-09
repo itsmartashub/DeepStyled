@@ -74,9 +74,7 @@ const THEME_OPTIONS = [
 </script>
 
 <style scoped lang="scss">
-// Performance variables - computed once, reused everywhere
-$transition-standard: 0.3s ease;
-$transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$trans: 0.3s ease;
 $border-accent: 1px solid hsla(var(--accent-hsl) / 0.2);
 $blur-backdrop: blur(1rem);
 
@@ -99,7 +97,7 @@ $blur-backdrop: blur(1rem);
 		background-image: var(--c-bg-gradient);
 		backdrop-filter: $blur-backdrop;
 		cursor: pointer;
-		transition: transform $transition-standard, background $transition-standard, color $transition-standard;
+		transition: transform $trans, background $trans, color $trans;
 		width: var(--roller-size);
 		height: var(--roller-size);
 
@@ -128,7 +126,7 @@ $blur-backdrop: blur(1rem);
 		opacity: 0;
 		pointer-events: none;
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
-		transition: opacity $transition-standard, clip-path $transition-standard;
+		transition: opacity $trans, clip-path $trans;
 
 		button {
 			position: relative;
@@ -141,7 +139,7 @@ $blur-backdrop: blur(1rem);
 			border-radius: 50vw;
 			cursor: pointer;
 			transform: scale(0);
-			transition: transform $transition-bounce, color $transition-standard;
+			transition: transform 0.3s $easeInOutBack, color $trans;
 
 			// Tooltip optimization
 			&::after {
@@ -159,7 +157,7 @@ $blur-backdrop: blur(1rem);
 				border-radius: 50vw;
 				opacity: 0;
 				transform: translate(-50%, 0%) scale(0);
-				transition: opacity $transition-standard, transform $transition-standard;
+				transition: opacity $trans, transform $trans;
 				z-index: 2;
 				pointer-events: none;
 			}
@@ -190,20 +188,6 @@ $blur-backdrop: blur(1rem);
 				}
 			}
 		}
-	}
-}
-
-// Transition component optimization
-.slideX {
-	&-enter-active,
-	&-leave-active {
-		transition: transform $transition-standard, opacity $transition-standard;
-	}
-
-	&-enter-from,
-	&-leave-to {
-		transform: translateX(100%);
-		opacity: 0;
 	}
 }
 </style>
