@@ -5,10 +5,12 @@
     box-shadow: inset 0 0 1px 1px hsla(var(--accent-hsl) / 0.08) !important;
     backdrop-filter: blur(18px);
     border: none !important;
+    border-radius: calc(var(--br) * 1.9) !important;
 
     /* Textarea */
     #chat-input {
         color: var(--c-txt) !important;
+        padding: 0.5rem;
 
         &::placeholder {
             color: var(--c-subtext-2) !important;
@@ -31,15 +33,17 @@
     }
 
     /* Textarea footer where buttons are */
-    .ec4f5d61 {}
+    // .ec4f5d61 {}
 
     /* "DeepThink R1" and "Search" btn */
     [role="button"]._3172d9f {
-        --ds-button-color: transparent !important;
+        --ds-button-color: hsl(var(--accent-hsl) / 0.15) !important;
         --button-text-color: var(--c-accent) !important;
-        --button-border-color: hsla(var(--accent-hsl) / 0.2) !important;
+        --button-border-color: hsla(var(--accent-hsl) / 0.08) !important;
+        // --button-border-color: transparent !important;
         --ds-button-hover-color: var(--c-accent-hover) !important;
         transition: transform ease-in-out 0.2s, background-color 0.2s ease-in-out;
+        font-weight: 500 !important;
 
         .ds-icon {
             color: currentColor !important;
@@ -60,8 +64,15 @@
         // &[style*="--ds-button-color: transparent;"] {
         &[style*="--ds-button-color: #DBEAFE"],
         &[style*="--ds-button-color: rgba(77, 107, 254, 0.40)"] {
-            --ds-button-color: hsla(var(--accent-hsl) / 0.2) !important;
-            // background-color: hsla(var(--accent-hsl) / 0.2) !important;
+            // --ds-button-color: hsla(var(--accent-hsl) / 0.2) !important;
+            --ds-button-color: var(--c-accent) !important;
+            --button-text-color: var(--c-on-accent) !important;
+
+            &:hover {
+                // --ds-button-color: var(--c-on-accent) !important;
+                color: var(--c-on-accent) !important;
+            }
+
         }
     }
 
