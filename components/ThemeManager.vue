@@ -86,7 +86,7 @@ $blur-backdrop: blur(1rem);
 	place-items: center;
 	gap: 0.5rem;
 	color: var(--c-accent);
-	z-index: 5;
+	z-index: 8; // sidebar has z-index: 9; and we need to make floating above sidebar
 
 	&__roller {
 		aspect-ratio: 1 / 1;
