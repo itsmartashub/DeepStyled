@@ -74,7 +74,7 @@ const THEME_OPTIONS = [
 </script>
 
 <style scoped lang="scss">
-$transition-standard: 0.3s ease;
+$trans: 0.3s ease;
 $border-accent: 1px solid hsla(var(--accent-hsl) / 0.2);
 $blur-backdrop: blur(1rem);
 
@@ -97,7 +97,7 @@ $blur-backdrop: blur(1rem);
 		background-image: var(--c-bg-gradient);
 		backdrop-filter: $blur-backdrop;
 		cursor: pointer;
-		transition: transform $transition-standard, background $transition-standard, color $transition-standard;
+		transition: transform $trans, background $trans, color $trans;
 		width: var(--roller-size);
 		height: var(--roller-size);
 
@@ -126,7 +126,7 @@ $blur-backdrop: blur(1rem);
 		opacity: 0;
 		pointer-events: none;
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
-		transition: opacity $transition-standard, clip-path $transition-standard;
+		transition: opacity $trans, clip-path $trans;
 
 		button {
 			position: relative;
@@ -139,7 +139,7 @@ $blur-backdrop: blur(1rem);
 			border-radius: 50vw;
 			cursor: pointer;
 			transform: scale(0);
-			transition: transform $easeInOutBack, color $transition-standard;
+			transition: transform 0.3s $easeInOutBack, color $trans;
 
 			// Tooltip optimization
 			&::after {
@@ -157,7 +157,7 @@ $blur-backdrop: blur(1rem);
 				border-radius: 50vw;
 				opacity: 0;
 				transform: translate(-50%, 0%) scale(0);
-				transition: opacity $transition-standard, transform $transition-standard;
+				transition: opacity $trans, transform $trans;
 				z-index: 2;
 				pointer-events: none;
 			}
