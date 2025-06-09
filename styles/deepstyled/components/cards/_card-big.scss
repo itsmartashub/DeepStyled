@@ -58,7 +58,7 @@
         font-weight: bold;
         background-color: transparent !important;
         padding: var(--p-input-select) !important;
-        translate: calc(var(--p-input-select) * -1) 0;
+        // translate: calc(var(--p-input-select) * -1) 0;
         transition: all .2s ease-in-out;
 
         &:focus {
@@ -67,24 +67,30 @@
             border-radius: 1rem;
             background-color: hsla(var(--accent-hsl) / 0.15) !important;
             color: var(--c-accent);
-            translate: 0 0 !important;
+            // translate: 0 0 !important;
         }
     }
 
     input {
-        --p-input-select: 0.06em !important;
-        // font-size: 1.4em;
+        --p-input-select: 0.16em !important;
+        font-size: 1.45em;
     }
 
     select {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         background: none;
         border: none;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        // font-size: 1.1em !important;
 
         option {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 3rem;
             font-size: 0.6em !important;
             background-color: var(--c-surface-2) !important;
         }
@@ -94,7 +100,7 @@
 
         input,
         select {
-            transform: translateY(2px);
+            color: var(--c-accent);
         }
     }
 }

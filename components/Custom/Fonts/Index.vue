@@ -86,16 +86,30 @@ const defaults = {
 
 const fontFamilyOptions = [
 	{ value: defaults.fontFamily, label: 'Default' },
-	{ value: 'Inter', label: 'Inter' },
-	{ value: 'Roboto', label: 'Roboto' },
-	{ value: 'Roboto Mono', label: 'Roboto Mono' },
-	{ value: 'DM Sans', label: 'DM Sans' },
-	{ value: 'Reddit Mono', label: 'Reddit Mono' },
-	{ value: 'Poppins', label: 'Poppins' },
-	{ value: 'Noto Sans', label: 'Noto Sans' },
-	{ value: 'Lato', label: 'Lato' },
-	{ value: 'Quicksand', label: 'Quicksand' },
-	{ value: 'Outfit', label: 'Outfit' },
+	...[
+		{ value: 'Inter', label: 'Inter' },
+		{ value: 'Roboto', label: 'Roboto' },
+		{ value: 'Roboto Mono', label: 'Roboto Mono' },
+		{ value: 'DM Sans', label: 'DM Sans' },
+		{ value: 'Reddit Mono', label: 'Reddit Mono' },
+		{ value: 'Poppins', label: 'Poppins' },
+		{ value: 'Noto Sans', label: 'Noto Sans' },
+		{ value: 'Outfit', label: 'Outfit' },
+		{ value: 'Share Tech Mono', label: 'Share Tech Mono' },
+		{ value: 'JetBrains Mono', label: 'JetBrains Mono' },
+		{ value: 'Lora', label: 'Lora' },
+		{ value: 'Libre Baskerville', label: 'Libre Baskerville' },
+		{ value: 'Bricolage Grotesque', label: 'Bricolage Grotesque' },
+		{ value: 'Syne', label: 'Syne' },
+		{ value: 'Sora', label: 'Sora' },
+		{ value: 'Roboto Serif', label: 'Roboto Serif' },
+		{ value: 'Hedvig Letters Serif', label: 'Hedvig Letters Serif' },
+		{ value: 'Literata', label: 'Literata' },
+	].sort((a, b) => {
+		if (a.label < b.label) return -1
+		if (a.label > b.label) return 1
+		return 0
+	}),
 ]
 
 const fontSizeData = {
