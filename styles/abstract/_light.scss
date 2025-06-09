@@ -36,15 +36,11 @@ body.light {
 
     /* ? ========== Surface colors ========== */
     --c-surface-1: var(--surface-hsl);
-    // --c-surface-2: hsl(var(--surface-h) var(--surface-s) calc(var(--surface-l) * 0.945));
-    // --c-surface-3: hsl(var(--surface-h) var(--surface-s) calc(var(--surface-l) * 0.905));
     --c-surface-2: hsl(var(--surface-h) var(--surface-s) calc(var(--surface-l) * 0.95));
     --c-surface-3: hsl(var(--surface-h) var(--surface-s) calc(var(--surface-l) * 0.91));
 
     /* ? ========== Text colors ========== */
     --c-txt: hsl(var(--txt-hsl));
-    // --c-subtext-1: hsl(var(--accent-h), 0%, 20%);
-    // --c-subtext-2: hsl(var(--accent-h), 0%, 40%);
     --c-subtext-1: hsl(var(--accent-h), 0%, 20%);
     --c-subtext-2: hsl(var(--accent-h), var(--accent-s), 30%);
 
@@ -57,7 +53,6 @@ body.light {
     --c-bg-msg-gpt: hsl(var(--surface-h), calc(var(--surface-s) * 1), calc(var(--surface-l) * 0.97));
 
     /* ? ========== Type message textarea colors ========== */
-    // --c-bg-textarea: hsla(0, 0%, calc(var(--surface-l) / 1.05));
     --c-bg-textarea: linear-gradient(145deg, hsla(var(--accent-hsl) / 0.2) 0%, hsla(var(--accent-hsl) / 0.1) 22%, hsla(var(--accent-hsl) / 0.1) 68%, hsla(var(--accent-hsl) / 0.2) 100%);
 
     /* ? ========== modal, dialog, contextmenu bg ========== */
@@ -76,8 +71,6 @@ body.light {
 
     /* ? ========== <pre>/markdown things colors ========== */
     --c-markdown-a: var(--c-accent);
-    // --c-bg-pre: var(--c-surface-2);
-    // --c-bg-pre: hsla(var(--accent-hsl) / 0.01);
     --c-bg-pre: hsla(var(--accent-h) var(--surface-s) var(--surface-l) / 0.8);
 
     /* ? ========== Scrollbar colors =======s=== */
