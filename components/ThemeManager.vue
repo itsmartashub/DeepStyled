@@ -74,9 +74,7 @@ const THEME_OPTIONS = [
 </script>
 
 <style scoped lang="scss">
-// Performance variables - computed once, reused everywhere
 $transition-standard: 0.3s ease;
-$transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 $border-accent: 1px solid hsla(var(--accent-hsl) / 0.2);
 $blur-backdrop: blur(1rem);
 
@@ -141,7 +139,7 @@ $blur-backdrop: blur(1rem);
 			border-radius: 50vw;
 			cursor: pointer;
 			transform: scale(0);
-			transition: transform $transition-bounce, color $transition-standard;
+			transition: transform $easeInOutBack, color $transition-standard;
 
 			// Tooltip optimization
 			&::after {
@@ -190,20 +188,6 @@ $blur-backdrop: blur(1rem);
 				}
 			}
 		}
-	}
-}
-
-// Transition component optimization
-.slideX {
-	&-enter-active,
-	&-leave-active {
-		transition: transform $transition-standard, opacity $transition-standard;
-	}
-
-	&-enter-from,
-	&-leave-to {
-		transform: translateX(100%);
-		opacity: 0;
 	}
 }
 </style>
