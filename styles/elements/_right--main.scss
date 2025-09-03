@@ -79,6 +79,20 @@
     /* Thinking very top parent */
     ._7d763a7 {
 
+        /* "Read X web pages" */
+        .ffdab56b.ddbfd84f {
+            transition: transform 0.25s $easeInOutQuad;
+
+            &:hover {
+                transform: scale(0.96);
+            }
+
+            &:before {
+                opacity: 1 !important;
+
+            }
+
+        }
 
 
         /* "Thought for X seconds" */
@@ -107,30 +121,60 @@
     ._48edb25 {
 
         /* Thinking process texts */
-        .e1675d8b {
+        .ds-think-content {
             --thinking-p-left: 13px; // this is from ds deafult
             display: var(--displayThinkingProcess) !important;
+            color: var(--c-subtext-2) !important;
+            transition: font-size 0.15s ease-in-out,
+                line-height 0.15s ease-in-out;
 
             &:not(:empty) {
                 @extend .fadeIn;
             }
-
-            color: var(--c-subtext-2) !important;
-            line-height: calc((var(--lineHeight) / 16) * 0.5) !important;
-            transition: font-size 0.15s ease-in-out,
-            line-height 0.15s ease-in-out;
 
             /* Thinking border on the left */
             ._9ecc93a {
                 border-color: currentColor !important;
                 opacity: 0.6;
             }
+
+            .ds-markdown {
+                font-size: calc(calc((var(--fontSize) / 16) * 1rem) * 0.85) !important;
+                line-height: calc((var(--lineHeight) / 16) * 0.85) !important;
+            }
         }
+
+        // /* Thinking process texts */
+        // .e1675d8b {
+        //     --thinking-p-left: 13px; // this is from ds deafult
+        //     display: var(--displayThinkingProcess) !important;
+
+        //     &:not(:empty) {
+        //         @extend .fadeIn;
+        //     }
+
+        //     color: var(--c-subtext-2) !important;
+        //     // font-size: calc(calc((var(--fontSize) / 16) * 1rem) * 0.75) !important;
+        //     // line-height: calc((var(--lineHeight) / 16) * 0.5) !important;
+        //     transition: font-size 0.15s ease-in-out,
+        //     line-height 0.15s ease-in-out;
+
+        //     /* Thinking border on the left */
+        //     ._9ecc93a {
+        //         border-color: currentColor !important;
+        //         opacity: 0.6;
+        //     }
+        // }
     }
 
     /* SOURCES - "X Web Pages"  */
     ._972436e {
         background-color: hsla(var(--accent-hsl) / 0.12) !important;
+        transition: transform 0.25s $easeInOutQuad;
+
+        &:hover {
+            transform: scale(0.972);
+        }
     }
 
 }
