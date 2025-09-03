@@ -29,13 +29,13 @@
 
     background-color: var(--c-bg-msg-user) !important;
     color: var(--c-txt) !important;
-    padding: calc(var(--p-chat-bubble) * 0.4) calc(var(--p-chat-bubble) * 0.75) !important;
+    padding: var(--p-chat-bubble) !important;
     border-radius: var(--br-chat-bubble) !important;
     // line-height: calc(var(--line_height) / 16) !important;
     // width: var(--w_chat_user) !important;
-    // width: max-content !important;
     // width: var(--max_w_chat_user) !important;
-    // max-width: var(--w_chat_user) !important;
+    width: max-content !important;
+    max-width: var(--maxWidthChats) !important;
 }
 
 /* User chat bubble in edit state */
@@ -74,7 +74,7 @@
     // line-height: calc(var(--line_height) / 16) !important;
     background-color: var(--c-bg-msg-gpt);
     color: var(--c-txt) !important;
-    padding: var(--p-chat-bubble) calc(var(--p-chat-bubble) + var(--p-left)) !important;
+    padding: var(--p-chat-bubble) !important;
     border-radius: var(--br-chat-bubble) !important;
     // width: var(--w_chat_gpt) !important;
 
@@ -237,11 +237,19 @@
 /* Chats list parent */
 .dad65929 {
     // --message-list-max-width: 800px;
-    --message-list-max-width: var(--maxWidthChats) !important;
+    // --message-list-max-width: var(--maxWidthChats) !important;
+    margin: 0 auto !important;
+    max-width: var(--maxWidthChats) !important;
 }
 
 /* textarea prompt parent */
 .aaff8b8f {
     --message-list-max-width: var(--maxWidthTextarea) !important;
-    max-width: var(--message-list-max-width);
+    max-width: var(--maxWidthTextarea);
+}
+
+
+._8f60047 ._0f72b0b {
+    // padding: 0 calc((100% - var(--message-list-max-width)) / 2);
+    padding: 0 5vw !important;
 }
