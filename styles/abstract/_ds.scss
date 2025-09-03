@@ -120,18 +120,18 @@ body {
     // --dsw-alias-markdown-tag: var(--dsw-static-neutral-bluish-75);
     --dsw-alias-scrollbar-bg: hsla(var(--accent-hsl) / 0.15) !important;
     --dsw-alias-scrollbar-hover: hsla(var(--accent-hsl) / 0.2) !important;
-    // --dsw-alias-state-error-primary: var(--dsw-static-red-600);
-    // --dsw-alias-state-error-secondary: var(--dsw-static-red-400);
-    // --dsw-alias-state-success-primary: var(--dsw-static-green-500);
-    // --dsw-alias-state-success-secondary: var(--dsw-static-green-400);
-    // --dsw-alias-state-warn-label: var(--dsw-static-amber-600);
-    // --dsw-alias-state-warn-primary: var(--dsw-static-amber-500);
-    // --dsw-alias-state-warn-secondary: var(--dsw-static-amber-400);
-    // --dsw-alias-state-warn-tertiary: var(--dsw-static-amber-100);
+    --dsw-alias-state-error-primary: var(--c-danger) !important;
+    --dsw-alias-state-error-secondary: var(--c-danger) !important;
+    --dsw-alias-state-success-primary: var(--c-accent) !important;
+    --dsw-alias-state-success-secondary: var(--c-accent) !important;
+    --dsw-alias-state-warn-label: var(--c-warning) !important;
+    --dsw-alias-state-warn-primary: var(--c-warning) !important;
+    --dsw-alias-state-warn-secondary: var(--c-warning) !important;
+    --dsw-alias-state-warn-tertiary: var(--c-warning) !important;
     // --dsw-alias-toast-bg: var(--dsw-static-neutral-bluish-800);
     // --dsw-alias-tooltip-bg: var(--dsw-static-neutral-bluish-850);
     // --dsw-specific-bubble: var(--dsw-static-deepseek-50);
-    // --dsw-specific-input-major: var(--dsw-static-neutral-bluish-00);
+    --dsw-specific-input-major: var(--c-subtext-2) !important;
     // --dsw-specific-menu: var(--dsw-alias-bg-layer-3);
     --dsw-specific-selector: hsla(var(--accent-hsl) / 0.1) !important;
 
@@ -140,8 +140,8 @@ body {
     --dsw-specific-sidebar-nav-item-active: var(--c-surface-2) !important;
     --dsw-specific-sidebar-nav-item-hover: var(--c-surface-2) !important;
 
-
     // --dsw-specific-tip: var(--dsw-static-neutral-150);
+
 }
 
 /* DARK */

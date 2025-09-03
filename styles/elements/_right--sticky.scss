@@ -4,7 +4,6 @@
     /* Sticky header */
     ._2be88ba {
         background-color: var(--c-bg-chats-container) !important;
-        // background: var(--c-bg-chats-sticky) !important;
 
         /* Icons when breakpoint is to 'md' so sidebar and new chat icon are moved to sticky header and doesnt have color */
         .ds-icon {
@@ -16,7 +15,7 @@
         }
 
         /* Sticky header: chat title */
-        .d8ed659a {
+        .afa34042 {
             @include bg-accent-inverse;
             outline: hsla(var(--accent-hsl) / 0.2) solid 1px !important;
 
