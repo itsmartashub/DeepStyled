@@ -110,7 +110,7 @@ body {
     // --dsw-alias-label-dimmed: var(--dsw-static-neutral-bluish-200);
     // --dsw-alias-label-primary-dimmed: var(--dsw-static-neutral-bluish-950);
     // --dsw-alias-label-primary-inverted: var(--dsw-static-neutral-bluish-00);
-    --dsw-alias-label-primary: var(--c-accent) !important;
+    --dsw-alias-label-primary: var(--c-txt) !important; // markdown <p> txt too
     --dsw-alias-label-secondary: var(--c-subtext-2) !important;
     --dsw-alias-label-tertiary: var(--c-subtext-1) !important;
     // --dsw-alias-markdown-citation: var(--dsw-static-neutral-bluish-100);

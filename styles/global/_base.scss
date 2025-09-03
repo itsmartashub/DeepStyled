@@ -18,7 +18,8 @@ body {
 	color: var(--c-txt) !important;
 }
 
-a[href] {
+/* ._546d736 is sidebar link */
+a[href]:not(._546d736) {
 	color: var(--c-accent) !important;
 	// @extend %link_hover_underlined;
 }
