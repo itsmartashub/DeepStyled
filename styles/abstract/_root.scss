@@ -30,7 +30,7 @@
 
     /* ? --- Border-radius --- */
     --br: 1rem;
-    --br-chat-bubble: calc(var(--br) * 2.2);
+    --br-chat-bubble: calc(var(--br) * 2.4);
     // --br-chat-bubble: 30px;
     // --br-prompt-textarea: calc(var(--br) * 0.2);
     --br-btn: calc(var(--br) * 0.9);
@@ -41,7 +41,7 @@
     --br-scrollbar: 50vw;
 
     /* ? --- Paddings --- */
-    --p-chat-bubble: 1.8rem;
+    --p-chat-bubble: 1.5rem;
     // --p-contextmenu: 0.8rem;
     // --p-contextmenu-item: 0.9rem 1rem;
     // --p-prompt-textarea: 0.7rem;
