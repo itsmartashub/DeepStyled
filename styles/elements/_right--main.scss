@@ -161,9 +161,10 @@
 .dad65929 {
     // --message-list-max-width: 800px;
     // --message-list-max-width: var(--maxWidthChats) !important;
-    margin: 0 auto !important;
+    margin: 0 auto !important; // very important because sometimes chats are very small width??? and also, in some scenarios they arent centered ??
+    width: 100%; // very important because sometimes chats are very small width???
     max-width: var(--maxWidthChats) !important;
-    width: var(--maxWidthChats) !important;
+    // width: var(--maxWidthChats) !important; // nah, this makes chats to overflow in some case scenarios so width: 100% fix it??
 }
 
 /* Chatbox parent */

@@ -17,8 +17,11 @@
 
     /* ? --- Custom Widths --- */
     --defaultWidthChats: 800px;
+    // --defaultWidthChats: var(--message-list-max-width);
     --maxWidthChats: var(--defaultWidthChats);
     --maxWidthTextarea: var(--defaultWidthChats);
+
+    // --message-list-max-width: var(--maxWidthChats) !important;
 
     /* ? --- DSX floating roller btn --- */
     --roller-top: calc(var(--h-header) + 0.5rem);
