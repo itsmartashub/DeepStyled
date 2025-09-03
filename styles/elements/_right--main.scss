@@ -29,29 +29,40 @@
     // max-width: var(--maxWidthChats) !important;
 }
 
-/* User chat bubble in edit state */
-._9663006._3111eee {
 
-    /* <textarea> parent */
-    .ds-textarea {
-        --shadow-offset: 1px;
-        --ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
-        --ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
-        --ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
-        --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
-        --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
-        --ds-textarea-padding: calc(var(--p-chat-bubble) * 0.85) !important;
-        --ds-textarea-border-radius: calc(var(--br-chat-bubble) * 0.75) !important;
-        caret-color: var(--c-accent);
-        color: var(--c-accent) !important;
-        background-color: hsla(var(--accent-hsl) / 0.05) !important;
-        box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+/* User chat very parent */
+._9663006 {
+    /*  Gap on top from GPT user bubble: sum of:
+        16px - this ._9663006 mb
+        28px - user footer icons height, 
+        6px - user footer icons mt  */
+    margin-top: calc(16px + 28px + 6px) !important; // 
 
-        &--focused {
-            --shadow-offset: 2px;
+    /* User chat bubble in edit state */
+    &._3111eee {
+
+        /* <textarea> parent */
+        .ds-textarea {
+            --shadow-offset: 1px;
+            --ds-textarea-color: hsla(var(--accent-hsl) / 0.05) !important;
+            --ds-textarea-border: hsla(var(--accent-hsl) / 0.12) !important;
+            --ds-textarea-focus-color: hsla(var(--accent-hsl) / 0.08) !important;
+            --ds-textarea-focus-border-color: hsla(var(--accent-hsl) / 0.14) !important;
+            --ds-textarea-line-height: calc((var(--lineHeight) / 16) * 0.88) !important;
+            --ds-textarea-padding: calc(var(--p-chat-bubble) * 0.85) !important;
+            --ds-textarea-border-radius: calc(var(--br-chat-bubble) * 0.75) !important;
+            caret-color: var(--c-accent);
+            color: var(--c-accent) !important;
+            background-color: hsla(var(--accent-hsl) / 0.05) !important;
+            box-shadow: 0 0 0 var(--shadow-offset) hsla(var(--accent-hsl) / 0.15) !important;
+
+            &--focused {
+                --shadow-offset: 2px;
+            }
         }
     }
 }
+
 
 /* GPT chat bubble */
 ._4f9bf79 {
