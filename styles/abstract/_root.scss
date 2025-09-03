@@ -11,6 +11,8 @@
     --letterSpacing: initial;
     --lineHeight: 28;
 
+    --ds-font-family: var(--fontFamily) !important; // override DS font-family
+
     --displayThinkingProcess: none;
 
     /* ? --- Custom Widths --- */

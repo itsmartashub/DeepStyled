@@ -91,3 +91,12 @@ button {
 	&--square {}
 
 }
+
+/* Btn primary, e.g. "Send" btn showed when User msg in edit state */
+._75c2572._122d2a2 {
+	@include bg_accent;
+
+	&:hover {
+		@include bg-accent-inverse;
+	}
+}
