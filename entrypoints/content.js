@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 
 import ThemeManager from '@/components/ThemeManager.vue'
 import { useThemeManager } from '@/composables/useThemeManager'
+// import { getAllStorageItems } from '@/utils/storage'
 
 export default defineContentScript({
 	matches: ['*://chat.deepseek.com/*'],
@@ -20,6 +21,9 @@ export default defineContentScript({
 				// Create and mount the Vue 3 app with the ThemeManager component
 				const app = createApp(ThemeManager)
 				app.mount(container)
+
+				// console.log('getAllStorageItems: ', getAllStorageItems())
+
 				return app
 			},
 			onRemove: (app) => {

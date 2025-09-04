@@ -1,59 +1,81 @@
-// src/utils/storage.js
 import { storage } from 'wxt/storage'
 import { hslToHex } from '@/composables/useColorConversion'
 
-export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35] // Example: Warm color for light mode
-export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81] // Example: Cool color for dark mode
-
-// Default values for max widths (in px)
+// ---------- Default constants ----------
+export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35]
+export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81]
 export const DEFAULT_MAX_WIDTH = 800
 
-export const THEMES = {
+export const THEMES = Object.freeze({
 	LIGHT: 'light',
 	DARK: 'dark',
 	SYSTEM: 'system',
 	OLED: 'oled',
-}
+})
 
+// Pre-compute hex values instead of doing it every time
+const DEFAULT_ACCENT_LIGHT_HEX = hslToHex(DEFAULT_ACCENT_LIGHT_HSL)
+const DEFAULT_ACCENT_DARK_HEX = hslToHex(DEFAULT_ACCENT_DARK_HSL)
+
+// ---------- Helper ----------
 export async function getAllStorageItems() {
 	try {
 		const res = await storage.snapshot('local')
 		console.table(res)
+		return res // return for chaining
 	} catch (e) {
 		console.warn('Failed to snapshot storage:', e)
+		return null
 	}
 }
 
-export const themeItem = storage.defineItem('local:theme', {
-	fallback: THEMES.SYSTEM,
+// ---------- Storage configuration ----------
+const STORAGE_CONFIG = Object.freeze({
+	theme: {
+		themeItem: { key: 'local:theme', fallback: THEMES.SYSTEM },
+		isOLEDItem: { key: 'local:isOLED', fallback: false },
+		accentLightItem: { key: 'local:accent-light', fallback: DEFAULT_ACCENT_LIGHT_HEX },
+		accentDarkItem: { key: 'local:accent-dark', fallback: DEFAULT_ACCENT_DARK_HEX },
+	},
+	fonts: {
+		fontFamilyItem: { key: 'local:font-family', fallback: null },
+		fontSizeItem: { key: 'local:font-size', fallback: null },
+		lineHeightItem: { key: 'local:line-height', fallback: null },
+		letterSpacingItem: { key: 'local:letter-spacing', fallback: null },
+	},
+	layout: {
+		maxWidthChatsItem: { key: 'local:maxWidthChats', fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' } },
+		maxWidthTextareaItem: { key: 'local:maxWidthTextarea', fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' } },
+		hideThinkingItem: { key: 'local:hideThinking', fallback: false },
+	},
 })
 
-export const isOLEDItem = storage.defineItem('local:isOLED', {
-	fallback: false,
-})
+// ---------- Generate storage items (optimized) ----------
+export const storageItems = {}
+const itemEntries = [] // Cache for destructuring
 
-export const accentLightItem = storage.defineItem('local:accent-light', {
-	fallback: hslToHex(DEFAULT_ACCENT_LIGHT_HSL),
-})
+for (const category of Object.values(STORAGE_CONFIG)) {
+	for (const [name, config] of Object.entries(category)) {
+		const item = storage.defineItem(
+			config.key,
+			config.fallback !== undefined ? { fallback: config.fallback } : undefined
+		)
+		storageItems[name] = item
+		itemEntries.push([name, item])
+	}
+}
 
-export const accentDarkItem = storage.defineItem('local:accent-dark', {
-	fallback: hslToHex(DEFAULT_ACCENT_DARK_HSL),
-})
-
-// New storage items for our font settings:
-export const fontFamilyItem = storage.defineItem('local:font-family')
-export const fontSizeItem = storage.defineItem('local:font-size')
-export const lineHeightItem = storage.defineItem('local:line-height')
-export const letterSpacingItem = storage.defineItem('local:letter-spacing')
-
-export const maxWidthChatsItem = storage.defineItem('local:maxWidthChats', {
-	fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' },
-})
-
-export const maxWidthTextareaItem = storage.defineItem('local:maxWidthTextarea', {
-	fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' },
-})
-
-export const hideThinkingItem = storage.defineItem('local:hideThinking', {
-	fallback: false,
-})
+// ---------- Named exports (generated dynamically) ----------
+export const {
+	themeItem,
+	isOLEDItem,
+	accentLightItem,
+	accentDarkItem,
+	fontFamilyItem,
+	fontSizeItem,
+	lineHeightItem,
+	letterSpacingItem,
+	maxWidthChatsItem,
+	maxWidthTextareaItem,
+	hideThinkingItem,
+} = storageItems
