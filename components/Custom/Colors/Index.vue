@@ -15,6 +15,17 @@
 			</div>
 		</div>
 
+		<Separator />
+
+		<CardToggle
+			v-model="toggleAccentUserBubble"
+			title="Accent User Bubble"
+			subtitle="Make User bubble fully accented for higher contrast"
+			:iconComponent="IconPipe"
+		/>
+
+		<Separator />
+
 		<footer class="section-footer">
 			<ButtonPrimary id="resetColors" @click="resetColors">Reset Colors</ButtonPrimary>
 		</footer>
@@ -26,6 +37,15 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { accentLightItem, accentDarkItem } from '@/utils/storage'
 import { hexToHSL } from '@/composables/useColorConversion'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
+import CardToggle from '@/components/Cards/Toggle.vue'
+import IconPipe from '@/components/Icons/Pipe.vue'
+import Separator from '@/components/Separator.vue'
+
+import { accentUserBubbleItem } from '@/utils/storage'
+import { useToggleStorage } from '@/composables/useToggleStorage.js'
+
+// One toggle controls everything
+const toggleAccentUserBubble = useToggleStorage(accentUserBubbleItem, 'dsx-toggle-accent-user-bubble')
 
 // The accent colors are stored as hex strings (because <input type="color"> only works with hex)
 const lightHex = ref('')

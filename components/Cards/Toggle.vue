@@ -74,8 +74,6 @@ defineExpose({
 	focus: () => inputRef.value?.focus(),
 	blur: () => inputRef.value?.blur(),
 })
-
-console.log('props.modelValue: ', props.modelValue)
 </script>
 
 <style lang="scss" scoped>

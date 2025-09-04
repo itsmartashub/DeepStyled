@@ -13,7 +13,6 @@
 @import 'global/_base';
 @import 'global/_scrollbars';
 @import 'customs/utils/_hideToggles';
-@import 'customs/_custom-toggles';
 
 @import 'components/_skeleton';
 @import 'components/_icons';
@@ -35,5 +34,7 @@
 @import 'elements/_right--new-chat';
 @import 'elements/_right--sticky';
 @import 'elements/_right--textarea';
+
+@import 'customs/_custom-toggles';
 
 @import 'deepstyled/index';

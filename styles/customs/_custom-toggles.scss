@@ -3,3 +3,13 @@ html[dsx-toggle-thinking-process] {
         display: none !important;
     }
 }
+
+html[dsx-toggle-accent-user-bubble] {
+    .fbb737a4 {
+        @include bg-accent;
+
+        ::selection {
+            @include bg-accent-inverse;
+        }
+    }
+}
