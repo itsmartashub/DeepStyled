@@ -123,10 +123,13 @@
         /* Thinking process texts */
         .ds-think-content {
             --thinking-p-left: 13px; // this is from ds deafult
-            display: var(--displayThinkingProcess) !important;
             color: var(--c-subtext-2) !important;
             transition: font-size 0.15s ease-in-out,
                 line-height 0.15s ease-in-out;
+
+            // @include toggleStyles('thinking-process', ()) {
+            //     display: none !important;
+            // }
 
             &:not(:empty) {
                 @extend .fadeIn;
@@ -143,28 +146,6 @@
                 line-height: calc((var(--lineHeight) / 16) * 0.85) !important;
             }
         }
-
-        // /* Thinking process texts */
-        // .e1675d8b {
-        //     --thinking-p-left: 13px; // this is from ds deafult
-        //     display: var(--displayThinkingProcess) !important;
-
-        //     &:not(:empty) {
-        //         @extend .fadeIn;
-        //     }
-
-        //     color: var(--c-subtext-2) !important;
-        //     // font-size: calc(calc((var(--fontSize) / 16) * 1rem) * 0.75) !important;
-        //     // line-height: calc((var(--lineHeight) / 16) * 0.5) !important;
-        //     transition: font-size 0.15s ease-in-out,
-        //     line-height 0.15s ease-in-out;
-
-        //     /* Thinking border on the left */
-        //     ._9ecc93a {
-        //         border-color: currentColor !important;
-        //         opacity: 0.6;
-        //     }
-        // }
     }
 
     /* Shirmer animation on "Thought" txt while thinking */

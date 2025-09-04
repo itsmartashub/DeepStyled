@@ -1,0 +1,12 @@
+// Define your toggle states in a map for scalability
+$toggle-states: (
+    "thinking-process",
+    "user-accent",
+);
+
+// Mixin to generate all toggle styles
+@mixin toggleStyles($state, $styles) {
+    html[dsx-toggle-#{$state}] & {
+        @content;
+    }
+}

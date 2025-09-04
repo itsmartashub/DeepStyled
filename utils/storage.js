@@ -15,8 +15,13 @@ export const THEMES = {
 	OLED: 'oled',
 }
 
-export function getAllStorageItems() {
-	storage.snapshot('local').then((res) => console.table(res))
+export async function getAllStorageItems() {
+	try {
+		const res = await storage.snapshot('local')
+		console.table(res)
+	} catch (e) {
+		console.warn('Failed to snapshot storage:', e)
+	}
 }
 
 export const themeItem = storage.defineItem('local:theme', {

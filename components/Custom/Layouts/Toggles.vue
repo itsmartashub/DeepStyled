@@ -18,5 +18,5 @@ import CardToggle from '@/components/Cards/Toggle.vue'
 import IconThinkingProcess from '@/components/Icons/ThinkingProcess.vue'
 
 // One toggle controls everything
-const hideThinkingState = useToggleStorage(hideThinkingItem, '--displayThinkingProcess')
+const hideThinkingState = useToggleStorage(hideThinkingItem, 'dsx-toggle-thinking-process')
 </script>
