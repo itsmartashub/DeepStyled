@@ -57,13 +57,15 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 .customization-settings {
-	--w-scrollbar: 0.2rem;
+	// @include scrollbar;
+
+	// --w-scrollbar: 0.2rem;
 	--p: 2.5rem;
 	--max-h: 65dvh;
 	--shadow-color: hsla(var(--accent-hsl) / 0.09);
 	--shadow-values: inset 0 0 20px 10px;
 	position: fixed;
-	top: calc(var(--roller-top) + var(--roller-size));
+	top: calc(var(--roller-top) + var(--roller-size) + 0.5rem);
 	right: var(--roller-right);
 	width: clamp(16rem, 35vw, 22rem);
 	max-height: var(--max-h);
@@ -77,8 +79,19 @@ onBeforeUnmount(() => {
 	font-size: 1.2rem;
 	z-index: 10; // z-index of code-block markdown banner is 6, so we need to be above that
 
+	@include dev('md') {
+		--max-h: 85dvh;
+		right: 50%;
+		transform: translateX(50%);
+		width: clamp(16rem, 60vw, 30rem);
+	}
+
+	// @include dev('sm') {
+	// }
+
 	@include dev('xs') {
 		--p: 4vw;
+		width: 85vw;
 		font-size: 1rem;
 	}
 

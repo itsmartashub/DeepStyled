@@ -2,7 +2,7 @@
     --fsz-error-404: 3rem;
 
     /* ? --- Custom Cards size --- */
-    --cards-grid-template: repeat(auto-fit, minmax(7rem, 1fr));
+    --cards-grid-template: repeat(auto-fit, minmax(8rem, 1fr));
 
     /* ? --- Custom Fonts --- */
     --fontFamilyDefault: "quote-cjk-patch", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -21,20 +21,21 @@
 
     // --message-list-max-width: var(--maxWidthChats) !important;
 
-    /* ? --- DSX floating roller btn --- */
-    --roller-top: calc(var(--h-header) + 0.5rem);
-    --roller-right: 1rem;
-    --roller-size: 2.8rem;
 
     /* ? --- Widths and Heights --- */
     --min-w-btn: 5.5rem;
-    --h-header: calc(10px + 56px);
+    --h-header: calc(40px + 10px); // titlebar height + header mt
     --w-scrollbar: 0.365rem;
+
+    /* ? --- DSX floating roller btn --- */
+    // --roller-top: calc(var(--h-header) + 0.5rem);
+    --roller-top: calc(var(--h-header) / 4);
+    --roller-right: var(--roller-top);
+    --roller-size: 2.8rem;
 
     /* ? --- Border-radius --- */
     --br: 1rem;
     --br-chat-bubble: calc(var(--br) * 2.4);
-    // --br-chat-bubble: 30px;
     // --br-prompt-textarea: calc(var(--br) * 0.2);
     --br-btn: calc(var(--br) * 0.9);
     --br-dialog: calc(var(--br) * 2.5);
@@ -63,12 +64,16 @@
 
     @include dev('md') {
         --p-chat-bubble: calc(var(--br) * 1.2);
-        --br-chat-bubble: calc(var(--br) * 1.1);
+        --br-chat-bubble: calc(var(--br) * 1.5);
         --p-contextmenu: .5rem;
         --p-prompt-textarea: 0.5rem;
         --p-dialog: 0.3rem;
         --br-dialog: calc(var(--br) * 1.5);
         --p-sidebar-nav: 0.3rem;
+
+        --h-header: calc(44px + 12px + 4px); // titlebar height + header pt + header pb
+        --roller-right: calc(44px + 10px + 0.2rem);
+        --roller-size: 2rem;
     }
 
     @include dev('sm') {

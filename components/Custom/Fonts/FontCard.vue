@@ -1,6 +1,6 @@
 <template>
 	<article
-		:class="[className, 'fonts__group', 'card', 'card--big', cardSizeClass]"
+		:class="[className, 'fonts__group', 'card', cardSizeClass]"
 		:data-gpth-err="`${min}${unit} &hArr; ${max}${unit}`"
 	>
 		<label :for="inputId" class="grid gap-1 h-full w-full">

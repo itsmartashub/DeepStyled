@@ -81,6 +81,7 @@ $scrollbar-sizes: (
 }
 
 // Apply globally
-html {
+html,
+* {
     @include scrollbar();
 }

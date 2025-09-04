@@ -1,70 +1,74 @@
 <!-- src/components/FontChanger.vue -->
 <template>
 	<section class="section-fonts fonts">
-		<div class="section-cards">
-			<!-- <div class="fonts__bigcards-wrapper"> -->
-			<!-- Font Family Selector Card using FontCard -->
-			<FontCard
-				className="fonts__family"
-				inputId="fontFamily"
-				isSelect
-				:options="fontFamilyOptions"
-				icon="T"
-				name="FONT FAMILY"
-				v-model="localFontFamily"
-				@change="handleFontFamilyChange"
-			/>
+		<!-- <div class="section-cards"> -->
+		<div class="section-body">
+			<div class="fonts__bigcards-wrapper">
+				<!-- Font Family Selector Card using FontCard -->
+				<FontCard
+					className="fonts__family"
+					inputId="fontFamily"
+					isSelect
+					:options="fontFamilyOptions"
+					icon="T"
+					name="FONT FAMILY"
+					v-model="localFontFamily"
+					@change="handleFontFamilyChange"
+				/>
 
-			<!-- Font Size Card using FontCard (renders an input by default) -->
-			<FontCard
-				className="fonts__size"
-				inputId="fontSize"
-				:inputType="fontSizeData.inputType"
-				:inputPlaceholder="fontSizeData.inputPlaceholder"
-				:min="fontSizeData.min"
-				:max="fontSizeData.max"
-				unit="px"
-				icon="PX"
-				name="Font Size"
-				v-model="localFontSize"
-				@blur="handleFontSizeBlur"
-				@keyup.enter="handleFontSizeBlur"
-			/>
-			<!-- </div> -->
-			<!-- <div class="fonts__smallcards-wrapper"> -->
-			<!-- The small cards can remain as they were, or be refactored similarly -->
-			<FontSmallCard
-				:name="lineHeightData.name"
-				:class-name="lineHeightData.className"
-				:input-id="lineHeightData.inputId"
-				:input-type="lineHeightData.inputType"
-				v-model="localLineHeight"
-				:input-placeholder="lineHeightData.inputPlaceholder"
-				:min="lineHeightData.min"
-				:max="lineHeightData.max"
-				unit="px"
-				@blur="handleLineHeightBlur"
-				@keyup.enter="handleLineHeightBlur"
-			/>
-			<FontSmallCard
-				:name="letterSpacingData.name"
-				:class-name="letterSpacingData.className"
-				:input-id="letterSpacingData.inputId"
-				:input-type="letterSpacingData.inputType"
-				v-model="localLetterSpacing"
-				:input-placeholder="letterSpacingData.inputPlaceholder"
-				:min="letterSpacingData.min"
-				:max="letterSpacingData.max"
-				unit="px"
-				@blur="handleLetterSpacingBlur"
-				@keyup.enter="handleLetterSpacingBlur"
-			/>
-			<!-- </div> -->
+				<!-- Font Size Card using FontCard (renders an input by default) -->
+				<FontCard
+					className="fonts__size"
+					inputId="fontSize"
+					:inputType="fontSizeData.inputType"
+					:inputPlaceholder="fontSizeData.inputPlaceholder"
+					:min="fontSizeData.min"
+					:max="fontSizeData.max"
+					unit="px"
+					icon="PX"
+					name="Font Size"
+					v-model="localFontSize"
+					@blur="handleFontSizeBlur"
+					@keyup.enter="handleFontSizeBlur"
+				/>
+			</div>
+			<div class="fonts__smallcards-wrapper">
+				<!-- The small cards can remain as they were, or be refactored similarly -->
+				<FontSmallCard
+					:name="lineHeightData.name"
+					:class-name="lineHeightData.className"
+					:input-id="lineHeightData.inputId"
+					:input-type="lineHeightData.inputType"
+					v-model="localLineHeight"
+					:input-placeholder="lineHeightData.inputPlaceholder"
+					:min="lineHeightData.min"
+					:max="lineHeightData.max"
+					unit="px"
+					@blur="handleLineHeightBlur"
+					@keyup.enter="handleLineHeightBlur"
+				/>
+				<FontSmallCard
+					:name="letterSpacingData.name"
+					:class-name="letterSpacingData.className"
+					:input-id="letterSpacingData.inputId"
+					:input-type="letterSpacingData.inputType"
+					v-model="localLetterSpacing"
+					:input-placeholder="letterSpacingData.inputPlaceholder"
+					:min="letterSpacingData.min"
+					:max="letterSpacingData.max"
+					unit="px"
+					@blur="handleLetterSpacingBlur"
+					@keyup.enter="handleLetterSpacingBlur"
+				/>
+			</div>
 		</div>
 		<footer class="section-footer">
 			<ButtonPrimary id="resetFont" @click="resetFonts">Reset Fonts</ButtonPrimary>
 		</footer>
-		<div v-if="errorMessage" class="gpth-error-msg fixed rounded-xl bg-red-500 red-500 p-3 font-semibold text-center">
+		<div
+			v-if="errorMessage"
+			class="gpth-error-msg fixed rounded-xl bg-red-500 red-500 p-3 font-semibold text-center"
+		>
 			{{ errorMessage }}
 		</div>
 	</section>
@@ -191,8 +195,15 @@ function resetFonts() {
 	resetAllFonts()
 }
 </script>
-<!-- <style lang="scss" scoped>
+
+<style lang="scss" scoped>
 .fonts {
+	.section-body {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
 	&__bigcards-wrapper,
 	&__smallcards-wrapper {
 		--gap: 0.65rem;
@@ -202,4 +213,4 @@ function resetFonts() {
 		gap: var(--gap);
 	}
 }
-</style> -->
+</style>
