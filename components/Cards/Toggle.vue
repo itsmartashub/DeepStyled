@@ -18,7 +18,7 @@
 			<p class="subtitle" v-if="subtitle" :id="`${computedId}-desc`" v-html="subtitle"></p>
 		</div>
 
-		<div class="dsx-toggle-card__toggle" role="switch" :aria-checked="modelValue">
+		<div class="dsx-toggle-card__toggle" role="switch" :aria-checked="modelValue" :aria-label="toggleAriaLabel">
 			<input
 				ref="inputRef"
 				type="checkbox"
@@ -61,10 +61,16 @@ const isFocused = ref(false)
 const inputRef = ref(null)
 const generatedId = useId()
 const computedId = computed(() => props.id || generatedId)
+// Computed properties for better reactivity
+const toggleAriaLabel = computed(() => `Toggle ${props.title}`)
+const isInteractable = computed(() => !props.disabled && !props.loading)
+
 // 💥 auto-defines `modelValue` prop and emits `update:modelValue`
 // const model = defineModel()
 
 const handleChange = (event) => {
+	if (!isInteractable.value) return
+
 	const newValue = event.target.checked
 	emit('update:modelValue', newValue)
 	emit('change', newValue)
@@ -118,16 +124,6 @@ defineExpose({
 	&:active:not(.is-disabled) {
 		transform: scale(1.02);
 	}
-
-	// &:focus-within {
-	// 	outline: 2px solid var(--c-accent);
-	// 	outline-offset: 2px;
-	// }
-
-	// &.is-checked {
-	// 	background-color: hsl(var(--accent-hsl) / 0.15);
-	// 	border-color: hsl(var(--accent-hsl) / 0.3);
-	// }
 
 	&.is-disabled {
 		opacity: 0.5;
