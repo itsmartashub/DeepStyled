@@ -48,6 +48,7 @@ const STORAGE_CONFIG = Object.freeze({
 		maxWidthChatsItem: { key: 'local:maxWidthChats', fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' } },
 		maxWidthTextareaItem: { key: 'local:maxWidthTextarea', fallback: { value: DEFAULT_MAX_WIDTH, unit: 'px' } },
 		hideThinkingItem: { key: 'local:hideThinking', fallback: false },
+		toggleBubbleAIItem: { key: 'local:toggleGptBubble', fallback: false },
 	},
 })
 
@@ -80,4 +81,5 @@ export const {
 	maxWidthTextareaItem,
 	hideThinkingItem,
 	accentUserBubbleItem,
+	toggleBubbleAIItem,
 } = storageItems
