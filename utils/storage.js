@@ -36,6 +36,7 @@ const STORAGE_CONFIG = Object.freeze({
 		isOLEDItem: { key: 'local:isOLED', fallback: false },
 		accentLightItem: { key: 'local:accent-light', fallback: DEFAULT_ACCENT_LIGHT_HEX },
 		accentDarkItem: { key: 'local:accent-dark', fallback: DEFAULT_ACCENT_DARK_HEX },
+		accentUserBubbleItem: { key: 'local:accentUserBubble', fallback: null },
 	},
 	fonts: {
 		fontFamilyItem: { key: 'local:font-family', fallback: null },
@@ -78,4 +79,5 @@ export const {
 	maxWidthChatsItem,
 	maxWidthTextareaItem,
 	hideThinkingItem,
+	accentUserBubbleItem,
 } = storageItems
