@@ -8,7 +8,7 @@ html[dsx-toggle-accent-user-bubble] {
     .fbb737a4 {
         @include bg-accent;
 
-        ::selection {
+        &::selection {
             @include bg-accent-inverse;
         }
     }
