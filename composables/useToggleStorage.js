@@ -1,36 +1,43 @@
 import { ref, watch } from 'vue'
 
-export function useToggleStorage(storageItem, cssVar) {
+export function useToggleStorage(storageItem, attributeName) {
 	const state = ref(false)
+	let initialized = false
 
-	// Initialize state from storage immediately
+	// Initialize state from storage
 	const initializeState = async () => {
 		try {
 			const val = await storageItem.getValue()
 			state.value = Boolean(val)
 		} catch (error) {
 			console.warn('Failed to load storage value:', error)
+		} finally {
+			initialized = true
 		}
 	}
 
-	// Fire and forget initialization
 	initializeState()
 
-	// Reactive sync: state → CSS + storage
-	watch(
-		state,
-		async (val) => {
-			const display = val ? 'none' : 'block'
-			document.documentElement.style.setProperty(cssVar, display)
+	watch(state, async (val, oldVal) => {
+		// Skip until initialization finishes
+		if (!initialized) return
 
-			try {
-				await storageItem.setValue(val)
-			} catch (error) {
-				console.warn('Failed to save storage value:', error)
-			}
-		},
-		{ immediate: true } // Apply initial state to CSS
-	)
+		// Only update if value actually changed
+		if (val === oldVal) return
+
+		const root = document.documentElement
+		if (val) {
+			if (!root.hasAttribute(attributeName)) root.setAttribute(attributeName, '')
+		} else {
+			if (root.hasAttribute(attributeName)) root.removeAttribute(attributeName)
+		}
+
+		try {
+			await storageItem.setValue(val)
+		} catch (error) {
+			console.warn('Failed to save storage value:', error)
+		}
+	})
 
 	return state
 }
