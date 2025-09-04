@@ -2,15 +2,15 @@
 ._77cefa5:has(#chat-input) {
 
     background: var(--c-bg-textarea) !important;
-    box-shadow: inset 0 0 1px 1px hsla(var(--accent-hsl) / 0.08) !important;
+    // box-shadow: inset 0 0 1px 1px hsla(var(--accent-hsl) / 0.08) !important;
     backdrop-filter: blur(18px);
-    border: none !important;
+    // border: none !important;
     border-radius: calc(var(--br) * 1.9) !important;
 
     /* Textarea */
     #chat-input {
         color: var(--c-txt) !important;
-        padding: 0.5rem;
+        // padding: 1.2rem;
 
         &::placeholder {
             color: var(--c-subtext-2) !important;
@@ -32,47 +32,19 @@
         box-shadow: none !important;
     }
 
-    /* Textarea footer where buttons are */
-    // .ec4f5d61 {}
-
     /* "DeepThink R1" and "Search" btn */
-    [role="button"]._3172d9f {
-        --ds-button-color: hsl(var(--accent-hsl) / 0.15) !important;
-        --button-text-color: var(--c-accent) !important;
-        --button-border-color: hsla(var(--accent-hsl) / 0.08) !important;
-        // --button-border-color: transparent !important;
-        --ds-button-hover-color: var(--c-accent-hover) !important;
-        transition: transform ease-in-out 0.2s, background-color 0.2s ease-in-out;
-        font-weight: 500 !important;
+    ._70150b8 {
+        color: var(--c-accent) !important;
 
         .ds-icon {
             color: currentColor !important;
-
-            svg path {
-                stroke: currentColor !important;
-            }
         }
 
-        &:hover {
-            --ds-button-color: var(--c-accent-hover) !important;
-            color: var(--c-accent) !important;
-            transform: translateY(-0.08rem);
-        }
-
-
-        /* "DeepThink (R1)" and "Search" btn when selected */
-        // &[style*="--ds-button-color: transparent;"] {
-        &[style*="--ds-button-color: #DBEAFE"],
-        &[style*="--ds-button-color: rgba(77, 107, 254, 0.40)"] {
-            // --ds-button-color: hsla(var(--accent-hsl) / 0.2) !important;
-            --ds-button-color: var(--c-accent) !important;
-            --button-text-color: var(--c-on-accent) !important;
-
-            &:hover {
-                // --ds-button-color: var(--c-on-accent) !important;
-                color: var(--c-on-accent) !important;
-            }
-
+        // Active/selected button state
+        &._76f196b {
+            border-color: var(--dsw-alias-button-ghost-active-border);
+            background: var(--dsw-alias-button-ghost-active-fill);
+            color: var(--dsw-alias-brand-text);
         }
     }
 
@@ -83,63 +55,6 @@
             // color: var(--c-on-accent) !important;
         }
     }
-
-    /* Icon of image when attached image */
-    // .ds-icon.b3a5d6c1:has(svg>path[fill="#9AD2EC"]) {
-    //     // svg path {
-    //     //     stroke: initial !important;
-    //     // }
-
-    //     path[fill="white"] {
-    //         fill: var(--c-accent) !important;
-    //     }
-
-    //     path[fill="#9AD2EC"] {
-    //         fill: hsla(var(--accent-hsl) / 0.15) !important;
-    //     }
-
-    //     path[fill="#4579C7"] {
-    //         fill: hsla(var(--accent-hsl) / 0.9) !important;
-    //     }
-    // }
-    // .ds-icon.b3a5d6c1 {
-    //     svg path {
-    //         fill: initial !important;
-    //     }
-    // }
-
-    /* Attached items */
-    // .cd190a50 {
-    //     --dsr-input-bg: hsla(var(--accent-hsl) / 0.15) !important;
-    //     transition: ease-in-out 0.25s, background-color 0.25s ease-in-out 0s;
-    //     border: hsla(var(--accent-hsl) / 0.1) 2px solid !important;
-
-    //     &:hover {
-    //         --dsr-input-bg: hsla(var(--accent-hsl) / 0.2) !important;
-    //         box-shadow: none !important;
-    //         transform: translateY(-0.08rem);
-    //     }
-
-    //     /* Attached closed btn when hovered */
-    //     [role="img"] {
-    //         .b2b9d30d {
-    //             box-shadow: none !important;
-    //             @include bg-accent;
-
-    //             .ds-icon {
-    //                 svg path {
-    //                     fill: currentColor !important;
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     /* Attached info data: file type and size (e.g. PNG 162.3KB) */
-    //     .ee357eab {
-    //         color: var(--c-subtext-2) !important;
-    //     }
-    // }
-
 }
 
 /* Attached item and in prompt field and in chats layout */
@@ -193,3 +108,15 @@
     //     color: #fafafa;
     // }
 }
+
+/* Very top parent of chatbox with child that have black gradient and strange width */
+._871cbca {
+    margin: auto 0 !important; // original: margin: auto 32px 0 !important;
+}
+
+/* Scrolldown btn  */
+// ._090c426._00d3b42, ._090c426._6894dc3 {
+//     border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
+//     color: var(--dsw-alias-label-primary);
+//     background-color: var(--dsw-alias-button-floating-fill);
+// }

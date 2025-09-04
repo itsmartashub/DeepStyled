@@ -57,73 +57,7 @@
     }
 
 
-    /* Markdown code block */
-    .md-code-block {
-        border-radius: var(--br-btn) !important;
-        padding: 0.5rem !important;
-        background: var(--c-bg-pre) !important;
-        box-shadow: color-mix(in srgb, var(--c-bg-pre) 90%, black 10%) 0px 7px 16px 0px; // on hover: 0 12 32 0
-        border: color-mix(in srgb, hsla(var(--accent-hsl) / 0.12) 50%, black 2%) 1px solid;
 
-        /* _____ MD HEADER _____ */
-        /* Markdown code block header wrapper  */
-        &-banner-wrap,
-        &-banner {
-            // background-color: transparent !important;
-            background-color: var(--c-bg-pre) !important;
-            backdrop-filter: blur(1rem);
-        }
-
-        // &-banner-wrap {
-        //     background-color: transparent !important;
-        // }
-
-        /* Markdown code block header sticky */
-        &-banner {
-            // background-color: hsla(var(--accent-hsl) / 0.00) !important;
-            // background-color: transparent !important;
-            border-radius: var(--br-btn) !important;
-            // backdrop-filter: blur(5px);
-            background-color: var(--c-bg-pre) !important;
-            align-items: center;
-            padding: 0.2rem 0.8rem !important;
-
-            /* Code-block action button header */
-            ._121d384 {
-                .ds-button:hover {
-                    --ds-button-hover-color: var(--c-accent) !important;
-                }
-            }
-        }
-
-        /* Markdown code block header: code language */
-        &-infostring {
-            color: var(--c-subtext-2) !important;
-            font-family: var(--ds-font-family-code) !important;
-            font-weight: bold;
-            line-height: 1 !important;
-        }
-
-        /* Footer of code block, for example: "▶️ Run HTML" part */
-        &-footer {
-            // @include bg-accent-inverse;
-            border-radius: var(--br-btn);
-            background-color: hsla(var(--accent-hsl) / 0.0) !important;
-
-            span:has(> .ds-icon) {
-                // color: var(--c-on-accent) !important;
-                // background-color: var(--c-accent) !important;
-                // border-radius: 2rem;
-
-                @extend .ds-button--primary;
-                transition: transform 0.25s $easeOutCubic;
-
-                &:hover {
-                    transform: translateY(-0.08rem);
-                }
-            }
-        }
-    }
 
     /* Markdown code block header: Copy btn */
     &-code-copy-button {
@@ -142,6 +76,71 @@
         body {
             // background-color: red !important;
             background-color: transparent !important;
+        }
+    }
+}
+
+/* Markdown code block */
+.md-code-block {
+    border-radius: var(--br-btn) !important;
+    padding: 0.5rem !important;
+    background: var(--c-bg-pre) !important;
+    box-shadow: color-mix(in srgb, var(--c-bg-pre) 90%, black 10%) 0px 7px 16px 0px; // on hover: 0 12 32 0
+    border: color-mix(in srgb, hsla(var(--accent-hsl) / 0.12) 50%, black 2%) 1px solid;
+
+    /* _____ MD HEADER _____ */
+    /* Markdown code block header wrapper  */
+    &-banner-wrap,
+    &-banner {
+        // background-color: transparent !important;
+        background-color: var(--c-bg-pre) !important;
+        backdrop-filter: blur(1rem);
+        border-radius: 50vw !important;
+    }
+
+    // &-banner-wrap {
+    //     background-color: transparent !important;
+    // }
+
+    /* Markdown code block header sticky */
+    &-banner {
+        border-radius: 50vw !important;
+        background-color: var(--c-bg-pre) !important;
+        align-items: center;
+
+        /* Code-block action button header */
+        ._121d384 {
+            .ds-button:hover {
+                --ds-button-hover-color: var(--c-accent) !important;
+            }
+        }
+    }
+
+    /* Markdown code block header: code language */
+    &-infostring {
+        color: var(--c-subtext-2) !important;
+        font-family: var(--ds-font-family-code) !important;
+        font-weight: bold;
+        line-height: 1 !important;
+    }
+
+    /* Footer of code block, for example: "▶️ Run HTML" part */
+    &-footer {
+        // @include bg-accent-inverse;
+        border-radius: var(--br-btn);
+        background-color: hsla(var(--accent-hsl) / 0.0) !important;
+
+        span:has(> .ds-icon) {
+            // color: var(--c-on-accent) !important;
+            // background-color: var(--c-accent) !important;
+            // border-radius: 2rem;
+
+            @extend .ds-button--primary;
+            transition: transform 0.25s $easeOutCubic;
+
+            &:hover {
+                transform: translateY(-0.08rem);
+            }
         }
     }
 }

@@ -81,8 +81,8 @@ body.dark[data-ds-dark-theme] {
     --c-bg-pre: hsla(var(--accent-h) var(--surface-s) var(--surface-l) / 0.8);
 
     /* ? ========== Scrollbar colors ========== */
-    --c-scrollbar-thumb: var(--c-surface-3);
-    --c-scrollbar-track: transparent;
+    // --c-scrollbar-thumb: var(--c-surface-3);
+    // --c-scrollbar-track: transparent;
 
     /* ? ========== border colors ========== */
     --c-border: hsla(var(--txt-hsl) / 0.08);

@@ -1,42 +1,42 @@
 /* Button "New chat" in sidebar: parent */
 ._5a8ac7a {
-    --local-button: var(--dsr-main) !important;
-    --local-button-hover: var(--c-accent-hover) !important;
-    --local-button-text: var(--c-on-accent) !important;
-
-    margin: 0 auto !important;
-    width: 80% !important;
-    height: fit-content !important;
-    transition: transform ease 0.15s;
-
-    /* Button "New chat" */
-    .c7dddcde {
-        width: 100% !important;
-        justify-content: center;
-        padding: calc(var(--p-btn) * 1.1) !important;
-        text-transform: uppercase;
-    }
+    --dsw-alias-label-caption: currentColor !important; // CTRL + J ::after
+    background-color: var(--c-accent) !important;
+    color: var(--c-on-accent) !important;
+    // text-transform: uppercase;
+    box-shadow: none !important;
+    transition: background-color ease 0.15s, color ease 0.15s;
 
     &:hover {
-        --local-button-text: var(--c-accent) !important;
-        transform: translateY(0.08rem);
+        color: var(--c-accent) !important;
+        background-color: hsla(var(--accent-hsl) / 0.2) !important;
     }
 }
 
-/* Sidebar */
+/* Sidebar collapseed floating element */
+.e5bf614e {
+    background-color: hsla(var(--accent-hsl) / 0.1) !important;
+    border-color: hsla(var(--accent-hsl) / 0.1) !important;
+    color: var(--c-accent) !important;
+}
+
+/* Sidebar wrapper */
 .dc04ec1d {
+
+    /* Sidebar */
+    .b8812f16 {
+        background-color: var(--c-bg-sidebar) !important;
+        border: none !important;
+    }
+
+    /* Sidebar scroll area where links are */
+    ._3586175.ds-scroll-area {
+        margin-top: 2rem !important;
+    }
 
     /* Sidebar icon for collapsing sidebar for 'sm' size screens */
     .a9564e8a {
         color: var(--c-accent) !important;
-    }
-
-
-    /* deepseek icon log only (when sidebar is collapsed) */
-    .a7f3a288 {
-        .ds-icon {
-            color: var(--c-accent) !important;
-        }
     }
 
     /* "deepseek" text logo in sidebar */
@@ -50,44 +50,36 @@
     ._48cdfc1 {
         @extend %date-pill;
     }
+}
 
-    /* Sidebar chat-item link */
-    ._83421f9 {
-        transition: $trans;
+/* Sidebar chat-item link */
+._546d736 {
+    transition: $trans;
+    color: var(--c-txt) !important;
 
-        /* Active link item */
-        &.b64fb9ae {
-            --dsr-local-active-bg: var(--c-surface-2) !important;
-            box-shadow: 0 0 1px 2px hsla(var(--accent-hsl) / 0.1) inset !important;
-        }
+    // Active link item
+    &.b64fb9ae {
+        background-color: var(--c-surface-2) !important;
+        box-shadow: 0 0 1px 2px hsla(var(--accent-hsl) / 0.1) inset !important;
+    }
 
-        &:not(&.b64fb9ae):hover {
-            background-color: var(--c-surface-2) !important;
-            transform: translateY(-0.08rem);
-        }
+    // Hover non activer link
+    &:not(&.b64fb9ae):hover {
+        background-color: var(--c-surface-2) !important;
+        transform: translateY(-0.08rem);
+    }
 
-        /* Overlay fade where 3dots are */
+    // Overlay fade where 3dots are
+    ._254829d {
+        // background: linear-gradient(90deg, hsla(var(--accent-hsl) / 0) 0%, hsla(var(--accent-hsl) / .5) 20.23%, hsla(var(--accent-hsl)) 40.62%) !important;
+        background: linear-gradient(90deg, transparent 0%, var(--c-surface-2) 60%) !important;
+    }
+
+    // Overlay fade where 3dots are
+    &:not(&.b64fb9ae):hover,
+    &.b64fb9ae {
         .eaaaba55 {
-            background: linear-gradient(90deg, transparent 0%, var(--dsr-side-bg) 60%) !important;
+            --c-bg-sidebar: var(--c-surface-2) !important;
         }
-
-        /* Overlay fade where 3dots are */
-        &:not(&.b64fb9ae):hover,
-        &.b64fb9ae {
-            .eaaaba55 {
-                --dsr-side-bg: var(--c-surface-2) !important;
-            }
-        }
-    }
-
-    /* "Get App" link in sidebar */
-    .a1e75851 {
-        border-color: var(--c-border) !important;
-
-    }
-
-    /* Bg when hovered mobile icon in sidebar */
-    .b91228e4:hover {
-        background-color: var(--c-accent-hover) !important;
     }
 }

@@ -6,6 +6,8 @@
 @mixin bg-accent-inverse($txt: var(--c-accent), $bg: var(--c-accent-hover)) {
     color: $txt !important;
     background-color: $bg !important;
+    // color: if($txt, $txt, var(--c-accent)) !important;
+    // background-color: if($bg, $bg, var(--c-accent-hover)) !important;
 }
 
 @mixin bg-danger($txt: var(--c-on-accent), $bg: var(--c-danger)) {

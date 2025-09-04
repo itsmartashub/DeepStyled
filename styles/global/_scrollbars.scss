@@ -1,41 +1,86 @@
-*,
-html {
-    // scrollbar-color: var(--main-surface-tertiary) transparent;
-    // scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track) !important;
-    // scrollbar-width: thin !important;
-    scrollbar-color: unset !important;
-    scrollbar-width: unset !important;
-}
+// *,
+// html {
+//     // scrollbar-color: var(--main-surface-tertiary) transparent;
+//     // scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track) !important;
+//     // scrollbar-width: thin !important;
+//     scrollbar-color: unset !important;
+//     scrollbar-width: unset !important;
+// }
 
-/* WebKit/Blink browsers (Chrome, Edge, Safari, etc.) */
-::-webkit-scrollbar {
-    width: var(--w-scrollbar) !important; // desired scrollbar width 
-    // height: 0 !important; // desired scrollbar height
-    height: var(--w-scrollbar) !important; // desired scrollbar height
-    cursor: grab;
-}
+// /* WebKit/Blink browsers (Chrome, Edge, Safari, etc.) */
+// ::-webkit-scrollbar {
+//     width: var(--w-scrollbar) !important; // desired scrollbar width 
+//     // height: 0 !important; // desired scrollbar height
+//     height: var(--w-scrollbar) !important; // desired scrollbar height
+//     cursor: grab;
+// }
 
-/* scrollbar thumb */
-::-webkit-scrollbar-thumb,
-scrollbar-thumb {
-    background-color: var(--c-scrollbar-thumb) !important; // scrollbar thumb color
-    border-radius: var(--br-scrollbar) !important; // roundness of the thumb
-    cursor: grab;
-}
+// /* scrollbar thumb */
+// ::-webkit-scrollbar-thumb,
+// scrollbar-thumb {
+//     background-color: var(--c-scrollbar-thumb) !important; // scrollbar thumb color
+//     border-radius: var(--br-scrollbar) !important; // roundness of the thumb
+//     cursor: grab;
+// }
 
-/* scrollbar track */
-::-webkit-scrollbar-track,
-scrollbar-track-piece {
-    background-color: var(--c-scrollbar-track) !important; // scrollbar track color
-    border-radius: var(--br-scrollbar) !important;
-}
+// /* scrollbar track */
+// ::-webkit-scrollbar-track,
+// scrollbar-track-piece {
+//     background-color: var(--c-scrollbar-track) !important; // scrollbar track color
+//     border-radius: var(--br-scrollbar) !important;
+// }
 
-/* scrollbar-color for For Firefox */
-@-moz-document url-prefix() {
+// /* scrollbar-color for For Firefox */
+// @-moz-document url-prefix() {
 
-    html,
-    * {
-        scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track) !important; // second parameter (transparent) is for bg-thumb
-        scrollbar-width: thin !important;
+//     html,
+//     * {
+//         scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track) !important; // second parameter (transparent) is for bg-thumb
+//         scrollbar-width: thin !important;
+//     }
+// }
+
+@use 'sass:map';
+$scrollbar-sizes: (
+    thin: 4px,
+    normal: 8px,
+    thick: 12px
+);
+
+
+// Dynamic scrollbar mixin
+@mixin scrollbar($size: normal) {
+    $width: map.get($scrollbar-sizes, $size);
+
+    scrollbar-width: if($size ==thin, thin, auto);
+    scrollbar-color: var(--c-scrollbar-thumb) var(--c-scrollbar-track);
+
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $width;
     }
+
+    &::-webkit-scrollbar-track {
+        background: var(--c-scrollbar-track);
+        border-radius: calc(#{$width} / 2);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--c-scrollbar-thumb);
+        border-radius: calc(#{$width} / 2);
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: var(--c-scrollbar-thumb-hover);
+        }
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: var(--c-scrollbar-corner);
+    }
+}
+
+// Apply globally
+html {
+    @include scrollbar();
 }
