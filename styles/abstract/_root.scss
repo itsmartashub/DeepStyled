@@ -58,7 +58,9 @@
 
     --c-bg-textarea: linear-gradient(145deg, hsla(var(--accent-hsl) / 0.2) 0%, hsla(var(--accent-hsl) / 0.1) 22%, hsla(var(--accent-hsl) / 0.1) 68%, hsla(var(--accent-hsl) / 0.2) 100%);
     --c-scrollbar-thumb: hsla(var(--accent-hsl) / 0.15);
+    --c-scrollbar-thumb-hover: hsla(var(--accent-hsl) / 0.2);
     --c-scrollbar-track: transparent;
+    --c-scrollbar-corner: var(--c-scrollbar-thumb);
 
 
     @include dev('md') {
