@@ -11,8 +11,8 @@
 		<CardToggle
 			v-model="toggleBubbleAI"
 			title="Turn off AI Bubble"
-			subtitle="Turn off the AI bubbles style to match the default Deepseek look and feel."
-			:iconComponent="IconThinkingProcess"
+			subtitle="Turn off the AI bubble style to match the default Deepseek look and feel."
+			:iconComponent="IconBubbleOFF"
 		/>
 	</div>
 </template>
@@ -23,10 +23,11 @@ import { useToggleStorage } from '@/composables/useToggleStorage.js'
 
 import CardToggle from '@/components/Cards/Toggle.vue'
 import IconThinkingProcess from '@/components/Icons/ThinkingProcess.vue'
+import IconBubbleOFF from '@/components/Icons/BubbleOFF.vue'
 
 // One toggle controls everything
 const hideThinkingState = useToggleStorage(hideThinkingItem, 'dsx-toggle-thinking-process')
-const toggleBubbleAI = useToggleStorage(toggleBubbleAIItem, 'dsx-no-ai-bubble')
+const toggleBubbleAI = useToggleStorage(toggleBubbleAIItem, 'dsx-toggle-ai-bubble')
 </script>
 
 <style lang="scss">
