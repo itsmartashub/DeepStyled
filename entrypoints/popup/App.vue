@@ -14,9 +14,6 @@ import PopupImage from './components/PopupImage.vue'
 .popup {
 	position: relative;
 	width: 100%;
-	height: 100dvh;
-	display: grid;
-	align-content: space-between;
-	justify-content: center;
+	height: 100%;
 }
 </style>

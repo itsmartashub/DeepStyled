@@ -122,7 +122,7 @@ const handleClick = (event) => {
 	}
 
 	&__text {
-		font-weight: inherit;
+		font-weight: bold;
 		white-space: nowrap;
 		line-height: 1;
 		transition: all 0.25s ease;
