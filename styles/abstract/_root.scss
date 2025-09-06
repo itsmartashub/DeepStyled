@@ -78,7 +78,7 @@
         --roller-size: 2rem;
     }
 
-    @include dev('sm') {
-        --br-chat-bubble: var(--br) !important;
-    }
+    // @include dev('sm') {
+    //     --br-chat-bubble: var(--br) !important;
+    // }
 }

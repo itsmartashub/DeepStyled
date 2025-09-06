@@ -186,6 +186,10 @@
 ._8f60047 ._0f72b0b {
     // padding: 0 calc((100% - var(--message-list-max-width)) / 2);
     padding: 0 5vw !important;
+
+    @include dev('md') {
+        padding: 0 2vw !important;
+    }
 }
 
 /* Chats list parent */

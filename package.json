@@ -1,8 +1,8 @@
 {
 	"name": "deepstyled",
 	"version": "2.1.0",
-	"displayName": "DeepStyled - Deepseek Customization",
-	"description": "Transform DeepSeek's user interface with customisable accent colours, modern designs and chat bubbles.",
+	"displayName": "DeepStyled - Deepseek Customization & Tweaks",
+	"description": "Redesign Deepseek: custom accent colors, fonts & layouts — widescreen mode and hide thinking process",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/itsmartashub/deepstyled.git"
