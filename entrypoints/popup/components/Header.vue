@@ -17,6 +17,7 @@ const EXT_REPO = `https://github.com/itsmartashub/${name}`
 			chip-bg="var(--on-accent)"
 			chip-text="var(--accent)"
 			:href="EXT_REPO"
+			title="DeepStyled Github Repository"
 		/>
 	</header>
 </template>

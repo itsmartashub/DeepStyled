@@ -3,7 +3,7 @@
 		:is="componentType"
 		:href="href || undefined"
 		:target="href ? '_blank' : undefined"
-		:title="href ? text : undefined"
+		:title="href ? title : undefined"
 		:rel="href ? 'noopener noreferrer' : undefined"
 		:to="to || undefined"
 		class="pill-chip"
@@ -42,6 +42,10 @@ const props = defineProps({
 		default: 'var(--c-accent, var(--on-accent))',
 	},
 	href: {
+		type: String,
+		default: '',
+	},
+	title: {
 		type: String,
 		default: '',
 	},
@@ -133,7 +137,7 @@ const handleClick = (event) => {
 	&:hover {
 		background-color: var(--chip-text);
 		color: var(--chip-bg);
-		transform: scale(0.95);
+		transform: scale(0.9);
 
 		.pill-chip__icon {
 			background-color: var(--icon-color);

@@ -28,14 +28,24 @@ const extLinks = [
 	<div class="recommendation">
 		<p>
 			Enjoying this? Try
-			<a href="https://github.com/itsmartashub/GPThemes" target="_blank" rel="noopener noreferrer"
+			<a
+				href="https://github.com/itsmartashub/GPThemes"
+				target="_blank"
+				rel="noopener noreferrer"
+				title="Github Repository"
 				><b>GPT<span>hemes</span></b></a
 			>
 			for ChatGPT
 		</p>
 		<ul class="recommendation__items">
 			<li v-for="link in extLinks" :key="link.name" class="recommendation__item">
-				<PillChip :icon="link.icon" chip-bg="var(--on-accent)" chip-text="var(--accent)" :href="link.url" />
+				<PillChip
+					:icon="link.icon"
+					chip-bg="var(--on-accent)"
+					chip-text="var(--accent)"
+					:href="link.url"
+					:title="`GPThemes on ${link.name}`"
+				/>
 			</li>
 		</ul>
 	</div>
@@ -59,6 +69,11 @@ const extLinks = [
 	box-shadow: 0 0 1px 1px color-mix(in oklab, var(--accent), transparent 90%) inset;
 	z-index: -1;
 	// text-shadow: 0 0 8px color-mix(in oklab, var(--accent), black 60%);
+	transition: translate 0.35s $easeInOutBack;
+
+	&:hover {
+		translate: 0 -0.25rem;
+	}
 
 	p {
 		b {
