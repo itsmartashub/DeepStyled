@@ -11,7 +11,7 @@ import dsHeaderImg from '@/assets/img/ds-header-lg.webp'
 	inset: 0;
 	z-index: -1;
 	width: 100%;
-	height: 20rem;
+	height: 22rem;
 	object-fit: cover;
 	object-position: center;
 	display: block;
