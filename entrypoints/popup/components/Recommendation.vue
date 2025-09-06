@@ -67,12 +67,10 @@ const extLinks = [
 	gap: 0.65rem;
 	margin-bottom: 0.5rem;
 	box-shadow: 0 0 1px 1px color-mix(in oklab, var(--accent), transparent 90%) inset;
-	z-index: -1;
-	// text-shadow: 0 0 8px color-mix(in oklab, var(--accent), black 60%);
-	transition: translate 0.35s $easeInOutBack;
+	transition: translate 0.25s ease-in-out;
 
 	&:hover {
-		translate: 0 -0.25rem;
+		translate: 0 -0.1rem;
 	}
 
 	p {
@@ -101,14 +99,14 @@ const extLinks = [
 
 	&__items {
 		--pillchip-font-size: 0.75rem;
-		padding: 0.1rem;
 		align-self: center;
 		display: flex;
 		gap: 0.5rem;
 		font-size: 0.825em;
+		padding: 0.1rem;
+		border-radius: 50vw;
 		// z-index: 10;
 		// translate: 0 50%;
-		border-radius: 50vw;
 		// background-color: color-mix(in oklab, var(--accent), transparent 90%);
 		// border: 2px solid color-mix(in oklab, var(--accent), transparent 90%);
 		// backdrop-filter: blur(2rem);
