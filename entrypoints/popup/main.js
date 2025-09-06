@@ -1,7 +1,5 @@
-// import './style.scss'
-
 import { createApp } from 'vue'
+import './style.scss'
 import App from './App.vue'
-import '@/styles/popup/index.scss'
 
 createApp(App).mount('#app')
