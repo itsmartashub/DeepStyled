@@ -9,13 +9,12 @@
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		class="icon icon-tabler icons-tabler-outline icon-tabler-bubble-x"
+		class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle-off"
 	>
 		<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 		<path
-			d="M13.5 18.75c-.345 .09 -.727 .25 -1.1 .25a4.3 4.3 0 0 1 -1.57 -.298l-3.83 2.298v-3.134a2.668 2.668 0 0 1 -1.795 -3.773a4.8 4.8 0 0 1 2.908 -8.933a5.335 5.335 0 0 1 9.194 1.078a5.333 5.333 0 0 1 4.484 6.778"
+			d="M8.595 4.577c3.223 -1.176 7.025 -.61 9.65 1.63c2.982 2.543 3.601 6.523 1.636 9.66m-1.908 2.109c-2.787 2.19 -6.89 2.666 -10.273 1.024l-4.7 1l1.3 -3.9c-2.229 -3.296 -1.494 -7.511 1.68 -10.057"
 		/>
-		<path d="M22 22l-5 -5" />
-		<path d="M17 22l5 -5" />
+		<path d="M3 3l18 18" />
 	</svg>
 </template>

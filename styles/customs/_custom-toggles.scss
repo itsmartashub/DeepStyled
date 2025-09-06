@@ -14,6 +14,19 @@ html[dsx-toggle-accent-user-bubble] {
     }
 }
 
+html[dsx-toggle-user-bubble-full-width] {
+    .fbb737a4 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* User chat bubble in edit state */
+    ._9663006._3111eee .ds-textarea {
+        // width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
 html[dsx-toggle-ai-bubble] {
     ._4f9bf79 {
         background: transparent !important;

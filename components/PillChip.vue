@@ -3,6 +3,7 @@
 		:is="componentType"
 		:href="href || undefined"
 		:target="href ? '_blank' : undefined"
+		:title="href ? title : undefined"
 		:rel="href ? 'noopener noreferrer' : undefined"
 		:to="to || undefined"
 		class="pill-chip"
@@ -41,6 +42,10 @@ const props = defineProps({
 		default: 'var(--c-accent, var(--on-accent))',
 	},
 	href: {
+		type: String,
+		default: '',
+	},
+	title: {
 		type: String,
 		default: '',
 	},
@@ -83,24 +88,24 @@ const handleClick = (event) => {
 
 <style lang="scss" scoped>
 .pill-chip {
-	--icon-size: 1.8rem;
-
 	display: inline-flex;
 	align-items: center;
-	gap: 0.375rem;
-	padding: 0.275rem;
-	font-size: 0.9rem;
+	gap: 0.375em;
+	padding: 0.2em;
+	font-size: var(--pillchip-font-size);
 	font-weight: 500;
 	font-family: inherit;
 	text-decoration: none;
 	background-color: var(--chip-bg);
 	color: var(--chip-text);
-	backdrop-filter: blur(2rem);
+	backdrop-filter: blur(1rem);
 	border: color-mix(in oklab, currentColor, transparent 85%) 2px solid;
 	border-radius: 50vw;
 	outline: none;
 	cursor: pointer;
 	transition: all 0.25s ease;
+
+	--icon-size: 1.8em;
 
 	&__icon {
 		display: flex;
@@ -132,7 +137,7 @@ const handleClick = (event) => {
 	&:hover {
 		background-color: var(--chip-text);
 		color: var(--chip-bg);
-		transform: scale(0.95);
+		transform: scale(0.9);
 
 		.pill-chip__icon {
 			background-color: var(--icon-color);
