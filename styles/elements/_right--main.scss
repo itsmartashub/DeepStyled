@@ -185,7 +185,7 @@
 /* Very top chats parent which has strange padding */
 ._8f60047 ._0f72b0b {
     // padding: 0 calc((100% - var(--message-list-max-width)) / 2);
-    padding: 0 5vw !important;
+    padding: 0 4vw !important;
 
     @include dev('md') {
         padding: 0 2vw !important;
