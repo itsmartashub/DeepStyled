@@ -1,14 +1,14 @@
-// import '@/styles/index.scss'
-import '../styles/index.scss'
+import '@/styles/index.scss'
 import { createApp } from 'vue'
 
 import ThemeManager from '@/components/ThemeManager.vue'
 import { useThemeManager } from '@/composables/useThemeManager'
 // import { getAllStorageItems } from '@/utils/storage'
+import { createIntegratedUi, defineContentScript } from '#imports'
 
 export default defineContentScript({
 	matches: ['*://chat.deepseek.com/*'],
-
+	cssInjectionMode: 'manifest', // Ensure CSS is handled correctly
 	async main(ctx) {
 		// Force theme initialization before the UI mounts.
 		useThemeManager()

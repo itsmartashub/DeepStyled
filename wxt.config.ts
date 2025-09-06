@@ -1,14 +1,21 @@
 import { defineConfig } from 'wxt'
+import { resolve } from 'path'
 
+// See https://wxt.dev/api/config.html
 export default defineConfig({
-	extensionApi: 'chrome',
 	modules: ['@wxt-dev/module-vue', '@wxt-dev/auto-icons'],
 	autoIcons: {
 		enabled: true,
-		grayscaleOnDevelopment: false,
+		developmentIndicator: false,
 		sizes: [128, 48, 32, 16],
 	},
 	vite: () => ({
+		resolve: {
+			alias: {
+				'@': resolve('/'),
+				'~': resolve('/'),
+			},
+		},
 		logLevel: 'error', // Suppress warnings
 		css: {
 			preprocessorOptions: {
