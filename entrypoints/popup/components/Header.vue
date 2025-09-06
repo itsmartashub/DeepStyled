@@ -1,6 +1,56 @@
+<script setup>
+import { ref, computed } from 'vue'
+import { version, name } from '@/package.json'
+import PillChip from '@/components/PillChip.vue'
+import IconGithub from '@/components/Icons/Github.vue'
+
+const EXT_VERSION = ref(`v${version}`)
+const EXT_REPO = `https://github.com/itsmartashub/${name}`
+const EXT_RELEASE_LINK = computed(() => `${EXT_REPO}/releases/tag/v${EXT_VERSION.value}`)
+
+const goToProfile = () => {
+	chrome.runtime.openOptionsPage()
+}
+
+const openLink = () => {
+	chrome.tabs.create({
+		url: EXT_REPO ? EXT_REPO : 'https://github.com/itsmartashub/DeepStyled',
+		active: true,
+	})
+	// Optional: close popup after opening
+	window.close()
+}
+
+// onMounted(async () => {
+// 	try {
+// 		// Get version from extension manifest
+// 		const manifest = chrome.runtime.getManifest()
+// 		EXT_VERSION.value = `v${manifest.version}`
+// 	} catch (error) {
+// 		console.error('Failed to get extension version:', error)
+// 		EXT_VERSION.value = 'Github'
+// 	}
+// })
+</script>
+
 <template>
 	<header class="header">
-		<code class="version">v3.0.0</code>
+		<div>
+			<!-- Icon + Text -->
+			<PillChip
+				:text="EXT_VERSION"
+				:icon="IconGithub"
+				chip-bg="var(--on-accent)"
+				chip-text="var(--accent)"
+				href="https://github.com/itsmartashub/deepstyled"
+			/>
+
+			<!-- Icon only -->
+			<PillChip :icon="IconGithub" @click="toggleLike" />
+
+			<!-- Text only -->
+			<PillChip text="DeepStyled" />
+		</div>
 	</header>
 </template>
 
@@ -9,19 +59,5 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.version {
-	font-size: 1.5rem;
-	padding: 0.25rem 0.5rem;
-	border-radius: var(--br-btn);
-	// background-color: var(--accent);
-	background-color: color-mix(in oklab, var(--on-accent), transparent 80%) inset;
-	color: var(--accent);
-	font-weight: bold;
-	// width: max-content;
-	display: inline-flex;
-	margin-top: 1rem;
-	backdrop-filter: blur(20px);
-	box-shadow: 0px 4px 8px 0px color-mix(in oklab, var(--accent), transparent 50%) inset;
 }
 </style>
