@@ -7,10 +7,10 @@
 				:value="modelValue"
 				@input="$emit('update:modelValue', $event.target.value)"
 				@change="$emit('change', $event)"
-				:aria-label="`Select ${label} ${subLabel} color`"
+				:aria-label="`Select accent ${mode} color`"
 			/>
 			<p>
-				{{ label }} <span>{{ subLabel }}</span>
+				Accent <span>{{ mode }}</span>
 			</p>
 		</label>
 	</div>
@@ -18,24 +18,10 @@
 
 <script setup>
 defineProps({
-	id: {
-		type: String,
-		required: true,
-	},
-	modelValue: {
-		type: String,
-		required: true,
-	},
-	label: {
-		type: String,
-		required: true,
-	},
-	subLabel: {
-		type: String,
-		required: true,
-	},
+	id: { type: String, required: true },
+	modelValue: { type: String, required: true },
+	mode: { type: String, required: true },
 })
-
 defineEmits(['update:modelValue', 'change'])
 </script>
 

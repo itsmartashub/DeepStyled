@@ -14,8 +14,8 @@ export const THEMES = Object.freeze({
 })
 
 // Pre-compute hex values instead of doing it every time
-const DEFAULT_ACCENT_LIGHT_HEX = hslToHex(DEFAULT_ACCENT_LIGHT_HSL)
-const DEFAULT_ACCENT_DARK_HEX = hslToHex(DEFAULT_ACCENT_DARK_HSL)
+export const DEFAULT_ACCENT_LIGHT_HEX = hslToHex(DEFAULT_ACCENT_LIGHT_HSL)
+export const DEFAULT_ACCENT_DARK_HEX = hslToHex(DEFAULT_ACCENT_DARK_HSL)
 
 // ---------- Helper ----------
 export async function getAllStorageItems() {
