@@ -1,7 +1,7 @@
 <template>
 	<section class="section-colors colors">
 		<div class="section-cards">
-			<div class="colorpicker">
+			<!-- <div class="colorpicker">
 				<label for="lightColor">
 					<input id="lightColor" type="color" v-model="lightHex" @change="onLightChange" />
 					<p>Accent <span>Light</span></p>
@@ -12,7 +12,16 @@
 					<input id="darkColor" type="color" v-model="darkHex" @change="onDarkChange" />
 					<p>Accent <span>Dark</span></p>
 				</label>
-			</div>
+			</div> -->
+			<ColorPicker
+				v-for="picker in colorPickers"
+				:key="picker.id"
+				:id="picker.id"
+				:v-model="picker.modelValue"
+				:label="picker.label"
+				:subLabel="picker.subLabel"
+				@change="picker.handler"
+			/>
 		</div>
 
 		<Separator />
@@ -36,6 +45,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import { accentLightItem, accentDarkItem } from '@/utils/storage'
 import { hexToHSL } from '@/composables/useColorConversion'
+import ColorPicker from '@/components/Colors/ColorPicker.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
 import CardToggle from '@/components/Cards/Toggle.vue'
 import IconPipe from '@/components/Icons/Pipe.vue'
@@ -51,14 +61,32 @@ const toggleAccentUserBubble = useToggleStorage(accentUserBubbleItem, 'dsx-toggl
 const lightHex = ref('')
 const darkHex = ref('')
 
+// Centralized color picker configuration
+const colorPickers = [
+	{
+		id: 'lightColor',
+		modelValue: lightHex,
+		label: 'Accent',
+		subLabel: 'Light',
+		handler: onLightChange,
+	},
+	{
+		id: 'darkColor',
+		modelValue: darkHex,
+		label: 'Accent',
+		subLabel: 'Dark',
+		handler: onDarkChange,
+	},
+]
+
 // Watch for changes in storage and update the reactive variables
-accentLightItem.watch((newVal) => {
+const stopLightWatcher = accentLightItem.watch((newVal) => {
 	if (newVal !== lightHex.value) {
 		lightHex.value = newVal
 	}
 })
 
-accentDarkItem.watch((newVal) => {
+const stopDarkWatcher = accentDarkItem.watch((newVal) => {
 	if (newVal !== darkHex.value) {
 		darkHex.value = newVal
 	}
@@ -97,13 +125,20 @@ onMounted(async () => {
 	}
 
 	// Load stored accent colors (or fallback to defaults)
-	const storedLight = await accentLightItem.getValue()
-	const storedDark = await accentDarkItem.getValue()
-	lightHex.value = storedLight || accentLightItem.fallback
-	darkHex.value = storedDark || accentDarkItem.fallback
+	try {
+		const [storedLight, storedDark] = await Promise.all([accentLightItem.getValue(), accentDarkItem.getValue()])
 
-	// Set the initial CSS content in the style tag
-	styleTag.innerHTML = cssString.value
+		lightHex.value = storedLight || accentLightItem.fallback
+		darkHex.value = storedDark || accentDarkItem.fallback
+
+		// Set the initial CSS content in the style tag
+		styleTag.innerHTML = cssString.value
+	} catch (error) {
+		console.error('Failed to load accent colors:', error)
+		// Set fallback values
+		lightHex.value = accentLightItem.fallback
+		darkHex.value = accentDarkItem.fallback
+	}
 })
 
 // Update the injected CSS whenever the computed cssString changes
@@ -131,73 +166,10 @@ function resetColors() {
 	onLightChange()
 	onDarkChange()
 }
+
+// Clean up watchers when component is unmounted
+onUnmounted(() => {
+	stopLightWatcher()
+	stopDarkWatcher()
+})
 </script>
-<style lang="scss" scoped>
-.colorpicker {
-	// width: clamp(7rem, 10vw, 10rem);
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
-
-	background-image: linear-gradient(
-		135deg,
-		hsla(var(--accent-hsl) / 0.2) 0%,
-		hsla(var(--accent-hsl) / 0.03) 40%,
-		hsla(var(--accent-hsl) / 0.03) 60%,
-		hsla(var(--accent-hsl) / 0.1) 100%
-	);
-	border: 1px solid hsla(var(--accent-hsl) / 0.1);
-	border-radius: 1rem;
-
-	label {
-		cursor: pointer;
-		display: grid;
-		place-items: center;
-		gap: 0.5rem;
-		padding: 0.8rem;
-
-		p {
-			font-size: 0.62em;
-			text-transform: uppercase;
-			margin: 0;
-			line-height: 1;
-
-			span {
-				font-weight: bold;
-			}
-		}
-	}
-
-	input[type='color'] {
-		--input_color_size: 3.2rem;
-		--br_colorpicker: 1.5rem;
-		width: var(--input_color_size);
-		height: var(--input_color_size);
-		background-color: transparent;
-		border: none;
-		outline: none;
-		border-radius: var(--br_colorpicker);
-		cursor: pointer;
-
-		&::-webkit-color-swatch-wrapper,
-		&::-moz-color-swatch-wrapper {
-			padding: 0;
-		}
-
-		&::-moz-color-swatch {
-			border-radius: var(--br_colorpicker);
-			border: none;
-			outline: none;
-		}
-
-		&::-webkit-color-swatch {
-			border-radius: var(--br_colorpicker);
-			border: none;
-			outline: none;
-		}
-	}
-
-	&:hover {
-		transform: scale(0.98);
-	}
-}
-</style>
