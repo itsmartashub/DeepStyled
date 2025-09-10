@@ -34,7 +34,9 @@ export function hexToHSL(hex) {
 		h *= 60
 	}
 
-	return [h, s * 100, l * 100] // keep floats internally for better round-trip
+	// return [h, s * 100, l * 100] // keep floats internally for better round-trip
+	// Round to nearest integer using Math.round()
+	return [Math.round(h), Math.round(s * 100), Math.round(l * 100)]
 }
 
 export function hslToHex([h, s, l]) {
