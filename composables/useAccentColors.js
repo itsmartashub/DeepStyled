@@ -1,4 +1,6 @@
+// composables/useAccentColors.js
 import { ref, computed } from 'vue'
+// import { useDebounceFn } from '@vueuse/core'
 import { accentLightItem, accentDarkItem } from '@/utils/storage'
 import { hexToHSL } from '@/composables/useColorConversion'
 
@@ -17,9 +19,22 @@ export function useAccentColors() {
 		}
 	}
 
-	// Save on change
-	const saveLight = () => accentLightItem.setValue(lightHex.value)
-	const saveDark = () => accentDarkItem.setValue(darkHex.value)
+	// Save only when user commits (@change)
+	const saveLight = async () => {
+		try {
+			await accentLightItem.setValue(lightHex.value)
+		} catch (err) {
+			console.error('Failed to save light accent color', err)
+		}
+	}
+
+	const saveDark = async () => {
+		try {
+			await accentDarkItem.setValue(darkHex.value)
+		} catch (err) {
+			console.error('Failed to save dark accent color', err)
+		}
+	}
 
 	const reset = () => {
 		lightHex.value = accentLightItem.fallback
@@ -28,25 +43,9 @@ export function useAccentColors() {
 		saveDark()
 	}
 
-	// Compute HSL for CSS injection
+	// // Compute HSL for CSS injection
 	const lightHSL = computed(() => hexToHSL(lightHex.value))
 	const darkHSL = computed(() => hexToHSL(darkHex.value))
-
-	// // CSS string
-	const cssString = computed(
-		() => `
-	        body.light {
-	            --accent-h: ${lightHSL.value[0]} !important;
-	            --accent-s: ${lightHSL.value[1]}% !important;
-	            --accent-l: ${lightHSL.value[2]}% !important;
-	        }
-	        body.dark {
-	            --accent-h: ${darkHSL.value[0]} !important;
-	            --accent-s: ${darkHSL.value[1]}% !important;
-	            --accent-l: ${darkHSL.value[2]}% !important;
-	        }
-	    `
-	)
 
 	return {
 		lightHex,
@@ -55,6 +54,7 @@ export function useAccentColors() {
 		saveLight,
 		saveDark,
 		reset,
-		cssString,
+		lightHSL,
+		darkHSL,
 	}
 }

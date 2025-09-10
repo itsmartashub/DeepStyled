@@ -5,10 +5,14 @@
 				v-for="picker in colorPickers"
 				:key="picker.id"
 				:id="picker.id"
-				v-model="picker.model"
 				:mode="picker.mode"
+				v-model="picker.model"
 				@change="picker.handler"
+				v-memo="[picker.model.value]"
 			/>
+
+			<!-- <ColorPicker id="lightColor" v-model="lightHex" mode="Light" @change="saveLight" />
+			<ColorPicker id="darkColor" v-model="darkHex" mode="Dark" @change="saveDark" /> -->
 		</div>
 
 		<Separator />
@@ -29,7 +33,8 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, watch } from 'vue'
+import { reactive, onMounted, watch, nextTick, ref } from 'vue'
+import { useCssVar } from '@vueuse/core'
 import { useAccentColors } from '@/composables/useAccentColors.js'
 import ColorPicker from '@/components/Custom/Colors/ColorPicker.vue'
 import ButtonPrimary from '@/components/ButtonPrimary.vue'
@@ -43,33 +48,41 @@ import { useToggleStorage } from '@/composables/useToggleStorage.js'
 // toggle
 const toggleAccentUserBubble = useToggleStorage(accentUserBubbleItem, 'dsx-toggle-accent-user-bubble')
 
-// use composable
-const { lightHex, darkHex, load, saveLight, saveDark, reset, cssString } = useAccentColors()
+const { lightHex, darkHex, load, saveLight, saveDark, reset, lightHSL, darkHSL } = useAccentColors()
 
 // Reactive array for color pickers
-const colorPickers = reactive([
+const colorPickers = ref([
 	{ id: 'lightColor', model: lightHex, mode: 'Light', handler: saveLight },
 	{ id: 'darkColor', model: darkHex, mode: 'Dark', handler: saveDark },
 ])
 
-// Inject CSS into head
-let styleTag
+// Apply CSS variables efficiently without reparsing stylesheets
+let rafId
+let cssH, cssS, cssL, cssHsl
+const applyLiveCssVars = () => {
+	if (rafId) cancelAnimationFrame(rafId)
+	rafId = requestAnimationFrame(() => {
+		const isDark = document.body.classList.contains('dark')
+		const h = isDark ? darkHSL.value[0] : lightHSL.value[0]
+		const s = isDark ? darkHSL.value[1] : lightHSL.value[1]
+		const l = isDark ? darkHSL.value[2] : lightHSL.value[2]
+		cssH.value = String(h)
+		cssS.value = `${s}%`
+		cssL.value = `${l}%`
+		// cssHsl.value = `${h} ${s}% ${l}%`
+	})
+}
+
 onMounted(async () => {
-	styleTag = document.getElementById('dynamic-accent-styles')
-	if (!styleTag) {
-		styleTag = document.createElement('style')
-		styleTag.id = 'dynamic-accent-styles'
-		document.head.appendChild(styleTag)
-	}
+	// bind css vars to body element
+	cssH = useCssVar('--accent-h', () => document.body)
+	cssS = useCssVar('--accent-s', () => document.body)
+	cssL = useCssVar('--accent-l', () => document.body)
+	// cssHsl = useCssVar('--accent-hsl', () => document.body)
 
 	await load()
-	styleTag.textContent = cssString.value
+	applyLiveCssVars()
 })
 
-// Watch for live updates
-watch(cssString, (newVal) => {
-	if (styleTag) styleTag.textContent = newVal
-})
-
-// const resetColors = () => reset()
+watch([lightHSL, darkHSL], applyLiveCssVars, { deep: false })
 </script>

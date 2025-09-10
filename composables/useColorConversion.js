@@ -1,5 +1,5 @@
 export function hexToHSL(hex) {
-	console.log(hex)
+	// console.log(hex)
 
 	// if (typeof hex !== 'string') throw new Error('Invalid HEX value')
 	hex = hex.replace(/^#/, '')

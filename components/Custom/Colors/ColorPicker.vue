@@ -2,11 +2,11 @@
 	<div class="colorpicker">
 		<label :for="id">
 			<input
-				:id="id"
 				type="color"
+				:id="id"
 				:value="modelValue"
 				@input="$emit('update:modelValue', $event.target.value)"
-				@change="$emit('change', $event)"
+				@change="$emit('change', $event.target.value)"
 				:aria-label="`Select accent ${mode} color`"
 			/>
 			<p>
