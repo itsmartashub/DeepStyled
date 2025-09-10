@@ -1,6 +1,6 @@
 <template>
-	<div ref="themeManagerRef" class="theme-manager" :class="{ 'is-active': isActive }">
-		<div class="theme-manager__roller" @click.stop="toggleActive">
+	<div class="theme-manager" :class="{ 'is-active': isActive }" ref="refThemeManager">
+		<div class="theme-manager__roller" @click.stop="toggleActive" ref="refRollerButton">
 			<IconRoller />
 		</div>
 
@@ -22,12 +22,13 @@
 	</div>
 
 	<Transition name="slideX">
-		<CustomizationSettings v-show="settingsOpen" @close="closeSettings" />
+		<CustomizationSettings v-show="settingsOpen" ref="refCustomSettings" />
 	</Transition>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watchEffect } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 import { useThemeManager } from '@/composables/useThemeManager'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'
@@ -37,9 +38,17 @@ import IconSun from '@/components/Icons/IconSun.vue'
 import IconMoon from '@/components/Icons/IconMoon.vue'
 import IconMoonFull from '@/components/Icons/IconMoonFull.vue'
 
+const THEME_OPTIONS = [
+	{ id: THEMES.LIGHT, icon: IconSun },
+	{ id: THEMES.DARK, icon: IconMoon },
+	{ id: THEMES.OLED, icon: IconMoonFull },
+]
+
 const { changeTheme } = useThemeManager()
 
-const themeManagerRef = ref(null)
+const refThemeManager = ref(null)
+const refCustomSettings = ref(null)
+const refRollerButton = ref(null)
 const settingsOpen = ref(false)
 const isActive = ref(false)
 
@@ -50,27 +59,63 @@ const openSettings = () => {
 	isActive.value = false
 }
 
-const closeSettings = () => (settingsOpen.value = false)
-
-const handleClickOutside = (event) => {
-	if (themeManagerRef.value && !themeManagerRef.value.contains(event.target)) {
-		isActive.value = false
-	}
+const closeSettings = () => {
+	settingsOpen.value = false
 }
 
-onMounted(() => {
-	document.addEventListener('click', handleClickOutside)
+// // close settings when clicking outside of CustomizationSettings
+// watchEffect((onInvalidate) => {
+// 	console.log('refCustomSettings.value: ', refCustomSettings.value)
+
+// 	if (settingsOpen.value && refCustomSettings.value) {
+// 		const stop = onClickOutside(refCustomSettings, () => {
+// 			console.log('onClickOutside refCustomSettings')
+// 			closeSettings()
+// 		})
+
+// 		onInvalidate(() => stop?.())
+// 	}
+// })
+
+// // close theme manager when clicking outside of it (but only when active && not when settings are open)
+// watchEffect((onInvalidate) => {
+// 	console.log('refThemeManager.value: ', refThemeManager.value)
+
+// 	if (isActive.value && !settingsOpen.value && refThemeManager.value) {
+// 		console.log('onClickOutside refThemeManager')
+// 		const stop = onClickOutside(refThemeManager, () => {
+// 			isActive.value = false
+// 		})
+
+// 		onInvalidate(() => stop?.())
+// 	}
+// })
+
+// ---- CLOSE SETTINGS ----
+let stopSettingsListener
+
+watch(settingsOpen, (open) => {
+	stopSettingsListener?.() // cleanup previous
+	stopSettingsListener = null
+
+	if (open && refCustomSettings.value) {
+		stopSettingsListener = onClickOutside(refCustomSettings, closeSettings)
+	}
 })
 
-onUnmounted(() => {
-	document.removeEventListener('click', handleClickOutside)
-})
+// ---- CLOSE THEME MANAGER ----
+let stopManagerListener
 
-const THEME_OPTIONS = [
-	{ id: THEMES.LIGHT, icon: IconSun },
-	{ id: THEMES.DARK, icon: IconMoon },
-	{ id: THEMES.OLED, icon: IconMoonFull },
-]
+watch(isActive, (active) => {
+	stopManagerListener?.()
+	stopManagerListener = null
+
+	if (active && refThemeManager.value) {
+		stopManagerListener = onClickOutside(refThemeManager, () => {
+			isActive.value = false
+		})
+	}
+})
 </script>
 
 <style scoped lang="scss">
