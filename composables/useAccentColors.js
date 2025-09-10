@@ -1,4 +1,3 @@
-// composables/useAccentColors.js
 import { ref, computed } from 'vue'
 import { accentLightItem, accentDarkItem } from '@/utils/storage'
 import { hexToHSL } from '@/composables/useColorConversion'

@@ -27,9 +27,9 @@
 </template>
 
 <script setup>
-import { ref, watch, onScopeDispose } from 'vue' // FIXED IMPORT
-import { onClickOutside } from '@vueuse/core'
+import { ref } from 'vue'
 import { useThemeManager } from '@/composables/useThemeManager'
+import { useClickOutsideWatcher } from '@/composables/useClickOutsideWatcher'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'
 import IconSettings from '@/components/Icons/IconSettings.vue'
@@ -63,52 +63,13 @@ const closeSettings = () => {
 	settingsOpen.value = false
 }
 
-// ---- CLOSE SETTINGS ----
-let stopSettingsListener = null // Initialize as null
+// Setup click-outside watchers using the composable
+useClickOutsideWatcher(refCustomSettings, settingsOpen, closeSettings, {
+	ignore: [refRollerButton], // Prevent immediate close when opening
+})
 
-watch(
-	settingsOpen,
-	(open) => {
-		// console.log('settingsOpen', open)
-
-		stopSettingsListener?.() // cleanup previous
-		stopSettingsListener = null
-
-		if (open && refCustomSettings.value) {
-			stopSettingsListener = onClickOutside(
-				refCustomSettings,
-				closeSettings
-				// { ignore: [refRollerButton] } // <- CRITICAL FIX: IGNORE THE OPENER
-			)
-		}
-	},
-	{ flush: 'post' }
-) // <- IMPORTANT: Wait for DOM update
-
-// ---- CLOSE THEME MANAGER ----
-let stopManagerListener = null // Initialize as null
-
-watch(
-	isActive,
-	(active) => {
-		// console.log('isActive', active)
-
-		stopManagerListener?.()
-		stopManagerListener = null
-
-		if (active && refThemeManager.value) {
-			stopManagerListener = onClickOutside(refThemeManager, () => {
-				isActive.value = false
-			})
-		}
-	},
-	{ flush: 'post' }
-) // <- IMPORTANT: Wait for DOM update
-
-// SAFETY NET: Clean up if component is destroyed while a listener is active
-onScopeDispose(() => {
-	stopSettingsListener?.()
-	stopManagerListener?.()
+useClickOutsideWatcher(refThemeManager, isActive, () => {
+	isActive.value = false
 })
 </script>
 
