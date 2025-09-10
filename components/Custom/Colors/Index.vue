@@ -8,7 +8,6 @@
 				:mode="picker.mode"
 				v-model="picker.model"
 				@change="picker.handler"
-				v-memo="[picker.model.value]"
 			/>
 
 			<!-- <ColorPicker id="lightColor" v-model="lightHex" mode="Light" @change="saveLight" />
@@ -33,7 +32,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, watch, nextTick, ref } from 'vue'
+import { onMounted, watch, ref } from 'vue'
 import { useCssVar } from '@vueuse/core'
 import { useAccentColors } from '@/composables/useAccentColors.js'
 import ColorPicker from '@/components/Custom/Colors/ColorPicker.vue'
@@ -58,7 +57,7 @@ const colorPickers = ref([
 
 // Apply CSS variables efficiently without reparsing stylesheets
 let rafId
-let cssH, cssS, cssL, cssHsl
+let cssH, cssS, cssL
 const applyLiveCssVars = () => {
 	if (rafId) cancelAnimationFrame(rafId)
 	rafId = requestAnimationFrame(() => {
@@ -69,7 +68,6 @@ const applyLiveCssVars = () => {
 		cssH.value = String(h)
 		cssS.value = `${s}%`
 		cssL.value = `${l}%`
-		// cssHsl.value = `${h} ${s}% ${l}%`
 	})
 }
 
@@ -78,7 +76,6 @@ onMounted(async () => {
 	cssH = useCssVar('--accent-h', () => document.body)
 	cssS = useCssVar('--accent-s', () => document.body)
 	cssL = useCssVar('--accent-l', () => document.body)
-	// cssHsl = useCssVar('--accent-hsl', () => document.body)
 
 	await load()
 	applyLiveCssVars()
