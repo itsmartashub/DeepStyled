@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref, watchEffect } from 'vue'
+import { ref, watch, onScopeDispose } from 'vue' // FIXED IMPORT
 import { onClickOutside } from '@vueuse/core'
 import { useThemeManager } from '@/composables/useThemeManager'
 import { THEMES } from '@/utils/storage'
@@ -63,58 +63,52 @@ const closeSettings = () => {
 	settingsOpen.value = false
 }
 
-// // close settings when clicking outside of CustomizationSettings
-// watchEffect((onInvalidate) => {
-// 	console.log('refCustomSettings.value: ', refCustomSettings.value)
-
-// 	if (settingsOpen.value && refCustomSettings.value) {
-// 		const stop = onClickOutside(refCustomSettings, () => {
-// 			console.log('onClickOutside refCustomSettings')
-// 			closeSettings()
-// 		})
-
-// 		onInvalidate(() => stop?.())
-// 	}
-// })
-
-// // close theme manager when clicking outside of it (but only when active && not when settings are open)
-// watchEffect((onInvalidate) => {
-// 	console.log('refThemeManager.value: ', refThemeManager.value)
-
-// 	if (isActive.value && !settingsOpen.value && refThemeManager.value) {
-// 		console.log('onClickOutside refThemeManager')
-// 		const stop = onClickOutside(refThemeManager, () => {
-// 			isActive.value = false
-// 		})
-
-// 		onInvalidate(() => stop?.())
-// 	}
-// })
-
 // ---- CLOSE SETTINGS ----
-let stopSettingsListener
+let stopSettingsListener = null // Initialize as null
 
-watch(settingsOpen, (open) => {
-	stopSettingsListener?.() // cleanup previous
-	stopSettingsListener = null
+watch(
+	settingsOpen,
+	(open) => {
+		// console.log('settingsOpen', open)
 
-	if (open && refCustomSettings.value) {
-		stopSettingsListener = onClickOutside(refCustomSettings, closeSettings)
-	}
-})
+		stopSettingsListener?.() // cleanup previous
+		stopSettingsListener = null
+
+		if (open && refCustomSettings.value) {
+			stopSettingsListener = onClickOutside(
+				refCustomSettings,
+				closeSettings
+				// { ignore: [refRollerButton] } // <- CRITICAL FIX: IGNORE THE OPENER
+			)
+		}
+	},
+	{ flush: 'post' }
+) // <- IMPORTANT: Wait for DOM update
 
 // ---- CLOSE THEME MANAGER ----
-let stopManagerListener
+let stopManagerListener = null // Initialize as null
 
-watch(isActive, (active) => {
+watch(
+	isActive,
+	(active) => {
+		// console.log('isActive', active)
+
+		stopManagerListener?.()
+		stopManagerListener = null
+
+		if (active && refThemeManager.value) {
+			stopManagerListener = onClickOutside(refThemeManager, () => {
+				isActive.value = false
+			})
+		}
+	},
+	{ flush: 'post' }
+) // <- IMPORTANT: Wait for DOM update
+
+// SAFETY NET: Clean up if component is destroyed while a listener is active
+onScopeDispose(() => {
+	stopSettingsListener?.()
 	stopManagerListener?.()
-	stopManagerListener = null
-
-	if (active && refThemeManager.value) {
-		stopManagerListener = onClickOutside(refThemeManager, () => {
-			isActive.value = false
-		})
-	}
 })
 </script>
 
