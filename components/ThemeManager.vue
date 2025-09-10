@@ -1,6 +1,6 @@
 <template>
-	<div ref="themeManagerRef" class="theme-manager" :class="{ 'is-active': isActive }">
-		<div class="theme-manager__roller" @click.stop="toggleActive">
+	<div class="theme-manager" :class="{ 'is-active': isActive }" ref="refThemeManager">
+		<div class="theme-manager__roller" @click.stop="toggleActive" ref="refRollerButton">
 			<IconRoller />
 		</div>
 
@@ -22,13 +22,14 @@
 	</div>
 
 	<Transition name="slideX">
-		<CustomizationSettings v-show="settingsOpen" @close="closeSettings" />
+		<CustomizationSettings v-show="settingsOpen" ref="refCustomSettings" />
 	</Transition>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import { useThemeManager } from '@/composables/useThemeManager'
+import { useClickOutsideWatcher } from '@/composables/useClickOutsideWatcher'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'
 import IconSettings from '@/components/Icons/IconSettings.vue'
@@ -37,9 +38,17 @@ import IconSun from '@/components/Icons/IconSun.vue'
 import IconMoon from '@/components/Icons/IconMoon.vue'
 import IconMoonFull from '@/components/Icons/IconMoonFull.vue'
 
+const THEME_OPTIONS = [
+	{ id: THEMES.LIGHT, icon: IconSun },
+	{ id: THEMES.DARK, icon: IconMoon },
+	{ id: THEMES.OLED, icon: IconMoonFull },
+]
+
 const { changeTheme } = useThemeManager()
 
-const themeManagerRef = ref(null)
+const refThemeManager = ref(null)
+const refCustomSettings = ref(null)
+const refRollerButton = ref(null)
 const settingsOpen = ref(false)
 const isActive = ref(false)
 
@@ -50,27 +59,18 @@ const openSettings = () => {
 	isActive.value = false
 }
 
-const closeSettings = () => (settingsOpen.value = false)
-
-const handleClickOutside = (event) => {
-	if (themeManagerRef.value && !themeManagerRef.value.contains(event.target)) {
-		isActive.value = false
-	}
+const closeSettings = () => {
+	settingsOpen.value = false
 }
 
-onMounted(() => {
-	document.addEventListener('click', handleClickOutside)
+// Setup click-outside watchers using the composable
+useClickOutsideWatcher(refCustomSettings, settingsOpen, closeSettings, {
+	ignore: [refRollerButton], // Prevent immediate close when opening
 })
 
-onUnmounted(() => {
-	document.removeEventListener('click', handleClickOutside)
+useClickOutsideWatcher(refThemeManager, isActive, () => {
+	isActive.value = false
 })
-
-const THEME_OPTIONS = [
-	{ id: THEMES.LIGHT, icon: IconSun },
-	{ id: THEMES.DARK, icon: IconMoon },
-	{ id: THEMES.OLED, icon: IconMoonFull },
-]
 </script>
 
 <style scoped lang="scss">

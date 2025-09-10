@@ -1,5 +1,5 @@
 <template>
-	<div ref="settingsRef" class="customization-settings">
+	<div class="customization-settings">
 		<header class="customization-settings__header">
 			<h3>Customization Settings</h3>
 		</header>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import CustomColors from '@/components/Custom/Colors/Index.vue'
 import CustomFonts from '@/components/Custom/Fonts/Index.vue'
 import CustomLayouts from '@/components/Custom/Layouts/Index.vue'
@@ -37,28 +37,11 @@ const tabs = [
 ]
 
 const activeTab = ref('colors')
-const settingsRef = ref(null)
-const emit = defineEmits(['close'])
-
-function handleClickOutside(event) {
-	if (settingsRef.value && !settingsRef.value.contains(event.target)) {
-		emit('close')
-	}
-}
-
-onMounted(() => {
-	document.addEventListener('click', handleClickOutside)
-})
-
-onBeforeUnmount(() => {
-	document.removeEventListener('click', handleClickOutside)
-})
 </script>
 
 <style lang="scss">
 .customization-settings {
 	// @include scrollbar;
-
 	// --w-scrollbar: 0.2rem;
 	--p: 2.5rem;
 	--max-h: 65dvh;
@@ -77,7 +60,7 @@ onBeforeUnmount(() => {
 	overflow: clip scroll;
 	font-family: var(--fontFamily), var(--fontFamilyDefault);
 	font-size: 1.2rem;
-	z-index: 10; // z-index of code-block markdown banner is 6, so we need to be above that
+	z-index: 10;
 
 	@include dev('md') {
 		--max-h: 85dvh;
@@ -85,9 +68,6 @@ onBeforeUnmount(() => {
 		transform: translateX(50%);
 		width: clamp(16rem, 60vw, 30rem);
 	}
-
-	// @include dev('sm') {
-	// }
 
 	@include dev('xs') {
 		--p: 4vw;

@@ -10,6 +10,9 @@ export default defineContentScript({
 	matches: ['*://chat.deepseek.com/*'],
 	// cssInjectionMode: 'manifest', // Ensure CSS is handled correctly
 	async main(ctx) {
+		// content.js - runs before page scripts
+		DEV__CLEAR_DEFAULT_VENDORS_CONSOLE_CLEARING()
+
 		// Force theme initialization before the UI mounts.
 		useThemeManager()
 
@@ -35,3 +38,12 @@ export default defineContentScript({
 		ui.mount()
 	},
 })
+
+function DEV__CLEAR_DEFAULT_VENDORS_CONSOLE_CLEARING() {
+	// Find the highest interval ID and nuke them all
+	const maxIntervalId = setTimeout(() => {}, 0)
+	for (let i = 1; i <= maxIntervalId; i++) {
+		clearInterval(i)
+	}
+	clearTimeout(maxIntervalId) // Clean up the one we just made
+}
