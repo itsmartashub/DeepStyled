@@ -101,6 +101,11 @@ $blur-backdrop: blur(1rem);
 		width: var(--roller-size);
 		height: var(--roller-size);
 
+		svg {
+			width: calc(var(--roller-size) * 0.525);
+			height: calc(var(--roller-size) * 0.525);
+		}
+
 		&:hover {
 			transform: scale(1.1);
 			background-image: none;
