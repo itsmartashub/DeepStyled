@@ -35,7 +35,7 @@ html[dsx-toggle-ai-bubble] {
 
 html[dsx-toggle-header-height] {
     --h-header: 2.25rem !important;
-    --header-el-scale: 0.68 !important;
+    --header-el-scale: 0.7 !important;
 
     // ._7780f2e {}
 
@@ -47,6 +47,7 @@ html[dsx-toggle-header-height] {
         /* Sticky header: chat title */
         .afa34042 {
             scale: var(--header-el-scale);
+            background-color: transparent !important;
         }
     }
 
@@ -68,5 +69,19 @@ html[dsx-toggle-header-height] {
         // .e5bf614e {
         //     backdrop-filter: blur(2rem);
         // }
+    }
+
+    @include dev('md') {
+        --header-el-scale: 0.8 !important;
+
+        ._0efe408 {
+            padding-block: 0 !important;
+
+            &>* {
+                // scale: var(--header-el-scale);
+                transform-origin: center center;
+                transform: translateY(calc(var(--h-header) * -50%)) !important;
+            }
+        }
     }
 }
