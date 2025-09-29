@@ -28,10 +28,11 @@
     --w-scrollbar: 0.365rem;
 
     /* ? --- DSX floating roller btn --- */
-    // --roller-top: calc(var(--h-header) + 0.5rem);
-    --roller-top: calc(var(--h-header) / 4);
-    --roller-right: var(--roller-top);
-    --roller-size: 2.8rem;
+    --roller-top: calc(var(--h-header) + 0.125rem);
+    // --roller-top: calc(var(--h-header) / 4);
+    // --roller-right: var(--roller-top);
+    --roller-right: 0.5rem;
+    --roller-size: 2.2rem;
 
     /* ? --- Border-radius --- */
     --br: 1rem;
@@ -74,7 +75,7 @@
         --p-sidebar-nav: 0.3rem;
 
         --h-header: calc(44px + 12px + 4px); // titlebar height + header pt + header pb
-        --roller-right: calc(44px + 10px + 0.2rem);
+        // --roller-right: calc(44px + 10px + 0.2rem);
         --roller-size: 2rem;
     }
 
