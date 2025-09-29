@@ -50,6 +50,7 @@ const STORAGE_CONFIG = Object.freeze({
 		hideThinkingItem: { key: 'local:hideThinking', fallback: false },
 		toggleBubbleAIItem: { key: 'local:toggleGptBubble', fallback: false },
 		toggleUserBubbleFullWidthItem: { key: 'local:toggleUserBubbleFullWidth', fallback: false },
+		toggleHeaderHeightItem: { key: 'local:toggleHeaderHeight', fallback: false },
 	},
 })
 
@@ -84,4 +85,5 @@ export const {
 	accentUserBubbleItem,
 	toggleBubbleAIItem,
 	toggleUserBubbleFullWidthItem,
+	toggleHeaderHeightItem,
 } = storageItems
