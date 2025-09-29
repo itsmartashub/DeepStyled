@@ -32,3 +32,56 @@ html[dsx-toggle-ai-bubble] {
         background: transparent !important;
     }
 }
+
+html[dsx-toggle-header-height] {
+    --h-header: 2.25rem !important;
+    --header-el-scale: 0.7 !important;
+
+    // ._7780f2e {}
+
+    /* Sticky header */
+    ._2be88ba {
+        height: var(--h-header) !important;
+        // display: none;
+
+        /* Sticky header: chat title */
+        .afa34042 {
+            scale: var(--header-el-scale);
+            background-color: transparent !important;
+        }
+    }
+
+    /* 
+    .f8d1e4c0 - Topbar chat title parent with margin-top
+    ._5a20a69 - DS logo and Collapsed sidebar and new chat icon wrapper */
+    .f8d1e4c0,
+    ._5a20a69 {
+        transform-origin: center center;
+        margin-top: 0 !important;
+        transform: translateY(calc(var(--h-header) * -50%)) !important;
+    }
+
+    /* DS logo and Collapsed sidebar and new chat icon wrapper */
+    ._5a20a69 {
+        scale: var(--header-el-scale);
+
+        /* Collapsed sidebar and new chat icon wrapper Icons wrapper */
+        // .e5bf614e {
+        //     backdrop-filter: blur(2rem);
+        // }
+    }
+
+    @include dev('md') {
+        --header-el-scale: 0.8 !important;
+
+        ._0efe408 {
+            padding-block: 0 !important;
+
+            &>* {
+                // scale: var(--header-el-scale);
+                transform-origin: center center;
+                transform: translateY(calc(var(--h-header) * -50%)) !important;
+            }
+        }
+    }
+}

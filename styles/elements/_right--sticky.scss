@@ -1,9 +1,11 @@
 /* main right side element */
 ._7780f2e {
 
+
     /* Sticky header */
     ._2be88ba {
         background-color: var(--c-bg-chats-container) !important;
+        transition: height 0.2s ease-in-out;
 
         /* Icons when breakpoint is to 'md' so sidebar and new chat icon are moved to sticky header and doesnt have color */
         .ds-icon {
@@ -18,6 +20,7 @@
         .afa34042 {
             @include bg-accent-inverse($bg: hsla(var(--accent-hsl) / 0.1));
             outline: hsla(var(--accent-hsl) / 0.1) solid 1px !important;
+            transition: all 0.2s ease-in-out;
 
             &:hover {
                 box-shadow: inset 0 0 10px 2px hsla(var(--accent-hsl) / 0.2) !important;
@@ -34,10 +37,12 @@
         /* strange sticky header gradientoverlay */
         // .b480065b {
         ._62b4800 {
-            // background: linear-gradient(rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 100%);
-            // background: linear-gradient(var(--dsr-bg) 0%, transparent 100%);
             background: linear-gradient(to bottom, hsla(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025) / 0.8) 0%, hsla(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.025) / 0) 100%) !important;
-            // height: 1.2rem !important;
         }
     }
+}
+
+/* DS logo and Collapsed sidebar and new chat icon wrapper */
+._5a20a69 {
+    transition: scale 0.2s ease-in-out;
 }

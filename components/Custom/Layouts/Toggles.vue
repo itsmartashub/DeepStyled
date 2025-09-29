@@ -21,17 +21,30 @@
 			subtitle="Make User bubble full width to match the AI bubble width."
 			:iconComponent="IconFullWidth"
 		/>
+
+		<CardToggle
+			v-model="toggleHeaderHeightState"
+			title="Compact Topbar"
+			subtitle="Decrease the topbar height to make it more compact."
+			:iconComponent="IconShrink"
+		/>
 	</div>
 </template>
 
 <script setup>
-import { hideThinkingItem, toggleBubbleAIItem, toggleUserBubbleFullWidthItem } from '@/utils/storage'
+import {
+	hideThinkingItem,
+	toggleBubbleAIItem,
+	toggleUserBubbleFullWidthItem,
+	toggleHeaderHeightItem,
+} from '@/utils/storage'
 import { useToggleStorage } from '@/composables/useToggleStorage.js'
 
 import CardToggle from '@/components/Cards/Toggle.vue'
 import IconThinkingProcess from '@/components/Icons/ThinkingProcess.vue'
 import IconBubbleOFF from '@/components/Icons/BubbleOFF.vue'
 import IconFullWidth from '@/components/Icons/FullWidth.vue'
+import IconShrink from '@/components/Icons/Shrink.vue'
 
 // One toggle controls everything
 const hideThinkingState = useToggleStorage(hideThinkingItem, 'dsx-toggle-thinking-process')
@@ -40,6 +53,7 @@ const toggleUserBubbleFullWidthState = useToggleStorage(
 	toggleUserBubbleFullWidthItem,
 	'dsx-toggle-user-bubble-full-width'
 )
+const toggleHeaderHeightState = useToggleStorage(toggleHeaderHeightItem, 'dsx-toggle-header-height')
 </script>
 
 <style lang="scss">

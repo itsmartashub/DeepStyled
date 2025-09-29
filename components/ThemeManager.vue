@@ -133,6 +133,11 @@ $blur-backdrop: blur(1rem);
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
 		transition: opacity $trans, clip-path $trans;
 
+		svg {
+			width: calc(var(--roller-size) * 0.685);
+			height: calc(var(--roller-size) * 0.685);
+		}
+
 		button {
 			position: relative;
 			aspect-ratio: 1 / 1;
@@ -153,7 +158,7 @@ $blur-backdrop: blur(1rem);
 				top: 50%;
 				left: 50%;
 				width: max-content;
-				font-size: 0.7rem;
+				font-size: 0.725em;
 				font-weight: 700;
 				text-transform: uppercase;
 				padding: 6px;
@@ -165,6 +170,10 @@ $blur-backdrop: blur(1rem);
 				transition: opacity $trans, transform $trans;
 				z-index: 2;
 				pointer-events: none;
+
+				@include dev('md') {
+					font-size: 0.625em;
+				}
 			}
 
 			&:hover {
