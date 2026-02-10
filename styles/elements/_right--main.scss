@@ -202,10 +202,15 @@
     // width: var(--maxWidthChats) !important; // nah, this makes chats to overflow in some case scenarios so width: 100% fix it??
 }
 
-/* Chatbox parent */
+/* Chatbox parent  (or textareea parent) */
 .aaff8b8f {
     --message-list-max-width: var(--maxWidthTextarea) !important;
     max-width: var(--maxWidthTextarea);
+}
+
+/* Chatbox and textarea wrapper parent */
+.ca1ef5b2 {
+    padding: 0 var(--dsxChatsWrapperPadding) !important;
 }
 
 /* ============ CUSTOM FONTS ============  */
