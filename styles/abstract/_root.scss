@@ -19,7 +19,7 @@
     // --defaultWidthChats: var(--message-list-max-width);
     --maxWidthChats: var(--defaultWidthChats);
     --maxWidthTextarea: var(--defaultWidthChats);
-    --dsxChatsWrapperPadding: clamp(0.5rem, 2vw, 3rem) !important;
+    --dsxChatsWrapperPadding: clamp(0.5rem, 2vw, 3rem);
 
     // --message-list-max-width: var(--maxWidthChats) !important;
 
