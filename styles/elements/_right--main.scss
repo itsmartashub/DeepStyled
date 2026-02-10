@@ -230,3 +230,20 @@
     font-size: calc((var(--fontSize) / 16) * 1rem) !important;
     line-height: calc(var(--lineHeight) / 16) !important;
 }
+
+
+/* Chats minimap wrapper */
+._189b4a0 {
+
+    /* Chats minimap */
+    ._6ffc3c9 {
+        // background-color: var(--c-surface-2) !important;
+        background-color: var(--c-surface-2) !important;
+        box-shadow: inset 0px 0px 2px 2px hsla(var(--accent-hsl) / 0.05)
+    }
+
+    /* Chats minimap items - ._7ae8ea4  je kad je hoverovano na neki chatmap item (crticu) */
+    ._4ce999d._7ae8ea4 {
+        backdrop-filter: blur(20px) !important;
+    }
+}
