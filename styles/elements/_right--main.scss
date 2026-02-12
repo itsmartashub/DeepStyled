@@ -238,8 +238,8 @@
     /* Chats minimap */
     ._6ffc3c9 {
         // background-color: var(--c-surface-2) !important;
-        background-color: var(--c-surface-2) !important;
-        box-shadow: inset 0px 0px 2px 2px hsla(var(--accent-hsl) / 0.05)
+        // box-shadow: inset 0px 0px 2px 2px hsla(var(--accent-hsl) / 0.05)
+        background-color: var(--c-bg-chats-container) !important;
     }
 
     /* Chats minimap items - ._7ae8ea4  je kad je hoverovano na neki chatmap item (crticu) */
