@@ -109,7 +109,10 @@ const activeTab = ref('colors')
 			color: var(--c-accent);
 			border-radius: inherit;
 			cursor: pointer;
-			transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.1s ease-out;
+			transition:
+				background-color 0.15s ease-out,
+				color 0.15s ease-out,
+				transform 0.1s ease-out;
 			user-select: none;
 
 			&:hover:not(.active) {
