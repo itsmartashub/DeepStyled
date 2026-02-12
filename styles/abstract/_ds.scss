@@ -110,7 +110,7 @@ body {
     --dsw-alias-label-primary-inverted: var(--c-on-accent) !important;
     --dsw-alias-label-primary: var(--c-txt) !important; // markdown <p> txt too
     --dsw-alias-label-secondary: var(--c-subtext-2) !important;
-    --dsw-alias-label-tertiary: var(--c-subtext-1) !important;
+    --dsw-alias-label-tertiary: var(--c-accent) !important; // chats footer icons
     --dsw-alias-markdown-citation: var(--c-accent-hover) !important;
     --dsw-alias-markdown-code-block-banner: var(--c-bg-pre) !important;
     --dsw-alias-markdown-code-block: var(--c-bg-pre) !important;
