@@ -30,15 +30,15 @@
     --w-scrollbar: 0.365rem;
 
     /* ? --- DSX floating roller btn --- */
-    --roller-top: calc(var(--h-header) + 0.125rem);
+    --roller-top: calc(var(--h-header) + 0.4rem);
     // --roller-top: calc(var(--h-header) / 4);
     // --roller-right: var(--roller-top);
-    --roller-right: 0.2rem;
+    --roller-right: 1rem;
     --roller-size: 2.2rem;
 
     /* ? --- Border-radius --- */
     --br: 1rem;
-    --br-chat-bubble: calc(var(--br) * 2.4);
+    --br-chat-bubble: calc(var(--br) * 2);
     // --br-prompt-textarea: calc(var(--br) * 0.2);
     --br-btn: calc(var(--br) * 0.9);
     --br-dialog: calc(var(--br) * 2.5);

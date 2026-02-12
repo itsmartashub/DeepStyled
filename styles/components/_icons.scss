@@ -1,32 +1,3 @@
-/* svg wrapper icons like in sidebar etc. */
-.ds-icon-button {
-    // --ds-icon-button-text-color: var(--c-subtext-1) !important;
-    --ds-icon-button-text-color: var(--c-accent) !important;
-    --ds-icon-button-hover-color: var(--c-accent-hover) !important;
-    --ds-icon-button-outline-color: var(--c-accent-hover) !important;
-    // --ds-icon-button-size: 28px;
-    // --ds-icon-button-background-inset: -4px;
-    color: var(--ds-icon-button-text-color) !important;
-
-    // &:hover {
-
-    //     &::before {
-    //         --dsr-side-icon-hover: var(--c-accent-hover) !important;
-    //         // background-color: var(--c-accent-hover) !important;
-    //     }
-    // }
-
-    &:hover {
-        &::before {
-            background-color: var(--ds-icon-button-hover-color) !important;
-        }
-    }
-}
-
-// .ds-button > .ds-button__icon {
-//     color: currentColor !important;
-// }
-
 .ds-button__icon {
     color: currentColor !important;
 

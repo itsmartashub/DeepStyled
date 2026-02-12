@@ -77,7 +77,7 @@
     }
 
     /* Thinking very top parent */
-    ._7d763a7 {
+    ._74c0879 {
 
         /* "Read X web pages" */
         .ffdab56b.ddbfd84f {
@@ -89,7 +89,6 @@
 
             &:before {
                 opacity: 1 !important;
-
             }
 
         }
@@ -115,10 +114,6 @@
                 background: none !important;
             }
         }
-    }
-
-    /* Thinking text parent (with "Thought for X seconds" note) */
-    ._48edb25 {
 
         /* Thinking process texts */
         .ds-think-content {
@@ -138,7 +133,7 @@
             /* Thinking border on the left */
             ._9ecc93a {
                 border-color: currentColor !important;
-                opacity: 0.6;
+                opacity: 0.4;
             }
 
             .ds-markdown {
@@ -147,6 +142,38 @@
             }
         }
     }
+
+    /* Thinking text parent (with "Thought for X seconds" note) */
+    // // ._48edb25,
+    // ._74c0879 {
+
+    //     /* Thinking process texts */
+    //     .ds-think-content {
+    //         --thinking-p-left: 13px; // this is from ds deafult
+    //         color: var(--c-subtext-2) !important;
+    //         transition: font-size 0.15s ease-in-out,
+    //             line-height 0.15s ease-in-out;
+
+    //         // @include toggleStyles('thinking-process', ()) {
+    //         //     display: none !important;
+    //         // }
+
+    //         &:not(:empty) {
+    //             @extend .fadeIn;
+    //         }
+
+    //         /* Thinking border on the left */
+    //         ._9ecc93a {
+    //             border-color: currentColor !important;
+    //             opacity: 0.6;
+    //         }
+
+    //         .ds-markdown {
+    //             font-size: calc(calc((var(--fontSize) / 16) * 1rem) * 0.85) !important;
+    //             line-height: calc((var(--lineHeight) / 16) * 0.85) !important;
+    //         }
+    //     }
+    // }
 
     /* Shirmer animation on "Thought" txt while thinking */
     .e4b3a110 .cac31b5e {

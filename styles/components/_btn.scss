@@ -21,6 +21,7 @@ button {
 	}
 }
 
+/* This should be replaced with ds-basic-button, removed css vars with fixed style fior all states and bg/color */
 .ds-button {
 	--button-ring-color: var(--c-accent-hover) !important;
 	--c-button-hover-text-color: inherit;

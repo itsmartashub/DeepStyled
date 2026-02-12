@@ -31,8 +31,12 @@
         box-shadow: none !important;
     }
 
+    /* Chatbox footer */
+    // .ec4f5d61 {}
+
+
     /* "DeepThink R1" and "Search" btn */
-    ._70150b8 {
+    .ds-toggle-button {
         color: var(--c-accent) !important;
 
         .ds-icon {
@@ -46,6 +50,7 @@
             color: var(--dsw-alias-brand-text);
         }
     }
+
 
     /* attach btn next to send button (input="file") */
     .f02f0e25 {

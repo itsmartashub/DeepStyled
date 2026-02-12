@@ -158,3 +158,20 @@ blockquote {
     border-left: 3px solid var(--c-accent) !important;
     border-radius: .5rem !important;
 }
+
+/* Markdown table overlapping the chat bubble, make it scrollable instead */
+._1210dd7:has(th:nth-child(4), td:nth-child(4)):not(blockquote ._1210dd7).c03cafe9 {
+    /* Original style
+    
+        --padding-left: calc((var(--message-area-width) - (var(--message-list-max-width) - 2 * var(--message-list-padding-horizontal))) / 2 + (var(--message-list-max-width) - 2 * var(--message-list-padding-horizontal) - 100%));
+        --padding-right: 54px;
+        width: calc(var(--message-area-width) - var(--padding-left) - var(--padding-right));
+        padding-left: var(--padding-left);
+        padding-right: var(--padding-right);
+        margin-left: calc(-1 * var(--padding-left));
+    */
+
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+}

@@ -110,7 +110,7 @@ body {
     --dsw-alias-label-primary-inverted: var(--c-on-accent) !important;
     --dsw-alias-label-primary: var(--c-txt) !important; // markdown <p> txt too
     --dsw-alias-label-secondary: var(--c-subtext-2) !important;
-    --dsw-alias-label-tertiary: var(--c-subtext-1) !important;
+    --dsw-alias-label-tertiary: var(--c-accent) !important; // chats footer icons
     --dsw-alias-markdown-citation: var(--c-accent-hover) !important;
     --dsw-alias-markdown-code-block-banner: var(--c-bg-pre) !important;
     --dsw-alias-markdown-code-block: var(--c-bg-pre) !important;
@@ -118,8 +118,14 @@ body {
     // --dsw-alias-markdown-code-segment-unselected: var(--dsw-static-neutral-bluish-75);
     // --dsw-alias-markdown-inline-code: var(--dsw-static-neutral-bluish-100);
     --dsw-alias-markdown-tag: hsla(var(--accent-hsl) / 0.1) !important;
+
     --dsw-alias-scrollbar-bg: hsla(var(--accent-hsl) / 0.15) !important;
+    --dsw-alias-scrollbar-bg-l1: hsla(var(--accent-hsl) / 0.15) !important;
+    --dsw-alias-scrollbar-bg-l2: hsla(var(--accent-hsl) / 0.15) !important;
+    --dsw-alias-scrollbar-hover-l1: hsla(var(--accent-hsl) / 0.2) !important;
+    --dsw-alias-scrollbar-hover-l2: hsla(var(--accent-hsl) / 0.2) !important;
     --dsw-alias-scrollbar-hover: hsla(var(--accent-hsl) / 0.2) !important;
+
     --dsw-alias-state-error-primary: var(--c-danger) !important;
     --dsw-alias-state-error-secondary: var(--c-danger) !important;
     --dsw-alias-state-success-primary: var(--c-accent) !important;
