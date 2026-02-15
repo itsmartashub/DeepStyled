@@ -65,15 +65,17 @@
 
 
 /* GPT chat bubble */
-._4f9bf79>.ds-message {
-    background-color: var(--c-bg-msg-gpt);
-    color: var(--c-txt) !important;
-    padding: var(--p-chat-bubble) !important;
-    border-radius: var(--br-chat-bubble) !important;
-
-    @include dev('md') {
-        --br-chat-bubble: calc(var(--br) * 1.2);
+._4f9bf79 {
+    &>.ds-message {
+        background-color: var(--c-bg-msg-gpt);
+        color: var(--c-txt) !important;
         padding: var(--p-chat-bubble) !important;
+        border-radius: var(--br-chat-bubble) !important;
+
+        @include dev('md') {
+            --br-chat-bubble: calc(var(--br) * 1.2);
+            padding: var(--p-chat-bubble) !important;
+        }
     }
 
     /* Thinking very top parent */

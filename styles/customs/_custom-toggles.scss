@@ -29,6 +29,7 @@ html[dsx-toggle-user-bubble-full-width] {
 
 html[dsx-toggle-ai-bubble] {
     ._4f9bf79>.ds-message {
+        --p-chat-bubble: 0 !important;
         background: transparent !important;
     }
 }
