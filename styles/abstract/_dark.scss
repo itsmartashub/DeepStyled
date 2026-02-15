@@ -54,8 +54,8 @@ body.dark[data-ds-dark-theme] {
     --c-bg-chats-container: hsl(var(--accent-h) var(--surface-s) calc(var(--surface-l) * 1.076));
 
     /* ? ========== Chat bubbles colors ========== */
-    --c-bg-msg-user: hsla(var(--accent-hsl) / 0.04);
-    --c-bg-msg-gpt: hsla(var(--accent-hsl) / 0.08);
+    --c-bg-msg-user: hsla(var(--accent-hsl) / 0.13);
+    --c-bg-msg-gpt: hsla(var(--accent-hsl) / 0.05);
 
     /* ? ========== Type message textarea colors ========== */
     // --c-bg-textarea: var(--c-surface-2);
