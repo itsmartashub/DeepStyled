@@ -12,12 +12,35 @@
 				:aria-label="`Set ${t.id} theme`"
 				:data-ds-btn-metadata="t.id"
 				@click.stop="changeTheme(t.id)"
+				class="theme-manager__buttons-item"
 			>
 				<component :is="t.icon" />
 			</button>
-			<button @click.stop="openSettings" data-ds-btn-metadata="more" aria-label="Open theme settings">
+
+			<button
+				@click.stop="openSettings"
+				data-ds-btn-metadata="more"
+				aria-label="Open theme settings"
+				class="theme-manager__buttons-item"
+			>
 				<IconSettings />
 			</button>
+
+			<a
+				@click.stop
+				data-ds-btn-metadata="kofi"
+				aria-label="Go to KO-FI page"
+				class="theme-manager__buttons-item"
+				href="https://ko-fi.com/http417"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<IconKofi />
+			</a>
+
+			<!-- <a href="https://ko-fi.com/http417" target="_blank" rel="noopener noreferrer">
+				<IconKofi />
+			</a> -->
 		</div>
 	</div>
 
@@ -33,6 +56,7 @@ import { useClickOutsideWatcher } from '@/composables/useClickOutsideWatcher'
 import { THEMES } from '@/utils/storage'
 import CustomizationSettings from '@/components/CustomizationSettings.vue'
 import IconSettings from '@/components/Icons/IconSettings.vue'
+import IconKofi from '@/components/Icons/Kofi.vue'
 import IconRoller from '@/components/Icons/IconRoller.vue'
 import IconSun from '@/components/Icons/IconSun.vue'
 import IconMoon from '@/components/Icons/IconMoon.vue'
@@ -97,7 +121,10 @@ $blur-backdrop: blur(1rem);
 		background-image: var(--c-bg-gradient);
 		backdrop-filter: $blur-backdrop;
 		cursor: pointer;
-		transition: transform $trans, background $trans, color $trans;
+		transition:
+			transform $trans,
+			background $trans,
+			color $trans;
 		width: var(--roller-size);
 		height: var(--roller-size);
 
@@ -119,26 +146,25 @@ $blur-backdrop: blur(1rem);
 	}
 
 	&__buttons {
+		opacity: 0;
 		display: grid;
 		place-items: center;
-		gap: 0.5rem;
-		width: var(--roller-size);
-		padding: 0.2rem;
+		padding-block: 0.3rem;
+		width: calc(var(--roller-size) + 0.8rem);
 		background-image: var(--c-bg-gradient);
 		backdrop-filter: $blur-backdrop;
 		border: $border-accent;
 		border-radius: 20vw;
-		opacity: 0;
 		pointer-events: none;
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
-		transition: opacity $trans, clip-path $trans;
+		transition:
+			opacity $trans,
+			clip-path $trans;
 
-		svg {
-			width: calc(var(--roller-size) * 0.685);
-			height: calc(var(--roller-size) * 0.685);
-		}
-
-		button {
+		&-item {
+			padding-block: 0.4rem !important;
+			margin: 0 !important;
+			display: block !important;
 			position: relative;
 			aspect-ratio: 1 / 1;
 			font-family: var(--fontFamily), var(--fontFamilyDefault);
@@ -149,7 +175,15 @@ $blur-backdrop: blur(1rem);
 			border-radius: 50vw;
 			cursor: pointer;
 			transform: scale(0);
-			transition: transform 0.3s $easeInOutBack, color $trans;
+			transition:
+				transform 0.3s $easeInOutBack,
+				color $trans;
+
+			svg {
+				--svg-size: calc(var(--roller-size) * 0.685);
+				width: var(--svg-size);
+				height: var(--svg-size);
+			}
 
 			// Tooltip optimization
 			&::after {
@@ -167,7 +201,9 @@ $blur-backdrop: blur(1rem);
 				border-radius: 50vw;
 				opacity: 0;
 				transform: translate(-50%, 0%) scale(0);
-				transition: opacity $trans, transform $trans;
+				transition:
+					opacity $trans,
+					transform $trans;
 				z-index: 2;
 				pointer-events: none;
 
@@ -193,10 +229,10 @@ $blur-backdrop: blur(1rem);
 		pointer-events: all;
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-		button {
+		&-item {
 			transform: scale(1);
 			// Staggered animation using SCSS loop
-			@for $i from 1 through 4 {
+			@for $i from 1 through 5 {
 				&:nth-child(#{$i}) {
 					transition-delay: #{$i * 0.05}s;
 				}
