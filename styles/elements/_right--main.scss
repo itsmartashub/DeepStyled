@@ -274,3 +274,8 @@
         backdrop-filter: blur(20px) !important;
     }
 }
+
+/* User and AI chat selection mode (when in sharing/selecting chat mode) */
+._7729a77:before {
+    box-shadow: 0 0 0 2px hsla(var(--accent-hsl) / 0.5) !important;
+}
