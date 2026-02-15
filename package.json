@@ -65,6 +65,7 @@
 		"build:firefox": "wxt build -b firefox",
 		"zip": "wxt zip",
 		"zip:firefox": "wxt zip -b firefox",
+		"zip:all": "pnpm zip && pnpm zip:firefox",
 		"compile": "vue-tsc --noEmit",
 		"postinstall": "wxt prepare",
 		"clean": "wxt clean"

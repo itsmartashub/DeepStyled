@@ -2,7 +2,9 @@ import { storage } from '#imports'
 import { hslToHex } from '@/composables/useColorConversion'
 
 // ---------- Default constants ----------
-export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35]
+// export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35]
+// export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81]
+export const DEFAULT_ACCENT_LIGHT_HSL = [62, 79, 17]
 export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81]
 export const DEFAULT_MAX_WIDTH = 800
 
@@ -62,7 +64,7 @@ for (const category of Object.values(STORAGE_CONFIG)) {
 	for (const [name, config] of Object.entries(category)) {
 		const item = storage.defineItem(
 			config.key,
-			config.fallback !== undefined ? { fallback: config.fallback } : undefined
+			config.fallback !== undefined ? { fallback: config.fallback } : undefined,
 		)
 		storageItems[name] = item
 		itemEntries.push([name, item])
