@@ -5,7 +5,7 @@ import { hslToHex } from '@/composables/useColorConversion'
 // export const DEFAULT_ACCENT_LIGHT_HSL = [335, 21, 35]
 // export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81]
 export const DEFAULT_ACCENT_LIGHT_HSL = [62, 79, 17]
-export const DEFAULT_ACCENT_DARK_HSL = [236, 100, 81]
+export const DEFAULT_ACCENT_DARK_HSL = [75, 43, 68]
 export const DEFAULT_MAX_WIDTH = 800
 
 export const THEMES = Object.freeze({
