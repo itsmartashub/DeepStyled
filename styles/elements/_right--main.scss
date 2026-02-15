@@ -195,6 +195,20 @@
 
 }
 
+/* Chat bubbles footer icons (._965abe9 - AI, ._78e0558 - User) */
+._965abe9,
+._78e0558 {
+    background: hsla(var(--accent-hsl) / 0.12);
+    border-radius: 50vw;
+    padding: 0.15rem;
+    box-shadow: 0 0 0 2px hsla(var(--accent-hsl) / 0.15);
+}
+
+._965abe9 {
+    translate: 8px -12%; // move it a little up, close to chat bubble edge visually
+}
+
+
 /* "New chat" floating btn. Not working when scoped into chats main layout... */
 ._217e214 {
     @include bg-accent;
