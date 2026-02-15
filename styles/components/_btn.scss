@@ -16,10 +16,13 @@ button {
 	border-radius: var(--br-btn) !important;
 	padding: var(--p-btn) !important;
 
+
 	svg {
 		color: currentColor !important;
 	}
 }
+
+
 
 /* This should be replaced with ds-basic-button, removed css vars with fixed style fior all states and bg/color */
 .ds-button {
@@ -82,15 +85,25 @@ button {
 		// color: var(--button-text-color) !important;
 
 		&:hover {
-
 			background-color: transparent !important;
 		}
 	}
 
-	&--xs {}
+	// &--xs {}
 
-	&--square {}
+	// &--square {}
 
+}
+
+
+.ds-basic-button {
+	&--primary {
+		@include bg_accent;
+
+		&:hover {
+			@include bg-accent-inverse;
+		}
+	}
 }
 
 /* Btn primary, e.g. "Send" btn showed when User msg in edit state */
