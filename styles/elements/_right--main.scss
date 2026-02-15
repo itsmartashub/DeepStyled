@@ -275,7 +275,7 @@
     }
 }
 
-/* User and AI chat selection mode (when in sharing/selecting chat mode) */
-._7729a77:before {
-    box-shadow: 0 0 0 2px hsla(var(--accent-hsl) / 0.5) !important;
+/* User and AI chat selection mode (when in sharing/selecting chat mode). _6e8caf5 is for selected state class */
+._6e8caf5._7729a77:before {
+    box-shadow: 0 0 0 3px hsla(var(--accent-hsl) / 0.5) !important;
 }
