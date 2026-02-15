@@ -41,6 +41,13 @@ html[dsx-toggle-header-height] {
 
     // ._7780f2e {}
 
+    /* Share btn */
+    @include dev('md') {
+        ._57370c5 {
+            margin-top: 0 !important;
+        }
+    }
+
     /* Sticky header */
     ._2be88ba {
         height: var(--h-header) !important;
