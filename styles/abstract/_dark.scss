@@ -107,8 +107,8 @@ body.dark[data-ds-dark-theme][data-dsx-theme="oled"] {
     --c-bg-chats-container: black;
 
     /* ? ========== Chat bubbles colors ========== */
-    --c-bg-msg-user: hsl(var(--accent-h), calc(var(--surface-s) + 15%), calc(var(--surface-l) + 4%));
-    --c-bg-msg-gpt: hsl(var(--accent-h), calc(var(--surface-s) + 20%), calc(var(--surface-l) + 6%));
+    --c-bg-msg-user: hsl(var(--accent-h), calc(var(--surface-s) + 35%), calc(var(--surface-l) + 8%));
+    --c-bg-msg-gpt: hsl(var(--accent-h), calc(var(--surface-s) + 25%), calc(var(--surface-l) + 5%));
 
     /* ? ========== Type message textarea colors ========== */
     // --c-bg-textarea: var(--c-surface-3);
