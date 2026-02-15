@@ -30,7 +30,8 @@
     --w-scrollbar: 0.365rem;
 
     /* ? --- DSX floating roller btn --- */
-    --roller-top: calc(var(--h-header) + 0.4rem);
+    --roller-top-offset: 0.5rem;
+    --roller-top: calc(var(--h-header) + var(--roller-top-offset));
     // --roller-top: calc(var(--h-header) / 4);
     // --roller-right: var(--roller-top);
     --roller-right: 1rem;

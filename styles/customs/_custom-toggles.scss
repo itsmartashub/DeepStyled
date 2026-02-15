@@ -36,7 +36,8 @@ html[dsx-toggle-ai-bubble] {
 
 html[dsx-toggle-header-height] {
     --h-header: 2.25rem !important;
-    --header-el-scale: 0.7 !important;
+    --scale-header: 0.7 !important;
+    --roller-top-offset: 1.625rem !important;
 
     // ._7780f2e {}
 
@@ -47,7 +48,7 @@ html[dsx-toggle-header-height] {
 
         /* Sticky header: chat title */
         .afa34042 {
-            scale: var(--header-el-scale);
+            scale: var(--scale-header);
             background-color: transparent !important;
         }
     }
@@ -64,7 +65,7 @@ html[dsx-toggle-header-height] {
 
     /* DS logo and Collapsed sidebar and new chat icon wrapper */
     ._5a20a69 {
-        scale: var(--header-el-scale);
+        scale: var(--scale-header);
 
         /* Collapsed sidebar and new chat icon wrapper Icons wrapper */
         // .e5bf614e {
@@ -73,13 +74,13 @@ html[dsx-toggle-header-height] {
     }
 
     @include dev('md') {
-        --header-el-scale: 0.8 !important;
+        --scale-header: 0.8 !important;
 
         ._0efe408 {
             padding-block: 0 !important;
 
             &>* {
-                // scale: var(--header-el-scale);
+                // scale: var(--scale-header);
                 transform-origin: center center;
                 transform: translateY(calc(var(--h-header) * -50%)) !important;
             }
