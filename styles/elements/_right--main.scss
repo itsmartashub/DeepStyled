@@ -34,9 +34,9 @@
 ._9663006 {
     /*  Gap on top from GPT user bubble: sum of:
         16px - this ._9663006 mb
-        28px - user footer icons height, 
+        28px - user footer icons height,
         6px - user footer icons mt  */
-    // margin-top: calc(16px + 28px + 6px) !important; // 
+    // margin-top: calc(16px + 28px + 6px) !important; //
 
     /* User chat bubble in edit state */
     &._3111eee {
@@ -235,14 +235,29 @@
     }
 }
 
-/* Chats list parent */
-.dad65929 {
+/* Chats list parent - NOT EXIST ANYMORE (2026-03-26) ?  */
+/* .dad65929 {
     // --message-list-max-width: 800px;
     // --message-list-max-width: var(--maxWidthChats) !important;
     margin: 0 auto !important; // very important because sometimes chats are very small width??? and also, in some scenarios they arent centered ??
     width: 100%; // very important because sometimes chats are very small width???
     max-width: var(--maxWidthChats) !important;
     // width: var(--maxWidthChats) !important; // nah, this makes chats to overflow in some case scenarios so width: 100% fix it??
+} */
+
+/* Chats list and chatbox wrapper */
+.ds-virtual-list-items {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 16px !important;
+
+    /* Chatlist wrapper */
+    .ds-virtual-list-visible-items {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 auto !important;
+        max-width: var(--maxWidthChats) !important;
+    }
 }
 
 /* Chatbox and textarea wrapper parent */
@@ -259,7 +274,7 @@
 
 /* ============ CUSTOM FONTS ============  */
 
-/* 
+/*
     .fbb737a4 - user chat bubble
     ._4f9bf79 - gpt chat bubble
     .ds-markdown - markdown
