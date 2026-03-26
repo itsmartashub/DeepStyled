@@ -4,12 +4,12 @@ import { createApp } from 'vue'
 import ThemeManager from '@/components/ThemeManager.vue'
 import { useThemeManager } from '@/composables/useThemeManager'
 // import { getAllStorageItems } from '@/utils/storage'
-import { createIntegratedUi, defineContentScript } from '#imports'
+// import { createIntegratedUi, defineContentScript } from '#imports'
 
 export default defineContentScript({
   matches: ['*://chat.deepseek.com/*'],
   // cssInjectionMode: 'manifest', // Ensure CSS is handled correctly
-  async main(ctx) {
+  main(ctx) {
     // content.js - runs before page scripts
     // DEV__CLEAR_DEFAULT_VENDORS_CONSOLE_CLEARING()
 
