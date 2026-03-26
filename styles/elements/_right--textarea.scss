@@ -115,7 +115,8 @@
 
 /* Very top parent of chatbox with child that have black gradient and strange width */
 ._871cbca {
-    margin: auto 0 !important; // original: margin: auto 32px 0 !important;
+    /* margin: auto 0 !important; // original: margin: auto 32px 0 !important; */
+    padding: 0 !important;
 }
 
 /* Scrolldown btn  */
